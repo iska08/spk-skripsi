@@ -7,5 +7,3 @@ NIM     : 241720147
 Prodi   : D4 Teknik Informatika
 
 Jurusan : Teknologi Informasi
-
-Jurusan : Teknologi Informasi
