@@ -24,7 +24,7 @@ class AlternativeStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'wisata_id' => 'required|exists:wisatas,id',
+            'wisata_id'         => 'required|exists:wisatas,id',
             'criteria_id'       => 'required|array',
             'alternative_value' => 'required|array'
         ];

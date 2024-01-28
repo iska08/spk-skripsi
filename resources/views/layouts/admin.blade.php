@@ -9,35 +9,25 @@
     <meta name="author" content="##" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('frontend/images/logo-no-background.png') }}" />
     <title>SPK | {{ $title }}</title>
-
     {{-- style --}}
     @include('includes.admin.style')
-
 </head>
 
 <body class="sb-nav-fixed">
-
     {{-- navbar --}}
     @include('includes.admin.navbar')
-
-
     <div id="layoutSidenav">
-
         {{-- sidenav --}}
         @include('includes.admin.sidenav')
-
         {{-- content --}}
         <div id="layoutSidenav_content">
             {{-- content --}}
             @yield('content')
-
             {{-- footer --}}
             @include('includes.admin.footer')
         </div>
     </div>
-
     @include('includes.admin.script')
-
 </body>
 
 </html>

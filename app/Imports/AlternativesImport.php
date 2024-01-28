@@ -12,11 +12,7 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Illuminate\Support\Str;
 
-class AlternativesImport implements
-    ToModel,
-    WithHeadingRow,
-    WithValidation,
-    WithChunkReading
+class AlternativesImport implements ToModel, WithHeadingRow, WithValidation, WithChunkReading
 {
     public function model(array $row)
     {
@@ -26,33 +22,24 @@ class AlternativesImport implements
         // wisata
         $wisataName = $row['nama_wisata'];
         $wisata     = Wisata::where('name', $wisataName)->first();
-
         $criteriaColumns = [];
         $alternativeValues = [];
-
         foreach ($row as $columnName => $columnValue) {
             if ($columnName !== 'nama_wisata' && $columnName !== 'jenis_name') {
                 $criteriaColumns[] = $columnName;
                 $alternativeValues[] = $columnValue;
             }
         }
-
         // Hapus semua alternatif terkait wisata dan jenis saat ini
-        Alternative::where('wisata_id', $wisata->id)
-            ->where('jenis_id', $jenis->id)
-            ->delete();
-
+        Alternative::where('wisata_id', $wisata->id)->where('jenis_id', $jenis->id)->delete();
         // Iterasi pada array kolom criteria dan alternative_value
         for ($i = 0; $i < count($criteriaColumns); $i++) {
             $columnName = $criteriaColumns[$i];
             $columnValue = $alternativeValues[$i];
-
             // Convert columnName to slug format
             $criteriaName = Str::slug($columnName, '-');
-
             // Find the criteria based on the criteria slug
             $criteria = Criteria::where('slug', $criteriaName)->first();
-
             if ($criteria) {
                 // Create the new alternative based on wisata, jenis, criteria, and alternative_value
                 $alternative = new Alternative();
@@ -63,18 +50,16 @@ class AlternativesImport implements
                 $alternative->save();
             }
         }
-
         return null;
     }
 
     public function rules(): array
     {
         return [
-            'nama_wisata'    => ['required'],
-            'jenis_name'    => ['required'],
+            'nama_wisata' => ['required'],
+            'jenis_name'  => ['required'],
         ];
     }
-
 
     public function chunkSize(): int
     {

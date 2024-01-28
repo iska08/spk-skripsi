@@ -32,7 +32,6 @@ class CriteriaAnalysisDetail extends Model
         return $this->belongsTo(Criteria::class, 'criteria_id_second', 'id');
     }
 
-
     public static function getSelectedCriterias($analysisId)
     {
         return static::where('criteria_analysis_id', $analysisId)

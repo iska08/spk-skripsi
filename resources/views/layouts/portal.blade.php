@@ -14,14 +14,11 @@
 <body>
     {{-- navbar --}}
     @include('includes.portal.navbar')
-
     <!-- Main -->
     @yield('content')
     <!-- End Main -->
-
     {{-- Footer --}}
     @include('includes.portal.footer')
-
     {{-- Script --}}
     @include('includes.portal.script')
 </body>

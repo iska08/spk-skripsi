@@ -10,53 +10,40 @@ class RanksExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
     private $ranking;
     private $normalisasiAngka;
-
     public function __construct(array $ranking, array $normalisasiAngka)
     {
         $this->ranking = $ranking;
         $this->normalisasiAngka = $normalisasiAngka;
     }
-
     public function collection()
     {
         $data = [];
-
         foreach ($this->ranking as $key => $rank) {
             $rowData = [
                 'rank' => $key + 1,
                 'wisata_name' => $rank['wisata_name'],
                 'jenis_name' => $rank['jenis_name'],
             ];
-
-
             foreach ($rank['criteria_name'] as $index => $criteriaName) {
                 $rowData[$criteriaName] = round($this->normalisasiAngka[$key]['results'][$index], 3);
             }
-
             $rowData['rank_result'] = round($rank['rank_result'], 3);
-
             $data[] = $rowData;
         }
-
         return collect($data);
     }
-
     public function headings(): array
     {
         $firstRank = $this->ranking[0];
-
         $headingRow = [
             'Rank',
             'Nama Destinasi Wisata',
             'Nama Jenis Wisata',
         ];
-
         foreach ($firstRank['criteria_name'] as $criteriaName) {
             $headingRow[] = $criteriaName;
         }
-
         $headingRow[] = 'Perhitungan SAW';
-
         return $headingRow;
     }
 }

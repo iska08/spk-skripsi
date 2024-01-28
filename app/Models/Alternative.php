@@ -39,16 +39,12 @@ class Alternative extends Model
     public static function getDividerByCriteria($criterias)
     {
         $dividers = [];
-
         foreach ($criterias as $criteria) {
             if ($criteria->kategori === 'BENEFIT') {
-                $divider = static::where('criteria_id', $criteria->id)
-                    ->max('alternative_value');
+                $divider = static::where('criteria_id', $criteria->id)->max('alternative_value');
             } else if ($criteria->kategori === 'COST') {
-                $divider = static::where('criteria_id', $criteria->id)
-                    ->min('alternative_value');
+                $divider = static::where('criteria_id', $criteria->id)->min('alternative_value');
             }
-
             $data = [
                 'criteria_id'   => $criteria->id,
                 'name'          => $criteria->name,
@@ -63,32 +59,26 @@ class Alternative extends Model
     // get alternative
     public static function getAlternativesByCriteria($criterias)
     {
-        $results = static::with('criteria', 'wisataList', 'jenis')
-            ->whereIn('criteria_id', $criterias)
-            ->get();
-
+        $results = static::with('criteria', 'wisataList', 'jenis')->whereIn('criteria_id', $criterias)->get();
         if (!$results->count()) {
             return $results;
         }
-
         $finalRes = [];
-
         foreach ($results as $result) {
             $isExists = array_search($result->wisata_id, array_column($finalRes, 'wisata_id'));
-
             if ($isExists !== '' && $isExists !== null && $isExists !== false) {
                 array_push($finalRes[$isExists]['criteria_id'], $result->criteria->id);
                 array_push($finalRes[$isExists]['criteria_name'], $result->criteria->name);
                 array_push($finalRes[$isExists]['alternative_val'], $result->alternative_value);
             } else {
                 $data = [
-                    'wisata_id'         => $result->wisata_id,
-                    'wisata_name'       => $result->wisataList->name,
-                    'jenis_id'          => $result->jenis->id,
-                    'jenis_name'        => $result->jenis->jenis_name,
-                    'criteria_id'       => [$result->criteria->id],
-                    'criteria_name'     => [$result->criteria->name],
-                    'alternative_val'   => [$result->alternative_value]
+                    'wisata_id'       => $result->wisata_id,
+                    'wisata_name'     => $result->wisataList->name,
+                    'jenis_id'        => $result->jenis->id,
+                    'jenis_name'      => $result->jenis->jenis_name,
+                    'criteria_id'     => [$result->criteria->id],
+                    'criteria_name'   => [$result->criteria->name],
+                    'alternative_val' => [$result->alternative_value]
                 ];
                 array_push($finalRes, $data);
             }
@@ -99,10 +89,8 @@ class Alternative extends Model
     public static function checkAlternativeByCriterias($criterias)
     {
         $isAllCriteriaPresent = false;
-
         foreach ($criterias as $criteria) {
             $check = static::where('criteria_id', $criteria)->get()->count();
-
             if ($check > 0) {
                 $isAllCriteriaPresent = true;
             } else {

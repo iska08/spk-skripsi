@@ -14,24 +14,19 @@ class RankingController extends Controller
 {
     public function index()
     {
-
         if (auth()->user()->level === 'ADMIN' || auth()->user()->level === 'USER') {
             $criteriaAnalysis = CriteriaAnalysis::with('user')->with(['details' => function ($query) {
                 $query->join('criterias', 'criteria_analysis_details.criteria_id_second', '=', 'criterias.id')
                     ->select('criteria_analysis_details.*', 'criterias.name as criteria_name')
                     ->orderBy('criterias.id');
-            }])
-                ->get();
+            }])->get();
         }
-
         $availableCriterias = Criteria::all()->pluck('id');
         $isAnyAlternative   = Alternative::checkAlternativeByCriterias($availableCriterias);
         $isAbleToRank       = false;
-
         if ($isAnyAlternative) {
             $isAbleToRank = true;
         }
-
         return view('pages.admin.rank.data', [
             'title'             => 'Ranking',
             'criteria_analysis' => $criteriaAnalysis,
@@ -42,15 +37,11 @@ class RankingController extends Controller
     public function show(CriteriaAnalysis $criteriaAnalysis)
     {
         $criteriaAnalysis->load('priorityValues');
-
         $criterias = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
         $criteriaIds = $criterias->pluck('id');
         $alternatives = Alternative::getAlternativesByCriteria($criteriaIds);
         $dividers = Alternative::getDividerByCriteria($criterias);
-
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
-
-        // dd($normalizations);
         return view('pages.admin.rank.detail', [
             'title' => 'Normalisasi Tabel',
             'dividers' => $dividers,
@@ -61,31 +52,22 @@ class RankingController extends Controller
 
     private function _hitungNormalisasi($dividers, $alternatives)
     {
-        // return $alternatives;
-        // return $dividers;
         $normalisasi = [];
-
         foreach ($alternatives as $alternative) {
             $normalisasiAngka = [];
-
             foreach ($alternative['alternative_val'] as $key => $val) {
                 if ($val == 0) {
                     $dividers = 0;
                 }
-
                 $kategori = $dividers[$key]['kategori'];
-
                 if ($kategori === 'BENEFIT' && $val != 0) {
                     $result = substr(floatval($val / $dividers[$key]['divider_value']), 0, 11);
                 }
-
                 if ($kategori === 'COST' && $val != 0) {
                     $result = substr(floatval($dividers[$key]['divider_value'] / $val), 0, 11);
                 }
-
                 array_push($normalisasiAngka, $result);
             }
-
             array_push($normalisasi, [
                 'wisata_id'       => $alternative['wisata_id'],
                 'wisata_name'     => strtoupper($alternative['wisata_name']),
@@ -96,16 +78,10 @@ class RankingController extends Controller
                 'results'         => $normalisasiAngka
             ]);
         }
-
         // Menambahkan orderby berdasarkan nama destinasi (wisata_name) secara naik (ascending)
-        $normalisasi = collect($normalisasi)
-            ->sortBy('wisata_name')
-            ->values()
-            ->all();
-
+        $normalisasi = collect($normalisasi)->sortBy('wisata_name')->values()->all();
         return $normalisasi;
     }
-
 
     public function final(CriteriaAnalysis $criteriaAnalysis)
     {
@@ -113,14 +89,12 @@ class RankingController extends Controller
         $criteriaIds    = $criterias->pluck('id');
         $alternatives   = Alternative::getAlternativesByCriteria($criteriaIds);
         $dividers       = Alternative::getDividerByCriteria($criterias);
-
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
         try {
             $ranking    = $this->_finalRanking($criteriaAnalysis->priorityValues, $normalizations);
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-
         return view('pages.admin.rank.final', [
             'title'             => 'Ranking Destinasi Wisata',
             'criteria_analysis' => $criteriaAnalysis,
@@ -136,10 +110,8 @@ class RankingController extends Controller
         foreach ($normalizations as $keyNorm => $normal) {
             foreach ($normal['results'] as $keyVal => $value) {
                 $importanceVal = $priorityValues[$keyVal]->value;
-
                 // Operasi penjumlahan dari perkalian matriks ternormalisasi dan prioritas
                 $result = $importanceVal * $value;
-
                 if (array_key_exists('rank_result', $normalizations[$keyNorm])) {
                     $normalizations[$keyNorm]['rank_result'] += $result;
                 } else {
@@ -147,11 +119,9 @@ class RankingController extends Controller
                 }
             }
         }
-
         usort($normalizations, function ($a, $b) {
             return $b['rank_result'] <=> $a['rank_result'];
         });
-
         return $normalizations;
     }
 
@@ -161,26 +131,21 @@ class RankingController extends Controller
         $criteriaIds    = $criterias->pluck('id');
         $alternatives   = Alternative::getAlternativesByCriteria($criteriaIds);
         $dividers       = Alternative::getDividerByCriteria($criterias);
-
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
         try {
             $ranking    = $this->_finalRanking($criteriaAnalysis->priorityValues, $normalizations);
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-
         $title = 'Perhitungan SAW';
-
         return view('pages.admin.rank.detailr', [
-            'criteriaAnalysis'  => $criteriaAnalysis,
-            'dividers'          => $dividers,
-            'normalizations'    => $normalizations,
-            'ranking'           => $ranking,
-            'title'             => $title
+            'criteriaAnalysis' => $criteriaAnalysis,
+            'dividers'         => $dividers,
+            'normalizations'   => $normalizations,
+            'ranking'          => $ranking,
+            'title'            => $title
         ]);
     }
-
-
 
     // export
     public function export(CriteriaAnalysis $criteriaAnalysis)
@@ -189,14 +154,10 @@ class RankingController extends Controller
         $criteriaIds = $criterias->pluck('id');
         $alternatives = Alternative::getAlternativesByCriteria($criteriaIds);
         $dividers = Alternative::getDividerByCriteria($criterias);
-
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
         $ranking = $this->_finalRanking($criteriaAnalysis->priorityValues, $normalizations);
-
         $export = new RanksExport($ranking, $normalizations);
-
         $fileName = 'Ranking Destinasi Wisata.xlsx';
-
         return Excel::download($export, $fileName);
     }
 }

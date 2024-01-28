@@ -24,8 +24,8 @@ class CriteriaStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:225|unique:criterias',
-            'kategori' => 'required',
+            'name'       => 'required|max:225|unique:criterias',
+            'kategori'   => 'required',
             'keterangan' => 'required'
         ];
     }

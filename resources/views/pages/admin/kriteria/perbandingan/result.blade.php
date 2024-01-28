@@ -1,16 +1,17 @@
 @extends('layouts.admin')
-
 @section('content')
 <div class="container-fluid px-4">
     <div class="row align-items-center">
         <div class="col-sm-6 col-md-8">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
+                @can('admin')
                 <li class="breadcrumb-item">
                     <a href="{{ route('perbandingan.update', $criteria_analysis->id) }}">
                         Input Perbandingan Kriteria
                     </a>
                 </li>
+                @endcan
                 <li class="breadcrumb-item active">{{ $title }}</li>
                 <li class="breadcrumb-item">
                     <a href="{{ route('perbandingan.detailr', $criteria_analysis->id) }}">
@@ -71,12 +72,10 @@
                         @endforeach
                     </tbody>
                 </table>
-
                 {{-- Normalisasi dan prioritas --}}
                 <div class="mb-4">
                     <h4 class="mb-0 text-gray-800">Matriks Normalisasi Kriteria dan Nilai Prioritas</h4>
                 </div>
-
                 <table class="table table-bordered">
                     <thead class="table-primary align-middle text-center">
                         <tr>
@@ -160,11 +159,10 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{-- Lambda --}}
+                {{-- λ --}}
                 <div class="mb-4">
                     <h4 class="mb-0 text-gray-800">Menentukan λmaks dan Rasio Konsistensi</h4>
                 </div>
-
                 <table class="table table-bordered table-responsive">
                     <thead class="table-primary align-middle">
                         <tr>
@@ -192,7 +190,6 @@
                                 @php($lambda = $total / $criteria_analysis->priorityValues[$key]->value)
                                 @php($res = substr($lambda, 0, 11))
                                 @php(array_push($lambdaResult, $res))
-
                                 {{ round($res, 2) }}
                             </td>
                         </tr>
@@ -225,7 +222,6 @@
                                     <th scope="row">Indeks Konsistensi</th>
                                     <td>
                                         @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
-
                                         {{ round($CI, 2) }}
                                     </td>
                                 </tr>
@@ -233,7 +229,6 @@
                                     <th scope="row">Konsistensi Random</th>
                                     <td>
                                         @php($RC = $ruleRC[$criteria_analysis->priorityValues->count()])
-
                                         {{ $RC }}
                                     </td>
                                 </tr>
@@ -278,6 +273,5 @@
         </div>
     </div>
 </div>
-
 @php(session(["cr_value_{$criteria_analysis->id}" => round($CR, 2)]))
 @endsection

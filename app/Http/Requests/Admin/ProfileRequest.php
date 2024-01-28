@@ -26,20 +26,17 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         $userId = Auth::id();
-
         $rules = [
             'name'     => 'required|max:255',
             'username' => 'required|min:6|max:15|unique:users,username,' . $userId,
             'email'    => 'required|email:dns|unique:users,email,' . $userId,
         ];
-
         if (Request::instance()->oldPassword || Request::instance()->password || Request::instance()->password_confirmation) {
             $rules = [
                 'oldPassword' => 'required',
                 'password'    => 'required|confirmed|min:6',
             ];
         }
-
         return $rules;
     }
 }

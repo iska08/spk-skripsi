@@ -1,7 +1,5 @@
 @extends('layouts.admin')
-
 @section('content')
-{{-- {{ print_r($details) }} --}}
 <div class="container-fluid px-4">
     <div class="row align-items-center">
         <div class="col-sm-6 col-md-8">
@@ -14,7 +12,6 @@
             </ol>
         </div>
     </div>
-
     <div class="card">
         <div class="card-body">
             <div class="table-responsive col-lg-12">
@@ -46,28 +43,28 @@
                                             1 - Sama Pentingnya
                                         </option>
                                         <option value="2" {{ $detail->comparison_value == 2 ? 'selected' : '' }}>
-                                            2 - Mendekati sedikit lebih penting
+                                            2 - Mendekati Sedikit Lebih Penting
                                         </option>
                                         <option value="3" {{ $detail->comparison_value == 3 ? 'selected' : '' }}>
-                                            3 - Sedikit lebih penting
+                                            3 - Sedikit Lebih Penting
                                         </option>
                                         <option value="4" {{ $detail->comparison_value == 4 ? 'selected' : '' }}>
-                                            4 - Mendekati lebih penting
+                                            4 - Mendekati Lebih Penting
                                         </option>
                                         <option value="5" {{ $detail->comparison_value == 5 ? 'selected' : '' }}>
-                                            5 - Lebih penting
+                                            5 - Lebih Penting
                                         </option>
                                         <option value="6" {{ $detail->comparison_value == 6 ? 'selected' : '' }}>
-                                            6 - Mendekati sangat penting
+                                            6 - Mendekati Sangat Penting
                                         </option>
                                         <option value="7" {{ $detail->comparison_value == 7 ? 'selected' : '' }}>
-                                            7 - Sangat penting
+                                            7 - Sangat Penting
                                         </option>
                                         <option value="8" {{ $detail->comparison_value == 8 ? 'selected' : '' }}>
-                                            8 - Mendekati mutlak sangat penting
+                                            8 - Mendekati Mutlak Sangat Penting
                                         </option>
                                         <option value="9" {{ $detail->comparison_value == 9 ? 'selected' : '' }}>
-                                            9 - Mutlak sangat penting
+                                            9 - Mutlak Sangat Penting
                                         </option>
                                     </select>
                                 </td>
@@ -76,8 +73,6 @@
                                 </td>
                             </tr>
                             @endforeach
-
-
                             <div class="col-lg-12">
                                 @can('admin')
                                 <form action="{{ route('perbandingan.update', $criteria_analysis) }}" method="POST">
@@ -97,7 +92,7 @@
                                     @else
                                     <a class="btn btn-success disabled mb-3">
                                         <i class="fa-solid fa-eye"></i>
-                                        Admin belum menyimpan kriteria
+                                        Admin Belum Menyimpan Kriteria
                                     </a>
                                     @endif
                             </div>

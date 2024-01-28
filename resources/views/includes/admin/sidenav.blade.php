@@ -5,7 +5,9 @@
             <div class="nav">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}"
                     href="{{ route('dashboard.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
                     Dashboard
                 </a>
                 {{-- Master Data --}}
@@ -14,10 +16,12 @@
                 @can('admin')
                 <a class="nav-link {{ Request::is('dashboard/kriteria*') ? 'active' : '' }}"
                     href="{{ route('kriteria.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table-columns"></i></div>
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-table-columns"></i>
+                    </div>
                     Data Kriteria
                 </a>
-                {{-- data Destinasi Wisata --}}
+                {{-- Data Destinasi Wisata --}}
                 <a class="nav-link {{ Request::is('dashboard/wisata*') ? 'active' : '' }}"
                     href="{{ route('wisata.index') }}">
                     <div class="sb-nav-link-icon">
@@ -29,7 +33,9 @@
                 {{-- Master User --}}
                 <a class="nav-link {{ Request::is('dashboard/alternatif*') ? 'active' : '' }}"
                     href="{{ route('alternatif.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-users-rectangle"></i></div>
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-users-rectangle"></i>
+                    </div>
                     Data Alternatif
                 </a>
                 <a class="nav-link {{ Request::is('dashboard/perbandingan*') ? 'active' : '' }}"
@@ -41,27 +47,29 @@
                 </a>
                 <a class="nav-link {{ Request::is('dashboard/ranking*') ? 'active' : '' }}"
                     href="{{ route('rank.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-ranking-star"></i></div>
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
                     Ranking
                 </a>
                 @can('admin')
                 <div class="sb-sidenav-menu-heading">Master Pengguna</div>
                 <a class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}"
                     href="{{ route('users.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-user-gear"></i></div>
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-user-gear"></i>
+                    </div>
                     Data Pengguna
                 </a>
                 @endcan
                 <a class="nav-link {{ Request::is('dashboard/profile*') ? 'active' : '' }}"
                     href="{{ route('profile.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-user-pen"></i></div>
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-user-pen"></i>
+                    </div>
                     Ubah Profil
                 </a>
             </div>
         </div>
-        {{-- <div class="sb-sidenav-footer">
-            <div class="small">Logged in as : <span>{{ auth()->user()->level }}</span>
-</div>
-</div> --}}
-</nav>
+    </nav>
 </div>

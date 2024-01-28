@@ -25,18 +25,15 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         $id = $this->route('user')->id;
-
         $rules = [
             'name'     => 'required|max:255',
             'username' => 'required|min:6|max:15|unique:users,username,' . $id,
             'email'    => 'required|email:dns|unique:users,email,' . $id,
             'level'    => 'required'
         ];
-
         if (Request::instance()->password) {
             $rules['password'] = 'min:6';
         }
-
         return $rules;
     }
 }

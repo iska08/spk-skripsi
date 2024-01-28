@@ -23,7 +23,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($wisatas !== null && $wisatas->count())
+                        @if ($wisatas->count())
                             @foreach ($wisatas as $wisata)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>

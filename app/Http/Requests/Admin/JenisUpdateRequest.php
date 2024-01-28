@@ -24,9 +24,8 @@ class JenisUpdateRequest extends FormRequest
     public function rules()
     {
         $id = $this->route('jenis');
-
         return [
-            'jenis_name'       => 'required|max:30|unique:jenis,jenis_name,' . $id,
+            'jenis_name' => 'required|max:30|unique:jenis,jenis_name,' . $id,
         ];
     }
 }

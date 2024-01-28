@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\Model;
 class Jenis extends Model
 {
     use HasFactory, Sluggable;
+
     protected $fillable = [
         'jenis_name',
         'slug'
     ];
 
-    public function jenis()
+    public function wisatas()
     {
         return $this->hasMany(Wisata::class);
     }
@@ -23,6 +24,7 @@ class Jenis extends Model
     {
         return 'slug';
     }
+
     /**
      * Return the sluggable configuration array for this model.
      *

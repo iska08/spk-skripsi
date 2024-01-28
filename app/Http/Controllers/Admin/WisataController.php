@@ -17,6 +17,7 @@ class WisataController extends Controller
     // pagination
     protected $limit = 10;
     protected $fields = array('wisatas.*');
+
     /**
      * Display a listing of the resource.
      *
@@ -26,8 +27,6 @@ class WisataController extends Controller
     {
         // mengurutkan
         $wisatas = Wisata::orderby('name');
-
-
         if (request('search')) {
             $wisatas->join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
                 ->where('wisatas.name', 'LIKE', '%' . request('search') . '%')
@@ -35,24 +34,19 @@ class WisataController extends Controller
                 ->orWhere('jenis.jenis_name', 'LIKE', '%' . request('search') . '%')
                 ->get();
         }
-
         // Get value halaman yang dipilih dari dropdown
         $page = $request->query('page', 1);
-
         // Tetapkan opsi dropdown halaman yang diinginkan
         $perPageOptions = [5, 10, 15, 20, 25];
-
         // Get value halaman yang dipilih menggunaakan the query parameters
         $perPage = $request->query('perPage', $perPageOptions[1]);
-
         // Paginasi hasil dengan halaman dan dropdown yang dipilih
         $wisatas = $wisatas->paginate($perPage, $this->fields, 'page', $page);
-
         return view('pages.admin.wisata.data', [
-            'title'           => 'Data Destinasi Wisata',
-            'wisatas'         => $wisatas,
-            'perPageOptions'  => $perPageOptions,
-            'perPage'         => $perPage
+            'title'          => 'Data Destinasi Wisata',
+            'wisatas'        => $wisatas,
+            'perPageOptions' => $perPageOptions,
+            'perPage'        => $perPage
         ]);
     }
 
@@ -64,10 +58,9 @@ class WisataController extends Controller
     public function create()
     {
         $jenises = Jenis::orderBy('jenis_name')->get();
-
         return view('pages.admin.wisata.create', [
-            'title'     => 'Tambah Data Destinasi Wisata',
-            'jenises'   => $jenises,
+            'title'   => 'Tambah Data Destinasi Wisata',
+            'jenises' => $jenises,
         ]);
     }
 
@@ -80,12 +73,8 @@ class WisataController extends Controller
     public function store(WisataRequest $request)
     {
         $validatedData = $request->validated();
-
-        // dd($validatedData);
         Wisata::create($validatedData);
-
-        return redirect('/dashboard/wisata')
-            ->with('success', 'Destinasi wisata baru telah ditambahkan!');
+        return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata Baru Telah Ditambahkan!');
     }
 
     /**
@@ -109,10 +98,9 @@ class WisataController extends Controller
     {
         $wisata = Wisata::FindOrFail($id);
         $jenises = Jenis::orderBy('jenis_name')->get();
-
         return view('pages.admin.wisata.edit', [
-            'title' => "Edit Data $wisata->name",
-            'wisata' => $wisata,
+            'title'   => "Edit Data $wisata->name",
+            'wisata'  => $wisata,
             'jenises' => $jenises
         ]);
     }
@@ -127,11 +115,8 @@ class WisataController extends Controller
     public function update(WisataUpdateRequest $request, Wisata $wisata)
     {
         $validatedData = $request->validated();
-
         Wisata::where('id', $wisata->id)->update($validatedData);
-
-        return redirect('/dashboard/wisata')
-            ->with('success', 'Destinasi wisata yang dipilih telah diperbarui!');
+        return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -143,9 +128,7 @@ class WisataController extends Controller
     public function destroy(Wisata $wisata)
     {
         Wisata::destroy($wisata->id);
-
-        return redirect('/dashboard/wisata')
-            ->with('success', 'Destinasi wisata yang dipilih telah dihapus!');
+        return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Dihapus!');
     }
 
     /**
@@ -156,16 +139,14 @@ class WisataController extends Controller
         $request->validate([
             'file' => 'required|mimes:xls,xlsx'
         ]);
-
         $file = $request->file('file')->store('temp');
-
         try {
             $import = new WisatasImport;
             $import->import($file);
             if ('jenis_name' === null) {
                 dd($import->errors());
             } else {
-                return redirect('/dashboard/wisata')->with('success', 'Berkas Destinasi Wisata Berhasil Diimpor!');
+                return redirect('/dashboard/wisata')->with('success', 'Berkas Destinasi Wisata Berhasil Diimport!');
             }
             dd($import);
         } catch (\Exception $e) {

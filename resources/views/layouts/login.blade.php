@@ -14,13 +14,10 @@
 <body class="my-login-page">
     {{-- Navbar --}}
     @include('includes.login.navbar')
-
     {{-- main --}}
     @yield('content')
-
     {{-- background --}}
     @include('includes.login.background')
-
     {{-- script --}}
     @include('includes.login.script')
 </body>

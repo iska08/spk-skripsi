@@ -47,13 +47,9 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         $validate = $request->validated();
-
         $validate['password'] = Hash::make($validate['password']);
-
         User::create($validate);
-
-        return redirect('/dashboard/users')
-            ->with('success', 'Pengguna baru telah ditambahkan!');
+        return redirect('/dashboard/users')->with('success', 'Pengguna Baru Telah Ditambahkan!');
     }
 
     /**
@@ -91,16 +87,11 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, User $user)
     {
         $validate = $request->validated();
-
         if ($validate['password'] ?? false) {
             $validate['password'] = Hash::make($validate['password']);
         }
-
-        User::where('id', $user->id)
-            ->update($validate);
-
-        return redirect('/dashboard/users')
-            ->with('success', 'Pengguna yang dipilih telah dihapus!');
+        User::where('id', $user->id)->update($validate);
+        return redirect('/dashboard/users')->with('success', 'Pengguna yang Dipilih Telah Dihapus!');
     }
 
     /**
@@ -113,10 +104,7 @@ class UserController extends Controller
     {
         $jenis = User::findOrFail($id);
         $jenis->delete();
-
-        return redirect()
-            ->route('users.index')
-            ->with('success', 'Pengguna yang dipilih telah dihapus!');
+        return redirect()->route('users.index')->with('success', 'Pengguna yang Dipilih Telah Dihapus!');
     }
 
     /**
@@ -124,18 +112,14 @@ class UserController extends Controller
      */
     public function import(Request $request)
     {
-
         $request->validate([
             'file' => 'required|mimes:xls,xlsx'
         ]);
-
         $file = $request->file('file')->store('temp');
-
         try {
             $import = new UsersImport;
             $import->import($file);
-
-            return redirect('/dashboard/users')->with('success', 'File Pengguna Berhasil Diimpor!');
+            return redirect('/dashboard/users')->with('success', 'File Pengguna Berhasil Diimport!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage())->withInput();
         }

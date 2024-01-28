@@ -31,9 +31,7 @@ class CriteriaController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.kriteria.create', [
-            'title' => 'Buat Kriteria Baru',
-        ]);
+        return view('pages.admin.kriteria.create', ['title' => 'Buat Kriteria Baru',]);
     }
 
     /**
@@ -44,14 +42,10 @@ class CriteriaController extends Controller
      */
     public function store(CriteriaStoreRequest $request)
     {
-        $validatedData = $request->validated();
-
+        $validatedData   = $request->validated();
         $request['slug'] = Str::slug($request->name, '-');
-
         Criteria::create($validatedData);
-
-        return redirect('/dashboard/kriteria')
-            ->with('success', 'Kriteria baru telah ditambahkan!');
+        return redirect('/dashboard/kriteria')->with('success', 'Kriteria Baru Telah Ditambahkan!');
     }
 
     /**
@@ -74,9 +68,8 @@ class CriteriaController extends Controller
     public function edit($id)
     {
         $kriterium = Criteria::FindOrFail($id);
-
         return view('pages.admin.kriteria.edit', [
-            'title' => "Edit Kriteria $kriterium->name",
+            'title'    => "Edit Kriteria $kriterium->name",
             'criteria' => $kriterium,
         ]);
     }
@@ -92,12 +85,9 @@ class CriteriaController extends Controller
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['name'], '-');
-
         $item = Criteria::findOrFail($id);
         $item->update($data);
-
-        return redirect('/dashboard/kriteria')
-            ->with('success', 'Kriteria yang dipilih telah diperbarui!');
+        return redirect('/dashboard/kriteria')->with('success', 'Kriteria yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -110,8 +100,6 @@ class CriteriaController extends Controller
     {
         $kriterium = Criteria::findOrFail($id);
         $kriterium->delete();
-
-        return redirect('/dashboard/kriteria')
-            ->with('success', 'Kriteria yang dipilih telah dihapus!');
+        return redirect('/dashboard/kriteria')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
     }
 }

@@ -8,10 +8,7 @@ use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class StudentsExport implements
-    FromCollection,
-    WithHeadings,
-    ShouldAutoSize
+class StudentsExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
     use Exportable;
     /**

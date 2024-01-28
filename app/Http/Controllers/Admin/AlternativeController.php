@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Response;
 
-
 class AlternativeController extends Controller
 {
     // pagination
@@ -31,7 +30,6 @@ class AlternativeController extends Controller
         if (auth()->user()->level === 'ADMIN' || auth()->user()->level === 'USER') {
             $alternatives = Alternative::with('user')->get();
         }
-
         // get wisata_id dari alternative
         $usedIds    = Alternative::select('wisata_id')->distinct()->get();
         $usedIdsFix = [];
@@ -39,14 +37,11 @@ class AlternativeController extends Controller
         foreach ($usedIds as $usedId) {
             array_push($usedIdsFix, $usedId->wisata_id);
         }
-
         // menampilkan data alternatif
         $alternatives = Wisata::join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
             ->whereIn('wisatas.id', $usedIdsFix)
             ->orderBy('wisatas.name')
             ->with('alternatives');
-
-        // dd(request('search'));
         // filter search
         if (request('search')) {
             $alternatives = Wisata::join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
@@ -55,9 +50,6 @@ class AlternativeController extends Controller
                 ->whereIn('wisatas.id', $usedIdsFix)
                 ->with('alternatives');
         }
-
-        // @dd($alternatives);
-
         // wisata list tambah
         $wisatasList = Wisata::join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
             ->whereNotIn('wisatas.id', $usedIdsFix)
@@ -65,26 +57,21 @@ class AlternativeController extends Controller
             ->orderBy('wisatas.name', 'ASC')
             ->get(['wisatas.*', 'jenis.id as jenisId'])
             ->groupBy('jenis.jenis_name');
-
         // Get value halaman yang dipilih dari dropdown
         $page = $request->query('page', 1);
-
         // Tetapkan opsi dropdown halaman yang diinginkan
         $perPageOptions = [5, 10, 15, 20, 25];
-
         // Get value halaman yang dipilih menggunaakan the query parameters
         $perPage = $request->query('perPage', $perPageOptions[1]);
-
         // Paginasi hasil dengan halaman dan dropdown yang dipilih
         $alternatives = $alternatives->paginate($perPage, $this->fields, 'page', $page);
-
         return view('pages.admin.alternatif.data', [
-            'title'           => 'Data Alternatif',
-            'alternatives'    => $alternatives,
-            'criterias'       => Criteria::all(),
+            'title'          => 'Data Alternatif',
+            'alternatives'   => $alternatives,
+            'criterias'      => Criteria::all(),
             'wisata_list'    => $wisatasList,
-            'perPageOptions'  => $perPageOptions,
-            'perPage'         => $perPage
+            'perPageOptions' => $perPageOptions,
+            'perPage'        => $perPage
         ]);
     }
 
@@ -107,24 +94,19 @@ class AlternativeController extends Controller
     public function store(AlternativeStoreRequest $request)
     {
         // menyimpan input destinasi wisata dengan jenis wisata
-        $pisah =  explode(" ", $request->wisata_id);
+        $pisah    = explode(" ", $request->wisata_id);
         // explode(" ", $request->wisata_id);
         $validate = $request->validated();
-
-        // dd($pisah);
         foreach ($validate['criteria_id'] as $key => $criteriaId) {
             $data = [
-                'wisata_id' => $pisah[0],
-                'criteria_id' => $criteriaId,
-                'jenis_id' => $pisah[1],
+                'wisata_id'         => $pisah[0],
+                'criteria_id'       => $criteriaId,
+                'jenis_id'          => $pisah[1],
                 'alternative_value' => $validate['alternative_value'][$key],
             ];
-            // dd($data);
             Alternative::create($data);
         }
-
-        return redirect('/dashboard/alternatif')
-            ->with('success', 'Alternatif Baru telah ditambahkan!');
+        return redirect('/dashboard/alternatif')->with('success', 'Alternatif Baru telah ditambahkan!');
     }
 
     /**
@@ -147,16 +129,12 @@ class AlternativeController extends Controller
     public function edit(Alternative $alternatif)
     {
         // cek apakah ada kriteria baru yang belum diisi oleh pengguna
-        $selectedCriteria = Alternative::where('wisata_id', $alternatif->wisata_id)->pluck('criteria_id');
-        $newCriterias     = Criteria::whereNotIn('id', $selectedCriteria)->get();
-
-        $alternatives      = Wisata::where('id', $alternatif->wisata_id)
-            ->with('alternatives', 'alternatives.criteria')->first();
-
-        // dd($alternatives);
+        $selectedCriteria  = Alternative::where('wisata_id', $alternatif->wisata_id)->pluck('criteria_id');
+        $newCriterias      = Criteria::whereNotIn('id', $selectedCriteria)->get();
+        $alternatives      = Wisata::where('id', $alternatif->wisata_id)->with('alternatives', 'alternatives.criteria')->first();
         return view('pages.admin.alternatif.edit', [
             'title'        => "Edit Nilai $alternatives->name",
-            'alternatives'  => $alternatives,
+            'alternatives' => $alternatives,
             'newCriterias' => $newCriterias
         ]);
     }
@@ -170,37 +148,28 @@ class AlternativeController extends Controller
      */
     public function update(AlternativeUpdateRequest $request, Alternative $alternatif)
     {
-        $pisah =  explode(" ", $request->new_wisata_id);
+        $pisah    = explode(" ", $request->new_wisata_id);
         $validate = $request->validated();
-
-        // dd($pisah);
-
         // masukkan nilai alternatif baru jika ada kriteria baru
         if ($validate['new_wisata_id'] ?? false) {
             foreach ($validate['new_criteria_id'] as $key => $newCriteriaId) {
                 $data = [
-                    'wisata_id'        => $pisah[0],
+                    'wisata_id'         => $pisah[0],
                     'jenis_id'          => $validate['new_jenis_id'],
                     'criteria_id'       => $newCriteriaId,
                     'alternative_value' => $validate['new_alternative_value'][$key],
                 ];
-
                 Alternative::create($data);
             }
         }
-
         foreach ($validate['criteria_id'] as $key => $criteriaId) {
             $data = [
                 'criteria_id'       => $criteriaId,
                 'alternative_value' => $validate['alternative_value'][$key],
             ];
-
-            Alternative::where('id', $validate['alternative_id'][$key])
-                ->update($data);
+            Alternative::where('id', $validate['alternative_id'][$key])->update($data);
         }
-
-        return redirect('/dashboard/alternatif')
-            ->with('success', 'Alternatif yang dipilih telah diperbarui!');
+        return redirect('/dashboard/alternatif')->with('success', 'Alternatif yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -211,11 +180,8 @@ class AlternativeController extends Controller
      */
     public function destroy(Alternative $alternatif)
     {
-        Alternative::where('wisata_id', $alternatif->wisata_id)
-            ->delete();
-
-        return redirect('/dashboard/alternatif')
-            ->with('success', 'Alternatif yang dipilih telah dihapus!');
+        Alternative::where('wisata_id', $alternatif->wisata_id)->delete();
+        return redirect('/dashboard/alternatif')->with('success', 'Alternatif yang Dipilih Telah Dihapus!');
     }
 
     /**
@@ -224,18 +190,13 @@ class AlternativeController extends Controller
     public function import(Request $request)
     {
         // validate
-        $request->validate([
-            'file' => 'required|mimes:xls,xlsx'
-        ]);
-
+        $request->validate(['file' => 'required|mimes:xls,xlsx']);
         $file = $request->file('file')->store('temp');
-
         try {
             Excel::import(new AlternativesImport, $file);
-
             return redirect('/dashboard/alternatif')->with('success', 'Alternatif berhasil diimpor!');
         } catch (\Exception $e) {
-            return redirect('/dashboard/alternatif')->with('error', 'Terjadi kesalahan saat mengimpor alternatif: ' . $e->getMessage());
+            return redirect('/dashboard/alternatif')->with('error', 'Terjadi Kesalahan Saat Mengimport Alternatif: ' . $e->getMessage());
         }
     }
 
@@ -243,16 +204,12 @@ class AlternativeController extends Controller
     {
         // Mendapatkan data alternatif dari database
         $alternatives = Alternative::with('user')->get();
-
         // Memanggil jenis AlternativesExport untuk melakukan ekspor
-        $export = new AlternativesExport($alternatives);
-
+        $export       = new AlternativesExport($alternatives);
         // Menentukan nama file ekspor
-        $fileName = 'Data Alternatif.xlsx';
-
+        $fileName     = 'Data Alternatif.xlsx';
         // Melakukan ekspor data alternatif ke file Excel
         Excel::store($export, $fileName);
-
         // Mengirimkan file ekspor sebagai respons
         return Response::download(storage_path('app/' . $fileName))->deleteFileAfterSend();
     }

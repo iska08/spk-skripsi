@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CriteriaAnalysis extends Model
 {
     use HasFactory;
-
     protected $fillable = ['user_id'];
 
     public function user()
@@ -18,7 +17,6 @@ class CriteriaAnalysis extends Model
 
     public function details()
     {
-        // one-to-many
         return $this->hasMany(CriteriaAnalysisDetail::class);
     }
 

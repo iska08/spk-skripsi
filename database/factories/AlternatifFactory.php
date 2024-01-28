@@ -17,9 +17,9 @@ class AlternatifFactory extends Factory
     public function definition()
     {
         return [
-            'kriteria_id' => $this->mt_rand(1, 9),
-            'wisata_id' => $this->mt_rand(1, 9),
-            'jenis_id' => mt_rand(1, 9),
+            'kriteria_id'       => $this->mt_rand(1, 9),
+            'wisata_id'         => $this->mt_rand(1, 9),
+            'jenis_id'          => mt_rand(1, 9),
             'alternative_value' => $this->faker->name(),
         ];
     }

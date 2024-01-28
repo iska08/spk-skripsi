@@ -24,11 +24,11 @@ class WisataRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:60|min:5',
+            'name'        => 'required|max:60|min:5',
             'lokasi_maps' => 'required',
-            'fasilitas' => 'required',
-            'biaya' => 'required',
-            'jenis_id' => 'required'
+            'fasilitas'   => 'required',
+            'biaya'       => 'required',
+            'jenis_id'    => 'required'
         ];
     }
 }

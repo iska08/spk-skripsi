@@ -18,12 +18,10 @@ class LoginController extends Controller
     public function authenticate(LoginRequest $request)
     {
         $credentials = $request->getCredentials();
-
         // if failed
         if (!Auth::validate($credentials)) :
-            return back()->with('failed', "Login failed, please try again");
+            return back()->with('failed', "Login Failed, Please Try Again");
         endif;
-
         // autentikasi user
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user, $request->get('remember'));
@@ -41,32 +39,6 @@ class LoginController extends Controller
         Session::flush();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/')->with('success', 'You have been logged out!');
+        return redirect('/')->with('success', 'You Have Been Logged Out!');
     }
-
-    // public function authenticate(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => 'required|email:dns',
-    //         'password' => 'required'
-    //     ]);
-
-    //     // autentikasi user
-    //     if (Auth::attempt($credentials)) {
-    //         $request->session()->regenerate();
-    //         return redirect()->intended('/dashboard');
-    //     }
-
-    //     // login gagal
-    //     return back()->with('failed', "Login failed, please try again");
-    // }
-
-    // public function logout(Request $request)
-    // {
-    //     Auth::logout();
-
-    //     $request->session()->invalidate();
-    //     $request->session()->regenerateToken();
-    //     return redirect('/')->with('success', 'You have been logged out!');
-    // }
 }

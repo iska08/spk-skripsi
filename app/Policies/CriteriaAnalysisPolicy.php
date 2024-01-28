@@ -30,7 +30,7 @@ class CriteriaAnalysisPolicy
      */
     public function view(User $user, CriteriaAnalysis $criteriaAnalysis)
     {
-        return ($user->id === $criteriaAnalysis->user_id ||  $user->level === 'ADMIN');
+        return ($user->id === $criteriaAnalysis->user_id || $user->level === 'ADMIN');
     }
 
     /**

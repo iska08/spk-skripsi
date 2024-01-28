@@ -31,12 +31,11 @@ class AlternativeUpdateRequest extends FormRequest
         ];
 
         if (Request::instance()->new_wisata_id) {
-            $rules['new_wisata_id']        = 'required|exists:wisatas,id';
+            $rules['new_wisata_id']         = 'required|exists:wisatas,id';
             $rules['new_criteria_id']       = 'required|array';
             $rules['new_jenis_id']          = 'required|exists:jenis,id';
             $rules['new_alternative_value'] = 'required|array';
         }
-
         return $rules;
     }
 }

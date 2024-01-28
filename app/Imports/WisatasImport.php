@@ -12,14 +12,10 @@ use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
 
-class WisatasImport implements
-    ToModel,
-    WithHeadingRow,
-    SkipsOnError,
-    WithValidation,
-    WithChunkReading
+class WisatasImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidation, WithChunkReading
 {
     use Importable, SkipsErrors;
+
     /**
      * @param array $row
      *
@@ -27,27 +23,25 @@ class WisatasImport implements
      */
     public function model(array $row)
     {
-        // dd($row);
         $jenisName = $row['jenis_name'];
         $jenis     = Jenis::where('jenis_name', $jenisName)->first();
-
         return new Wisata([
-            'name'      => $row['name'],
-            'lokasi_maps'    => $row['lokasi_maps'],
-            'fasilitas'    => $row['fasilitas'],
-            'biaya'    => $row['biaya'],
-            'jenis_id'  => $jenis ? $jenis->id : null,
+            'name'        => $row['name'],
+            'lokasi_maps' => $row['lokasi_maps'],
+            'fasilitas'   => $row['fasilitas'],
+            'biaya'       => $row['biaya'],
+            'jenis_id'    => $jenis ? $jenis->id : null,
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'name' => ['required'],
+            'name'        => ['required'],
             'lokasi_maps' => ['required'],
-            'fasilitas' => ['required'],
-            'biaya' => ['required'],
-            'jenis_name' => ['required'],
+            'fasilitas'   => ['required'],
+            'biaya'       => ['required'],
+            'jenis_name'  => ['required'],
         ];
     }
 

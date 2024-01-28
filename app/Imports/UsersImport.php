@@ -13,14 +13,10 @@ use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 
-class UsersImport implements
-    ToModel,
-    WithHeadingRow,
-    SkipsOnError,
-    WithValidation,
-    WithBatchInserts
+class UsersImport implements ToModel, WithHeadingRow, SkipsOnError, WithValidation, WithBatchInserts
 {
     use Importable, SkipsErrors;
+
     /**
      * @param array $row
      *
@@ -29,22 +25,22 @@ class UsersImport implements
     public function model(array $row)
     {
         return new User([
-            'name'      => $row['name'],
-            'email'     => $row['email'],
-            'username'  => $row['username'],
-            'password'  => Hash::make($row['password']),
-            'level'     => $row['level'],
+            'name'     => $row['name'],
+            'email'    => $row['email'],
+            'username' => $row['username'],
+            'password' => Hash::make($row['password']),
+            'level'    => $row['level'],
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'name' => ['required'],
-            '*email' => ['email', 'unique:users,email'],
+            'name'      => ['required'],
+            '*email'    => ['email', 'unique:users,email'],
             '*username' => ['unique:users,username'],
-            'password' => ['required'],
-            'level' => ['required']
+            'password'  => ['required'],
+            'level'     => ['required']
         ];
     }
 

@@ -14,7 +14,7 @@ class ProfileController extends Controller
     public function index()
     {
         return view('pages.admin.profile.index', [
-            'title'     => 'Ubah Profil',
+            'title'    => 'Ubah Profil',
             'userData' => auth()->user()
         ]);
     }
@@ -23,33 +23,18 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $validate = $request->validated();
-
         if ($validate['oldPassword'] ?? false) {
             //check password
             if (Hash::check($validate['oldPassword'], $user->password)) {
                 // password match
                 $newPass = Hash::make($validate['password']);
-
-                User::where('id', $user->id)
-                    ->update(['password' => $newPass]);
-
-                return redirect()
-                    ->route('profile.index')
-                    ->with('success', 'Kata sandi Anda telah diperbarui!');
+                User::where('id', $user->id)->update(['password' => $newPass]);
+                return redirect()->route('profile.index')->with('success', 'Kata Sandi Anda Telah Diperbarui!');
             } else {
-                return redirect()
-                    ->route('profile.index')
-                    ->with('failed', 'Kata sandi lama Anda tidak valid!');
+                return redirect()->route('profile.index')->with('failed', 'Kata Sandi Lama Anda Tidak Valid!');
             }
         }
-
-        // dd($validate);
-
-        User::where('id', $user->id)
-            ->update($validate);
-
-        return redirect()
-            ->route('profile.index')
-            ->with('success', "Profil Anda telah diperbarui!");
+        User::where('id', $user->id)->update($validate);
+        return redirect()->route('profile.index')->with('success', "Profil Anda Telah Diperbarui!");
     }
 }

@@ -24,7 +24,6 @@ class CriteriaUpdateRequest extends FormRequest
     public function rules()
     {
         $id = $this->route('kriterium');
-
         return [
             'name'       => 'required|max:60|unique:criterias,name,' . $id,
             'kategori'   => 'required',
