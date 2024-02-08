@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AlternativeController;
 use App\Http\Controllers\Admin\CriteriaController;
 use App\Http\Controllers\Admin\CriteriaPerbandinganController;
+use App\Http\Controllers\Admin\KombinasiController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JenisController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -53,6 +54,21 @@ Route::prefix('dashboard')
         // link slug
         Route::get('wisata/jenis/{jenis:slug}', [JenisController::class, 'wisatas'])
             ->name('jenis.wisatas');
+        // kombinasi
+        Route::get('kombinasi', [KombinasiController::class, 'index'])
+            ->name('kombinasi.index');
+        Route::post('kombinasi', [KombinasiController::class, 'store'])
+            ->name('kombinasi.store');
+        Route::get('kombinasi/{criteria_analysis}', [KombinasiController::class, 'show'])
+            ->name('kombinasi.show');
+        Route::put('kombinasi/{criteria_analysis}', [KombinasiController::class, 'update'])
+            ->name('kombinasi.update');
+        Route::delete('kombinasi/{criteria_analysis}', [KombinasiController::class, 'destroy'])
+            ->name('kombinasi.destroy');
+        Route::get('kombinasi/result/{criteria_analysis}', [KombinasiController::class, 'result'])
+            ->name('kombinasi.result');
+        Route::get('kombinasi/result/detailr/{criteria_analysis}', [KombinasiController::class, 'detailr'])
+            ->name('kombinasi.detailr');
         // perbandingan
         Route::get('perbandingan', [CriteriaPerbandinganController::class, 'index'])
             ->name('perbandingan.index');

@@ -41,16 +41,23 @@
                 <a class="nav-link {{ Request::is('dashboard/perbandingan*') ? 'active' : '' }}"
                     href="{{ route('perbandingan.index') }}">
                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-code-compare"></i>
+                        <i class="fas fa-ranking-star"></i>
                     </div>
-                    Perbandingan
+                    Perhitungan Metode AHP
                 </a>
                 <a class="nav-link {{ Request::is('dashboard/ranking*') ? 'active' : '' }}"
                     href="{{ route('rank.index') }}">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-ranking-star"></i>
                     </div>
-                    Ranking
+                    Perhitungan Metode SAW
+                </a>
+                <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
+                    href="{{ route('kombinasi.index') }}">
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    Perhitungan Kombinasi
                 </a>
                 @can('admin')
                 <div class="sb-sidenav-menu-heading">Master Pengguna</div>
