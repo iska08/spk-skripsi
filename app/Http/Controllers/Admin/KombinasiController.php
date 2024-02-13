@@ -63,7 +63,7 @@ class KombinasiController extends Controller
     public function store(Request $request)
     {
         if (!isset($request->criteria_id)) {
-            return redirect('dashboard/perbandingan')->with('failed', 'Silakan Periksa Kriteria yang Anda Pilih!');
+            return redirect('dashboard/kombinasi')->with('failed', 'Silakan Periksa Kriteria yang Anda Pilih!');
         }
         $validate = $request->validate(['criteria_id' => 'required|array']);
         // data untuk tabel analisis kriteria
@@ -115,7 +115,7 @@ class KombinasiController extends Controller
             ];
             CriteriaAnalysisDetail::create($detail);
         }
-        return redirect('dashboard/perbandingan/' . $analysisId)->with('success', 'Kriteria Baru Telah Ditambahkan!');
+        return redirect('dashboard/kombinasi/' . $analysisId)->with('success', 'Kriteria Baru Telah Ditambahkan!');
     }
 
     /**
@@ -436,6 +436,6 @@ class KombinasiController extends Controller
     public function destroy(CriteriaAnalysis $criteriaAnalysis)
     {
         CriteriaAnalysis::destroy($criteriaAnalysis->id);
-        return redirect('/dashboard/perbandingan')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
+        return redirect('/dashboard/kombinasi')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
     }
 }

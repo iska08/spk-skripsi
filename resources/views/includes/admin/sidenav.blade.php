@@ -57,7 +57,7 @@
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-ranking-star"></i>
                     </div>
-                    Perhitungan Kombinasi
+                    Perhitungan
                 </a>
                 @can('admin')
                 <div class="sb-sidenav-menu-heading">Master Pengguna</div>

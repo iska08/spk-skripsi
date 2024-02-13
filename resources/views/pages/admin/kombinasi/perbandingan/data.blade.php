@@ -44,26 +44,32 @@
                         </td>
                         <td>{{ $comparison->created_at->toDayDateTimeString() }}</td>
                         <td>
-                            @can('user')
-                            <a href="{{ route('kombinasi.show', $comparison->id) }}"
-                                class="badge bg-success text-decoration-none">
-                                <i class="fa-solid fa-eye"></i>
-                                Perbandingan
-                            </a>
-                            @else
                             <a href="{{ route('kombinasi.result', $comparison->id) }}"
                                 class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
-                                Hasil
+                                Perhitungan Kombinasi
                             </a>
-                            @endcan
+                            <a href="" class="badge bg-success text-decoration-none">
+                                <i class="fa-solid fa-eye"></i>
+                                Perhitungan AHP
+                            </a>
+                            <a href="" class="badge bg-success text-decoration-none">
+                                <i class="fa-solid fa-eye"></i>
+                                Perhitungan SAW
+                            </a>
                             @can('admin')
+                            <a href="{{ route('kombinasi.update', $comparison->id) }}" class="badge bg-warning text-decoration-none">
+                                <i class="fa-solid fa-pen-to-square"></i> Edit Perbandingan Kriteria
+                            </a>
+                            <a href="" class="badge bg-warning text-decoration-none">
+                                <i class="fa-solid fa-pen-to-square"></i> Edit Bobot Kriteria
+                            </a>
                             <form action="{{ route('kombinasi.destroy', $comparison->id) }}" method="POST"
                                 class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0 btnDelete"
-                                    data-object="kombinasi kriteria"><i class="fa-solid fa-trash-can"></i></button>
+                                    data-object="kombinasi kriteria"><i class="fa-solid fa-trash-can"></i> Hapus Perhitungan</button>
                             </form>
                             @endcan
                         </td>
