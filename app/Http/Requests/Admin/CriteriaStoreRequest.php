@@ -25,6 +25,7 @@ class CriteriaStoreRequest extends FormRequest
     {
         return [
             'name'       => 'required|max:225|unique:criterias',
+            'bobot'      => 'required',
             'kategori'   => 'required',
             'keterangan' => 'required'
         ];
