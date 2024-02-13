@@ -40,7 +40,7 @@ class KombinasiController extends Controller
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
             'criteria_analysis' => $criteriaAnalysis,
-            'isAbleToRank'      => $isAbleToRank,
+            // 'isAbleToRank'      => $isAbleToRank,
         ]);
     }
 
@@ -389,14 +389,41 @@ class KombinasiController extends Controller
     // detail perhitungan
     public function detailr(CriteriaAnalysis $criteriaAnalysis)
     {
+        $criteriaAnalysis->load('priorityValues');
+        $criterias      = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
+        $criteriaIds    = $criterias->pluck('id');
+        $alternatives   = Alternative::getAlternativesByCriteria($criteriaIds);
+        $dividers       = Alternative::getDividerByCriteria($criterias);
+        $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
+
+        $data           = $this->prepareAnalysisData($criteriaAnalysis);
+        $isAbleToRank   = $this->checkIfAbleToRank();
+
+        $criterias      = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
+        $criteriaIds    = $criterias->pluck('id');
+        $alternatives   = Alternative::getAlternativesByCriteria($criteriaIds);
+        $dividers       = Alternative::getDividerByCriteria($criterias);
+        $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
+        try {
+            $ranking    = $this->_finalRanking($criteriaAnalysis->priorityValues, $normalizations);
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
+
         $data = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank = $this->checkIfAbleToRank();
         return view('pages.admin.kombinasi.perbandingan.detailr', [
-            'title'             => 'Perhitungan AHP',
+            'title'             => 'Perhitungan Kombinasi',
             'criteria_analysis' => $criteriaAnalysis,
             'totalSums'         => $data['totalSums'],
             'ruleRC'            => $data['ruleRC'],
             'isAbleToRank'      => $isAbleToRank,
+            'criteriaAnalysis'  => $criteriaAnalysis,
+            'dividers'          => $dividers,
+            'criterias'         => Criteria::all(),
+            'normalizations'    => $normalizations,
+            'ranks'             => $ranking,
+            'ranking'           => $ranking,
         ]);
     }
 

@@ -38,7 +38,7 @@
                     </div>
                     Data Alternatif
                 </a>
-                <a class="nav-link {{ Request::is('dashboard/perbandingan*') ? 'active' : '' }}"
+                {{-- <a class="nav-link {{ Request::is('dashboard/perbandingan*') ? 'active' : '' }}"
                     href="{{ route('perbandingan.index') }}">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-ranking-star"></i>
@@ -51,7 +51,7 @@
                         <i class="fas fa-ranking-star"></i>
                     </div>
                     Perhitungan Metode SAW
-                </a>
+                </a> --}}
                 <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.index') }}">
                     <div class="sb-nav-link-icon">
