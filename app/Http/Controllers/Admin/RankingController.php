@@ -36,17 +36,26 @@ class RankingController extends Controller
 
     public function show(CriteriaAnalysis $criteriaAnalysis)
     {
-        $criteriaAnalysis->load('priorityValues');
-        $criterias = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
-        $criteriaIds = $criterias->pluck('id');
-        $alternatives = Alternative::getAlternativesByCriteria($criteriaIds);
-        $dividers = Alternative::getDividerByCriteria($criterias);
+        $criteriaAnalysis->load('bobots');
+        $criterias      = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
+        $criteriaIds    = $criterias->pluck('id');
+        $alternatives   = Alternative::getAlternativesByCriteria($criteriaIds);
+        $dividers       = Alternative::getDividerByCriteria($criterias);
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
+        try {
+            $ranking    = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
         return view('pages.admin.rank.detail', [
-            'title' => 'Normalisasi Tabel',
-            'dividers' => $dividers,
-            'normalizations' => $normalizations,
+            'title'            => 'Perhitungan SAW',
+            'dividers'         => $dividers,
+            'normalizations'   => $normalizations,
             'criteriaAnalysis' => $criteriaAnalysis,
+            'dividers'         => $dividers,
+            'criterias'        => Criteria::all(),
+            'normalizations'   => $normalizations,
+            'ranks'            => $ranking
         ]);
     }
 
@@ -91,7 +100,7 @@ class RankingController extends Controller
         $dividers       = Alternative::getDividerByCriteria($criterias);
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
         try {
-            $ranking    = $this->_finalRanking($criteriaAnalysis->priorityValues, $normalizations);
+            $ranking    = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
@@ -105,11 +114,11 @@ class RankingController extends Controller
         ]);
     }
 
-    private function _finalRanking($priorityValues, $normalizations)
+    private function _finalRanking($bobots, $normalizations)
     {
         foreach ($normalizations as $keyNorm => $normal) {
             foreach ($normal['results'] as $keyVal => $value) {
-                $importanceVal = $priorityValues[$keyVal]->value;
+                $importanceVal = $bobots[$keyVal]->value;
                 // Operasi penjumlahan dari perkalian matriks ternormalisasi dan prioritas
                 $result = $importanceVal * $value;
                 if (array_key_exists('rank_result', $normalizations[$keyNorm])) {
@@ -133,11 +142,11 @@ class RankingController extends Controller
         $dividers       = Alternative::getDividerByCriteria($criterias);
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
         try {
-            $ranking    = $this->_finalRanking($criteriaAnalysis->priorityValues, $normalizations);
+            $ranking    = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        $title = 'Perhitungan SAW';
+        $title = 'Detail Perhitungan SAW';
         return view('pages.admin.rank.detailr', [
             'criteriaAnalysis' => $criteriaAnalysis,
             'dividers'         => $dividers,
@@ -155,7 +164,7 @@ class RankingController extends Controller
         $alternatives = Alternative::getAlternativesByCriteria($criteriaIds);
         $dividers = Alternative::getDividerByCriteria($criterias);
         $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
-        $ranking = $this->_finalRanking($criteriaAnalysis->priorityValues, $normalizations);
+        $ranking = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
         $export = new RanksExport($ranking, $normalizations);
         $fileName = 'Ranking Destinasi Wisata.xlsx';
         return Excel::download($export, $fileName);

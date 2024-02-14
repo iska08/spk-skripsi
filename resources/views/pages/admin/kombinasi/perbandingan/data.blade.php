@@ -53,7 +53,7 @@
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan AHP
                             </a>
-                            <a href="" class="badge bg-success text-decoration-none">
+                            <a href="{{ route('rank.show', $comparison->id) }}" class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan SAW
                             </a>

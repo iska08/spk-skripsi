@@ -5,10 +5,10 @@
         <div class="col-sm-6 col-md-8">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="{{ route('rank.index') }}">Final Ranking</a></li>
+                {{-- <li class="breadcrumb-item"><a href="{{ route('rank.index') }}">Final Ranking</a></li> --}}
                 <li class="breadcrumb-item active">{{ $title }}</li>
                 @php($crValue = session("cr_value_{$criteriaAnalysis->id}"))
-                @if ($crValue > 0.1)
+                {{-- @if ($crValue > 0.1)
                 <li class="breadcrumb-item" style="color: red;">
                     Ranking Destinasi Wisata
                 </li>
@@ -18,7 +18,7 @@
                         Ranking Destinasi Wisata
                     </a>
                 </li>
-                @endif
+                @endif --}}
                 @if ($crValue > 0.1)
                 <li class="breadcrumb-item" style="color: red;">
                     Perhitungan SAW
@@ -26,7 +26,7 @@
                 @else
                 <li class="breadcrumb-item">
                     <a href="{{ route('rank.detailr', $criteriaAnalysis->id) }}">
-                        Perhitungan SAW
+                        Detail Perhitungan SAW
                     </a>
                 </li>
                 @endif
@@ -42,7 +42,7 @@
     {{-- datatable --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center justify-content-between mb-3">
+            {{-- <div class="d-sm-flex align-items-center justify-content-between mb-3">
                 @if ($crValue > 0.1)
                 <a class="btn btn-success disabled">
                     <i class="fa-solid fa-ranking-star"></i>
@@ -54,7 +54,6 @@
                     Ranking Destinasi Wisata
                 </a>
                 @endif
-                {{-- Display CR Value --}}
                 @if ($crValue > 0.1)
                 <td class="text-center text-danger" colspan="2">
                     <a href="{{ route('perbandingan.update', $criteriaAnalysis->id) }}" class="btn btn-danger mt-2">
@@ -67,6 +66,11 @@
                 @else
                 <p>Nilai Rasio Konsistensi: <b> {{ $crValue }}</b></p>
                 @endif
+            </div> --}}
+            <div class="d-sm-flex align-items-center">
+                <div class="mb-4">
+                    <h4 class="mb-0 text-gray-800">Normalisasi Alternatif</h4>
+                </div>
             </div>
             <table class="table table-bordered table-condensed table-responsive">
                 <tbody>
@@ -80,6 +84,14 @@
                         <td scope="col" class="fw-bold" style="width:11%">Nilai Pembagi</td>
                         @foreach ($dividers as $divider)
                         <td scope="col">{{ $divider['divider_value'] }}</td>
+                        @endforeach
+                    </tr>
+                    <tr>
+                        <td scope="col" class="fw-bold" style="width:11%">Bobot</td>
+                        @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
+                        <td>
+                            {{ round($innerpriorityvalue->value, 3) }}
+                        </td>
                         @endforeach
                     </tr>
                 </tbody>
@@ -117,6 +129,46 @@
                         </td>
                         @endif
                         @endforeach
+                    </tr>
+                    @endforeach
+                    @endif
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="d-sm-flex align-items-center">
+                <div class="mb-4">
+                    <h4 class="mb-0 text-gray-800">Ranking Destinasi Wisata</h4>
+                </div>
+            </div>
+            <table id="datatablesSimple2" class="table table-bordered table-responsive">
+                <thead class="table-primary">
+                    <tr>
+                        <th scope="col">Nama Alternatif</th>
+                        <th scope="col">Jenis Wisata</th>
+                        <th scope="col" class="text-center">Hasil Perhitungan</th>
+                        <th scope="col" class="text-center">Ranking</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!empty($ranks))
+                    @php($rankResult = [])
+                    @foreach ($ranks as $rank)
+                    <tr>
+                        <td>
+                            {{ $rank['wisata_name'] }}
+                        </td>
+                        <td>
+                            {{ $rank['jenis_name'] }}
+                        </td>
+                        <td class="text-center">
+                            {{ round($rank['rank_result'], 4) }}
+                        </td>
+                        <td class="text-center fw-bold">
+                            {{ $loop->iteration }}
+                        </td>
                     </tr>
                     @endforeach
                     @endif

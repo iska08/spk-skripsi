@@ -7,14 +7,14 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item">
                     <a href="{{ route('rank.show', $criteriaAnalysis->id) }}">
-                        Normalisasi Tabel
+                        Perhitungan SAW
                     </a>
                 </li>
-                <li class="breadcrumb-item">
+                {{-- <li class="breadcrumb-item">
                     <a href="{{ route('rank.final', $criteriaAnalysis->id) }}">
                         Rank Wisata
                     </a>
-                </li>
+                </li> --}}
                 <li class="breadcrumb-item active">{{ $title }}</li>
             </ol>
         </div>

@@ -36,7 +36,7 @@ class KombinasiController extends Controller
         }
         $criterias = Criteria::all();
         return view('pages.admin.kombinasi.perbandingan.data', [
-            'title'             => 'Perhitungan Kombinasi',
+            'title'             => 'Perhitungan',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
             'criteria_analysis' => $criteriaAnalysis,
@@ -318,7 +318,7 @@ class KombinasiController extends Controller
             return back()->withError($exception->getMessage())->withInput();
         }
         return view('pages.admin.kombinasi.perbandingan.result', [
-            'title'             => 'Hasil Perhitungan',
+            'title'             => 'Perhitungan Kombinasi',
             'criteria_analysis' => $criteriaAnalysis,
             'totalSums'         => $data['totalSums'],
             'ruleRC'            => $data['ruleRC'],
@@ -413,7 +413,7 @@ class KombinasiController extends Controller
         $data = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank = $this->checkIfAbleToRank();
         return view('pages.admin.kombinasi.perbandingan.detailr', [
-            'title'             => 'Perhitungan Kombinasi',
+            'title'             => 'Detail Perhitungan Kombinasi',
             'criteria_analysis' => $criteriaAnalysis,
             'totalSums'         => $data['totalSums'],
             'ruleRC'            => $data['ruleRC'],

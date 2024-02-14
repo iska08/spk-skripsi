@@ -29,7 +29,6 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Kriteria</th>
-                            <th>Bobot</th>
                             <th>Kategori</th>
                             <th>Keterangan</th>
                             <th>Aksi</th>
@@ -41,7 +40,6 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $criteria->name }}</td>
-                            <td>{{ round($criteria->bobot, 3) }}</td>
                             <td>{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
                             <td>{{ $criteria->keterangan }}</td>
                             <td>

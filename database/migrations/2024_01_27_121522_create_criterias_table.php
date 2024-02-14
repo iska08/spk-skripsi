@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
-            $table->decimal('bobot', 10, 9);
             $table->string('kategori');
             $table->string('keterangan');
             $table->timestamps();

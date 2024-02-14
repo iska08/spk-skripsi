@@ -20,16 +20,6 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="bobot" class="form-label">Bobot Kriteria</label>
-                <input type="number" step="any" class="form-control @error('bobot') is-invalid @enderror" id="bobot" name="bobot"
-                    value="{{ old('bobot', $criteria->bobot) }}" autofocus required>
-                @error('bobot')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-                @enderror
-            </div>
-            <div class="mb-3">
                 <label for="kategori" class="form-label">Kategori</label>
                 <select class="form-select @error('kategori') is-invalid @enderror" id="kategori" name="kategori"
                     required>

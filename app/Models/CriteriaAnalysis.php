@@ -24,4 +24,9 @@ class CriteriaAnalysis extends Model
     {
         return $this->hasMany(PriorityValue::class);
     }
+
+    public function bobots()
+    {
+        return $this->hasMany(Bobot::class);
+    }
 }

@@ -5,17 +5,10 @@
         <div class="col-sm-6 col-md-8">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
-                {{-- @can('admin')
-                <li class="breadcrumb-item">
-                    <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}">
-                        Input Perbandingan Kriteria
-                    </a>
-                </li>
-                @endcan --}}
                 <li class="breadcrumb-item active">{{ $title }}</li>
                 <li class="breadcrumb-item">
                     <a href="{{ route('kombinasi.detailr', $criteria_analysis->id) }}">
-                        Perhitungan
+                        Detail Perhitungan Kombinasi
                     </a>
                 </li>
             </ol>
