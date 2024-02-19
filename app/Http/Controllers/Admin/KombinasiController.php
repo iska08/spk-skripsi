@@ -9,6 +9,7 @@ use App\Models\Criteria;
 use App\Models\CriteriaAnalysis;
 use App\Models\CriteriaAnalysisDetail;
 use App\Models\PriorityValue;
+use App\Models\Bobot;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -287,11 +288,20 @@ class KombinasiController extends Controller
                 'criteria_id'          => $criteria->id,
                 'value'                => floatval($FinalPrevValue),
             ];
+            $bobot = [
+                'criteria_analysis_id' => $criteriaAnalysisId,
+                'criteria_id'          => $criteria->id,
+                'value'                => floatval(0),
+            ];
             // insert or create jika tidak ada
             PriorityValue::updateOrCreate([
                 'criteria_analysis_id' => $criteriaAnalysisId,
                 'criteria_id'          => $criteria->id,
             ], $data);
+            Bobot::updateOrCreate([
+                'criteria_analysis_id' => $criteriaAnalysisId,
+                'criteria_id'          => $criteria->id,
+            ], $bobot);
         }
     }
 
