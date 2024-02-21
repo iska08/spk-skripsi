@@ -19,7 +19,7 @@
             <div class="d-sm-flex align-items-center">
                 {{-- matrik penjumlahan(prespektif nilai) --}}
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Penjumlahan Kolom Kriteria</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Penjumlahan Kolom Kriteria</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -73,7 +73,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Normalisasi Kriteria dan Nilai Prioritas</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Normalisasi Kriteria dan Nilai Prioritas</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -124,7 +124,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Perkalian Setiap Elemen dengan Nilai Prioritas</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Perkalian Setiap Elemen dengan Nilai Prioritas</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -172,7 +172,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Menentukan λmaks dan Rasio Konsistensi</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Menentukan λmaks dan Rasio Konsistensi</h4>
                 </div>
             </div>
             <table class="table table-bordered table-responsive">
@@ -280,7 +280,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Normalisasi Tabel Alternatif</h4>
+                    <h4 class="mb-0 text-gray-800">SAW - Normalisasi Tabel Alternatif</h4>
                 </div>
             </div>
             <table class="table table-bordered table-condensed table-responsive">
@@ -344,7 +344,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Ranking</h4>
+                    <h4 class="mb-0 text-gray-800">SAW - Ranking</h4>
                 </div>
             </div>
             <table id="datatablesSimple2" class="table table-bordered table-responsive">

@@ -10,6 +10,7 @@ use App\Models\CriteriaAnalysis;
 use App\Models\CriteriaAnalysisDetail;
 use App\Models\PriorityValue;
 use App\Models\User;
+use App\Models\Wisata;
 use Illuminate\Http\Request;
 
 class CriteriaPerbandinganController extends Controller
@@ -239,12 +240,38 @@ class CriteriaPerbandinganController extends Controller
     {
         $data = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank = $this->checkIfAbleToRank();
+
+        // Mendapatkan jumlah dan daftar kriteria alternatif
+        $criterias = Criteria::all();
+        $numberOfCriterias = count($criterias);
+        $alternatives = Alternative::all();
+
+        // Menyimpan hasil query untuk data wisata berdasarkan id dari tabel alternative
+        $wisatas = Wisata::whereIn('id', $alternatives->pluck('wisata_id'))->orderBy('name')->get();
+
+        // Memanggil database dengan query yang diminta
+        $nilaiAwals = Alternative::join('wisatas', 'alternatives.wisata_id', '=', 'wisatas.id')
+            ->where('alternatives.criteria_id', $criteriaAnalysis->id) // Filter berdasarkan ID kriteria
+            ->orderBy('wisatas.name')
+            ->get(['alternatives.*']);
+        
+        $nilais     = $nilaiAwals->pluck('alternative_value');
+        $min        = $nilais->min();
+        $max        = $nilais->max();
+        
         return view('pages.admin.kriteria.perbandingan.result', [
-            'title'             => 'Hasil Perbandingan',
+            'title'             => 'Perhitungan AHP',
             'criteria_analysis' => $criteriaAnalysis,
             'totalSums'         => $data['totalSums'],
             'ruleRC'            => $data['ruleRC'],
             'isAbleToRank'      => $isAbleToRank,
+            'numberOfCriterias' => $numberOfCriterias,
+            'alternatives'      => $alternatives,
+            'criterias'         => $criterias,
+            'wisatas'           => $wisatas,
+            'nilais'            => $nilais,
+            'min'               => $min,
+            'max'               => $max,
         ]);
     }
 

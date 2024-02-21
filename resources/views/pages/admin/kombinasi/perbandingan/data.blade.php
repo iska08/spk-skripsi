@@ -49,7 +49,7 @@
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan Kombinasi
                             </a>
-                            <a href="" class="badge bg-success text-decoration-none">
+                            <a href="{{ route('perbandingan.result', $comparison->id) }}" class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan AHP
                             </a>
