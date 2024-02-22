@@ -42,8 +42,8 @@
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Nilai Prioritas</td>
-                        @foreach ($criteriaAnalysis->priorityValues as $key => $innerpriorityvalue)
+                        <td scope="col" class="fw-bold" style="width:11%">Bobot</td>
+                        @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
                         <td>
                             {{ round($innerpriorityvalue->value, 3) }}
                         </td>
@@ -58,7 +58,7 @@
                         <th scope="col" class="text-center">Nama Alternatif</th>
                         <th scope="col" class="text-center">Jenis Wisata</th>
                         @foreach ($dividers as $divider)
-                        <th scope="col">{{ $divider['name'] }}</th>
+                        <th scope="col">{{ $divider['nama_kriteria'] }}</th>
                         @endforeach
                     </tr>
                 </thead>
@@ -112,7 +112,7 @@
                         <th scope="col">Jenis Wisata</th>
                         @foreach ($dividers as $divider)
                         <th scope="col">
-                            Hitung {{ $divider['name'] }}
+                            Hitung {{ $divider['nama_kriteria'] }}
                         </th>
                         @endforeach
                         <th scope="col" class="text-center">Hasil Perhitungan</th>

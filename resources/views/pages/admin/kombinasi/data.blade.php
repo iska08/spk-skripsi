@@ -39,7 +39,7 @@
                         @foreach ($criterias as $criteria)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $criteria->name }}</td>
+                            <td>{{ $criteria->nama_kriteria }}</td>
                             <td>{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
                             <td>{{ $criteria->keterangan }}</td>
                             <td>

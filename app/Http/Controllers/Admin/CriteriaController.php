@@ -43,7 +43,7 @@ class CriteriaController extends Controller
     public function store(CriteriaStoreRequest $request)
     {
         $validatedData   = $request->validated();
-        $request['slug'] = Str::slug($request->name, '-');
+        $request['slug'] = Str::slug($request->nama_kriteria, '-');
         Criteria::create($validatedData);
         return redirect('/dashboard/kriteria')->with('success', 'Kriteria Baru Telah Ditambahkan!');
     }
@@ -69,7 +69,7 @@ class CriteriaController extends Controller
     {
         $kriterium = Criteria::FindOrFail($id);
         return view('pages.admin.kriteria.edit', [
-            'title'    => "Edit Kriteria $kriterium->name",
+            'title'    => "Edit Kriteria $kriterium->nama_kriteria",
             'criteria' => $kriterium,
         ]);
     }
@@ -84,7 +84,7 @@ class CriteriaController extends Controller
     public function update(CriteriaUpdateRequest $request, $id)
     {
         $data = $request->validated();
-        $data['slug'] = Str::slug($data['name'], '-');
+        $data['slug'] = Str::slug($data['nama_kriteria'], '-');
         $item = Criteria::findOrFail($id);
         $item->update($data);
         return redirect('/dashboard/kriteria')->with('success', 'Kriteria yang Dipilih Telah Diperbarui!');

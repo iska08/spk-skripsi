@@ -25,13 +25,13 @@ class KombinasiController extends Controller
         if (auth()->user()->level === 'ADMIN' || auth()->user()->level === 'USER') {
             $comparisons = CriteriaAnalysis::with('user')->with(['details' => function ($query) {
                 $query->join('criterias', 'criteria_analysis_details.criteria_id_second', '=', 'criterias.id')
-                ->select('criteria_analysis_details.*', 'criterias.name as criteria_name')
+                ->select('criteria_analysis_details.*', 'criterias.nama_kriteria as criteria_name')
                 ->orderBy('criterias.id');
             }])
             ->get();
             $criteriaAnalysis = CriteriaAnalysis::with('user')->with(['details' => function ($query) {
                 $query->join('criterias', 'criteria_analysis_details.criteria_id_second', '=', 'criterias.id')
-                    ->select('criteria_analysis_details.*', 'criterias.name as criteria_name')
+                    ->select('criteria_analysis_details.*', 'criterias.nama_kriteria as criteria_name')
                     ->orderBy('criterias.id');
             }])->get();
         }
@@ -388,8 +388,8 @@ class KombinasiController extends Controller
                 'criteria_id_second'   => $criteria->id
             ])->sum('comparison_result');
             $data = [
-                'name'     => $criteria->name,
-                'totalSum' => floatval($totalPerCriteria)
+                'nama_kriteria' => $criteria->nama_kriteria,
+                'totalSum'      => floatval($totalPerCriteria)
             ];
             array_push($result, $data);
         }

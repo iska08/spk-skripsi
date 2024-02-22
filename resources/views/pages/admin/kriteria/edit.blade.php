@@ -10,10 +10,10 @@
             @method('PUT')
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Nama Kriteria</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    value="{{ old('name', $criteria->name) }}" autofocus required>
-                @error('name')
+                <label for="nama_kriteria" class="form-label">Nama Kriteria</label>
+                <input type="text" class="form-control @error('nama_kriteria') is-invalid @enderror" id="nama_kriteria" name="nama_kriteria"
+                    value="{{ old('nama_kriteria', $criteria->nama_kriteria) }}" autofocus required>
+                @error('nama_kriteria')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

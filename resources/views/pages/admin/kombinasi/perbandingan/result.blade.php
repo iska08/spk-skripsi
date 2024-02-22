@@ -28,7 +28,7 @@
                         <th scope="col">Kriteria</th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
                         <th scope="col">
-                            {{ $priorityValue->criteria->name }}
+                            {{ $priorityValue->criteria->nama_kriteria }}
                         </th>
                         @endforeach
                     </tr>
@@ -39,7 +39,7 @@
                     @php($bgYellow = 'bg-warning text-dark')
                     <tr>
                         <th scope="row" class="text-center table-primary">
-                            {{ $priorityValue->criteria->name }}
+                            {{ $priorityValue->criteria->nama_kriteria }}
                         </th>
                         @foreach ($criteria_analysis->priorityValues as $priorityvalue)
                         @if (
@@ -82,7 +82,7 @@
                         <th scope="col">Kriteria</th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
                         <th scope="col">
-                            {{ $priorityValue->criteria->name }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}</th>
                         @endforeach
                         <th scope="col" class="text-center table-primary">Jumlah</th>
                         <th scope="col" class="text-center table-dark text-white">Nilai Prioritas</th>
@@ -96,7 +96,7 @@
                     @php($bgYellow = 'bg-warning text-dark')
                     <tr>
                         <th scope="row" class="table-primary text-center">
-                            {{ $priorityValue->criteria->name }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}</th>
                         @foreach ($criteria_analysis->priorityValues as $key => $priorityvalue)
                         <td class="text-center">
                             @php($res = floatval($criteria_analysis->details[$startAt]->comparison_result) /
@@ -132,7 +132,7 @@
                     <tr>
                         <th scope="col">Kriteria</th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
-                        <th scope="col">{{ $priorityValue->criteria->name }}</th>
+                        <th scope="col">{{ $priorityValue->criteria->nama_kriteria }}</th>
                         @endforeach
                         <th scope="col" class="table-dark text-white">Jumlah Baris</th>
                     </tr>
@@ -144,7 +144,7 @@
                     @php($rowTotal = 0)
                     <tr>
                         <th scope="row" class="table-primary text-center">
-                            {{ $priorityValue->criteria->name }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}</th>
                         @foreach ($criteria_analysis->priorityValues as $key => $innerpriorityvalue)
                         <td class="text-center">
                             @php($res = floatval($criteria_analysis->details[$startAt]->comparison_result) *
@@ -190,7 +190,7 @@
                     @foreach ($rowTotals as $key => $total)
                     <tr>
                         <td scope="row">
-                            {{ $criteria_analysis->priorityValues[$key]->criteria->name }}
+                            {{ $criteria_analysis->priorityValues[$key]->criteria->nama_kriteria }}
                         </td>
                         <td class="text-center">
                             {{ round($total, 2) }}
@@ -306,7 +306,7 @@
                         <th scope="col" class="text-center">Nama Alternatif</th>
                         <th scope="col" class="text-center">Jenis Wisata</th>
                         @foreach ($dividers as $divider)
-                        <th scope="col">{{ $divider['name'] }}</th>
+                        <th scope="col">{{ $divider['nama_kriteria'] }}</th>
                         @endforeach
                     </tr>
                 </thead>

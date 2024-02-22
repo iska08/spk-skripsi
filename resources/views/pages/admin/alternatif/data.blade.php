@@ -71,7 +71,7 @@
                     <tr>
                         @if ($criterias->count())
                         @foreach ($criterias as $criteria)
-                        <th class="text-center">{{ $criteria->name }}</th>
+                        <th class="text-center">{{ $criteria->nama_kriteria }}</th>
                         @endforeach
                         @else
                         <th class="text-center">Data Kriteria Tidak Ditemukan</th>
@@ -86,7 +86,7 @@
                             {{ ($alternatives->currentpage() - 1) * $alternatives->perpage() + $loop->index + 1 }}
                         </td>
                         <td>
-                            {{ Str::ucfirst(Str::upper($alternative->name)) }}
+                            {{ Str::ucfirst(Str::upper($alternative->nama_wisata)) }}
                         </td>
                         <td class="text-center">
                             {{ $alternative->jenis->jenis_name }}
@@ -161,7 +161,7 @@
                             <optgroup label="Destinasi {{ $jenis }}: {{ $wisatas->count() }}">
                                 @foreach ($wisatas as $wisata)
                                 <option value="{{ $wisata->id }} {{ $wisata->jenisId }}">
-                                    {{ $wisata->name }} - {{ $wisata->jenis->jenis_name }}
+                                    {{ $wisata->nama_wisata }} - {{ $wisata->jenis->jenis_name }}
                                 </option>
                                 @endforeach
                             </optgroup>
@@ -181,10 +181,10 @@
                     @foreach ($criterias as $key => $criteria)
                     <input type="hidden" name="criteria_id[]" value="{{ $criteria->id }}">
                     <div class="my-2">
-                        <label for="{{ str_replace(' ', '', $criteria->name) }}" class="form-label">
-                            Nilai <b> {{ $criteria->name }} </b>
+                        <label for="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" class="form-label">
+                            Nilai <b> {{ $criteria->nama_kriteria }} </b>
                         </label>
-                        <input type="text" id="{{ str_replace(' ', '', $criteria->name) }}"
+                        <input type="text" id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}"
                             class="form-control @error('alternative_value') 'is-invalid' : '' @enderror"
                             name="alternative_value[]" placeholder="Masukkan Nilai"
                             onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57)|| event.charCode == 46)"

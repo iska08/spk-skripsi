@@ -81,7 +81,7 @@
                                         <td scope="row">
                                             {{ ($wisatas->currentpage() - 1) * $wisatas->perpage() + $loop->index + 1 }}
                                         </td>
-                                        <td>{{ Str::ucfirst(Str::upper($wisata->name)) }}</td>
+                                        <td>{{ Str::ucfirst(Str::upper($wisata->nama_wisata)) }}</td>
                                         <td><a href="{{ $wisata->lokasi_maps }}">{{ $wisata->lokasi_maps }}</a></td>
                                         <td>{{ $wisata->fasilitas }}</td>
                                         <td>Rp {{ number_format($wisata->biaya, 0, ',', '.') }}</td>

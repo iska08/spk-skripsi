@@ -105,7 +105,7 @@
                                     <th scope="row" class="text-center">
                                         <input type="checkbox" value="{{ $criteria->id }}" name="criteria_id[]">
                                     </th>
-                                    <td>{{ $criteria->name }}</td>
+                                    <td>{{ $criteria->nama_kriteria }}</td>
                                     <td>{{ Str::ucfirst(Str::lower($criteria->kategori)) }}
                                     </td>
                                 </tr>

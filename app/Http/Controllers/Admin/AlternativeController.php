@@ -40,12 +40,12 @@ class AlternativeController extends Controller
         // menampilkan data alternatif
         $alternatives = Wisata::join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
             ->whereIn('wisatas.id', $usedIdsFix)
-            ->orderBy('wisatas.name')
+            ->orderBy('wisatas.nama_wisata')
             ->with('alternatives');
         // filter search
         if (request('search')) {
             $alternatives = Wisata::join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
-                ->where('wisatas.name', 'LIKE', '%' . request('search') . '%')
+                ->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('jenis.jenis_name', 'LIKE', '%' . request('search') . '%')
                 ->whereIn('wisatas.id', $usedIdsFix)
                 ->with('alternatives');
@@ -54,7 +54,7 @@ class AlternativeController extends Controller
         $wisatasList = Wisata::join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
             ->whereNotIn('wisatas.id', $usedIdsFix)
             ->orderBy('jenis.id')
-            ->orderBy('wisatas.name', 'ASC')
+            ->orderBy('wisatas.nama_wisata', 'ASC')
             ->get(['wisatas.*', 'jenis.id as jenisId'])
             ->groupBy('jenis.jenis_name');
         // Get value halaman yang dipilih dari dropdown
@@ -133,7 +133,7 @@ class AlternativeController extends Controller
         $newCriterias      = Criteria::whereNotIn('id', $selectedCriteria)->get();
         $alternatives      = Wisata::where('id', $alternatif->wisata_id)->with('alternatives', 'alternatives.criteria')->first();
         return view('pages.admin.alternatif.edit', [
-            'title'        => "Edit Nilai $alternatives->name",
+            'title'        => "Edit Nilai $alternatives->nama_wisata",
             'alternatives' => $alternatives,
             'newCriterias' => $newCriterias
         ]);

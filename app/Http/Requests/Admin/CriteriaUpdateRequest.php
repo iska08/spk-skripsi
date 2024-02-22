@@ -25,9 +25,9 @@ class CriteriaUpdateRequest extends FormRequest
     {
         $id = $this->route('kriterium');
         return [
-            'name'       => 'required|max:60|unique:criterias,name,' . $id,
-            'kategori'   => 'required',
-            'keterangan' => 'required'
+            'nama_kriteria' => 'required|max:60|unique:criterias,nama_kriteria,' . $id,
+            'kategori'      => 'required',
+            'keterangan'    => 'required'
         ];
     }
 }

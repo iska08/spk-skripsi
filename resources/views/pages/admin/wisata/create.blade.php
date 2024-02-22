@@ -14,11 +14,11 @@
         @csrf
         {{-- nama destinasi wisata --}}
         <div class="mb-3">
-            <label for="name" class="form-label">Nama Destinasi Wisata</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                value="{{ old('name') }}" autofocus required placeholder="Nama Destinasi Wisata">
+            <label for="nama_wisata" class="form-label">Nama Destinasi Wisata</label>
+            <input type="text" class="form-control @error('nama_wisata') is-invalid @enderror" id="nama_wisata" name="nama_wisata"
+                value="{{ old('nama_wisata') }}" autofocus required placeholder="Nama Destinasi Wisata">
 
-            @error('name')
+            @error('nama_wisata')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

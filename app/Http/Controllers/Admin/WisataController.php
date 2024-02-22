@@ -26,10 +26,10 @@ class WisataController extends Controller
     public function index(Request $request)
     {
         // mengurutkan
-        $wisatas = Wisata::orderby('name');
+        $wisatas = Wisata::orderby('nama_wisata');
         if (request('search')) {
             $wisatas->join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
-                ->where('wisatas.name', 'LIKE', '%' . request('search') . '%')
+                ->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('wisatas.biaya', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('jenis.jenis_name', 'LIKE', '%' . request('search') . '%')
                 ->get();
@@ -99,7 +99,7 @@ class WisataController extends Controller
         $wisata = Wisata::FindOrFail($id);
         $jenises = Jenis::orderBy('jenis_name')->get();
         return view('pages.admin.wisata.edit', [
-            'title'   => "Edit Data $wisata->name",
+            'title'   => "Edit Data $wisata->nama_wisata",
             'wisata'  => $wisata,
             'jenises' => $jenises
         ]);

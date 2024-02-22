@@ -34,7 +34,7 @@
                             <tr>
                                 <input type="hidden" name="criteria_analysis_detail_id[]" value="{{ $detail->id }}">
                                 <td class="text-center">
-                                    {{ $detail->firstCriteria->name }}
+                                    {{ $detail->firstCriteria->nama_kriteria }}
                                 </td>
                                 <td class="text-center">
                                     <select class="form-select" name="comparison_values[]" required>
@@ -69,7 +69,7 @@
                                     </select>
                                 </td>
                                 <td class="text-center">
-                                    {{ $detail->secondCriteria->name }}
+                                    {{ $detail->secondCriteria->nama_kriteria }}
                                 </td>
                             </tr>
                             @endforeach

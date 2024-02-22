@@ -10,10 +10,10 @@
     <fieldset disabled>
         <div class="row">
             <div class="mb-3 col-lg-6">
-                <label for="name" class="form-label">Destinasi Wisata yang Dipilih</label>
-                <input type="text" class="form-control" id="disabledTextInput" id="name"
-                    value="{{ old('name', $alternatives->name) }}" readonly required>
-                @error('name')
+                <label for="nama_wisata" class="form-label">Destinasi Wisata yang Dipilih</label>
+                <input type="text" class="form-control" id="disabledTextInput" id="nama_wisata"
+                    value="{{ old('nama_wisata', $alternatives->nama_wisata) }}" readonly required>
+                @error('nama_wisata')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -35,10 +35,10 @@
     <div class="mb-3">
         <input type="hidden" name="criteria_id[]" value="{{ $value->criteria->id }}">
         <input type="hidden" name="alternative_id[]" value="{{ $value->id }}">
-        <label for="{{ str_replace(' ', '', $value->criteria->name) }}" class="form-label">
-            Nilai <b> {{ $value->criteria->name }} </b>
+        <label for="{{ str_replace(' ', '', $value->criteria->nama_kriteria) }}" class="form-label">
+            Nilai <b> {{ $value->criteria->nama_kriteria }} </b>
         </label>
-        <input type="text" id="{{ str_replace(' ', '', $value->criteria->name) }}"
+        <input type="text" id="{{ str_replace(' ', '', $value->criteria->nama_kriteria) }}"
             class="form-control @error('alternative_value') 'is-invalid' : '' @enderror" name="alternative_value[]"
             placeholder="Enter the value"
             onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57)|| event.charCode == 46)"

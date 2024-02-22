@@ -8,10 +8,10 @@
         <form class="col-lg-8" method="POST" action="{{ route('kriteria.index') }}" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Nama kriteria</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                    value="{{ old('name') }}" autofocus required placeholder="Masukan kriteria">
-                @error('name')
+                <label for="nama_kriteria" class="form-label">Nama kriteria</label>
+                <input type="text" class="form-control @error('nama_kriteria') is-invalid @enderror" id="nama_kriteria" name="nama_kriteria"
+                    value="{{ old('nama_kriteria') }}" autofocus required placeholder="Masukan kriteria">
+                @error('nama_kriteria')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

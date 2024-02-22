@@ -24,7 +24,7 @@ class WisataUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        => 'required|max:60|min:5',
+            'nama_wisata' => 'required|max:60|min:5',
             'lokasi_maps' => 'required',
             'fasilitas'   => 'required',
             'biaya'       => 'required',

@@ -103,7 +103,7 @@
                         <th scope="col" class="text-center">Nama Alternatif</th>
                         <th scope="col" class="text-center">Jenis Wisata</th>
                         @foreach ($dividers as $divider)
-                        <th scope="col">{{ $divider['name'] }}</th>
+                        <th scope="col">{{ $divider['nama_kriteria'] }}</th>
                         @endforeach
                     </tr>
                 </thead>
