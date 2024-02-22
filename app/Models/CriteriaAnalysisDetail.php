@@ -37,7 +37,7 @@ class CriteriaAnalysisDetail extends Model
         return static::where('criteria_analysis_id', $analysisId)
             ->join('criterias', 'criteria_id_first', '=', 'criterias.id')
             ->select('criterias.*')
-            ->groupBy('criterias.name')
+            ->groupBy('criterias.nama_kriteria')
             ->orderBy('criterias.id')
             ->get();
     }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('wisatas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenis_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
+            $table->string('nama_wisata');
             $table->string('lokasi_maps');
             $table->string('fasilitas');
             $table->integer('biaya');

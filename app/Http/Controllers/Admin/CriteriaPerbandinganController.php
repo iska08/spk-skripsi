@@ -242,23 +242,24 @@ class CriteriaPerbandinganController extends Controller
         $isAbleToRank = $this->checkIfAbleToRank();
 
         // Mendapatkan jumlah dan daftar kriteria alternatif
-        $criterias = Criteria::all();
+        $criterias  = Criteria::all();
+        $criteriaId = $criterias->pluck('id')->toArray();
         $numberOfCriterias = count($criterias);
         $alternatives = Alternative::all();
 
         // Menyimpan hasil query untuk data wisata berdasarkan id dari tabel alternative
-        $wisatas = Wisata::whereIn('id', $alternatives->pluck('wisata_id'))->orderBy('name')->get();
+        $wisatas = Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
+            ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
+            ->where('alternatives.criteria_id', $criteriaId)
+            ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
+            ->orderBy('wisatas.nama_wisata')
+            ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
 
-        // Memanggil database dengan query yang diminta
-        $nilaiAwals = Alternative::join('wisatas', 'alternatives.wisata_id', '=', 'wisatas.id')
-            ->where('alternatives.criteria_id', $criteriaAnalysis->id) // Filter berdasarkan ID kriteria
-            ->orderBy('wisatas.name')
-            ->get(['alternatives.*']);
-        
-        $nilais     = $nilaiAwals->pluck('alternative_value');
-        $min        = $nilais->min();
-        $max        = $nilais->max();
-        
+        $min        = $wisatas->min('alternative_value');
+        $max        = $wisatas->max('alternative_value');
+        // $sumMin     = array_sum($min);
+        // $sumMax     = array_sum($max);
+
         return view('pages.admin.kriteria.perbandingan.result', [
             'title'             => 'Perhitungan AHP',
             'criteria_analysis' => $criteriaAnalysis,
@@ -269,9 +270,10 @@ class CriteriaPerbandinganController extends Controller
             'alternatives'      => $alternatives,
             'criterias'         => $criterias,
             'wisatas'           => $wisatas,
-            'nilais'            => $nilais,
             'min'               => $min,
             'max'               => $max,
+            // 'sumMin'            => $sumMin,
+            // 'sumMax'            => $sumMax,
         ]);
     }
 
