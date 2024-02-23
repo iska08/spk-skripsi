@@ -246,20 +246,6 @@ class CriteriaPerbandinganController extends Controller
         $criteriaId = $criterias->pluck('id')->toArray();
         $numberOfCriterias = count($criterias);
         $alternatives = Alternative::all();
-
-        // Menyimpan hasil query untuk data wisata berdasarkan id dari tabel alternative
-        $wisatas = Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
-            ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
-            ->where('alternatives.criteria_id', $criteriaId)
-            ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
-            ->orderBy('wisatas.nama_wisata')
-            ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
-
-        $min        = $wisatas->min('alternative_value');
-        $max        = $wisatas->max('alternative_value');
-        // $sumMin     = array_sum($min);
-        // $sumMax     = array_sum($max);
-
         return view('pages.admin.kriteria.perbandingan.result', [
             'title'             => 'Perhitungan AHP',
             'criteria_analysis' => $criteriaAnalysis,
@@ -269,11 +255,6 @@ class CriteriaPerbandinganController extends Controller
             'numberOfCriterias' => $numberOfCriterias,
             'alternatives'      => $alternatives,
             'criterias'         => $criterias,
-            'wisatas'           => $wisatas,
-            'min'               => $min,
-            'max'               => $max,
-            // 'sumMin'            => $sumMin,
-            // 'sumMax'            => $sumMax,
         ]);
     }
 

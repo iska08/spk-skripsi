@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
     <main>
         <div class="container-fluid px-4">
@@ -13,7 +12,6 @@
                     </ol>
                 </div>
             </div>
-
             {{-- datatable --}}
             <div class="card mb-4">
                 <div class="card-body table-responsive">
@@ -22,7 +20,6 @@
                                 class="fas fa-plus me-1"></i>Destinasi Wisata
                         </a>
                     </div>
-
                     {{-- validation error file required --}}
                     @if (session('error'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -30,7 +27,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-
                     {{-- file request --}}
                     @if ($errors->any())
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -40,7 +36,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif
-
                     <div class="d-sm-flex align-items-center justify-content-between">
                         <div class="d-sm-flex align-items-center mb-3">
                             <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
@@ -52,7 +47,6 @@
                             </select>
                             <label class="form-label col-lg-7 col-sm-7 col-md-7" for="perPage">entries per page</label>
                         </div>
-
                         <form action="{{ route('wisata.index') }}" method="GET" class="ms-auto float-end">
                             <div class="input-group mb-3">
                                 <input type="text" name="search" id="myInput" class="form-control"
@@ -61,34 +55,38 @@
                             </div>
                         </form>
                     </div>
-
                     <table class="table table-bordered">
-                        <thead class="table-primary">
+                        <thead class="table-primary align-middle text-center">
                             <tr>
-                                <th>No</th>
-                                <th>Nama Destinasi Wisata</th>
-                                <th>Link Google Maps</th>
-                                <th>Fasilitas</th>
-                                <th>Biaya</th>
-                                <th>Jenis Wisata</th>
-                                <th>Aksi</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Nama Destinasi Wisata</th>
+                                <th class="text-center">Link Google Maps</th>
+                                <th class="text-center">Fasilitas</th>
+                                <th class="text-center">Biaya</th>
+                                <th class="text-center">Jenis Wisata</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if ($wisatas->count())
                                 @foreach ($wisatas as $wisata)
                                     <tr>
-                                        <td scope="row">
+                                        <td scope="row" class="text-center">
                                             {{ ($wisatas->currentpage() - 1) * $wisatas->perpage() + $loop->index + 1 }}
                                         </td>
-                                        <td>{{ Str::ucfirst(Str::upper($wisata->nama_wisata)) }}</td>
+                                        <td class="text-center">
+                                            {{ Str::ucfirst(Str::upper($wisata->nama_wisata)) }}
+                                        </td>
                                         <td><a href="{{ $wisata->lokasi_maps }}">{{ $wisata->lokasi_maps }}</a></td>
                                         <td>{{ $wisata->fasilitas }}</td>
                                         <td>Rp {{ number_format($wisata->biaya, 0, ',', '.') }}</td>
-                                        <td>{{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}</td>
+                                        <td class="text-center">
+                                            {{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
+                                        </td>
                                         <td>
-                                            <a href="{{ route('wisata.edit', $wisata->id) }}" class="badge bg-warning"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="{{ route('wisata.edit', $wisata->id) }}" class="badge bg-warning">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
                                             <form action="{{ route('wisata.destroy', $wisata->id) }}" method="POST"
                                                 class="d-inline">
                                                 @method('delete')
@@ -113,22 +111,17 @@
             </div>
         </div>
     </main>
-
     <script>
         function submitForm() {
             var perPageSelect = document.getElementById('perPage');
             var perPageValue = perPageSelect.value;
-
             var currentPage = {{ $wisatas->currentPage() }};
             var url = new URL(window.location.href);
             var params = new URLSearchParams(url.search);
-
             params.set('perPage', perPageValue);
-
             if (!params.has('page')) {
                 params.set('page', currentPage);
             }
-
             url.search = params.toString();
             window.location.href = url.toString();
         }

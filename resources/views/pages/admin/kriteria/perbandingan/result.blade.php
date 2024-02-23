@@ -178,7 +178,7 @@
             <table class="table table-bordered table-responsive">
                 <thead class="table-primary align-middle">
                     <tr>
-                        <th scope="col">Kriteria</th>
+                        <th scope="col" class="text-center">Kriteria</th>
                         <th scope="col" class="text-center">Jumlah Baris</th>
                         <th scope="col" class="text-center">Nilai Prioritas</th>
                         <th scope="col" class="text-center">λ</th>
@@ -189,7 +189,7 @@
                     @php($lambdaResult = [])
                     @foreach ($rowTotals as $key => $total)
                     <tr>
-                        <td scope="row">
+                        <td scope="row" class="text-center">
                             {{ $criteria_analysis->priorityValues[$key]->criteria->nama_kriteria }}
                         </td>
                         <td class="text-center">
@@ -222,33 +222,33 @@
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
-                                <th scope="row">Banyak Kriteria</th>
-                                <td>{{ $criteria_analysis->priorityValues->count() }}</td>
+                                <th scope="row" class="text-center">Banyak Kriteria</th>
+                                <td class="text-center">{{ $criteria_analysis->priorityValues->count() }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">λmaks</th>
-                                <td>{{ round($lambdaMax, 2) }}</td>
+                                <th scope="row" class="text-center">λmaks</th>
+                                <td class="text-center">{{ round($lambdaMax, 2) }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Indeks Konsistensi</th>
-                                <td>
+                                <th scope="row" class="text-center">Indeks Konsistensi</th>
+                                <td class="text-center">
                                     @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
                                     {{ round($CI, 2) }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Konsistensi Random</th>
-                                <td>
+                                <th scope="row" class="text-center">Konsistensi Random</th>
+                                <td class="text-center">
                                     @php($RC = $ruleRC[$criteria_analysis->priorityValues->count()])
                                     {{ $RC }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Rasio Konsistensi</th>
+                                <th scope="row" class="text-center">Rasio Konsistensi</th>
                                 @php($CR = $RC != 0.0 ? $CI / $RC : 0.0)
                                 @php($txtClass = 'text-danger fw-bold')
                                 @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
-                                    class="{{ $txtClass }}">
+                                    class="{{ $txtClass }} text-center">
                                     <span id="cr-value">{{ round($CR, 2) }}</span>
                                     (Nilai Konsisten)
                                     </td>
@@ -285,49 +285,88 @@
             </div>
             <div>
                 @foreach($criterias as $criterion)
-                    <table class="table table-bordered">
-                        <thead class="table-primary align-middle text-center">
-                            <tr>
-                                <th colspan="{{ count($alternatives) + 1 }}">{{ 'Perbandingan Berpasangan untuk Kriteria: ' . $criterion->nama_kriteria }}</th>
-                            </tr>
-                            <tr>
-                                <th>Alternatif</th>
-                                <th>Nilai</th>
-                                @if($criterion->kategori === "COST")
-                                    <th>Nilai MIN / Nilai</th>
-                                @elseif($criterion->kategori === "BENEFIT")
-                                    <th>Nilai / Nilai MAX</th>
-                                @endif
-                                <th>Eigen Vector</th>
-                            </tr>
-                        </thead>
-                        <tbody class="align-middle">
-                            <?php
+                <?php
+                $criteriaId = $criterion->id;
+                $wisatas = \App\Models\Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
+                    ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
+                    ->where('alternatives.criteria_id', $criteriaId)
+                    ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
+                    ->orderBy('wisatas.nama_wisata')
+                    ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
+                $min = $wisatas->min('alternative_value');
+                $max = $wisatas->max('alternative_value');
+                ?>
+                <table class="table table-bordered">
+                    <thead class="table-primary align-middle text-center">
+                        <tr>
+                            <th colspan="{{ count($alternatives) + 1 }}">
+                                {{ 'Perbandingan Berpasangan Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>Alternatif</th>
+                            <th>Nilai</th>
+                            @if($criterion->kategori === "COST")
+                            <th>Nilai MIN / Nilai</th>
+                            @elseif($criterion->kategori === "BENEFIT")
+                            <th>Nilai / Nilai MAX</th>
+                            @endif
+                            {{-- <th>Eigen Vector</th> --}}
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        <?php
                             $sumMin = 0;
                             $sumMax = 0;
                             ?>
-                            @foreach ($wisatas as $wisata)
-                            <tr>
-                                <td>{{ $wisata->nama_wisata }}</td>
-                                <td>{{ $wisata->alternative_value }}</td>
-                                @if($criterion->kategori === "COST")
-                                    <td>{{ round($min/$wisata->alternative_value, 4) }}</td>
-                                @elseif($criterion->kategori === "BENEFIT")
-                                    <td>{{ round($wisata->alternative_value/$max, 4) }}</td>
-                                @endif
-                                <?php
-                                $sumMin += $min/$wisata->alternative_value;
-                                $sumMax += $wisata->alternative_value/$max;
-                                ?>
-                                @if($criterion->kategori === "COST")
-                                    <td>{{ round($min/$wisata->alternative_value, 4) }}</td>
-                                @elseif($criterion->kategori === "BENEFIT")
-                                    <td>{{ round($wisata->alternative_value/$max, 4) }}</td>
-                                @endif
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                        @foreach ($wisatas as $wisata)
+                        <tr>
+                            <td class="text-center">{{ $wisata->nama_wisata }}</td>
+                            <td class="text-center">{{ $wisata->alternative_value }}</td>
+                            @if($criterion->kategori === "COST")
+                                <td class="text-center">{{ round($min/$wisata->alternative_value, 3) }}</td>
+                            @elseif($criterion->kategori === "BENEFIT")
+                                <td class="text-center">{{ round($wisata->alternative_value/$max, 3) }}</td>
+                            @endif
+                            <?php
+                            $sumMin += $min/$wisata->alternative_value;
+                            $sumMax += $wisata->alternative_value/$max;
+                            ?>
+                        </tr>
+                        @endforeach
+                        <tr>
+                            <td colspan="2" class="text-center">
+                                <strong>Total</strong>
+                            </td>
+                            @if($criterion->kategori === "COST")
+                                <td class="text-center">{{ $sumMin }}</td>
+                            @elseif($criterion->kategori === "BENEFIT")
+                                <td class="text-center">{{ $sumMax }}</td>
+                            @endif
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered">
+                    <thead class="table-primary align-middle text-center">
+                        <tr>
+                            <th colspan="{{ count($alternatives) + 1 }}">
+                                {{ 'Eigen Vektor Perbandingan Berpasangan Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        @foreach ($wisatas as $wisata)
+                        <tr>
+                            <td class="text-center">{{ $wisata->nama_wisata }}</td>
+                            @if($criterion->kategori === "COST")
+                                <td class="text-center">{{ round(($min/$wisata->alternative_value)/$sumMin, 3) }}</td>
+                            @elseif($criterion->kategori === "BENEFIT")
+                                <td class="text-center">{{ round(($wisata->alternative_value/$max)/$sumMax, 3) }}</td>
+                            @endif
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
                 @endforeach
             </div>
         </div>

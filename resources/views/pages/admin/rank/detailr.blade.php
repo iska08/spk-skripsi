@@ -10,11 +10,6 @@
                         Perhitungan SAW
                     </a>
                 </li>
-                {{-- <li class="breadcrumb-item">
-                    <a href="{{ route('rank.final', $criteriaAnalysis->id) }}">
-                        Rank Wisata
-                    </a>
-                </li> --}}
                 <li class="breadcrumb-item active">{{ $title }}</li>
             </ol>
         </div>
@@ -30,21 +25,21 @@
             <table class="table table-bordered table-condensed table-responsive">
                 <tbody>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Kategori</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Kategori</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['kategori'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['kategori'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Nilai Pembagi</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Pembagi</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['divider_value'] }}</td>
+                        <td  class="text-center" scope="col">{{ $divider['divider_value'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Bobot</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Bobot</td>
                         @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
-                        <td>
+                        <td class="text-center">
                             {{ round($innerpriorityvalue->value, 3) }}
                         </td>
                         @endforeach
@@ -131,7 +126,7 @@
                         <td>
                             {{ $rank['jenis_name'] }}
                         </td>
-                        @foreach ($criteriaAnalysis->priorityValues as $key => $innerpriorityvalue)
+                        @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
                         @php($hasilNormalisasi = isset($rank['results'][$key]) ? $rank['results'][$key] : 0)
                         <td class="text-center">
                             @php($kali = $innerpriorityvalue->value * $hasilNormalisasi)

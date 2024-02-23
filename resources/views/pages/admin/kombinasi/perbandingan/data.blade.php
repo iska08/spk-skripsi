@@ -19,7 +19,7 @@
             </button>
             @endcan
             <table class="table table-bordered table-responsive">
-                <thead class="table-primary">
+                <thead class="table-primary align-middle text-center">
                     <tr>
                         <th>No</th>
                         <th>Dibuat Oleh</th>
@@ -32,8 +32,8 @@
                     @if ($comparisons->count())
                     @foreach ($comparisons as $comparison)
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $comparison->user->name }}</td>
+                        <td class="text-center">{{ $loop->iteration }}</td>
+                        <td class="text-center">{{ $comparison->user->name }}</td>
                         <td>
                             @foreach ($comparison->details->unique('criteria_id_second') as $key => $detail)
                             {{ $detail->criteria_name }}
@@ -43,7 +43,7 @@
                             @endforeach
                         </td>
                         <td>{{ $comparison->created_at->toDayDateTimeString() }}</td>
-                        <td>
+                        <td class="text-center">
                             <a href="{{ route('kombinasi.result', $comparison->id) }}"
                                 class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>

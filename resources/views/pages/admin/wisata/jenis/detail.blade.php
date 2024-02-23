@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
     <div class="container-fluid px-4">
         <h1 class="mt-4">Detail Jenis Wisata: {{ $jenis }}</h1>
@@ -8,7 +7,6 @@
             <li class="breadcrumb-item"><a href="{{ route('jenis.index') }}">Data Jenis Wisata</a></li>
             <li class="breadcrumb-item active">{{ $title }}</li>
         </ol>
-
         {{-- datatable --}}
         <div class="card col-lg-10">
             <div class="card-body table-responsive">

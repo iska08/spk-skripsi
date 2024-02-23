@@ -25,7 +25,7 @@
                     Kriteria
                 </a>
                 <table class="table table-bordered">
-                    <thead class="table-primary">
+                    <thead class="table-primary align-middle text-center">
                         <tr>
                             <th>No</th>
                             <th>Nama Kriteria</th>
@@ -38,9 +38,9 @@
                         @if ($criterias->count())
                         @foreach ($criterias as $criteria)
                         <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $criteria->nama_kriteria }}</td>
-                            <td>{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td class="text-center">{{ $criteria->nama_kriteria }}</td>
+                            <td class="text-center">{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
                             <td>{{ $criteria->keterangan }}</td>
                             <td>
                                 <a href="{{ route('kriteria.edit', $criteria->id) }}" class="badge bg-warning">

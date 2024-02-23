@@ -18,7 +18,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Penjumlahan Kolom Kriteria</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Penjumlahan Kolom Kriteria</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -79,7 +79,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Normalisasi Kriteria dan Nilai Prioritas</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Normalisasi Kriteria dan Nilai Prioritas</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -123,7 +123,6 @@
                             {{ round($rowTotal, 3) }}
                         </td>
                         <td class="text-center table-dark text-white">
-                            {{-- nilai Prioritas --}}
                             {{ round($rowTotal, 2) }} /
                             {{ $criteria_analysis->priorityValues->count() }} =
                             {{ round($priorityValue->value, 3) }}
@@ -139,7 +138,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Perkalian Setiap Elemen dengan Nilai Prioritas</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Perkalian Setiap Elemen dengan Nilai Prioritas</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -190,16 +189,16 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Menentukan λmaks dan Rasio Konsistensi</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Menentukan λmaks dan Rasio Konsistensi</h4>
                 </div>
             </div>
             <table class="table table-bordered table-responsive">
-                <thead class="table-primary align-middle">
+                <thead class="table-primary align-middle text-center">
                     <tr>
                         <th scope="col">Kriteria</th>
-                        <th scope="col" class="text-center">Jumlah Baris</th>
-                        <th scope="col" class="text-center">Nilai Prioritas</th>
-                        <th scope="col" class="text-center">λ</th>
+                        <th scope="col">Jumlah Baris</th>
+                        <th scope="col">Nilai Prioritas</th>
+                        <th scope="col">λ</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -208,7 +207,7 @@
                     @php($hasil = [])
                     @foreach ($rowTotals as $key => $total)
                     <tr>
-                        <td scope="row">
+                        <td class="text-center" scope="row">
                             {{ $criteria_analysis->priorityValues[$key]->criteria->nama_kriteria }}
                         </td>
                         {{-- jumlah baris --}}
@@ -250,16 +249,16 @@
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
-                                <th scope="row">Banyak Kriteria</th>
-                                <td>{{ $criteria_analysis->priorityValues->count() }}</td>
+                                <th class="text-center" scope="row">Banyak Kriteria</th>
+                                <td class="text-center">{{ $criteria_analysis->priorityValues->count() }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">λmaks</th>
-                                <td>{{ round($lambdaMax, 2) }}</td>
+                                <th class="text-center" scope="row">λmaks</th>
+                                <td class="text-center">{{ round($lambdaMax, 2) }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Indeks Konsistensi</th>
-                                <td>
+                                <th class="text-center" scope="row">Indeks Konsistensi</th>
+                                <td class="text-center">
                                     @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
                                     {{ round($lambdaMax, 3) }} - {{ count($lambdaResult) }}
                                     /
@@ -269,18 +268,18 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Konsistensi Random</th>
-                                <td>
+                                <th class="text-center" scope="row">Konsistensi Random</th>
+                                <td class="text-center">
                                     @php($RC = $ruleRC[$criteria_analysis->priorityValues->count()])
                                     {{ $RC }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Rasio Konsistensi</th>
+                                <th class="text-center" scope="row">Rasio Konsistensi</th>
                                 @php($CR = $RC != 0.0 ? $CI / $RC : 0.0)
                                 @php($txtClass = 'text-danger fw-bold')
                                 @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
-                                    class="{{ $txtClass }}">
+                                    class="{{ $txtClass }} text-center">
                                     {{ round($CI, 3) }} / {{ round($RC, 3) }} =
                                     {{ round($CR, 3) }}
                                     (Nilai Konsisten)
@@ -313,27 +312,27 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Normalisasi Tabel Alternatif</h4>
+                    <h4 class="mb-0 text-gray-800">SAW - Normalisasi Tabel Alternatif</h4>
                 </div>
             </div>
             <table class="table table-bordered table-condensed table-responsive">
                 <tbody>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Kategori</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Kategori</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['kategori'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['kategori'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Nilai Pembagi</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Pembagi</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['divider_value'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['divider_value'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Nilai Prioritas</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Prioritas</td>
                         @foreach ($criteriaAnalysis->priorityValues as $key => $innerpriorityvalue)
-                        <td>
+                        <td class="text-center">
                             {{ round($innerpriorityvalue->value, 3) }}
                         </td>
                         @endforeach
@@ -393,7 +392,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Ranking</h4>
+                    <h4 class="mb-0 text-gray-800">SAW - Ranking</h4>
                 </div>
             </div>
             <table id="datatablesSimple2" class="table table-bordered table-responsive">

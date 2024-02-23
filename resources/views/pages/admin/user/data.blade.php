@@ -38,7 +38,7 @@
             </div>
             @endif
             <table id="datatablesSimple" class="table table-bordered">
-                <thead class="table-primary">
+                <thead class="table-primary align-middle text-center">
                     <tr>
                         <th>No</th>
                         <th>Name</th>

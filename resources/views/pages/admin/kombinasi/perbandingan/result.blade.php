@@ -176,7 +176,7 @@
                 </div>
             </div>
             <table class="table table-bordered table-responsive">
-                <thead class="table-primary align-middle">
+                <thead class="table-primary align-middle text-center">
                     <tr>
                         <th scope="col">Kriteria</th>
                         <th scope="col" class="text-center">Jumlah Baris</th>
@@ -189,7 +189,7 @@
                     @php($lambdaResult = [])
                     @foreach ($rowTotals as $key => $total)
                     <tr>
-                        <td scope="row">
+                        <td scope="row" class="text-center">
                             {{ $criteria_analysis->priorityValues[$key]->criteria->nama_kriteria }}
                         </td>
                         <td class="text-center">
@@ -222,33 +222,33 @@
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
-                                <th scope="row">Banyak Kriteria</th>
-                                <td>{{ $criteria_analysis->priorityValues->count() }}</td>
+                                <th class="text-center" scope="row">Banyak Kriteria</th>
+                                <td class="text-center">{{ $criteria_analysis->priorityValues->count() }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">λmaks</th>
-                                <td>{{ round($lambdaMax, 2) }}</td>
+                                <th class="text-center" scope="row">λmaks</th>
+                                <td class="text-center">{{ round($lambdaMax, 2) }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Indeks Konsistensi</th>
-                                <td>
+                                <th class="text-center" scope="row">Indeks Konsistensi</th>
+                                <td class="text-center">
                                     @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
                                     {{ round($CI, 2) }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Konsistensi Random</th>
-                                <td>
+                                <th class="text-center" scope="row">Konsistensi Random</th>
+                                <td class="text-center">
                                     @php($RC = $ruleRC[$criteria_analysis->priorityValues->count()])
                                     {{ $RC }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Rasio Konsistensi</th>
+                                <th class="text-center" scope="row">Rasio Konsistensi</th>
                                 @php($CR = $RC != 0.0 ? $CI / $RC : 0.0)
                                 @php($txtClass = 'text-danger fw-bold')
                                 @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
-                                    class="{{ $txtClass }}">
+                                    class="{{ $txtClass }} text-center">
                                     <span id="cr-value">{{ round($CR, 2) }}</span>
                                     (Nilai Konsisten)
                                     </td>
@@ -286,15 +286,15 @@
             <table class="table table-bordered table-condensed table-responsive">
                 <tbody>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Kategori</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Kategori</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['kategori'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['kategori'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Nilai Pembagi</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Pembagi</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['divider_value'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['divider_value'] }}</td>
                         @endforeach
                     </tr>
                 </tbody>

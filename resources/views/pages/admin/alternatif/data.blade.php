@@ -58,23 +58,23 @@
                 </form>
             </div>
             <table class="table table-bordered table-responsive">
-                <thead class="table-primary align-middle">
+                <thead class="table-primary align-middle text-center">
                     <tr>
                         <th rowspan="2">No</th>
                         <th rowspan="2">Nama Alternatif</th>
-                        <th class="text-center" rowspan="2">Jenis Wisata</th>
-                        <th class="text-center" colspan="{{ $criterias->count() }}">Kriteria</th>
+                        <th rowspan="2">Jenis Wisata</th>
+                        <th colspan="{{ $criterias->count() }}">Kriteria</th>
                         @can('admin')
-                        <th class="text-center" rowspan="2">Aksi</th>
+                        <th rowspan="2">Aksi</th>
                         @endcan
                     </tr>
                     <tr>
                         @if ($criterias->count())
                         @foreach ($criterias as $criteria)
-                        <th class="text-center">{{ $criteria->nama_kriteria }}</th>
+                        <th>{{ $criteria->nama_kriteria }}</th>
                         @endforeach
                         @else
-                        <th class="text-center">Data Kriteria Tidak Ditemukan</th>
+                        <th>Data Kriteria Tidak Ditemukan</th>
                         @endif
                     </tr>
                 </thead>
@@ -85,7 +85,7 @@
                         <td scope="row" class="text-center">
                             {{ ($alternatives->currentpage() - 1) * $alternatives->perpage() + $loop->index + 1 }}
                         </td>
-                        <td>
+                        <td class="text-center">
                             {{ Str::ucfirst(Str::upper($alternative->nama_wisata)) }}
                         </td>
                         <td class="text-center">

@@ -5,20 +5,8 @@
         <div class="col-sm-6 col-md-8">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
-                {{-- <li class="breadcrumb-item"><a href="{{ route('rank.index') }}">Final Ranking</a></li> --}}
                 <li class="breadcrumb-item active">{{ $title }}</li>
                 @php($crValue = session("cr_value_{$criteriaAnalysis->id}"))
-                {{-- @if ($crValue > 0.1)
-                <li class="breadcrumb-item" style="color: red;">
-                    Ranking Destinasi Wisata
-                </li>
-                @else
-                <li class="breadcrumb-item">
-                    <a href="{{ route('rank.final', $criteriaAnalysis->id) }}">
-                        Ranking Destinasi Wisata
-                    </a>
-                </li>
-                @endif --}}
                 @if ($crValue > 0.1)
                 <li class="breadcrumb-item" style="color: red;">
                     Perhitungan SAW
@@ -42,31 +30,6 @@
     {{-- datatable --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
-            {{-- <div class="d-sm-flex align-items-center justify-content-between mb-3">
-                @if ($crValue > 0.1)
-                <a class="btn btn-success disabled">
-                    <i class="fa-solid fa-ranking-star"></i>
-                    Ranking Destinasi Wisata
-                </a>
-                @else
-                <a href="{{ route('rank.final', $criteriaAnalysis->id) }}" class="btn btn-success">
-                    <i class="fa-solid fa-ranking-star"></i>
-                    Ranking Destinasi Wisata
-                </a>
-                @endif
-                @if ($crValue > 0.1)
-                <td class="text-center text-danger" colspan="2">
-                    <a href="{{ route('perbandingan.update', $criteriaAnalysis->id) }}" class="btn btn-danger mt-2">
-                        Nilai Rasio Konsistensi <b>{{ $crValue }}</b> ≥ <b>0.1</b>
-                        <br>
-                    </a>
-                </td>
-                @elseif ($crValue === null)
-                <p></p>
-                @else
-                <p>Nilai Rasio Konsistensi: <b> {{ $crValue }}</b></p>
-                @endif
-            </div> --}}
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
                     <h4 class="mb-0 text-gray-800">Normalisasi Alternatif</h4>
@@ -75,21 +38,21 @@
             <table class="table table-bordered table-condensed table-responsive">
                 <tbody>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Kategori</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Kategori</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['kategori'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['kategori'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Nilai Pembagi</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Pembagi</td>
                         @foreach ($dividers as $divider)
-                        <td scope="col">{{ $divider['divider_value'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['divider_value'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold" style="width:11%">Bobot</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Bobot</td>
                         @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
-                        <td>
+                        <td class="text-center">
                             {{ round($innerpriorityvalue->value, 3) }}
                         </td>
                         @endforeach

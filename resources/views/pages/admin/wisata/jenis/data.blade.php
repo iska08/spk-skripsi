@@ -1,5 +1,4 @@
 @extends('layouts.admin')
-
 @section('content')
     <main>
         <div class="container-fluid px-4">
@@ -13,7 +12,6 @@
                     </ol>
                 </div>
             </div>
-
             {{-- datatable --}}
             <div class="card col-lg-10">
                 <div class="card-body table-responsive">
@@ -22,21 +20,22 @@
                         Jenis Wisata
                     </a>
                     <table class="table table-bordered">
-                        <thead class="table-primary">
+                        <thead class="table-primary align-middle text-center">
                             <tr>
-                                <th>No</th>
-                                <th>Nama Jenis Wisata</th>
-                                <th>Aksi</th>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Nama Jenis Wisata</th>
+                                <th class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @if ($jenises->count())
                                 @foreach ($jenises as $jenis)
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ Str::ucfirst(Str::upper($jenis->jenis_name)) }}
+                                        <td class="text-center">{{ $loop->iteration }}</td>
+                                        <td class="text-center">
+                                            {{ Str::ucfirst(Str::upper($jenis->jenis_name)) }}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('jenis.wisatas', $jenis->slug) }}"
                                                 class="badge bg-primary"><i class="fa-solid fa-eye"></i></a>
                                             <a href="{{ route('jenis.edit', $jenis->id) }}" class="badge bg-warning"><i
