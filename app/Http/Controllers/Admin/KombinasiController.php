@@ -307,13 +307,6 @@ class KombinasiController extends Controller
 
     public function result(CriteriaAnalysis $criteriaAnalysis)
     {
-        $criteriaAnalysis->load('priorityValues');
-        $criterias      = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
-        $criteriaIds    = $criterias->pluck('id');
-        $alternatives   = Alternative::getAlternativesByCriteria($criteriaIds);
-        $dividers       = Alternative::getDividerByCriteria($criterias);
-        $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
-
         $data           = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank   = $this->checkIfAbleToRank();
 
@@ -334,13 +327,12 @@ class KombinasiController extends Controller
             'ruleRC'            => $data['ruleRC'],
             'isAbleToRank'      => $isAbleToRank,
             'dividers'          => $dividers,
-            'normalizations'    => $normalizations,
             'criteriaAnalysis'  => $criteriaAnalysis,
             'criteria_analysis' => $criteriaAnalysis,
             'dividers'          => $dividers,
             'criterias'         => Criteria::all(),
             'normalizations'    => $normalizations,
-            'ranks'             => $ranking
+            'ranks'             => $ranking,
         ]);
     }
 
@@ -400,12 +392,6 @@ class KombinasiController extends Controller
     public function detailr(CriteriaAnalysis $criteriaAnalysis)
     {
         $criteriaAnalysis->load('priorityValues');
-        $criterias      = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
-        $criteriaIds    = $criterias->pluck('id');
-        $alternatives   = Alternative::getAlternativesByCriteria($criteriaIds);
-        $dividers       = Alternative::getDividerByCriteria($criterias);
-        $normalizations = $this->_hitungNormalisasi($dividers, $alternatives);
-
         $data           = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank   = $this->checkIfAbleToRank();
 
@@ -419,9 +405,6 @@ class KombinasiController extends Controller
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-
-        $data = $this->prepareAnalysisData($criteriaAnalysis);
-        $isAbleToRank = $this->checkIfAbleToRank();
         return view('pages.admin.kombinasi.perbandingan.detailr', [
             'title'             => 'Detail Perhitungan Kombinasi',
             'criteria_analysis' => $criteriaAnalysis,

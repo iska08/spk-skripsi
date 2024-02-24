@@ -238,17 +238,22 @@ class CriteriaPerbandinganController extends Controller
 
     public function result(CriteriaAnalysis $criteriaAnalysis)
     {
+        $criteriaAnalysis->load('priorityValues');
+        $criterias          = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
+        $criteriaIds        = $criterias->pluck('id');
+        $dividers           = Alternative::getDividerByCriteria($criterias);
+        $criterias          = Criteria::all();
+        $numberOfCriterias  = count($criterias);
+        $alternatives       = Alternative::all();
+        
         $data = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank = $this->checkIfAbleToRank();
 
-        // Mendapatkan jumlah dan daftar kriteria alternatif
-        $criterias  = Criteria::all();
-        $criteriaId = $criterias->pluck('id')->toArray();
-        $numberOfCriterias = count($criterias);
-        $alternatives = Alternative::all();
         return view('pages.admin.kriteria.perbandingan.result', [
             'title'             => 'Perhitungan AHP',
+            'criteriaAnalysis'  => $criteriaAnalysis,
             'criteria_analysis' => $criteriaAnalysis,
+            'dividers'          => $dividers,
             'totalSums'         => $data['totalSums'],
             'ruleRC'            => $data['ruleRC'],
             'isAbleToRank'      => $isAbleToRank,
