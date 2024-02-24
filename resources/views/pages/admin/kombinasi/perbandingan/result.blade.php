@@ -207,9 +207,7 @@
                     </tr>
                     @endforeach
                     <tr>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center fw-bold table-dark">λmaks</td>
+                        <td class="text-center fw-bold table-dark" colspan="3">λmaks</td>
                         <td class="text-center fw-bold table-dark">
                             @php($lambdaMax = array_sum($lambdaResult) / count($lambdaResult))
                             {{ round($lambdaMax, 2) }}

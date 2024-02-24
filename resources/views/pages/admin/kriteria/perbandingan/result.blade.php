@@ -207,8 +207,7 @@
                     </tr>
                     @endforeach
                     <tr>
-                        <td class="text-center" colspan="2"></td>
-                        <td class="text-center fw-bold table-dark">λmaks</td>
+                        <td class="text-center fw-bold table-dark" colspan="3">λmaks</td>
                         <td class="text-center fw-bold table-dark">
                             @php($lambdaMax = array_sum($lambdaResult) / count($lambdaResult))
                             {{ round($lambdaMax, 2) }}
@@ -306,7 +305,12 @@
                     <table class="table table-bordered">
                         <thead class="table-primary align-middle text-center">
                             <tr>
-                                <th>{{ 'Alternatif untuk Kriteria: '.$criterion->nama_kriteria }}</th>
+                                <th colspan="{{ count($alternatives) + 1 }}" class="text-center fw-bold table-dark">
+                                    {{ 'Perbandingan Berpasangan Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Alternatif</th>
                                 <th>Nilai</th>
                                 @if($criterion->kategori === "COST")
                                 <th>Nilai MIN / Nilai</th>

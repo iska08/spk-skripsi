@@ -230,9 +230,7 @@
                     </tr>
                     @endforeach
                     <tr class="align-middle">
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center fw-bold table-dark">λmaks</td>
+                        <td class="text-center fw-bold table-dark" colspan="3">λmaks</td>
                         <td class="text-center fw-bold table-dark">
                             {{ round(array_sum($lambdaResult), 3) }} /
                             {{ count($lambdaResult) }}
