@@ -372,6 +372,7 @@
             <table id="datatablesSimple" class="table table-bordered table-responsive">
                 <thead class="table-primary align-middle text-center">
                     <tr>
+                        <th>ID</th>
                         <th scope="col">Nama Alternatif</th>
                         <th scope="col">Jenis Wisata</th>
                         @foreach ($dividers as $divider)
@@ -395,6 +396,7 @@
                     ?>
                     @foreach($wisatas as $wisata)
                     <tr>
+                        <td>{{ $wisata['wisata_id'] }}</td>
                         <td>{{ $wisata['nama_wisata'] }}</td>
                         <td>{{ $wisata['jenis_name'] }}</td>
                         @foreach ($dividers as $divider)
@@ -419,11 +421,15 @@
                             @endforeach
                             @if($divider['kategori'] === "COST")
                                 {{-- <td class="text-center">{{ round(($minVal/$nilai->alternative_value)/$sumMinVal, 3) }}</td> --}}
-                                <td class="text-center">{{ round(($minVal/$nilai->alternative_value), 3) }}</td>
+                                {{-- <td class="text-center">{{ round($minVal/$nilai->alternative_value, 3) }}</td> --}}
+                                {{-- <td class="text-center">{{ round($minVal, 3) }}</td> --}}
+                                <td class="text-center">{{ round($nilai->alternative_value, 3) }}</td>
                                 {{-- <td class="text-center">{{ round($sumMinVal, 3) }}</td> --}}
                             @elseif($divider['kategori'] === "BENEFIT")
                                 {{-- <td class="text-center">{{ round(($nilai->alternative_value/$maxVal)/$sumMaxVal, 3) }}</td> --}}
-                                <td class="text-center">{{ round(($nilai->alternative_value/$maxVal), 3) }}</td>
+                                {{-- <td class="text-center">{{ round($nilai->alternative_value/$maxVal, 3) }}</td> --}}
+                                {{-- <td class="text-center">{{ round($maxVal, 3) }}</td> --}}
+                                <td class="text-center">{{ round($nilai->alternative_value, 3) }}</td>
                                 {{-- <td class="text-center">{{ round($sumMaxVal, 3) }}</td> --}}
                             @endif
                         @endforeach

@@ -245,6 +245,7 @@ class CriteriaPerbandinganController extends Controller
         $criterias          = Criteria::all();
         $numberOfCriterias  = count($criterias);
         $alternatives       = Alternative::all();
+        $destinasiWisatas   = Wisata::all();
         
         $data = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank = $this->checkIfAbleToRank();
