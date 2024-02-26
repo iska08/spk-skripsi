@@ -317,8 +317,7 @@
                                 @elseif($criterion->kategori === "BENEFIT")
                                 <th>Nilai / Nilai MAX</th>
                                 @endif
-                                <th>Eigen Vector</th>
-                                {{-- <th>Matriks * Eigen Vektor</th> --}}
+                                <th>Eigen Vector (EV)</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle">
@@ -336,7 +335,6 @@
                                 @elseif($criterion->kategori === "BENEFIT")
                                     <td class="text-center">{{ round(($wisata->alternative_value/$max)/$sumMax, 3) }}</td>
                                 @endif
-                                {{-- <td></td> --}}
                             </tr>
                             @endforeach
                         </tbody>
@@ -345,6 +343,7 @@
             </div>
         </div>
     </div>
+    {{-- Ranking --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
@@ -377,7 +376,7 @@
                         <th scope="col">Jenis Wisata</th>
                         @foreach ($dividers as $divider)
                         <th scope="col">
-                            Hitung {{ $divider['nama_kriteria'] }}
+                            EV Alternatif di Kriteria {{ $divider['nama_kriteria'] }}
                         </th>
                         @endforeach
                         <th scope="col" class="text-center">Bobot Evaluasi</th>
@@ -398,13 +397,35 @@
                     <tr>
                         <td>{{ $wisata['nama_wisata'] }}</td>
                         <td>{{ $wisata['jenis_name'] }}</td>
-                        @foreach ($criterias as $criterion)
+                        @foreach ($dividers as $divider)
                             <?php
-                                $divider = collect($dividers)->where('id', $criterion->divider_id)->first(); 
-                                $value = ($criterion->kategori === "COST") ? round(($min/$wisata->alternative_value)/$sumMin, 3) : round(($wisata->alternative_value/$max)/$sumMax, 3);
+                            $idCriteria = $divider['criteria_id'];
+                            $nilais = \App\Models\Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
+                                ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
+                                ->where('alternatives.criteria_id', $idCriteria)
+                                ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
+                                ->orderBy('wisatas.nama_wisata')
+                                ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
+                            $minVal    = $nilais->min('alternative_value');
+                            $maxVal    = $nilais->max('alternative_value');
+                            $sumMinVal = 0;
+                            $sumMaxVal = 0;
                             ?>
-                            {{-- <td class="text-center">{{ $value }}</td> --}}
-                            <td></td>
+                            @foreach($nilais as $nilai)
+                                <?php
+                                $sumMinVal += $minVal/$nilai->alternative_value;
+                                $sumMaxVal += $nilai->alternative_value/$maxVal;
+                                ?>
+                            @endforeach
+                            @if($divider['kategori'] === "COST")
+                                {{-- <td class="text-center">{{ round(($minVal/$nilai->alternative_value)/$sumMinVal, 3) }}</td> --}}
+                                <td class="text-center">{{ round(($minVal/$nilai->alternative_value), 3) }}</td>
+                                {{-- <td class="text-center">{{ round($sumMinVal, 3) }}</td> --}}
+                            @elseif($divider['kategori'] === "BENEFIT")
+                                {{-- <td class="text-center">{{ round(($nilai->alternative_value/$maxVal)/$sumMaxVal, 3) }}</td> --}}
+                                <td class="text-center">{{ round(($nilai->alternative_value/$maxVal), 3) }}</td>
+                                {{-- <td class="text-center">{{ round($sumMaxVal, 3) }}</td> --}}
+                            @endif
                         @endforeach
                         <td></td>
                         <td class="text-center">
