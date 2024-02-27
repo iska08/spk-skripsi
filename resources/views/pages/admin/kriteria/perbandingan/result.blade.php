@@ -47,11 +47,11 @@
                         $criteria_analysis->details[$startAt]->criteria_id_second)
                         @php($bgYellow = '')
                         <td class="text-center bg-success text-white ">
-                            {{ floatval($criteria_analysis->details[$startAt]->comparison_result) }}
+                            {{ round(floatval($criteria_analysis->details[$startAt]->comparison_result), 3) }}
                         </td>
                         @else
                         <td class="text-center {{ $bgYellow }}">
-                            {{ round(floatval($criteria_analysis->details[$startAt]->comparison_result), 2) }}
+                            {{ round(floatval($criteria_analysis->details[$startAt]->comparison_result), 3) }}
                         </td>
                         @endif
                         @php($startAt++)
@@ -61,7 +61,7 @@
                     <th class="text-center table-dark">Jumlah</th>
                     @foreach ($totalSums as $total)
                     <td class="text-center bg-dark text-white">
-                        {{ round($total['totalSum'], 2) }}
+                        {{ round($total['totalSum'], 3) }}
                     </td>
                     @endforeach
                 </tbody>
@@ -96,19 +96,20 @@
                     @php($bgYellow = 'bg-warning text-dark')
                     <tr>
                         <th scope="row" class="table-primary text-center">
-                            {{ $priorityValue->criteria->nama_kriteria }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}
+                        </th>
                         @foreach ($criteria_analysis->priorityValues as $key => $priorityvalue)
                         <td class="text-center">
                             @php($res = floatval($criteria_analysis->details[$startAt]->comparison_result) /
                             $totalSums[$key]['totalSum'])
-                            {{ round($res, 2) }}
+                            {{ round($res, 3) }}
                             @php($rowTotal += Str::substr($res, 0, 11))
                         </td>
                         @php($startAt++)
                         @endforeach
                         @php(array_push($rowTotals, $rowTotal))
                         <td class="text-center">
-                            {{ round($rowTotal, 2) }}
+                            {{ round($rowTotal, 3) }}
                         </td>
                         <td class="text-center table-dark text-white">
                             {{ round($priorityValue->value, 3) }}
@@ -150,7 +151,7 @@
                             @php($res = floatval($criteria_analysis->details[$startAt]->comparison_result) *
                             $innerpriorityvalue->value)
                             {{-- hasil perkalian --}}
-                            {{ round($res, 2) }}
+                            {{ round($res, 3) }}
                             {{-- row total --}}
                             @php($rowTotal += Str::substr($res, 0, 11))
                         </td>
@@ -159,7 +160,7 @@
                         @php(array_push($rowTotals, $rowTotal))
                         <td class="text-center table-dark text-white">
                             {{-- {{ $rowTotal }} --}}
-                            {{ round($rowTotal, 2) }}
+                            {{ round($rowTotal, 3) }}
                         </td>
                     </tr>
                     @endforeach
@@ -193,7 +194,7 @@
                             {{ $criteria_analysis->priorityValues[$key]->criteria->nama_kriteria }}
                         </td>
                         <td class="text-center">
-                            {{ round($total, 2) }}
+                            {{ round($total, 3) }}
                         </td>
                         <td class="text-center">
                             {{ round($criteria_analysis->priorityValues[$key]->value, 3) }}
@@ -202,7 +203,7 @@
                             @php($lambda = $total / $criteria_analysis->priorityValues[$key]->value)
                             @php($res = substr($lambda, 0, 11))
                             @php(array_push($lambdaResult, $res))
-                            {{ round($res, 2) }}
+                            {{ round($res, 3) }}
                         </td>
                     </tr>
                     @endforeach
@@ -210,7 +211,7 @@
                         <td class="text-center fw-bold table-dark" colspan="3">λmaks</td>
                         <td class="text-center fw-bold table-dark">
                             @php($lambdaMax = array_sum($lambdaResult) / count($lambdaResult))
-                            {{ round($lambdaMax, 2) }}
+                            {{ round($lambdaMax, 3) }}
                         </td>
                     </tr>
                 </tbody>
@@ -225,13 +226,13 @@
                             </tr>
                             <tr>
                                 <th scope="row" class="text-center">λmaks</th>
-                                <td class="text-center">{{ round($lambdaMax, 2) }}</td>
+                                <td class="text-center">{{ round($lambdaMax, 3) }}</td>
                             </tr>
                             <tr>
                                 <th scope="row" class="text-center">Indeks Konsistensi</th>
                                 <td class="text-center">
                                     @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
-                                    {{ round($CI, 2) }}
+                                    {{ round($CI, 3) }}
                                 </td>
                             </tr>
                             <tr>
@@ -278,7 +279,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Perbandingan Berpasangan Untuk Alternatif</h4>
+                    <h4 class="mb-0 text-gray-800">Menentukan Eigen Vektor Alternatif di Setiap Alternatif</h4>
                 </div>
             </div>
             <div>
@@ -306,7 +307,7 @@
                         <thead class="table-primary align-middle text-center">
                             <tr>
                                 <th colspan="{{ count($alternatives) + 1 }}" class="text-center fw-bold table-dark">
-                                    {{ 'Perbandingan Berpasangan Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
+                                    {{ 'Eigen Vektor Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
                                 </th>
                             </tr>
                             <tr>
@@ -343,6 +344,7 @@
             </div>
         </div>
     </div>
+    
     {{-- Ranking --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
@@ -354,9 +356,9 @@
             <table class="table table-bordered table-condensed table-responsive">
                 <tbody>
                     <tr>
-                        <td scope="col" class="fw-bold text-center" style="width:11%">Kategori</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Kriteria</td>
                         @foreach ($dividers as $divider)
-                        <td class="text-center" scope="col">{{ $divider['kategori'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['nama_kriteria'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
@@ -369,22 +371,19 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="datatablesSimple" class="table table-bordered table-responsive">
+            <table id="datatablesSimple" class="table table-bordered">
                 <thead class="table-primary align-middle text-center">
                     <tr>
-                        <th>ID</th>
-                        <th scope="col">Nama Alternatif</th>
-                        <th scope="col">Jenis Wisata</th>
+                        <th scope="col" class="text-center">Nama Alternatif</th>
+                        <th scope="col" class="text-center">Jenis Wisata</th>
                         @foreach ($dividers as $divider)
-                        <th scope="col">
-                            EV Alternatif di Kriteria {{ $divider['nama_kriteria'] }}
-                        </th>
+                            <th scope="col">{{ $divider['nama_kriteria'] }}</th>
                         @endforeach
-                        <th scope="col" class="text-center">Bobot Evaluasi</th>
-                        <th scope="col" class="text-center">Ranking</th>
+                        <th>Bobot Evaluasi</th>
+                        <th>Ranking</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="align-middle">
                     <?php
                     $wisatas = \App\Models\Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
                         ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
@@ -394,53 +393,73 @@
                         ->orderBy('wisatas.nama_wisata')
                         ->get(['alternatives.*', 'wisatas.*', 'criterias.*', 'jenis.*']);
                     ?>
-                    @foreach($wisatas as $wisata)
-                    <tr>
-                        <td>{{ $wisata['wisata_id'] }}</td>
-                        <td>{{ $wisata['nama_wisata'] }}</td>
-                        <td>{{ $wisata['jenis_name'] }}</td>
-                        @foreach ($dividers as $divider)
-                            <?php
-                            $idCriteria = $divider['criteria_id'];
-                            $nilais = \App\Models\Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
-                                ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
-                                ->where('alternatives.criteria_id', $idCriteria)
-                                ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
-                                ->orderBy('wisatas.nama_wisata')
-                                ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
-                            $minVal    = $nilais->min('alternative_value');
-                            $maxVal    = $nilais->max('alternative_value');
-                            $sumMinVal = 0;
-                            $sumMaxVal = 0;
-                            ?>
-                            @foreach($nilais as $nilai)
-                                <?php
-                                $sumMinVal += $minVal/$nilai->alternative_value;
-                                $sumMaxVal += $nilai->alternative_value/$maxVal;
-                                ?>
-                            @endforeach
-                            @if($divider['kategori'] === "COST")
-                                {{-- <td class="text-center">{{ round(($minVal/$nilai->alternative_value)/$sumMinVal, 3) }}</td> --}}
-                                {{-- <td class="text-center">{{ round($minVal/$nilai->alternative_value, 3) }}</td> --}}
-                                {{-- <td class="text-center">{{ round($minVal, 3) }}</td> --}}
-                                <td class="text-center">{{ round($nilai->alternative_value, 3) }}</td>
-                                {{-- <td class="text-center">{{ round($sumMinVal, 3) }}</td> --}}
-                            @elseif($divider['kategori'] === "BENEFIT")
-                                {{-- <td class="text-center">{{ round(($nilai->alternative_value/$maxVal)/$sumMaxVal, 3) }}</td> --}}
-                                {{-- <td class="text-center">{{ round($nilai->alternative_value/$maxVal, 3) }}</td> --}}
-                                {{-- <td class="text-center">{{ round($maxVal, 3) }}</td> --}}
-                                <td class="text-center">{{ round($nilai->alternative_value, 3) }}</td>
-                                {{-- <td class="text-center">{{ round($sumMaxVal, 3) }}</td> --}}
-                            @endif
+                    @if (!empty($normalizations))
+                        <?php
+                        $nilaiBobotEvaluasi = [];
+                        foreach ($normalizations as $normalisasi) {
+                            $totalBobotEvaluasi = 0;
+                            $nilaiKriteria = [];
+                            foreach ($dividers as $key => $divider) {
+                                $idCriteria = $divider['criteria_id'];
+                                $nilais = \App\Models\Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
+                                    ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
+                                    ->where('alternatives.criteria_id', $idCriteria)
+                                    ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
+                                    ->orderBy('wisatas.nama_wisata')
+                                    ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
+            
+                                $bobots    = \App\Models\PriorityValue::where('criteria_id', $idCriteria)->get();
+                                $minVal    = $nilais->min('alternative_value');
+                                $maxVal    = $nilais->max('alternative_value');
+                                $sumMinVal = 0;
+                                $sumMaxVal = 0;
+            
+                                foreach($nilais as $nilai) {
+                                    $sumMinVal += $minVal/$nilai->alternative_value;
+                                    $sumMaxVal += $nilai->alternative_value/$maxVal;
+                                }
+                                $val = isset($normalisasi['alternative_val'][$key]) ? $normalisasi['alternative_val'][$key] : null;
+                                $totalResult = 0;
+                                foreach ($bobots as $bobot) {
+                                    if ($divider['kategori'] === 'BENEFIT' && $val != 0) {
+                                        $bobotValue = (($val/$maxVal)/$sumMaxVal)*$bobot->value;
+                                        $totalBobotEvaluasi += $bobotValue;
+                                        $nilaiKriteria[$key] = $bobotValue;
+                                    } elseif ($divider['kategori'] === 'COST' && $val != 0) {
+                                        $bobotValue = (($minVal/$val)/$sumMinVal)*$bobot->value;
+                                        $totalBobotEvaluasi += $bobotValue;
+                                        $nilaiKriteria[$key] = $bobotValue;
+                                    }
+                                }
+                            }
+                            $nilaiBobotEvaluasi[$normalisasi['wisata_name']] = [
+                                'total_bobot'    => $totalBobotEvaluasi,
+                                'nilai_kriteria' => $nilaiKriteria
+                            ];
+                        }
+                        arsort($nilaiBobotEvaluasi);
+                        ?>
+                        <?php $ranking = 1; ?>
+                        @foreach ($nilaiBobotEvaluasi as $wisataName => $data)
+                            <tr>
+                                <td class="text-center">
+                                    {{ $wisataName }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $normalisasi['jenis_name'] }}
+                                </td>
+                                @foreach ($dividers as $key => $divider)
+                                    <td class="text-center">
+                                        {{ round($data['nilai_kriteria'][$key], 3) }}
+                                    </td>
+                                @endforeach
+                                <td class="text-center">{{ round($data['total_bobot'], 3) }}</td>
+                                <td class="text-center">{{ $ranking++ }}</td>
+                            </tr>
                         @endforeach
-                        <td></td>
-                        <td class="text-center">
-                            {{ $loop->iteration }}
-                        </td>
-                    </tr>
-                    @endforeach
+                    @endif
                 </tbody>
-            </table>
+            </table>            
         </div>
     </div>
 </div>

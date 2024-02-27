@@ -245,11 +245,15 @@ class CriteriaPerbandinganController extends Controller
         $criterias          = Criteria::all();
         $numberOfCriterias  = count($criterias);
         $alternatives       = Alternative::all();
-        $destinasiWisatas   = Wisata::all();
-        
+        $alternative1s       = Alternative::getAlternativesByCriteria($criteriaIds);
+        $normalizations     = $this->_hitungNormalisasi($dividers, $alternative1s);
         $data = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank = $this->checkIfAbleToRank();
-
+        try {
+            $ranking    = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
         return view('pages.admin.kriteria.perbandingan.result', [
             'title'             => 'Perhitungan AHP',
             'criteriaAnalysis'  => $criteriaAnalysis,
@@ -261,7 +265,61 @@ class CriteriaPerbandinganController extends Controller
             'numberOfCriterias' => $numberOfCriterias,
             'alternatives'      => $alternatives,
             'criterias'         => $criterias,
+            'normalizations'    => $normalizations,
         ]);
+    }
+
+    private function _hitungNormalisasi($dividers, $alternatives)
+    {
+        $normalisasi = [];
+        foreach ($alternatives as $alternative) {
+            $normalisasiAngka = [];
+            foreach ($alternative['alternative_val'] as $key => $val) {
+                if ($val == 0) {
+                    $dividers = 0;
+                }
+                $kategori = $dividers[$key]['kategori'];
+                if ($kategori === 'BENEFIT' && $val != 0) {
+                    $result = substr(floatval($val / $dividers[$key]['divider_value']), 0, 11);
+                }
+                if ($kategori === 'COST' && $val != 0) {
+                    $result = substr(floatval($dividers[$key]['divider_value'] / $val), 0, 11);
+                }
+                array_push($normalisasiAngka, $result);
+            }
+            array_push($normalisasi, [
+                'wisata_id'       => $alternative['wisata_id'],
+                'wisata_name'     => strtoupper($alternative['wisata_name']),
+                'jenis_name'      => $alternative['jenis_name'],
+                'criteria_name'   => $alternative['criteria_name'],
+                'criteria_id'     => $alternative['criteria_id'],
+                'alternative_val' => $alternative['alternative_val'],
+                'results'         => $normalisasiAngka
+            ]);
+        }
+        // Menambahkan orderby berdasarkan nama destinasi (wisata_name) secara naik (ascending)
+        $normalisasi = collect($normalisasi)->sortBy('wisata_name')->values()->all();
+        return $normalisasi;
+    }
+
+    private function _finalRanking($bobots, $normalizations)
+    {
+        foreach ($normalizations as $keyNorm => $normal) {
+            foreach ($normal['results'] as $keyVal => $value) {
+                $importanceVal = $bobots[$keyVal]->value;
+                // Operasi penjumlahan dari perkalian matriks ternormalisasi dan prioritas
+                $result = $importanceVal * $value;
+                if (array_key_exists('rank_result', $normalizations[$keyNorm])) {
+                    $normalizations[$keyNorm]['rank_result'] += $result;
+                } else {
+                    $normalizations[$keyNorm]['rank_result'] = $result;
+                }
+            }
+        }
+        usort($normalizations, function ($a, $b) {
+            return $b['rank_result'] <=> $a['rank_result'];
+        });
+        return $normalizations;
     }
 
     // nilai random konsistensi

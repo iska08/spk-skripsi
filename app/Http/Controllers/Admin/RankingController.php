@@ -52,9 +52,7 @@ class RankingController extends Controller
             'dividers'         => $dividers,
             'normalizations'   => $normalizations,
             'criteriaAnalysis' => $criteriaAnalysis,
-            'dividers'         => $dividers,
             'criterias'        => Criteria::all(),
-            'normalizations'   => $normalizations,
             'ranks'            => $ranking
         ]);
     }
