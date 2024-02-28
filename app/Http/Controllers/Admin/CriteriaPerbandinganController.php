@@ -379,12 +379,32 @@ class CriteriaPerbandinganController extends Controller
     {
         $data = $this->prepareAnalysisData($criteriaAnalysis);
         $isAbleToRank = $this->checkIfAbleToRank();
+        $criteriaAnalysis->load('priorityValues');
+        $criterias          = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
+        $criteriaIds        = $criterias->pluck('id');
+        $dividers           = Alternative::getDividerByCriteria($criterias);
+        $criterias          = Criteria::all();
+        $numberOfCriterias  = count($criterias);
+        $alternatives       = Alternative::all();
+        $alternative1s      = Alternative::getAlternativesByCriteria($criteriaIds);
+        $normalizations     = $this->_hitungNormalisasi($dividers, $alternative1s);
+        try {
+            $ranking    = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
+        } catch (\Exception $exception) {
+            return back()->withError($exception->getMessage())->withInput();
+        }
         return view('pages.admin.kriteria.perbandingan.detailr', [
-            'title'             => 'Perhitungan AHP',
+            'title'             => 'Detail Perhitungan AHP',
+            'criteriaAnalysis'  => $criteriaAnalysis,
             'criteria_analysis' => $criteriaAnalysis,
             'totalSums'         => $data['totalSums'],
             'ruleRC'            => $data['ruleRC'],
             'isAbleToRank'      => $isAbleToRank,
+            'dividers'          => $dividers,
+            'numberOfCriterias' => $numberOfCriterias,
+            'alternatives'      => $alternatives,
+            'criterias'         => $criterias,
+            'normalizations'    => $normalizations,
         ]);
     }
 

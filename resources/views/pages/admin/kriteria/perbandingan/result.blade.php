@@ -17,7 +17,6 @@
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
-                {{-- matrik penjumlahan(prespektif nilai) --}}
                 <div class="mb-4">
                     <h4 class="mb-0 text-gray-800">Matriks Penjumlahan Kolom Kriteria</h4>
                 </div>
@@ -216,52 +215,53 @@
                     </tr>
                 </tbody>
             </table>
+            {{-- Final Result --}}
             <div class="d-lg-flex justify-content-center">
                 <div class="col-12 col-lg-6">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered text-center">
                         <tbody>
                             <tr>
-                                <th scope="row" class="text-center">Banyak Kriteria</th>
-                                <td class="text-center">{{ $criteria_analysis->priorityValues->count() }}</td>
+                                <th scope="row">Banyak Kriteria</th>
+                                <td>{{ $criteria_analysis->priorityValues->count() }}</td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-center">λmaks</th>
-                                <td class="text-center">{{ round($lambdaMax, 3) }}</td>
+                                <th scope="row">λmaks</th>
+                                <td>{{ round($lambdaMax, 3) }}</td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-center">Indeks Konsistensi</th>
-                                <td class="text-center">
+                                <th scope="row">Indeks Konsistensi</th>
+                                <td>
                                     @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
                                     {{ round($CI, 3) }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-center">Konsistensi Random</th>
-                                <td class="text-center">
+                                <th scope="row">Konsistensi Random</th>
+                                <td>
                                     @php($RC = $ruleRC[$criteria_analysis->priorityValues->count()])
                                     {{ $RC }}
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row" class="text-center">Rasio Konsistensi</th>
+                                <th scope="row">Rasio Konsistensi</th>
                                 @php($CR = $RC != 0.0 ? $CI / $RC : 0.0)
                                 @php($txtClass = 'text-danger fw-bold')
                                 @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
-                                    class="{{ $txtClass }} text-center">
+                                    class="{{ $txtClass }}">
                                     <span id="cr-value">{{ round($CR, 2) }}</span>
                                     (Nilai Konsisten)
                                     </td>
                             </tr>
                             <tr>
                                 @if ($CR > 0.1)
-                                <td class="text-center text-danger" colspan="2">
+                                <td class="text-danger" colspan="2">
                                     Nilai Rasio Konsistensi melebihi <b>0.1</b> <br>
                                     Masukkan kembali nilai perbandingan kriteria
                                     <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}"
                                         class="btn btn-danger mt-2">Masukkan kembali Nilai Perbandingan</a>
                                 </td>
                                 @elseif(!$isAbleToRank)
-                                <td class="text-center text-danger" colspan="2">
+                                <td class="text-danger" colspan="2">
                                     Operator belum memasukkan alternatif apapun <br>
                                     Harap menunggu operator untuk menginputkan alternatif sebelum melihat
                                     peringkat
@@ -274,7 +274,7 @@
             </div>
         </div>
     </div>
-    {{-- Perbandingan Berpasangan Alternatif --}}
+    {{-- Menentukan Eigen Vektor Alternatif di Setiap Alternatif --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
@@ -376,9 +376,9 @@
                     <tr>
                         <th scope="col" class="text-center">Nama Alternatif</th>
                         <th scope="col" class="text-center">Jenis Wisata</th>
-                        @foreach ($dividers as $divider)
+                        {{-- @foreach ($dividers as $divider)
                             <th scope="col">{{ $divider['nama_kriteria'] }}</th>
-                        @endforeach
+                        @endforeach --}}
                         <th>Bobot Evaluasi</th>
                         <th>Ranking</th>
                     </tr>
@@ -434,7 +434,8 @@
                             }
                             $nilaiBobotEvaluasi[$normalisasi['wisata_name']] = [
                                 'total_bobot'    => $totalBobotEvaluasi,
-                                'nilai_kriteria' => $nilaiKriteria
+                                'nilai_kriteria' => $nilaiKriteria,
+                                'jenis_name'     => $normalisasi['jenis_name'],
                             ];
                         }
                         arsort($nilaiBobotEvaluasi);
@@ -446,13 +447,13 @@
                                     {{ $wisataName }}
                                 </td>
                                 <td class="text-center">
-                                    {{ $normalisasi['jenis_name'] }}
+                                    {{ $data['jenis_name'] }}
                                 </td>
-                                @foreach ($dividers as $key => $divider)
+                                {{-- @foreach ($dividers as $key => $divider)
                                     <td class="text-center">
                                         {{ round($data['nilai_kriteria'][$key], 3) }}
                                     </td>
-                                @endforeach
+                                @endforeach --}}
                                 <td class="text-center">{{ round($data['total_bobot'], 3) }}</td>
                                 <td class="text-center">{{ $ranking++ }}</td>
                             </tr>

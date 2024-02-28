@@ -20,18 +20,22 @@
         {{-- datatable --}}
         <div class="card mb-4">
             <div class="card-body table-responsive">
+                @can('admin')
                 <a href="{{ route('kriteria.create') }}" type="button" class="btn btn-primary mb-3">
                     <i class="fas fa-plus me-1"></i>
                     Kriteria
                 </a>
-                <table class="table table-bordered">
+                @endcan
+                <table id="datatablesSimple" class="table table-bordered">
                     <thead class="table-primary align-middle text-center">
                         <tr>
                             <th>No</th>
                             <th>Nama Kriteria</th>
                             <th>Kategori</th>
                             <th>Keterangan</th>
+                            @can('admin')
                             <th>Aksi</th>
+                            @endcan
                         </tr>
                     </thead>
                     <tbody>
@@ -42,6 +46,7 @@
                             <td class="text-center">{{ $criteria->nama_kriteria }}</td>
                             <td class="text-center">{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
                             <td>{{ $criteria->keterangan }}</td>
+                            @can('admin')
                             <td>
                                 <a href="{{ route('kriteria.edit', $criteria->id) }}" class="badge bg-warning">
                                     <i class="fa-solid fa-pen-to-square"></i>
@@ -55,12 +60,13 @@
                                     </button>
                                 </form>
                             </td>
+                            @endcan
                         </tr>
                         @endforeach
                         @else
                         <tr>
                             <td colspan="5" class="text-danger text-center p-4">
-                                <h4>Kamu belum membuat kriteria</h4>
+                                <h4>Kriteria belum dibuat</h4>
                             </td>
                         </tr>
                         @endif

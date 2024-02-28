@@ -15,16 +15,22 @@
             {{-- datatable --}}
             <div class="card col-lg-10">
                 <div class="card-body table-responsive">
+                    @can('admin')
                     <a href="{{ route('jenis.create') }}" type="button" class="btn btn-primary mb-3">
                         <i class="fas fa-plus me-1"></i>
                         Jenis Wisata
                     </a>
+                    @endcan
                     <table class="table table-bordered">
                         <thead class="table-primary align-middle text-center">
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Nama Jenis Wisata</th>
+                                @can('admin')
                                 <th class="text-center">Aksi</th>
+                                @elseif('user')
+                                <th class="text-center">Detail</th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -33,13 +39,16 @@
                                     <tr>
                                         <td class="text-center">{{ $loop->iteration }}</td>
                                         <td class="text-center">
-                                            {{ Str::ucfirst(Str::upper($jenis->jenis_name)) }}
+                                            {{ Str::ucfirst($jenis->jenis_name) }}
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('jenis.wisatas', $jenis->slug) }}"
-                                                class="badge bg-primary"><i class="fa-solid fa-eye"></i></a>
-                                            <a href="{{ route('jenis.edit', $jenis->id) }}" class="badge bg-warning"><i
-                                                    class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="{{ route('jenis.wisatas', $jenis->slug) }}" class="badge bg-primary">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
+                                            @can('admin')
+                                            <a href="{{ route('jenis.edit', $jenis->id) }}" class="badge bg-warning">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
                                             <form action="{{ route('jenis.destroy', $jenis->id) }}" method="POST"
                                                 class="d-inline">
                                                 @method('delete')
@@ -49,6 +58,7 @@
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </span>
                                             </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach

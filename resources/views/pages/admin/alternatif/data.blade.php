@@ -86,7 +86,7 @@
                             {{ ($alternatives->currentpage() - 1) * $alternatives->perpage() + $loop->index + 1 }}
                         </td>
                         <td class="text-center">
-                            {{ Str::ucfirst(Str::upper($alternative->nama_wisata)) }}
+                            {{ Str::ucfirst($alternative->nama_wisata) }}
                         </td>
                         <td class="text-center">
                             {{ $alternative->jenis->jenis_name }}

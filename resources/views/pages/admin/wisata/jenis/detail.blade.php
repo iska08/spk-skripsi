@@ -21,23 +21,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($wisatas->count())
-                            @foreach ($wisatas as $wisata)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ Str::ucfirst(Str::upper($wisata->nama_wisata)) }}</td>
-                                    <td><a href="{{ $wisata->lokasi_maps }}">{{ $wisata->lokasi_maps }}</a></td>
-                                    <td>{{ $wisata->fasilitas }}</td>
-                                    <td>Rp {{ number_format($wisata->biaya, 0, ',', '.') }}</td>
-                                </tr>
-                            @endforeach
-                        @else
+                        @foreach ($wisatas as $wisata)
                             <tr>
-                                <td colspan="5" class="text-danger text-center p-4">
-                                    <h4>Belum ada data Destinasi Wisata</h4>
-                                </td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ Str::ucfirst($wisata->nama_wisata) }}</td>
+                                <td><a href="{{ $wisata->lokasi_maps }}">{{ $wisata->lokasi_maps }}</a></td>
+                                <td>{{ $wisata->fasilitas }}</td>
+                                <td>Rp {{ number_format($wisata->biaya, 0, ',', '.') }}</td>
                             </tr>
-                        @endif
+                        @endforeach
                     </tbody>
                 </table>
             </div>

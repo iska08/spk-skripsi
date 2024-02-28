@@ -6,18 +6,17 @@
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}"
                     href="{{ route('dashboard.index') }}">
                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-home"></i>
                     </div>
                     Dashboard
                 </a>
                 {{-- Master Data --}}
                 <div class="sb-sidenav-menu-heading">Master Data</div>
                 {{-- kriteria --}}
-                @can('admin')
                 <a class="nav-link {{ Request::is('dashboard/kriteria*') ? 'active' : '' }}"
                     href="{{ route('kriteria.index') }}">
                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-table-columns"></i>
+                        <i class="fas fa-list-alt"></i>
                     </div>
                     Data Kriteria
                 </a>
@@ -25,41 +24,33 @@
                 <a class="nav-link {{ Request::is('dashboard/wisata*') ? 'active' : '' }}"
                     href="{{ route('wisata.index') }}">
                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-school"></i>
+                        <i class="fas fa-map-marked-alt"></i>
                     </div>
                     Data Destinasi Wisata
                 </a>
-                @endcan
                 {{-- Master User --}}
                 <a class="nav-link {{ Request::is('dashboard/alternatif*') ? 'active' : '' }}"
                     href="{{ route('alternatif.index') }}">
                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-users-rectangle"></i>
+                        <i class="fas fa-cubes"></i>
                     </div>
                     Data Alternatif
                 </a>
-                {{-- <a class="nav-link {{ Request::is('dashboard/perbandingan*') ? 'active' : '' }}"
-                    href="{{ route('perbandingan.index') }}">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-ranking-star"></i>
-                    </div>
-                    Perhitungan Metode AHP
-                </a>
-                <a class="nav-link {{ Request::is('dashboard/ranking*') ? 'active' : '' }}"
-                    href="{{ route('rank.index') }}">
-                    <div class="sb-nav-link-icon">
-                        <i class="fas fa-ranking-star"></i>
-                    </div>
-                    Perhitungan Metode SAW
-                </a> --}}
                 <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
+                    href="{{ route('kombinasi.awal') }}">
+                    <div class="sb-nav-link-icon">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    Metode SPK
+                </a>
+                @can('admin')
+                <a class="nav-link {{ Request::is('dashboard/editkombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.index') }}">
                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-ranking-star"></i>
+                        <i class="fas fa-pencil-alt"></i>
                     </div>
                     Perhitungan
                 </a>
-                @can('admin')
                 <div class="sb-sidenav-menu-heading">Master Pengguna</div>
                 <a class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}"
                     href="{{ route('users.index') }}">

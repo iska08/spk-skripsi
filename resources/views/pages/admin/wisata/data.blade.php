@@ -15,11 +15,13 @@
             {{-- datatable --}}
             <div class="card mb-4">
                 <div class="card-body table-responsive">
+                    @can('admin')
                     <div class="d-sm-flex align-items-center justify-content-between">
                         <a href="{{ route('wisata.create') }}" type="button" class="btn btn-primary mb-3"><i
                                 class="fas fa-plus me-1"></i>Destinasi Wisata
                         </a>
                     </div>
+                    @endcan
                     {{-- validation error file required --}}
                     @if (session('error'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -64,7 +66,9 @@
                                 <th class="text-center">Fasilitas</th>
                                 <th class="text-center">Biaya</th>
                                 <th class="text-center">Jenis Wisata</th>
+                                @can('admin')
                                 <th class="text-center">Aksi</th>
+                                @endcan
                             </tr>
                         </thead>
                         <tbody>
@@ -75,7 +79,7 @@
                                             {{ ($wisatas->currentpage() - 1) * $wisatas->perpage() + $loop->index + 1 }}
                                         </td>
                                         <td class="text-center">
-                                            {{ Str::ucfirst(Str::upper($wisata->nama_wisata)) }}
+                                            {{ Str::ucfirst($wisata->nama_wisata) }}
                                         </td>
                                         <td><a href="{{ $wisata->lokasi_maps }}">{{ $wisata->lokasi_maps }}</a></td>
                                         <td>{{ $wisata->fasilitas }}</td>
@@ -83,6 +87,7 @@
                                         <td class="text-center">
                                             {{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
                                         </td>
+                                        @can('admin')
                                         <td>
                                             <a href="{{ route('wisata.edit', $wisata->id) }}" class="badge bg-warning">
                                                 <i class="fa-solid fa-pen-to-square"></i>
@@ -95,6 +100,7 @@
                                                         class="fa-solid fa-trash-can"></i></button>
                                             </form>
                                         </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                             @else
