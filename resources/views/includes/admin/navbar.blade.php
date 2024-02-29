@@ -8,7 +8,7 @@
         <i class="fas fa-bars"></i>
     </button>
     {{-- Jam --}}
-    <div class="text-white">
+    <div class="text-white" style="font-family:'Courier New', Courier, monospace">
         <?php
             date_default_timezone_set("Asia/Jakarta");
             $namaHari = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu");

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CriteriaPerbadinganRequest;
+use App\Http\Requests\Admin\BobotRequest;
 use App\Models\Alternative;
 use App\Models\Criteria;
 use App\Models\CriteriaAnalysis;
@@ -164,6 +165,24 @@ class KombinasiController extends Controller
         ]);
     }
 
+    public function showBobot(CriteriaAnalysis $criteriaAnalysis)
+    {
+        $criteriaAnalysis->load('details');
+        $details        = filterDetailResults($criteriaAnalysis->details);
+        $isDoneCounting = Bobot::where('criteria_analysis_id', $criteriaAnalysis->id)->exists();
+        $criteriaBobots = Criteria::join('bobots', 'criterias.id', '=', 'bobots.criteria_id')
+            ->where('bobots.criteria_analysis_id', $criteriaAnalysis->id)
+            ->get();
+        $criteriaAnalysis->unsetRelation('details');
+        return view('pages.admin.kombinasi.perbandingan.inputr', [
+            'title'             => 'Edit Bobot Kriteria',
+            'criteria_analysis' => $criteriaAnalysis,
+            'details'           => $details,
+            'isDoneCounting'    => $isDoneCounting,
+            'criteriaBobots'    => $criteriaBobots,
+        ]);
+    }
+
     private function _hitungNormalisasi($dividers, $alternatives)
     {
         $normalisasi = [];
@@ -184,7 +203,7 @@ class KombinasiController extends Controller
             }
             array_push($normalisasi, [
                 'wisata_id'       => $alternative['wisata_id'],
-                'wisata_name'     => strtoupper($alternative['wisata_name']),
+                'wisata_name'     => $alternative['wisata_name'],
                 'jenis_name'      => $alternative['jenis_name'],
                 'criteria_name'   => $alternative['criteria_name'],
                 'criteria_id'     => $alternative['criteria_id'],
@@ -248,6 +267,19 @@ class KombinasiController extends Controller
         return redirect()
             ->back()
             ->with('success', 'Nilai Perbandingan Telah Diperbarui!');
+    }
+
+    public function updateBobot(BobotRequest $request)
+    {
+        $validated = $request->validated();
+        foreach ($validated['bobot_id'] as $key => $id) {
+            Bobot::where('id', $id)->update([
+                'value'  => $validated['value'][$key],
+            ]);
+        }
+        return redirect()
+            ->back()
+            ->with('success', 'Nilai Bobot Telah Diperbarui!');
     }
 
     // menghitung perbandingan

@@ -72,7 +72,7 @@
                         @php
                         $val = isset($normalisasi['alternative_val'][$key]) ? $normalisasi['alternative_val'][$key] :
                         null;
-                        $result = isset($normalisasi['results'][$key]) ? round($normalisasi['results'][$key], 2) : null;
+                        $result = isset($normalisasi['results'][$key]) ? round($normalisasi['results'][$key], 3) : null;
                         @endphp
                         <td class="text-center">
                             @if ($result !== null)
@@ -139,7 +139,7 @@
                         </td>
                         @endforeach
                         <td class="text-center">
-                            {{ round($rank['rank_result'], 4) }}
+                            {{ round($rank['rank_result'], 3) }}
                         </td>
                         <td class="text-center fw-bold">
                             {{ $loop->iteration }}

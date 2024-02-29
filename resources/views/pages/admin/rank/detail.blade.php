@@ -76,7 +76,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="text-center">
-                            {{ Str::ucfirst(Str::Upper($normalisasi['wisata_name'])) }}
+                            {{ Str::ucfirst($normalisasi['wisata_name']) }}
                         </td>
                         <td class="text-center">
                             {{ $normalisasi['jenis_name'] }}
@@ -84,7 +84,7 @@
                         @foreach ($dividers as $key => $value)
                         @if (isset($normalisasi['results'][$key]))
                         <td class="text-center">
-                            {{ round($normalisasi['results'][$key], 2) }}
+                            {{ round($normalisasi['results'][$key], 3) }}
                         </td>
                         @else
                         <td class="text-center">
@@ -111,6 +111,11 @@
                     <tr>
                         <th scope="col">Nama Alternatif</th>
                         <th scope="col">Jenis Wisata</th>
+                        @foreach ($dividers as $divider)
+                        <th scope="col">
+                            Hitung {{ $divider['nama_kriteria'] }}
+                        </th>
+                        @endforeach
                         <th scope="col" class="text-center">Hasil Perhitungan</th>
                         <th scope="col" class="text-center">Ranking</th>
                     </tr>
@@ -118,6 +123,7 @@
                 <tbody>
                     @if (!empty($ranks))
                     @php($rankResult = [])
+                    @php($hasilKali = [])
                     @foreach ($ranks as $rank)
                     <tr>
                         <td>
@@ -126,8 +132,17 @@
                         <td>
                             {{ $rank['jenis_name'] }}
                         </td>
+                        @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
+                        @php($hasilNormalisasi = isset($rank['results'][$key]) ? $rank['results'][$key] : 0)
                         <td class="text-center">
-                            {{ round($rank['rank_result'], 4) }}
+                            @php($kali = $innerpriorityvalue->value * $hasilNormalisasi)
+                            @php($res = substr($kali, 0, 11))
+                            @php(array_push($hasilKali, $res))
+                            {{ round($res, 3) }}
+                        </td>
+                        @endforeach
+                        <td class="text-center">
+                            {{ round($rank['rank_result'], 3) }}
                         </td>
                         <td class="text-center fw-bold">
                             {{ $loop->iteration }}

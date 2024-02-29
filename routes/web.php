@@ -68,10 +68,14 @@ Route::prefix('dashboard')
             ->name('kombinasi.awal');
         Route::post('kombinasi', [KombinasiController::class, 'store'])
             ->name('kombinasi.store');
-        Route::get('kombinasi/{criteria_analysis}', [KombinasiController::class, 'show'])
+        Route::get('kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'show'])
             ->name('kombinasi.show');
-        Route::put('kombinasi/{criteria_analysis}', [KombinasiController::class, 'update'])
+        Route::put('kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'update'])
             ->name('kombinasi.update');
+        Route::get('kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'showBobot'])
+            ->name('kombinasi.showBobot');
+        Route::put('kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'updateBobot'])
+            ->name('kombinasi.updateBobot');
         Route::delete('kombinasi/{criteria_analysis}', [KombinasiController::class, 'destroy'])
             ->name('kombinasi.destroy');
         Route::get('kombinasi/result/{criteria_analysis}', [KombinasiController::class, 'result'])

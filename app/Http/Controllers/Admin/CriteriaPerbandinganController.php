@@ -289,7 +289,7 @@ class CriteriaPerbandinganController extends Controller
             }
             array_push($normalisasi, [
                 'wisata_id'       => $alternative['wisata_id'],
-                'wisata_name'     => strtoupper($alternative['wisata_name']),
+                'wisata_name'     => $alternative['wisata_name'],
                 'jenis_name'      => $alternative['jenis_name'],
                 'criteria_name'   => $alternative['criteria_name'],
                 'criteria_id'     => $alternative['criteria_id'],

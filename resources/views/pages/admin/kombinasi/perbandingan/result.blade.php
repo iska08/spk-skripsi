@@ -51,7 +51,7 @@
                         </td>
                         @else
                         <td class="text-center {{ $bgYellow }}">
-                            {{ round(floatval($criteria_analysis->details[$startAt]->comparison_result), 2) }}
+                            {{ round(floatval($criteria_analysis->details[$startAt]->comparison_result), 3) }}
                         </td>
                         @endif
                         @php($startAt++)
@@ -61,7 +61,7 @@
                     <th class="text-center table-dark">Jumlah</th>
                     @foreach ($totalSums as $total)
                     <td class="text-center bg-dark text-white">
-                        {{ round($total['totalSum'], 2) }}
+                        {{ round($total['totalSum'], 3) }}
                     </td>
                     @endforeach
                 </tbody>
@@ -101,14 +101,14 @@
                         <td class="text-center">
                             @php($res = floatval($criteria_analysis->details[$startAt]->comparison_result) /
                             $totalSums[$key]['totalSum'])
-                            {{ round($res, 2) }}
+                            {{ round($res, 3) }}
                             @php($rowTotal += Str::substr($res, 0, 11))
                         </td>
                         @php($startAt++)
                         @endforeach
                         @php(array_push($rowTotals, $rowTotal))
                         <td class="text-center">
-                            {{ round($rowTotal, 2) }}
+                            {{ round($rowTotal, 3) }}
                         </td>
                         <td class="text-center table-dark text-white">
                             {{ round($priorityValue->value, 3) }}
@@ -150,7 +150,7 @@
                             @php($res = floatval($criteria_analysis->details[$startAt]->comparison_result) *
                             $innerpriorityvalue->value)
                             {{-- hasil perkalian --}}
-                            {{ round($res, 2) }}
+                            {{ round($res, 3) }}
                             {{-- row total --}}
                             @php($rowTotal += Str::substr($res, 0, 11))
                         </td>
@@ -159,7 +159,7 @@
                         @php(array_push($rowTotals, $rowTotal))
                         <td class="text-center table-dark text-white">
                             {{-- {{ $rowTotal }} --}}
-                            {{ round($rowTotal, 2) }}
+                            {{ round($rowTotal, 3) }}
                         </td>
                     </tr>
                     @endforeach
@@ -193,7 +193,7 @@
                             {{ $criteria_analysis->priorityValues[$key]->criteria->nama_kriteria }}
                         </td>
                         <td class="text-center">
-                            {{ round($total, 2) }}
+                            {{ round($total, 3) }}
                         </td>
                         <td class="text-center">
                             {{ round($criteria_analysis->priorityValues[$key]->value, 3) }}
@@ -202,7 +202,7 @@
                             @php($lambda = $total / $criteria_analysis->priorityValues[$key]->value)
                             @php($res = substr($lambda, 0, 11))
                             @php(array_push($lambdaResult, $res))
-                            {{ round($res, 2) }}
+                            {{ round($res, 3) }}
                         </td>
                     </tr>
                     @endforeach
@@ -210,7 +210,7 @@
                         <td class="text-center fw-bold table-dark" colspan="3">λmaks</td>
                         <td class="text-center fw-bold table-dark">
                             @php($lambdaMax = array_sum($lambdaResult) / count($lambdaResult))
-                            {{ round($lambdaMax, 2) }}
+                            {{ round($lambdaMax, 3) }}
                         </td>
                     </tr>
                 </tbody>
@@ -225,13 +225,13 @@
                             </tr>
                             <tr>
                                 <th class="text-center" scope="row">λmaks</th>
-                                <td class="text-center">{{ round($lambdaMax, 2) }}</td>
+                                <td class="text-center">{{ round($lambdaMax, 3) }}</td>
                             </tr>
                             <tr>
                                 <th class="text-center" scope="row">Indeks Konsistensi</th>
                                 <td class="text-center">
                                     @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
-                                    {{ round($CI, 2) }}
+                                    {{ round($CI, 3) }}
                                 </td>
                             </tr>
                             <tr>
@@ -247,7 +247,7 @@
                                 @php($txtClass = 'text-danger fw-bold')
                                 @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
                                     class="{{ $txtClass }} text-center">
-                                    <span id="cr-value">{{ round($CR, 2) }}</span>
+                                    <span id="cr-value">{{ round($CR, 3) }}</span>
                                     (Nilai Konsisten)
                                     </td>
                             </tr>
@@ -295,6 +295,14 @@
                         <td class="text-center" scope="col">{{ $divider['divider_value'] }}</td>
                         @endforeach
                     </tr>
+                    <tr>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Prioritas (Bobot)</td>
+                        @foreach ($criteriaAnalysis->priorityValues as $key => $innerpriorityvalue)
+                        <td class="text-center">
+                            {{ round($innerpriorityvalue->value, 3) }}
+                        </td>
+                        @endforeach
+                    </tr>
                 </tbody>
             </table>
             <table id="datatablesSimple" class="table table-bordered table-responsive">
@@ -314,7 +322,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="text-center">
-                            {{ Str::ucfirst(Str::Upper($normalisasi['wisata_name'])) }}
+                            {{ Str::ucfirst($normalisasi['wisata_name']) }}
                         </td>
                         <td class="text-center">
                             {{ $normalisasi['jenis_name'] }}
@@ -322,7 +330,7 @@
                         @foreach ($dividers as $key => $value)
                         @if (isset($normalisasi['results'][$key]))
                         <td class="text-center">
-                            {{ round($normalisasi['results'][$key], 2) }}
+                            {{ round($normalisasi['results'][$key], 3) }}
                         </td>
                         @else
                         <td class="text-center">
@@ -350,6 +358,11 @@
                     <tr>
                         <th scope="col">Nama Alternatif</th>
                         <th scope="col">Jenis Wisata</th>
+                        @foreach ($dividers as $divider)
+                        <th scope="col">
+                            Hitung {{ $divider['nama_kriteria'] }}
+                        </th>
+                        @endforeach
                         <th scope="col" class="text-center">Hasil Perhitungan</th>
                         <th scope="col" class="text-center">Ranking</th>
                     </tr>
@@ -357,6 +370,7 @@
                 <tbody>
                     @if (!empty($ranks))
                     @php($rankResult = [])
+                    @php($hasilKali = [])
                     @foreach ($ranks as $rank)
                     <tr>
                         <td>
@@ -365,8 +379,17 @@
                         <td>
                             {{ $rank['jenis_name'] }}
                         </td>
+                        @foreach ($criteriaAnalysis->priorityValues as $key => $innerpriorityvalue)
+                        @php($hasilNormalisasi = isset($rank['results'][$key]) ? $rank['results'][$key] : 0)
                         <td class="text-center">
-                            {{ round($rank['rank_result'], 4) }}
+                            @php($kali = $innerpriorityvalue->value * $hasilNormalisasi)
+                            @php($res = substr($kali, 0, 11))
+                            @php(array_push($hasilKali, $res))
+                            {{ round($res, 3) }}
+                        </td>
+                        @endforeach
+                        <td class="text-center">
+                            {{ round($rank['rank_result'], 3) }}
                         </td>
                         <td class="text-center">
                             {{ $loop->iteration }}
@@ -379,5 +402,5 @@
         </div>
     </div>
 </div>
-@php(session(["cr_value_{$criteria_analysis->id}" => round($CR, 2)]))
+@php(session(["cr_value_{$criteria_analysis->id}" => round($CR, 3)]))
 @endsection

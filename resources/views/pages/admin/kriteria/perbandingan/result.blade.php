@@ -248,7 +248,7 @@
                                 @php($txtClass = 'text-danger fw-bold')
                                 @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
                                     class="{{ $txtClass }}">
-                                    <span id="cr-value">{{ round($CR, 2) }}</span>
+                                    <span id="cr-value">{{ round($CR, 3) }}</span>
                                     (Nilai Konsisten)
                                     </td>
                             </tr>
@@ -376,10 +376,10 @@
                     <tr>
                         <th scope="col" class="text-center">Nama Alternatif</th>
                         <th scope="col" class="text-center">Jenis Wisata</th>
-                        {{-- @foreach ($dividers as $divider)
-                            <th scope="col">{{ $divider['nama_kriteria'] }}</th>
-                        @endforeach --}}
-                        <th>Bobot Evaluasi</th>
+                        @foreach ($dividers as $divider)
+                            <th scope="col">Hitung {{ $divider['nama_kriteria'] }}</th>
+                        @endforeach
+                        <th>Bobot Evaluasi (Jumlah)</th>
                         <th>Ranking</th>
                     </tr>
                 </thead>
@@ -449,11 +449,11 @@
                                 <td class="text-center">
                                     {{ $data['jenis_name'] }}
                                 </td>
-                                {{-- @foreach ($dividers as $key => $divider)
+                                @foreach ($dividers as $key => $divider)
                                     <td class="text-center">
                                         {{ round($data['nilai_kriteria'][$key], 3) }}
                                     </td>
-                                @endforeach --}}
+                                @endforeach
                                 <td class="text-center">{{ round($data['total_bobot'], 3) }}</td>
                                 <td class="text-center">{{ $ranking++ }}</td>
                             </tr>
@@ -464,5 +464,5 @@
         </div>
     </div>
 </div>
-@php(session(["cr_value_{$criteria_analysis->id}" => round($CR, 2)]))
+@php(session(["cr_value_{$criteria_analysis->id}" => round($CR, 3)]))
 @endsection
