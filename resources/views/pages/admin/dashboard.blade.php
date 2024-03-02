@@ -10,7 +10,7 @@
         <!-- Content Row -->
         @can('admin')
         <div class="row">
-            <!-- Destinasi Wisata Card Example -->
+            <!-- Destinasi Wisata -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
                     <a style="text-decoration:none; color: #212529;" href="{{ route('wisata.index') }}">
@@ -22,15 +22,14 @@
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $wisata }}</div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                    <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-
-            <!-- Criteria Card Example -->
+            <!-- Criteria -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
                     <a href="{{ route('kriteria.index') }}" style="text-decoration:none; color: #212529;">
@@ -42,15 +41,14 @@
                                     <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $criterias }}</div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-table-columns fa-2x text-gray-300"></i>
+                                    <i class="fas fa-list-alt fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-
-            <!-- Class Card Example -->
+            <!-- Jenis Wisata -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-info shadow h-100 py-2">
                     <a href="{{ route('jenis.index') }}" style="text-decoration:none; color: #212529;">
@@ -67,15 +65,15 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-school fa-2x text-gray-300"></i>
+                                    <i class="fas fa-hiking fa-2x text-gray-300"></i>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-
-            <!-- Data user Card Example -->
+            {{-- @can('admin') --}}
+            <!-- Data User -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
                     <div class="card-body">
@@ -92,6 +90,7 @@
                     </div>
                 </div>
             </div>
+            {{-- @endcan --}}
         </div>
         @endcan
     </div>
