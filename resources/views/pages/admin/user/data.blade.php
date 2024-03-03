@@ -45,7 +45,9 @@
                         <th>Username</th>
                         <th>Email</th>
                         <th>Level</th>
+                        @can('admin')
                         <th>Aksi</th>
+                        @endcan
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +59,7 @@
                         <td class="text-center">{{ $user->username }}</td>
                         <td class="text-center">{{ $user->email }}</td>
                         <td class="text-center">{{ $user->level }}</td>
+                        @can('admin')
                         <td class="text-center">
                             <a href="{{ route('users.edit', $user->id) }}" class="badge bg-warning">
                                 <i class="fa-solid fa-pen-to-square"></i>
@@ -69,6 +72,7 @@
                                 </button>
                             </form>
                         </td>
+                        @endcan
                     </tr>
                     @endforeach
                     @else

@@ -26,7 +26,7 @@ class WisatasImport implements ToModel, WithHeadingRow, SkipsOnError, WithValida
         $jenisName = $row['jenis_name'];
         $jenis     = Jenis::where('jenis_name', $jenisName)->first();
         return new Wisata([
-            'name'        => $row['name'],
+            'nama_wisata' => $row['nama_wisata'],
             'lokasi_maps' => $row['lokasi_maps'],
             'fasilitas'   => $row['fasilitas'],
             'biaya'       => $row['biaya'],
@@ -37,7 +37,7 @@ class WisatasImport implements ToModel, WithHeadingRow, SkipsOnError, WithValida
     public function rules(): array
     {
         return [
-            'name'        => ['required'],
+            'nama_wisata' => ['required'],
             'lokasi_maps' => ['required'],
             'fasilitas'   => ['required'],
             'biaya'       => ['required'],

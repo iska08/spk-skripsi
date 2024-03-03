@@ -40,7 +40,7 @@
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
         <span class="mr-2 d-none d-lg-inline text-white small">
-            Welcome back, {{ auth()->user()->name }}
+            {{ auth()->user()->name }}
         </span>
     </form>
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">

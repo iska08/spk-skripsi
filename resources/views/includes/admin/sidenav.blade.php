@@ -47,11 +47,13 @@
                 <a class="nav-link {{ Request::is('dashboard/editkombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.index') }}">
                     <div class="sb-nav-link-icon">
-                        <i class="fas fa-pencil-alt"></i>
+                        <i class="fas fa-gear"></i>
                     </div>
-                    Perhitungan
+                    Data Perhitungan
                 </a>
+                @endcan
                 <div class="sb-sidenav-menu-heading">Master Pengguna</div>
+                @can('admin')
                 <a class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}"
                     href="{{ route('users.index') }}">
                     <div class="sb-nav-link-icon">

@@ -93,6 +93,10 @@ class AlternativeController extends Controller
      */
     public function store(AlternativeStoreRequest $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         // menyimpan input destinasi wisata dengan jenis wisata
         $pisah    = explode(" ", $request->wisata_id);
         // explode(" ", $request->wisata_id);
@@ -128,6 +132,10 @@ class AlternativeController extends Controller
      */
     public function edit(Alternative $alternatif)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk mengakses halaman ini.');
+        }
+        
         // cek apakah ada kriteria baru yang belum diisi oleh pengguna
         $selectedCriteria  = Alternative::where('wisata_id', $alternatif->wisata_id)->pluck('criteria_id');
         $newCriterias      = Criteria::whereNotIn('id', $selectedCriteria)->get();
@@ -148,6 +156,10 @@ class AlternativeController extends Controller
      */
     public function update(AlternativeUpdateRequest $request, Alternative $alternatif)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+        
         $pisah    = explode(" ", $request->new_wisata_id);
         $validate = $request->validated();
         // masukkan nilai alternatif baru jika ada kriteria baru
@@ -180,6 +192,10 @@ class AlternativeController extends Controller
      */
     public function destroy(Alternative $alternatif)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         Alternative::where('wisata_id', $alternatif->wisata_id)->delete();
         return redirect('/dashboard/alternatif')->with('success', 'Alternatif yang Dipilih Telah Dihapus!');
     }

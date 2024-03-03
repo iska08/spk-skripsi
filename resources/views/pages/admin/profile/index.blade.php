@@ -25,7 +25,7 @@
                         <label for="name" class="form-label">Nama Lengkap</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
                             name="name" value="{{ $userData->name }}" autofocus required
-                            placeholder="Masukan nama lengkap">
+                            placeholder="Masukkan Nama Lengkap">
                         @error('name')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -35,7 +35,7 @@
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
-                            name="username" value="{{ $userData->username }}" required placeholder="Masukan username">
+                            name="username" value="{{ $userData->username }}" required placeholder="Masukkan Username">
                         @error('username')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -64,7 +64,7 @@
                         <div class="mb-3">
                             <label for="oldPassword" class="form-label">Password Lama</label>
                             <input type="password" class="form-control @error('oldPassword') is-invalid @enderror"
-                                id="oldPassword" name="oldPassword" required placeholder="Input password lama">
+                                id="oldPassword" name="oldPassword" required placeholder="Input Password Lama">
                             @error('oldPassword')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -72,10 +72,10 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
+                            <label for="password" class="form-label">Password Baru</label>
                             <div class="input-group mb-3">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                    id="myInput" name="password" required placeholder="Masukan password"
+                                    id="myInput" name="password" required placeholder="Masukkan Password Baru"
                                     aria-describedby="basic-addon2">
                                 <div class="align-items-center">
                                     <span class="input-group-text" id="basic-addon2">
@@ -96,7 +96,7 @@
                             <div class="input-group mb-3">
                                 <input type="password" class="form-control @error('password') is-invalid @enderror"
                                     id="password_confirmation" name="password_confirmation" required
-                                    placeholder="Konfirmasi password" aria-describedby="basic-addon2">
+                                    placeholder="Konfirmasi Password Baru" aria-describedby="basic-addon2">
                                 <div class="align-items-center">
                                     <span class="input-group-text" id="basic-addon2">
                                         <i class="fa-solid fa-eye-slash pointer" id="hide" onclick="myFunction2()"></i>

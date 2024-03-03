@@ -34,6 +34,10 @@ class JenisController extends Controller
      */
     public function create()
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         return view('pages.admin.wisata.jenis.create', [
             'title' => 'Buat Jenis Wisata',
         ]);
@@ -47,6 +51,10 @@ class JenisController extends Controller
      */
     public function store(Request $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validatedData = $request->validate([
             'jenis_name' => 'required|max:30|unique:jenis',
         ]);
@@ -74,6 +82,10 @@ class JenisController extends Controller
      */
     public function edit($id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $jenis = Jenis::FindOrFail($id);
         return view('pages.admin.wisata.jenis.edit', [
             'title'   => "Edit Data $jenis->jenis_name",
@@ -91,6 +103,10 @@ class JenisController extends Controller
 
     public function update(JenisUpdateRequest $request, $id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validatedData = $request->validated();
         $validatedData['slug'] = Str::slug($validatedData['jenis_name'], '-');
         $item = Jenis::findOrFail($id);
@@ -106,6 +122,10 @@ class JenisController extends Controller
      */
     public function destroy($id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+        
         $jenis = Jenis::findOrFail($id);
         $jenis->delete();
         return redirect()->route('jenis.index')->with('success', 'Jenis Wisata yang Dipilih Telah Dihapus!');

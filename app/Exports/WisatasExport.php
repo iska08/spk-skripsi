@@ -2,13 +2,13 @@
 
 namespace App\Exports;
 
-use App\Models\Student;
+use App\Models\Wisata;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class StudentsExport implements FromCollection, WithHeadings, ShouldAutoSize
+class WisatasExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
     use Exportable;
     /**
@@ -16,19 +16,19 @@ class StudentsExport implements FromCollection, WithHeadings, ShouldAutoSize
      */
     public function collection()
     {
-        return Student::select('nis', 'name', 'gender')
-            ->leftJoin('kelas', 'students.kelas_id', '=', 'kelas.id')
-            ->selectRaw('students.nis, students.name, students.gender, kelas.kelas_name')
-            ->orderBy('kelas.kelas_name')
-            ->orderBy('students.name')
+        return Wisata::select('nama_wisata', 'lokasi_maps', 'fasilitas', 'biaya')
+            ->leftJoin('jenis', 'wisatas.jenis_id', '=', 'jenis.id')
+            ->selectRaw('wisatas.nama_wisata, wisatas.lokasi_maps, wisatas.fasilitas, wisatas.biaya, jenis.jenis_name')
+            ->orderBy('jenis.jenis_name')
+            ->orderBy('wisatas.nama_wisata')
             ->get();
     }
 
     public function headings(): array
     {
         return [
-            'name',
-            'kelas_name',
+            'nama_wisata',
+            'jenis_name',
             'lokasi_maps',
             'fasilitas',
             'biaya',

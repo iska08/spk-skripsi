@@ -57,6 +57,10 @@ class WisataController extends Controller
      */
     public function create()
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $jenises = Jenis::orderBy('jenis_name')->get();
         return view('pages.admin.wisata.create', [
             'title'   => 'Tambah Data Destinasi Wisata',
@@ -72,6 +76,10 @@ class WisataController extends Controller
      */
     public function store(WisataRequest $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validatedData = $request->validated();
         Wisata::create($validatedData);
         return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata Baru Telah Ditambahkan!');
@@ -96,6 +104,10 @@ class WisataController extends Controller
      */
     public function edit($id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $wisata = Wisata::FindOrFail($id);
         $jenises = Jenis::orderBy('jenis_name')->get();
         return view('pages.admin.wisata.edit', [
@@ -114,6 +126,10 @@ class WisataController extends Controller
      */
     public function update(WisataUpdateRequest $request, Wisata $wisata)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validatedData = $request->validated();
         Wisata::where('id', $wisata->id)->update($validatedData);
         return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Diperbarui!');
@@ -127,6 +143,10 @@ class WisataController extends Controller
      */
     public function destroy(Wisata $wisata)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         Wisata::destroy($wisata->id);
         return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Dihapus!');
     }
@@ -136,6 +156,10 @@ class WisataController extends Controller
      */
     public function import(Request $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $request->validate([
             'file' => 'required|mimes:xls,xlsx'
         ]);
@@ -156,6 +180,10 @@ class WisataController extends Controller
 
     public function export()
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+        
         return Excel::download(new WisatasExport(), 'Data Destinasi Wisata.xlsx');
     }
 }

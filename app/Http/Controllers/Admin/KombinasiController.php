@@ -23,6 +23,10 @@ class KombinasiController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         if (auth()->user()->level === 'ADMIN' || auth()->user()->level === 'USER') {
             $comparisons = CriteriaAnalysis::with('user')->with(['details' => function ($query) {
                 $query->join('criterias', 'criteria_analysis_details.criteria_id_second', '=', 'criterias.id')
@@ -89,6 +93,10 @@ class KombinasiController extends Controller
      */
     public function store(Request $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         if (!isset($request->criteria_id)) {
             return redirect('dashboard/kombinasi')->with('failed', 'Silakan Periksa Kriteria yang Anda Pilih!');
         }
@@ -153,6 +161,10 @@ class KombinasiController extends Controller
      */
     public function show(CriteriaAnalysis $criteriaAnalysis)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $criteriaAnalysis->load('details', 'details.firstCriteria', 'details.secondCriteria');
         $details        = filterDetailResults($criteriaAnalysis->details);
         $isDoneCounting = PriorityValue::where('criteria_analysis_id', $criteriaAnalysis->id)->exists();
@@ -167,6 +179,10 @@ class KombinasiController extends Controller
 
     public function showBobot(CriteriaAnalysis $criteriaAnalysis)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $criteriaAnalysis->load('details');
         $details        = filterDetailResults($criteriaAnalysis->details);
         $isDoneCounting = Bobot::where('criteria_analysis_id', $criteriaAnalysis->id)->exists();
@@ -255,6 +271,10 @@ class KombinasiController extends Controller
      */
     public function update(CriteriaPerbadinganRequest $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validate = $request->validated();
         foreach ($validate['criteria_analysis_detail_id'] as $key => $id) {
             CriteriaAnalysisDetail::where('id', $id)->update([
@@ -271,6 +291,10 @@ class KombinasiController extends Controller
 
     public function updateBobot(BobotRequest $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validated = $request->validated();
         foreach ($validated['bobot_id'] as $key => $id) {
             Bobot::where('id', $id)->update([
@@ -485,6 +509,10 @@ class KombinasiController extends Controller
      */
     public function destroy(CriteriaAnalysis $criteriaAnalysis)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+        
         CriteriaAnalysis::destroy($criteriaAnalysis->id);
         return redirect('/dashboard/kombinasi')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
     }

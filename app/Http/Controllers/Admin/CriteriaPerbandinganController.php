@@ -56,6 +56,10 @@ class CriteriaPerbandinganController extends Controller
      */
     public function store(Request $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         if (!isset($request->criteria_id)) {
             return redirect('dashboard/perbandingan')->with('failed', 'Silakan Periksa Kriteria yang Anda Pilih!');
         }
@@ -120,6 +124,10 @@ class CriteriaPerbandinganController extends Controller
      */
     public function show(CriteriaAnalysis $criteriaAnalysis)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk mengakses halaman ini.');
+        }
+        
         $criteriaAnalysis->load('details', 'details.firstCriteria', 'details.secondCriteria');
         $details        = filterDetailResults($criteriaAnalysis->details);
         $isDoneCounting = PriorityValue::where('criteria_analysis_id', $criteriaAnalysis->id)->exists();
@@ -151,6 +159,10 @@ class CriteriaPerbandinganController extends Controller
      */
     public function update(CriteriaPerbadinganRequest $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+        
         $validate = $request->validated();
         foreach ($validate['criteria_analysis_detail_id'] as $key => $id) {
             CriteriaAnalysisDetail::where('id', $id)->update([
@@ -416,6 +428,10 @@ class CriteriaPerbandinganController extends Controller
      */
     public function destroy(CriteriaAnalysis $criteriaAnalysis)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+        
         CriteriaAnalysis::destroy($criteriaAnalysis->id);
         return redirect('/dashboard/perbandingan')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
     }

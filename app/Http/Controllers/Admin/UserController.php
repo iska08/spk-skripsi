@@ -20,6 +20,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         return view('pages.admin.user.data', [
             'title' => 'Data Pengguna',
             'users' => User::whereNot('id', auth()->user()->id)->get()
@@ -33,6 +37,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         return view('pages.admin.user.create', [
             'title' => 'Buat Pengguna',
         ]);
@@ -46,6 +54,10 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validate = $request->validated();
         $validate['password'] = Hash::make($validate['password']);
         User::create($validate);
@@ -71,6 +83,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         return view('pages.admin.user.edit', [
             'title' => 'Edit Pengguna',
             'user'  => $user
@@ -86,6 +102,10 @@ class UserController extends Controller
      */
     public function update(UserUpdateRequest $request, User $user)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validate = $request->validated();
         if ($validate['password'] ?? false) {
             $validate['password'] = Hash::make($validate['password']);
@@ -102,6 +122,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $jenis = User::findOrFail($id);
         $jenis->delete();
         return redirect()->route('users.index')->with('success', 'Pengguna yang Dipilih Telah Dihapus!');
@@ -112,6 +136,10 @@ class UserController extends Controller
      */
     public function import(Request $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+        
         $request->validate([
             'file' => 'required|mimes:xls,xlsx'
         ]);

@@ -31,6 +31,10 @@ class CriteriaController extends Controller
      */
     public function create()
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         return view('pages.admin.kriteria.create', ['title' => 'Buat Kriteria Baru',]);
     }
 
@@ -42,6 +46,10 @@ class CriteriaController extends Controller
      */
     public function store(CriteriaStoreRequest $request)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $validatedData   = $request->validated();
         $request['slug'] = Str::slug($request->nama_kriteria, '-');
         Criteria::create($validatedData);
@@ -67,6 +75,10 @@ class CriteriaController extends Controller
      */
     public function edit($id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk mengakses halaman ini.');
+        }
+
         $kriterium = Criteria::FindOrFail($id);
         return view('pages.admin.kriteria.edit', [
             'title'    => "Edit Kriteria $kriterium->nama_kriteria",
@@ -83,6 +95,11 @@ class CriteriaController extends Controller
      */
     public function update(CriteriaUpdateRequest $request, $id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
+        
         $data = $request->validated();
         $data['slug'] = Str::slug($data['nama_kriteria'], '-');
         $item = Criteria::findOrFail($id);
@@ -98,6 +115,10 @@ class CriteriaController extends Controller
      */
     public function destroy($id)
     {
+        if (auth()->user()->level !== 'ADMIN') {
+            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+        }
+
         $kriterium = Criteria::findOrFail($id);
         $kriterium->delete();
         return redirect('/dashboard/kriteria')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
