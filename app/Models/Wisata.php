@@ -13,8 +13,11 @@ class Wisata extends Model
         'jenis_id',
         'nama_wisata',
         'lokasi_maps',
+        'link_foto',
+        'keterangan',
         'fasilitas',
         'biaya',
+        'situs',
     ];
 
     public function jenis()

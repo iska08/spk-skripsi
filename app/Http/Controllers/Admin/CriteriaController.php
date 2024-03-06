@@ -98,7 +98,6 @@ class CriteriaController extends Controller
         if (auth()->user()->level !== 'ADMIN') {
             return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
         }
-
         
         $data = $request->validated();
         $data['slug'] = Str::slug($data['nama_kriteria'], '-');

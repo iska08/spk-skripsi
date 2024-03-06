@@ -13,12 +13,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        $wisatas = Wisata::orderby('nama_wisata')->get();
         return view('pages.admin.dashboard', [
-            'title' => 'Dashboard',
-            'wisata' => Wisata::count(),
+            'title'     => 'Dashboard',
+            'wisata'    => Wisata::count(),
             'criterias' => Criteria::count(),
-            'jenis' => Jenis::count(),
-            'users' => User::count(),
+            'jenis'     => Jenis::count(),
+            'users'     => User::count(),
+            'wisatas'   => $wisatas,
         ]);
     }
 }

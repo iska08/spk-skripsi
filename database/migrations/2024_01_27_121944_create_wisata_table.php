@@ -18,8 +18,11 @@ return new class extends Migration
             $table->foreignId('jenis_id')->constrained()->cascadeOnDelete();
             $table->string('nama_wisata');
             $table->string('lokasi_maps');
+            $table->string('link_foto');
+            $table->string('keterangan');
             $table->string('fasilitas');
             $table->integer('biaya');
+            $table->string('situs');
             $table->timestamps();
         });
     }

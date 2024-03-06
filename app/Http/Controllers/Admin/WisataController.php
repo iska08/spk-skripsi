@@ -124,14 +124,15 @@ class WisataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(WisataUpdateRequest $request, Wisata $wisata)
+    public function update(WisataUpdateRequest $request, $id)
     {
         if (auth()->user()->level !== 'ADMIN') {
             return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
         }
 
         $validatedData = $request->validated();
-        Wisata::where('id', $wisata->id)->update($validatedData);
+        $item = Wisata::findOrFail($id);
+        $item->update($validatedData);
         return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Diperbarui!');
     }
 

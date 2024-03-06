@@ -26,8 +26,11 @@ class WisataUpdateRequest extends FormRequest
         return [
             'nama_wisata' => 'required|max:60|min:5',
             'lokasi_maps' => 'required',
+            'link_foto'   => 'required',
+            'keterangan'  => 'required',
             'fasilitas'   => 'required',
             'biaya'       => 'required',
+            'situs'       => 'nullable',
             'jenis_id'    => 'required'
         ];
     }

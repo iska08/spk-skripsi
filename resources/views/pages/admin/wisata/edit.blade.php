@@ -1,67 +1,82 @@
 @extends('layouts.admin')
-
 @section('content')
     <div class="container-fluid px-4 border-bottom">
         <h1 class="mt-4 h2">{{ $title }}</h1>
     </div>
-
     <form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST" action="{{ route('wisata.update', $wisata->id) }}"
         enctype="multipart/form-data">
         @method('PUT')
         @csrf
-
         {{-- nama --}}
         <div class="mb-3">
             <label for="nama_wisata" class="form-label">Nama Destinasi Wisata</label>
-            <input type="text" class="form-control @error('nama_wisata') is-invalid @enderror" id="nama_wisata" name="nama_wisata"
-                value="{{ old('nama_wisata', $wisata->nama_wisata) }}" autofocus required>
-
+            <input type="text" class="form-control @error('nama_wisata') is-invalid @enderror" id="nama_wisata" name="nama_wisata" value="{{ old('nama_wisata', $wisata->nama_wisata) }}" autofocus required>
             @error('nama_wisata')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
         </div>
-
         {{-- lokasi maps --}}
         <div class="mb-3">
             <label for="lokasi_maps" class="form-label">Link Google Maps</label>
-            <input type="text" class="form-control @error('lokasi_maps') is-invalid @enderror" id="lokasi_maps" name="lokasi_maps"
-                value="{{ old('lokasi_maps', $wisata->lokasi_maps) }}" autofocus required>
-
+            <input type="text" class="form-control @error('lokasi_maps') is-invalid @enderror" id="lokasi_maps" name="lokasi_maps" value="{{ old('lokasi_maps', $wisata->lokasi_maps) }}" autofocus required>
             @error('lokasi_maps')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
         </div>
-
+        {{-- link foto --}}
+        <div class="mb-3">
+            <label for="link_foto" class="form-label">Link Foto</label>
+            <input type="text" class="form-control @error('link_foto') is-invalid @enderror" id="link_foto" name="link_foto" value="{{ old('link_foto', $wisata->link_foto) }}" autofocus required>
+            @error('link_foto')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+        {{-- keterangan --}}
+        <div class="mb-3">
+            <label for="keterangan" class="form-label">Keterangan</label>
+            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" value="{{ old('keterangan', $wisata->keterangan) }}" autofocus required>
+            @error('keterangan')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
         {{-- fasilitas --}}
         <div class="mb-3">
             <label for="fasilitas" class="form-label">Fasilitas</label>
-            <input type="text" class="form-control @error('fasilitas') is-invalid @enderror" id="fasilitas" name="fasilitas"
-                value="{{ old('fasilitas', $wisata->fasilitas) }}" autofocus required>
-
+            <input type="text" class="form-control @error('fasilitas') is-invalid @enderror" id="fasilitas" name="fasilitas" value="{{ old('fasilitas', $wisata->fasilitas) }}" autofocus required>
             @error('fasilitas')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
         </div>
-
         {{-- biaya --}}
         <div class="mb-3">
             <label for="biaya" class="form-label">Biaya</label>
-            <input type="text" class="form-control @error('biaya') is-invalid @enderror" id="biaya" name="biaya"
-                value="{{ old('biaya', $wisata->biaya) }}" autofocus required>
-
+            <input type="text" class="form-control @error('biaya') is-invalid @enderror" id="biaya" name="biaya" value="{{ old('biaya', $wisata->biaya) }}" autofocus required>
             @error('biaya')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
         </div>
-
+        {{-- situs --}}
+        <div class="mb-3">
+            <label for="situs" class="form-label">Situs</label>
+            <input type="text" class="form-control @error('situs') is-invalid @enderror" id="situs" name="situs" value="{{ old('situs', $wisata->situs) }}" autofocus>
+            @error('situs')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
         {{-- Jenis Wisata --}}
         <div class="mb-3">
             <label for="jenis_id" class="form-label">Jenis Wisata</label>
@@ -75,14 +90,12 @@
                     @endif
                 @endforeach
             </select>
-
             @error('jenis_id')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
         </div>
-
         <button type="submit" class="btn btn-primary mb-3">Simpan Perubahan</button>
         <a href="{{ route('wisata.index') }}" class="btn btn-danger mb-3">Batal</a>
     </form>

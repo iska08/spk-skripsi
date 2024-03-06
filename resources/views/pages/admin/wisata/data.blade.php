@@ -62,10 +62,12 @@
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Nama Destinasi Wisata</th>
+                                <th class="text-center">Foto</th>
                                 <th class="text-center">Link Google Maps</th>
                                 <th class="text-center">Fasilitas</th>
                                 <th class="text-center">Biaya</th>
                                 <th class="text-center">Jenis Wisata</th>
+                                <th class="text-center">Website Resmi</th>
                                 @can('admin')
                                 <th class="text-center">Aksi</th>
                                 @endcan
@@ -79,13 +81,49 @@
                                             {{ ($wisatas->currentpage() - 1) * $wisatas->perpage() + $loop->index + 1 }}
                                         </td>
                                         <td class="text-center">
-                                            {{ Str::ucfirst($wisata->nama_wisata) }}
+                                            <?php if($wisata->nama_wisata == ""){
+                                                ?>-<?php
+                                            }else{
+                                                ?>{{ Str::ucfirst($wisata->nama_wisata) }}<?php
+                                            } ?>
                                         </td>
-                                        <td><a href="{{ $wisata->lokasi_maps }}">{{ $wisata->lokasi_maps }}</a></td>
-                                        <td>{{ $wisata->fasilitas }}</td>
-                                        <td>Rp {{ number_format($wisata->biaya, 0, ',', '.') }}</td>
+                                        <td class="text-center">
+                                            <?php if($wisata->link_foto == ""){
+                                                ?>-<?php
+                                            }else{
+                                                ?><img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm"><?php
+                                            }?>
+                                        </td>
+                                        <td class="text-center">
+                                            <?php if($wisata->lokasi_maps == ""){
+                                                ?>-<?php
+                                            }else{
+                                                ?><a href="{{ $wisata->lokasi_maps }}">Klik di Sini</a><?php
+                                            }?>
+                                        </td>
+                                        <td>
+                                            <?php if($wisata->fasilitas == ""){
+                                                ?>-<?php
+                                            }else{
+                                                ?>{{ $wisata->fasilitas }}<?php
+                                            }?>
+                                        </td>
+                                        <td>
+                                            <?php if($wisata->biaya == ""){
+                                                ?>-<?php
+                                            }else{
+                                                ?>Rp {{ number_format($wisata->biaya, 0, ',', '.') }}<?php
+                                            }?>
+                                        </td>
                                         <td class="text-center">
                                             {{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
+                                        </td>
+                                        <td class="text-center">
+                                            <?php if($wisata->situs == ""){
+                                                ?>-<?php
+                                            }else{
+                                                ?><a href="{{ $wisata->situs }}">Klik di Sini</a><?php
+                                            }?>
                                         </td>
                                         @can('admin')
                                         <td>
