@@ -58,7 +58,7 @@
                 </form>
             </div>
             <table class="table table-bordered table-responsive">
-                <thead class="table-primary align-middle text-center">
+                <thead class="bg-primary align-middle text-center text-white">
                     <tr>
                         <th rowspan="2">No</th>
                         <th rowspan="2">Nama Alternatif</th>

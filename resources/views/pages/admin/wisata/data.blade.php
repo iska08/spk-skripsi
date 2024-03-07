@@ -58,7 +58,7 @@
                         </form>
                     </div>
                     <table class="table table-bordered">
-                        <thead class="table-primary align-middle text-center">
+                        <thead class="bg-primary text-white align-middle text-center">
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Nama Destinasi Wisata</th>

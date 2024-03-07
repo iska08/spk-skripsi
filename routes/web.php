@@ -25,6 +25,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/',  [PortalController::class, 'index'])->name('portal.index');
+// Route::get('/login',  [LoginController::class, 'index'])->middleware('guest')->name('login.index');
+// Route::post('/login',  [LoginController::class, 'authenticate']);
+// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 Route::get('/', function () {
     if (auth()->check()) {
         return redirect()->route('dashboard.index');
@@ -32,7 +37,6 @@ Route::get('/', function () {
         return redirect()->route('login.index');
     }
 });
-
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard.index');
 Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login.index');
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -62,12 +66,14 @@ Route::prefix('dashboard')
         Route::get('wisata/jenis/{jenis:slug}', [JenisController::class, 'wisatas'])
             ->name('jenis.wisatas');
         // kombinasi
-        Route::get('editkombinasi', [KombinasiController::class, 'index'])
+        Route::get('kombinasi', [KombinasiController::class, 'index'])
             ->name('kombinasi.index');
-        Route::get('kombinasi', [KombinasiController::class, 'awal'])
+        Route::get('showkombinasi', [KombinasiController::class, 'awal'])
             ->name('kombinasi.awal');
         Route::post('kombinasi', [KombinasiController::class, 'store'])
             ->name('kombinasi.store');
+        Route::get('kombinasi/{criteria_analysis}', [KombinasiController::class, 'show'])
+            ->name('kombinasi.show');
         Route::get('kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'show'])
             ->name('kombinasi.show');
         Route::put('kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'update'])

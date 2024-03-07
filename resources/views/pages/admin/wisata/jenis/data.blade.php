@@ -22,7 +22,7 @@
                     </a>
                     @endcan
                     <table class="table table-bordered">
-                        <thead class="table-primary align-middle text-center">
+                        <thead class="bg-primary align-middle text-center text-white">
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Nama Jenis Wisata</th>

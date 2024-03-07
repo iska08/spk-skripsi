@@ -33,7 +33,8 @@
                         <td>{{ $analysis->user->name }}</td>
                         <td>
                             @foreach ($analysis->details->unique('criteria_id_second') as $key => $detail)
-                            {{ $detail->criteria_name }}@if (!$loop->last)
+                            {{ $detail->criteria_name }}
+                            @if (!$loop->last)
                             ,
                             @endif
                             @endforeach

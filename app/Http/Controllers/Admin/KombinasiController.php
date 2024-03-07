@@ -41,7 +41,7 @@ class KombinasiController extends Controller
             }])->get();
         }
         $criterias = Criteria::all();
-        return view('pages.admin.kombinasi.perbandingan.dataedit', [
+        return view('pages.admin.kombinasi.perbandingan.data', [
             'title'             => 'Perhitungan',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
@@ -66,7 +66,7 @@ class KombinasiController extends Controller
             }])->get();
         }
         $criterias = Criteria::all();
-        return view('pages.admin.kombinasi.perbandingan.data', [
+        return view('pages.admin.kombinasi.perbandingan.showdata', [
             'title'             => 'Metode SPK',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
@@ -170,7 +170,7 @@ class KombinasiController extends Controller
         $isDoneCounting = PriorityValue::where('criteria_analysis_id', $criteriaAnalysis->id)->exists();
         $criteriaAnalysis->unsetRelation('details');
         return view('pages.admin.kombinasi.perbandingan.input', [
-            'title'             => 'Input Perbandingan Kriteria',
+            'title'             => 'Perbandingan Kriteria',
             'criteria_analysis' => $criteriaAnalysis,
             'details'           => $details,
             'isDoneCounting'    => $isDoneCounting,
@@ -191,7 +191,7 @@ class KombinasiController extends Controller
             ->get();
         $criteriaAnalysis->unsetRelation('details');
         return view('pages.admin.kombinasi.perbandingan.inputr', [
-            'title'             => 'Edit Bobot Kriteria',
+            'title'             => 'Bobot Kriteria',
             'criteria_analysis' => $criteriaAnalysis,
             'details'           => $details,
             'isDoneCounting'    => $isDoneCounting,

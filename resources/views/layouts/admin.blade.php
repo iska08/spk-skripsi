@@ -13,7 +13,7 @@
     @include('includes.admin.style')
 </head>
 
-<body class="sb-nav-fixed">
+<body class="sb-nav-fixed" style="font-family: 'Times New Roman', Times, serif">
     {{-- navbar --}}
     @include('includes.admin.navbar')
     <div id="layoutSidenav">

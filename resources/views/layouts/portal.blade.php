@@ -11,7 +11,7 @@
     @include('includes.portal.style')
 </head>
 
-<body>
+<body style="font-family: 'Times New Roman', Times, serif">
     {{-- navbar --}}
     @include('includes.portal.navbar')
     <!-- Main -->

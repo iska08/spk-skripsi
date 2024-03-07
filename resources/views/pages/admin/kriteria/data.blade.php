@@ -27,7 +27,7 @@
                 </a>
                 @endcan
                 <table id="datatablesSimple" class="table table-bordered">
-                    <thead class="table-primary align-middle text-center">
+                    <thead class="bg-primary align-middle text-center text-white">
                         <tr>
                             <th>No</th>
                             <th>Nama Kriteria</th>

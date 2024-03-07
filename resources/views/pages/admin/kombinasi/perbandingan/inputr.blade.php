@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="table-responsive col-lg-12">
                 <table class="table table-bordered">
-                    <thead class="table-primary">
+                    <thead class="bg-primary text-white">
                         <tr>
                             <th scope="col" class="text-center">Kriteria</th>
                             <th scope="col" class="text-center">Bobot Kriteria</th>

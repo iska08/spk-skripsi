@@ -11,7 +11,7 @@
     @include('includes.login.style')
 </head>
 
-<body class="my-login-page">
+<body class="my-login-page" style="font-family: 'Times New Roman', Times, serif">
     {{-- Navbar --}}
     @include('includes.login.navbar')
     {{-- main --}}

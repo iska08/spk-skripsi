@@ -22,9 +22,9 @@
                 </div>
             </div>
             <table class="table table-bordered">
-                <thead class="table-primary align-middle text-center">
+                <thead class="bg-primary align-middle text-center">
                     <tr>
-                        <th scope="col">Kriteria</th>
+                        <th scope="col" class="text-white"><i>Kriteria</i></th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
                         <th scope="col">
                             {{ $priorityValue->criteria->nama_kriteria }}
@@ -37,7 +37,7 @@
                     @foreach ($criteria_analysis->priorityValues as $priorityValue)
                     @php($bgYellow = 'bg-warning text-dark')
                     <tr>
-                        <th scope="row" class="text-center table-primary">
+                        <th scope="row" class="text-center bg-primary">
                             {{ $priorityValue->criteria->nama_kriteria }}
                         </th>
                         @foreach ($criteria_analysis->priorityValues as $priorityvalue)
@@ -85,12 +85,12 @@
             <table class="table table-bordered">
                 <thead class="table-primary align-middle text-center">
                     <tr>
-                        <th scope="col">Kriteria</th>
+                        <th scope="col" class="bg-primary text-white"><i>Kriteria</i></th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
-                        <th scope="col">
+                        <th scope="col" class="bg-primary">
                             {{ $priorityValue->criteria->nama_kriteria }}</th>
                         @endforeach
-                        <th scope="col" class="text-center table-primary">Jumlah</th>
+                        <th scope="col" class="text-center bg-success text-white">Jumlah</th>
                         <th scope="col" class="text-center table-dark text-white">Nilai Prioritas</th>
                     </tr>
                 </thead>
@@ -101,7 +101,7 @@
                     @php($rowTotal = 0)
                     @php($bgYellow = 'bg-warning text-dark')
                     <tr>
-                        <th scope="row" class="table-primary text-center">
+                        <th scope="row" class="bg-primary text-center">
                             {{ $priorityValue->criteria->nama_kriteria }}
                         </th>
                         @foreach ($criteria_analysis->priorityValues as $key => $priorityvalue)
@@ -119,7 +119,7 @@
                         @endforeach
                         {{-- jumlah baris --}}
                         @php(array_push($rowTotals, $rowTotal))
-                        <td class="text-center">
+                        <td class="text-center bg-success text-white">
                             {{ round($rowTotal, 3) }}
                         </td>
                         <td class="text-center table-dark text-white">
@@ -145,9 +145,9 @@
             <table class="table table-bordered">
                 <thead class="table-primary align-middle text-center">
                     <tr>
-                        <th scope="col">Kriteria</th>
+                        <th scope="col" class="bg-primary text-white"><i>Kriteria</i></th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
-                        <th scope="col">{{ $priorityValue->criteria->nama_kriteria }}</th>
+                        <th scope="col" class="bg-primary">{{ $priorityValue->criteria->nama_kriteria }}</th>
                         @endforeach
                         <th scope="col" class="table-dark text-white">Jumlah Baris</th>
                     </tr>
@@ -158,7 +158,7 @@
                     @foreach ($criteria_analysis->priorityValues as $priorityValue)
                     @php($rowTotal = 0)
                     <tr>
-                        <th scope="row" class="table-primary text-center">
+                        <th scope="row" class="bg-primary text-center">
                             {{ $priorityValue->criteria->nama_kriteria }}
                         </th>
                         @foreach ($criteria_analysis->priorityValues as $key => $innerpriorityvalue)
@@ -194,7 +194,7 @@
                 </div>
             </div>
             <table class="table table-bordered table-responsive">
-                <thead class="table-primary align-middle text-center">
+                <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col">Kriteria</th>
                         <th scope="col">Jumlah Baris</th>
@@ -338,19 +338,19 @@
                     <table class="table table-bordered">
                         <thead class="table-primary align-middle text-center">
                             <tr>
-                                <th colspan="{{ count($alternatives) + 1 }}" class="text-center fw-bold table-dark">
+                                <th colspan="{{ count($alternatives) + 1 }}" class="text-center fw-bold bg-primary">
                                     {{ 'Eigen Vektor Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
                                 </th>
                             </tr>
                             <tr>
-                                <th>Alternatif</th>
-                                <th>Nilai</th>
+                                <th class="bg-success">Alternatif</th>
+                                <th class="bg-success">Nilai</th>
                                 @if($criterion->kategori === "COST")
-                                <th>Nilai MIN / Nilai</th>
+                                <th class="bg-success">Nilai MIN / Nilai</th>
                                 @elseif($criterion->kategori === "BENEFIT")
-                                <th>Nilai / Nilai MAX</th>
+                                <th class="bg-success">Nilai / Nilai MAX</th>
                                 @endif
-                                <th>Eigen Vector (EV)</th>
+                                <th class="bg-success">Eigen Vector (EV)</th>
                             </tr>
                         </thead>
                         <tbody class="align-middle">
@@ -376,7 +376,6 @@
             </div>
         </div>
     </div>
-    
     {{-- Ranking --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
@@ -498,7 +497,15 @@
                                         {{ round($data['nilai_kriteria'][$key], 3) }}
                                     </td>
                                 @endforeach
-                                <td class="text-center">{{ round($data['total_bobot'], 3) }}</td>
+                                <td class="text-center">
+                                    @foreach ($dividers as $key => $divider)
+                                        {{ round($data['nilai_kriteria'][$key], 3) }}
+                                        @if (!$loop->last)
+                                        +
+                                        @endif
+                                    @endforeach
+                                    = {{ round($data['total_bobot'], 3) }}
+                                </td>
                                 <td class="text-center">{{ $ranking++ }}</td>
                             </tr>
                         @endforeach

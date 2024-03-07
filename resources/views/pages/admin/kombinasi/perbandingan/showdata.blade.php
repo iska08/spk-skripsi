@@ -12,20 +12,12 @@
     </div>
     <div class="card col-lg-12">
         <div class="card-body table-responsive">
-            @can('admin')
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalChoose">
-                <i class="fa-solid fa-clipboard-check"></i>
-                Kriteria
-            </button>
-            @endcan
             <table id="datatablesSimple" class="table table-bordered table-responsive">
-                <thead class="table-primary align-middle text-center">
+                <thead class="bg-primary text-white align-middle text-center">
                     <tr>
                         <th>No</th>
-                        <th>Dibuat Oleh</th>
                         <th>Kriteria</th>
-                        <th>Dibuat Pada</th>
-                        <th>Aksi</th>
+                        <th>Jenis Metode</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +25,6 @@
                     @foreach ($comparisons as $comparison)
                     <tr>
                         <td class="text-center">{{ $loop->iteration }}</td>
-                        <td class="text-center">{{ $comparison->user->name }}</td>
                         <td>
                             @foreach ($comparison->details->unique('criteria_id_second') as $key => $detail)
                             {{ $detail->criteria_name }}
@@ -42,23 +33,20 @@
                             @endif
                             @endforeach
                         </td>
-                        <td>{{ $comparison->created_at->toDayDateTimeString() }}</td>
                         <td>
-                            @can('admin')
-                            <a href="{{ route('kombinasi.update', $comparison->id) }}" class="badge bg-warning text-decoration-none">
-                                <i class="fa-solid fa-pen-to-square"></i> Edit Perbandingan Kriteria
+                            <a href="{{ route('kombinasi.result', $comparison->id) }}"
+                                class="badge bg-success text-decoration-none">
+                                <i class="fa-solid fa-eye"></i>
+                                Perhitungan Kombinasi
                             </a>
-                            <a href="{{ route('kombinasi.updateBobot', $comparison->id) }}" class="badge bg-warning text-decoration-none">
-                                <i class="fa-solid fa-pen-to-square"></i> Edit Bobot Kriteria
+                            <a href="{{ route('perbandingan.result', $comparison->id) }}" class="badge bg-success text-decoration-none">
+                                <i class="fa-solid fa-eye"></i>
+                                Perhitungan AHP
                             </a>
-                            <form action="{{ route('kombinasi.destroy', $comparison->id) }}" method="POST"
-                                class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button class="badge bg-danger border-0 btnDelete"
-                                    data-object="kombinasi kriteria"><i class="fa-solid fa-trash-can"></i> Hapus Perhitungan</button>
-                            </form>
-                            @endcan
+                            <a href="{{ route('rank.show', $comparison->id) }}" class="badge bg-success text-decoration-none">
+                                <i class="fa-solid fa-eye"></i>
+                                Perhitungan SAW
+                            </a>
                         </td>
                     </tr>
                     @endforeach

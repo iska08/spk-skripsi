@@ -4,19 +4,13 @@
     <div class="row align-items-center">
         <div class="col-sm-6 col-md-8">
             <h1 class="mt-4">{{ $title }}</h1>
-            {{-- <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item">
-                    <a href="{{ route('kombinasi.index') }}">Perbandingan Kriteria</a>
-                </li>
-                <li class="breadcrumb-item active">{{ $title }}</li>
-            </ol> --}}
         </div>
     </div>
     <div class="card">
         <div class="card-body">
             <div class="table-responsive col-lg-12">
                 <table class="table table-bordered">
-                    <thead class="table-primary">
+                    <thead class="bg-primary text-white">
                         <tr>
                             <th scope="col" class="text-center">Kriteria Pertama</th>
                             <th scope="col" class="text-center">Intensitas Kepentingan</th>

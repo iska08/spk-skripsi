@@ -36,7 +36,7 @@
                     </div>
                     Data Alternatif
                 </a>
-                <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
+                <a class="nav-link {{ Request::is('dashboard/showkombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.awal') }}">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-ranking-star"></i>
@@ -44,7 +44,7 @@
                     Metode SPK
                 </a>
                 @can('admin')
-                <a class="nav-link {{ Request::is('dashboard/editkombinasi*') ? 'active' : '' }}"
+                <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.index') }}">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-gear"></i>

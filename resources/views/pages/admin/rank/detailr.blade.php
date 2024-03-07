@@ -139,7 +139,17 @@
                         </td>
                         @endforeach
                         <td class="text-center">
-                            {{ round($rank['rank_result'], 3) }}
+                            @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
+                            @php($hasilNormalisasi = isset($rank['results'][$key]) ? $rank['results'][$key] : 0)
+                                @php($kali = $innerpriorityvalue->value * $hasilNormalisasi)
+                                @php($res = substr($kali, 0, 11))
+                                @php(array_push($hasilKali, $res))
+                                {{ round($res, 3) }}
+                                @if (!$loop->last)
+                                +
+                                @endif
+                            @endforeach
+                            = {{ round($rank['rank_result'], 3) }}
                         </td>
                         <td class="text-center fw-bold">
                             {{ $loop->iteration }}
