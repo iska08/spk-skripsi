@@ -13,7 +13,5 @@ Jurusan : Teknologi Informasi
 
 ## Halaman Dashboard
 
-_Admin_
-![Halaman Dashboard](/screenshoot/Admin%20-%20Dashboard.png)
-_User_
-![Halaman Dashboard](/screenshoot/User%20-%20Dashboard.png)
+_Admin_ | _User_
+![Halaman Dashboard](/screenshoot/Admin%20-%20Dashboard.png) | ![Halaman Dashboard](/screenshoot/User%20-%20Dashboard.png)
