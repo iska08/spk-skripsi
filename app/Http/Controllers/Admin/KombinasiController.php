@@ -42,7 +42,7 @@ class KombinasiController extends Controller
         }
         $criterias = Criteria::all();
         return view('pages.admin.kombinasi.perbandingan.data', [
-            'title'             => 'Perhitungan',
+            'title'             => 'Data Perhitungan',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
             'criteria_analysis' => $criteriaAnalysis,

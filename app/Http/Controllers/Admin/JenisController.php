@@ -88,7 +88,7 @@ class JenisController extends Controller
 
         $jenis = Jenis::FindOrFail($id);
         return view('pages.admin.wisata.jenis.edit', [
-            'title'   => "Edit Data $jenis->jenis_name",
+            'title'   => "Edit Jenis $jenis->jenis_name",
             'jenises' => $jenis,
         ]);
     }
