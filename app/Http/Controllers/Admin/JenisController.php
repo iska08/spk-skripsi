@@ -39,7 +39,7 @@ class JenisController extends Controller
         }
 
         return view('pages.admin.wisata.jenis.create', [
-            'title' => 'Buat Jenis Wisata',
+            'title' => 'Tambah Jenis Wisata',
         ]);
     }
 

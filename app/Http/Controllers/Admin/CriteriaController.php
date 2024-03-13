@@ -35,7 +35,7 @@ class CriteriaController extends Controller
             return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
         }
 
-        return view('pages.admin.kriteria.create', ['title' => 'Buat Kriteria Baru',]);
+        return view('pages.admin.kriteria.create', ['title' => 'Tambah Kriteria',]);
     }
 
     /**

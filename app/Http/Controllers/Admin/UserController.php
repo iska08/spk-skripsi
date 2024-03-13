@@ -42,7 +42,7 @@ class UserController extends Controller
         }
 
         return view('pages.admin.user.create', [
-            'title' => 'Buat Pengguna',
+            'title' => 'Tambah Pengguna',
         ]);
     }
 

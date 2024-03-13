@@ -47,7 +47,7 @@
                                     </option>
                                 @endforeach
                             </select>
-                            <label class="form-label col-lg-7 col-sm-7 col-md-7" for="perPage">entries per page</label>
+                            <label class="form-label col-lg-6 col-sm-6 col-md-6" for="perPage">entries per page</label>
                         </div>
                         <form action="{{ route('wisata.index') }}" method="GET" class="ms-auto float-end">
                             <div class="input-group mb-3">

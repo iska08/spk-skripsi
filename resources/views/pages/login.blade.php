@@ -62,7 +62,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="footer">Copyright &copy; {{ now()->year }} &mdash; ##</div>
+                    <div class="footer">Copyright &copy; {{ now()->year }} &mdash; SPK</div>
                 </div>
             </div>
         </div>
