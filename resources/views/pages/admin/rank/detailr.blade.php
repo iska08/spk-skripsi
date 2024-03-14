@@ -110,7 +110,7 @@
                             Hitung {{ $divider['nama_kriteria'] }}
                         </th>
                         @endforeach
-                        <th scope="col" class="text-center">Hasil Perhitungan</th>
+                        <th scope="col" class="text-center">Jumlah</th>
                         <th scope="col" class="text-center">Ranking</th>
                     </tr>
                 </thead>

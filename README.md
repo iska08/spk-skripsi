@@ -103,12 +103,12 @@ _Data Alternatif_
 
 #### Perhitungan Kombinasi
 
-_Matriks Penjumlahan Kolom Kriteria_
-![Matriks Penjumlahan Kolom Kriteria](/screenshoot/Kombinasi%20-%20Matriks%20Penjumlahan%20Kolom%20Kriteria.png)
-_Matriks Normalisasi Kriteria dan Nilai Prioritas_
-![Matriks Normalisasi Kriteria dan Nilai Prioritas](/screenshoot/Kombinasi%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Nilai%20Prioritas.png)
-_Matriks Perkalian Setiap Elemen dengan Nilai Prioritas_
-![Matriks Perkalian Setiap Elemen dengan Nilai Prioritas](/screenshoot/Kombinasi%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Nilai%20Prioritas.png)
+_Matriks Perbandingan dan Penjumlahan Kolom Kriteria_
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria](/screenshoot/Kombinasi%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria.png)
+_Matriks Normalisasi Kriteria dan Eigen Vector (EV)_
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV)](/screenshoot/Kombinasi%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV).png)
+_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)_
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)](/screenshoot/Kombinasi%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV).png)
 _Menentukan λmaks dan Rasio Konsistensi_
 ![Menentukan λmaks dan Rasio Konsistensi](/screenshoot/Kombinasi%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi.png)
 _Normalisasi Tabel Alternatif_
@@ -118,12 +118,12 @@ _Ranking_
 
 #### Perhitungan AHP
 
-_Matriks Penjumlahan Kolom Kriteria_
-![Matriks Penjumlahan Kolom Kriteria](/screenshoot/AHP%20-%20Matriks%20Penjumlahan%20Kolom%20Kriteria.png)
-_Matriks Normalisasi Kriteria dan Nilai Prioritas_
-![Matriks Normalisasi Kriteria dan Nilai Prioritas](/screenshoot/AHP%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Nilai%20Prioritas.png)
-_Matriks Perkalian Setiap Elemen dengan Nilai Prioritas_
-![Matriks Perkalian Setiap Elemen dengan Nilai Prioritas](/screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Nilai%20Prioritas.png)
+_Matriks Perbandingan dan Penjumlahan Kolom Kriteria_
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria](/screenshoot/AHP%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria.png)
+_Matriks Normalisasi Kriteria dan Eigen Vector (EV)_
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV)](/screenshoot/AHP%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV).png)
+_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)_
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)](/screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV).png)
 _Menentukan λmaks dan Rasio Konsistensi_
 ![Menentukan λmaks dan Rasio Konsistensi](/screenshoot/AHP%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi.png)
 _Menentukan Eigen Vektor Alternatif di Setiap Alternatif_
@@ -133,20 +133,20 @@ _Ranking_
 
 #### Perhitungan SAW
 
-_Normalisasi Alternatif Destinasi Wisata_
-![Normalisasi Alternatif Destinasi Wisata](/screenshoot/SAW%20-%20Normalisasi%20Alternatif%20Destinasi%20Wisata.png)
+_Normalisasi Alternatif_
+![Normalisasi Alternatif](/screenshoot/SAW%20-%20Normalisasi%20Alternatif%20Destinasi%20Wisata.png)
 _Ranking_
 ![Ranking](/screenshoot/SAW%20-%20Ranking.png)
 
 ### Detail Perhitungan Metode
 #### Perhitungan Kombinasi
 
-_Matriks Penjumlahan Kolom Kriteria (Detail)_
-![Matriks Penjumlahan Kolom Kriteria (Detail)](/screenshoot/Kombinasi%20-%20Matriks%20Penjumlahan%20Kolom%20Kriteria%20(Detail).png)
-_Matriks Normalisasi Kriteria dan Nilai Prioritas (Detail)_
-![Matriks Normalisasi Kriteria dan Nilai Prioritas (Detail)](/screenshoot/Kombinasi%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Nilai%20Prioritas%20(Detail).png)
-_Matriks Perkalian Setiap Elemen dengan Nilai Prioritas (Detail)_
-![Matriks Perkalian Setiap Elemen dengan Nilai Prioritas (Detail)](/screenshoot/Kombinasi%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Nilai%20Prioritas%20(Detail).png)
+_Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)_
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](/screenshoot/Kombinasi%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria%20(Detail).png)
+_Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)_
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](/screenshoot/Kombinasi%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV)%20(Detail).png)
+_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)_
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](/screenshoot/Kombinasi%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV)%20(Detail).png)
 _Menentukan λmaks dan Rasio Konsistensi (Detail)_
 ![Menentukan λmaks dan Rasio Konsistensi (Detail)](/screenshoot/Kombinasi%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi%20(Detail).png)
 _Normalisasi Tabel Alternatif (Detail)_
@@ -156,12 +156,12 @@ _Ranking (Detail)_
 
 #### Perhitungan AHP
 
-_Matriks Penjumlahan Kolom Kriteria (Detail)_
-![Matriks Penjumlahan Kolom Kriteria (Detail)](/screenshoot/AHP%20-%20Matriks%20Penjumlahan%20Kolom%20Kriteria%20(Detail).png)
-_Matriks Normalisasi Kriteria dan Nilai Prioritas (Detail)_
-![Matriks Normalisasi Kriteria dan Nilai Prioritas (Detail)](/screenshoot/AHP%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Nilai%20Prioritas%20(Detail).png)
-_Matriks Perkalian Setiap Elemen dengan Nilai Prioritas (Detail)_
-![Matriks Perkalian Setiap Elemen dengan Nilai Prioritas (Detail)](/screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Nilai%20Prioritas%20(Detail).png)
+_Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)_
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](/screenshoot/AHP%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria%20(Detail).png)
+_Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)_
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](/screenshoot/AHP%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV)%20(Detail).png)
+_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)_
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](/screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV)(Detail).png)
 _Menentukan λmaks dan Rasio Konsistensi (Detail)_
 ![Menentukan λmaks dan Rasio Konsistensi (Detail)](/screenshoot/AHP%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi%20(Detail).png)
 _Menentukan Eigen Vektor Alternatif di Setiap Alternatif (Detail)_
@@ -171,8 +171,8 @@ _Ranking (Detail)_
 
 #### Perhitungan SAW
 
-_Normalisasi Alternatif Destinasi Wisata (Detail)_
-![Normalisasi Alternatif Destinasi Wisata (Detail)](/screenshoot/SAW%20-%20Normalisasi%20Alternatif%20Destinasi%20Wisata%20(Detail).png)
+_Normalisasi Alternatif (Detail)_
+![Normalisasi Alternatif (Detail)](/screenshoot/SAW%20-%20Normalisasi%20Alternatif%20Destinasi%20Wisata%20(Detail).png)
 _Ranking (Detail)_
 ![Ranking (Detail)](/screenshoot/SAW%20-%20Ranking%20(Detail).png)
 

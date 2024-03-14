@@ -19,7 +19,7 @@
             <div class="d-sm-flex align-items-center">
                 {{-- matrik penjumlahan(prespektif nilai) --}}
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">AHP - Matriks Penjumlahan Kolom Kriteria</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Perbandingan dan Penjumlahan Kolom Kriteria</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -73,7 +73,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">AHP - Matriks Normalisasi Kriteria dan Nilai Prioritas</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Normalisasi Kriteria dan Eigen Vector (EV)</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -85,7 +85,7 @@
                             {{ $priorityValue->criteria->nama_kriteria }}</th>
                         @endforeach
                         <th scope="col" class="text-center bg-success text-white">Jumlah</th>
-                        <th scope="col" class="text-center table-dark text-white">Nilai Prioritas</th>
+                        <th scope="col" class="text-center table-dark text-white">Eigen Vector (EV)</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
@@ -124,7 +124,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">AHP - Matriks Perkalian Setiap Elemen dengan Nilai Prioritas</h4>
+                    <h4 class="mb-0 text-gray-800">AHP - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)</h4>
                 </div>
             </div>
             <table class="table table-bordered">
@@ -180,7 +180,7 @@
                     <tr>
                         <th scope="col">Kriteria</th>
                         <th scope="col">Jumlah Baris</th>
-                        <th scope="col">Nilai Prioritas</th>
+                        <th scope="col">Eigen Vector (EV)</th>
                         <th scope="col">λ</th>
                     </tr>
                 </thead>
@@ -220,7 +220,7 @@
                     <table class="table table-bordered">
                         <tbody>
                             <tr>
-                                <th class="text-center" scope="row">Banyak Kriteria</th>
+                                <th class="text-center" scope="row">Banyak Kriteria (n)</th>
                                 <td class="text-center">{{ $criteria_analysis->priorityValues->count() }}</td>
                             </tr>
                             <tr>
@@ -228,21 +228,21 @@
                                 <td class="text-center">{{ round($lambdaMax, 3) }}</td>
                             </tr>
                             <tr>
-                                <th class="text-center" scope="row">Indeks Konsistensi</th>
+                                <th class="text-center" scope="row">Consistency Index (CI)</th>
                                 <td class="text-center">
                                     @php($CI = ($lambdaMax - count($lambdaResult)) / (count($lambdaResult) - 1))
                                     {{ round($CI, 3) }}
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-center" scope="row">Konsistensi Random</th>
+                                <th class="text-center" scope="row">Random Index (RI)</th>
                                 <td class="text-center">
                                     @php($RC = $ruleRC[$criteria_analysis->priorityValues->count()])
                                     {{ $RC }}
                                 </td>
                             </tr>
                             <tr>
-                                <th class="text-center" scope="row">Rasio Konsistensi</th>
+                                <th class="text-center" scope="row">Consistency Ratio (CR)</th>
                                 @php($CR = $RC != 0.0 ? $CI / $RC : 0.0)
                                 @php($txtClass = 'text-danger fw-bold')
                                 @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
@@ -296,7 +296,7 @@
                         @endforeach
                     </tr>
                     <tr>
-                        <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Prioritas (Bobot)</td>
+                        <td scope="col" class="fw-bold text-center" style="width:11%">EV/Bobot</td>
                         @foreach ($criteriaAnalysis->priorityValues as $key => $innerpriorityvalue)
                         <td class="text-center">
                             {{ round($innerpriorityvalue->value, 3) }}
@@ -363,7 +363,7 @@
                             Hitung {{ $divider['nama_kriteria'] }}
                         </th>
                         @endforeach
-                        <th scope="col" class="text-center">Hasil Perhitungan</th>
+                        <th scope="col" class="text-center">Jumlah</th>
                         <th scope="col" class="text-center">Ranking</th>
                     </tr>
                 </thead>
