@@ -19,7 +19,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Normalisasi Alternatif Destinasi Wisata</h4>
+                    <h4 class="mb-0 text-gray-800">Normalisasi Alternatif</h4>
                 </div>
             </div>
             <table class="table table-bordered table-condensed table-responsive">
@@ -47,7 +47,7 @@
                 </tbody>
             </table>
             <table id="datatablesSimple2" class="table table-bordered">
-                <thead class="table-primary align-middle text-center">
+                <thead class="bg-primary align-middle text-center text-white">
                     <tr>
                         <th scope="col" class="text-center">No</th>
                         <th scope="col" class="text-center">Nama Alternatif</th>
@@ -57,7 +57,7 @@
                         @endforeach
                     </tr>
                 </thead>
-                <tbody class="align-middle">
+                <tbody class="align-middle text-center">
                     @if (!empty($normalizations))
                     @foreach ($normalizations as $normalisasi)
                     <tr>
@@ -99,9 +99,9 @@
         <div class="card-body">
             <table id="datatablesSimple" class="table table-bordered table-responsive">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Ranking Destinasi Wisata</h4>
+                    <h4 class="mb-0 text-gray-800">Ranking</h4>
                 </div>
-                <thead class="table-primary">
+                <thead class="bg-primary align-middle text-center text-white">
                     <tr>
                         <th scope="col">Nama Alternatif</th>
                         <th scope="col">Jenis Wisata</th>
@@ -114,7 +114,7 @@
                         <th scope="col" class="text-center">Ranking</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-center">
                     @if (!empty($ranking))
                     @php($rankResult = [])
                     @php($hasilKali = [])
