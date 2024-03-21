@@ -18,11 +18,10 @@
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav>
-        <!-- .navbar -->
         @auth
-        <a class="btn-dashborad-dark scrollto" href="{{ route('dashboard.index') }}">My Dashboard</a>
+        <a class="btn-getstarted scrollto" href="{{ route('dashboard.index') }}">My Dashboard</a>
         @else
-        <a class="btn-getstarted scrollto" href="{{ route('login.index') }}">Get Started</a>
+        <a class="btn-getstarted scrollto" href="{{ route('login.index') }}">Login/Register</a>
         @endauth
     </div>
 </header>

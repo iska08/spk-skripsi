@@ -14,9 +14,8 @@ Portal
         <p>Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</p>
         <div class="d-flex">
             @auth
-            <a href="{{ route('dashboard.index') }}" class="btn btn-dark">My Dashboard</a>
             @else
-            <a href="{{ route('login.index') }}" class="btn-get-started scrollto">Get Started</a>
+            <a href="{{ route('free.index') }}" class="btn-get-started scrollto">Perhitungan SPK</a>
             @endauth
         </div>
     </div>

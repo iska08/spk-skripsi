@@ -101,31 +101,29 @@
         </div>
         @elseif('user')
         <hr style="border-width: 2px;">
-        <div class="card mb-4">
-            <div class="card-body table-responsive slide-container">
-                <div class="slide-content">
-                    @foreach ($wisatas as $wisata)
-                    <div class="slide-item">
-                        <div class="container d-flex justify-content position-relative">
-                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 5cm; height: 3.5cm">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <h4>
-                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 20px">{{ $wisata->nama_wisata }}</p>
-                                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">{{ $wisata->keterangan }}</p><br>
-                                <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">
-                                    <i>
-                                        <?php if($wisata->situs == ""){
-                                            ?>Website Resmi: -<?php
-                                        }else{
-                                            ?>Website Resmi: <a href="{{ $wisata->situs }}">Klik di Sini</a><?php
-                                        }?>
-                                    </i>
-                                </p>
-                            </h4>
-                        </div>
+        <div class="card-body table-responsive slide-container">
+            <div class="slide-content">
+                @foreach ($wisatas as $wisata)
+                <div class="slide-item">
+                    <div class="container d-flex justify-content position-relative">
+                        <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 5cm; height: 3.5cm">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <h4>
+                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 20px">{{ $wisata->nama_wisata }}</p>
+                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">{{ $wisata->keterangan }}</p><br>
+                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">
+                                <i>
+                                    <?php if($wisata->situs == ""){
+                                        ?>Website Resmi: -<?php
+                                    }else{
+                                        ?>Website Resmi: <a href="{{ $wisata->situs }}">Klik di Sini</a><?php
+                                    }?>
+                                </i>
+                            </p>
+                        </h4>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
             </div>
         </div>
         @endcan

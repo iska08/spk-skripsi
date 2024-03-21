@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\PortalController;
+use App\Http\Controllers\FreeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,21 +26,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/',  [PortalController::class, 'index'])->name('portal.index');
-// Route::get('/login',  [LoginController::class, 'index'])->middleware('guest')->name('login.index');
-// Route::post('/login',  [LoginController::class, 'authenticate']);
-// Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/',  [PortalController::class, 'index'])->name('portal.index');
 
-Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect()->route('dashboard.index');
-    } else {
-        return redirect()->route('login.index');
-    }
-});
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard.index');
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest')->name('login.index');
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/spk', [FreeController::class, 'index'])->name('free.index');
+Route::get('/spk/kriteria', [FreeController::class, 'kriteria'])->name('free.kriteria');
+Route::get('/spk/wisata', [FreeController::class, 'wisata'])->name('free.wisata');
+Route::get('/spk/wisata/jenis', [FreeController::class, 'jenis'])->name('free.jenis');
+Route::get('/spk/wisata/jenis/{jenis:slug}', [FreeController::class, 'jenisSlug'])->name('free.jenisSlug');
+Route::get('/spk/alternatif', [FreeController::class, 'alternatif'])->name('free.alternatif');
+
+Route::get('/spk/perhitungan', [FreeController::class, 'awal'])->name('free.perhitungan');
+
+Route::get('/spk/perhitungan/kombinasi/{criteria_analysis}', [FreeController::class, 'resultKombinasi'])->name('perhitungan.kombinasi');
+Route::get('/spk/perhitungan/kombinasi/detail/{criteria_analysis}', [FreeController::class, 'detailKombinasi'])->name('perhitungan.kombinasiDetail');
+
+Route::get('/spk/perhitungan/ahp/{criteria_analysis}', [FreeController::class, 'resultAHP'])->name('perhitungan.ahp');
+Route::get('/spk/perhitungan/ahp/detail/{criteria_analysis}', [FreeController::class, 'detailAHP'])->name('perhitungan.ahpDetail');
+
+Route::get('/spk/perhitungan/saw/{criteria_analysis}', [FreeController::class, 'resultSAW'])->name('perhitungan.saw');
+Route::get('/spk/perhitungan/saw/detail/{criteria_analysis}', [FreeController::class, 'detailSAW'])->name('perhitungan.sawDetail');
+
+Route::get('/login',  [LoginController::class, 'index'])->middleware('guest')->name('login.index');
+Route::post('/login',  [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::prefix('dashboard')

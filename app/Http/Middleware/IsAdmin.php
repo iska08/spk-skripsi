@@ -21,6 +21,6 @@ class IsAdmin
             return $next($request);
         }
 
-        return redirect('/dashboard')->with('failed', 'Anda Tidak Memiliki Akses Admin');
+        return redirect('/dashboard')->with('failed', 'Anda Tidak Memiliki Akses');
     }
 }
