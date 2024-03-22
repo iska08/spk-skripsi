@@ -21,7 +21,7 @@
         @auth
         <a class="btn-getstarted scrollto" href="{{ route('dashboard.index') }}">My Dashboard</a>
         @else
-        <a class="btn-getstarted scrollto" href="{{ route('login.index') }}">Login/Register</a>
+        <a class="btn-getstarted scrollto" href="{{ route('login.index') }}">Login</a>
         @endauth
     </div>
 </header>

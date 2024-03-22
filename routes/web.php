@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\RankingController;
 use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PortalController;
 use App\Http\Controllers\FreeController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,8 @@ Route::get('/spk/perhitungan/ahp/detail/{criteria_analysis}', [FreeController::c
 Route::get('/spk/perhitungan/saw/{criteria_analysis}', [FreeController::class, 'resultSAW'])->name('perhitungan.saw');
 Route::get('/spk/perhitungan/saw/detail/{criteria_analysis}', [FreeController::class, 'detailSAW'])->name('perhitungan.sawDetail');
 
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.register');
 Route::get('/login',  [LoginController::class, 'index'])->middleware('guest')->name('login.index');
 Route::post('/login',  [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

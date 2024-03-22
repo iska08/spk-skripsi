@@ -1,14 +1,11 @@
 @extends('layouts.login')
-
 @section('title')
     Login
 @endsection
-
 @section('content')
     <!-- ======= main ======= -->
     <section class="my-login-page">
         <div class="container form-Bg">
-
             <div class="row justify-content-md-center">
                 <div class="card-wrapper">
                     <div class="brand">
@@ -42,27 +39,29 @@
                                         required placeholder="Input password" />
                                     <div class="invalid-feedback">Password is required</div>
                                 </div>
-
                                 @error('password')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
-
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" name="remember" id="remember" class="form-check-input" />
                                     <label for="remember" class="form-check-label" name="remember">Remember Me</label>
                                 </div>
-
                                 <div class="m-0 d-grid">
                                     <button type="submit" class="btn btn-primary btn-block">
                                         Login
                                     </button>
                                 </div>
+                                <br>
+                                <p>Don't have an account? <a href="{{ route('register.index') }}">Register here</a></p>
                             </form>
                         </div>
                     </div>
-                    <div class="footer">Copyright &copy; {{ now()->year }} &mdash; SPK</div>
+                    <div class="footer">
+                        <p>Copyright &copy;
+                            {{ now()->year }} &mdash; SPK</p>
+                    </div>
                 </div>
             </div>
         </div>
