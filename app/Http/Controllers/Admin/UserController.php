@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\UserStoreRequest;
 use App\Http\Requests\Admin\UserUpdateRequest;
-use App\Imports\UsersImport;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -129,27 +128,5 @@ class UserController extends Controller
         $jenis = User::findOrFail($id);
         $jenis->delete();
         return redirect()->route('users.index')->with('success', 'Pengguna yang Dipilih Telah Dihapus!');
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function import(Request $request)
-    {
-        if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
-        }
-        
-        $request->validate([
-            'file' => 'required|mimes:xls,xlsx'
-        ]);
-        $file = $request->file('file')->store('temp');
-        try {
-            $import = new UsersImport;
-            $import->import($file);
-            return redirect('/dashboard/users')->with('success', 'File Pengguna Berhasil Diimport!');
-        } catch (\Exception $e) {
-            return back()->withError($e->getMessage())->withInput();
-        }
     }
 }

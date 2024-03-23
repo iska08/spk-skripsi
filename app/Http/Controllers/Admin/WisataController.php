@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Exports\WisatasExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\WisataRequest;
 use App\Http\Requests\Admin\WisataUpdateRequest;
-use App\Imports\WisatasImport;
 use App\Models\Jenis;
 use App\Models\Wisata;
 use Maatwebsite\Excel\Facades\Excel;
@@ -150,41 +148,5 @@ class WisataController extends Controller
 
         Wisata::destroy($wisata->id);
         return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Dihapus!');
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function import(Request $request)
-    {
-        if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
-        }
-
-        $request->validate([
-            'file' => 'required|mimes:xls,xlsx'
-        ]);
-        $file = $request->file('file')->store('temp');
-        try {
-            $import = new WisatasImport;
-            $import->import($file);
-            if ('jenis_name' === null) {
-                dd($import->errors());
-            } else {
-                return redirect('/dashboard/wisata')->with('success', 'Berkas Destinasi Wisata Berhasil Diimport!');
-            }
-            dd($import);
-        } catch (\Exception $e) {
-            return back()->withError($e->getMessage())->withInput();
-        }
-    }
-
-    public function export()
-    {
-        if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
-        }
-        
-        return Excel::download(new WisatasExport(), 'Data Destinasi Wisata.xlsx');
     }
 }

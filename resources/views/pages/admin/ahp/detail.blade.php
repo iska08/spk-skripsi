@@ -6,7 +6,7 @@
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item">
-                    <a href="{{ route('perbandingan.result', $criteria_analysis->id) }}">
+                    <a href="{{ route('ahp.result', $criteria_analysis->id) }}">
                         Perhitungan AHP
                     </a>
                 </li>

@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Exports\AlternativesExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AlternativeStoreRequest;
 use App\Http\Requests\Admin\AlternativeUpdateRequest;
-use App\Imports\AlternativesImport;
 use App\Models\Alternative;
 use App\Models\Criteria;
 use App\Models\Wisata;
@@ -198,35 +196,5 @@ class AlternativeController extends Controller
 
         Alternative::where('wisata_id', $alternatif->wisata_id)->delete();
         return redirect('/dashboard/alternatif')->with('success', 'Alternatif yang Dipilih Telah Dihapus!');
-    }
-
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function import(Request $request)
-    {
-        // validate
-        $request->validate(['file' => 'required|mimes:xls,xlsx']);
-        $file = $request->file('file')->store('temp');
-        try {
-            Excel::import(new AlternativesImport, $file);
-            return redirect('/dashboard/alternatif')->with('success', 'Alternatif berhasil diimpor!');
-        } catch (\Exception $e) {
-            return redirect('/dashboard/alternatif')->with('error', 'Terjadi Kesalahan Saat Mengimport Alternatif: ' . $e->getMessage());
-        }
-    }
-
-    public function export()
-    {
-        // Mendapatkan data alternatif dari database
-        $alternatives = Alternative::with('user')->get();
-        // Memanggil jenis AlternativesExport untuk melakukan ekspor
-        $export       = new AlternativesExport($alternatives);
-        // Menentukan nama file ekspor
-        $fileName     = 'Data Alternatif.xlsx';
-        // Melakukan ekspor data alternatif ke file Excel
-        Excel::store($export, $fileName);
-        // Mengirimkan file ekspor sebagai respons
-        return Response::download(storage_path('app/' . $fileName))->deleteFileAfterSend();
     }
 }

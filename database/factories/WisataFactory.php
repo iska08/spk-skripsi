@@ -16,11 +16,15 @@ class WisataFactory extends Factory
      */
     public function definition()
     {
+        $nama_wisata = $this->faker->name();
         return [
-            'name'        => $this->faker->name(),
-            'lokasi_maps' => $this->faker->name(),
-            'fasilitas'   => $this->faker->name(),
-            'biaya'       => $this->faker->money_format(),
+            'nama_wisata' => $nama_wisata,
+            'lokasi_maps' => $this->faker->url('https://www.google.com/maps/search/?api=1&query=' . urlencode($nama_wisata)),
+            'link_foto'   => $this->faker->imageUrl(),
+            'keterangan'  => $this->faker->sentence(),
+            'fasilitas'   => $this->faker->sentence(),
+            'biaya'       => $this->faker->randomFloat(2, 0, 100000),
+            'situs'       => $this->faker->url(),
             'jenis_id'    => mt_rand(1, 13),
         ];
     }

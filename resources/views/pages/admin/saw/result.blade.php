@@ -5,15 +5,28 @@
         <div class="col-sm-6 col-md-8">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">{{ $title }}</li>
+                @php($crValue = session("cr_value_{$criteriaAnalysis->id}"))
+                @if ($crValue > 0.1)
+                <li class="breadcrumb-item" style="color: red;">
+                    Perhitungan SAW
+                </li>
+                @else
                 <li class="breadcrumb-item">
-                    <a href="{{ route('rank.show', $criteriaAnalysis->id) }}">
-                        Perhitungan SAW
+                    <a href="{{ route('saw.detail', $criteriaAnalysis->id) }}">
+                        Detail Perhitungan SAW
                     </a>
                 </li>
-                <li class="breadcrumb-item active">{{ $title }}</li>
+                @endif
             </ol>
         </div>
     </div>
+    @if (session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Lakukan Perhitungan Perbandingan
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
     {{-- datatable --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
@@ -33,7 +46,7 @@
                     <tr>
                         <td scope="col" class="fw-bold text-center" style="width:11%">Nilai Pembagi</td>
                         @foreach ($dividers as $divider)
-                        <td  class="text-center" scope="col">{{ $divider['divider_value'] }}</td>
+                        <td class="text-center" scope="col">{{ $divider['divider_value'] }}</td>
                         @endforeach
                     </tr>
                     <tr>
@@ -46,7 +59,7 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="datatablesSimple2" class="table table-bordered">
+            <table id="datatablesSimple" class="table table-bordered table-responsive">
                 <thead class="bg-primary align-middle text-center text-white">
                     <tr>
                         <th scope="col" class="text-center">No</th>
@@ -63,29 +76,21 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="text-center">
-                            {{ $normalisasi['wisata_name'] }}
+                            {{ Str::ucfirst($normalisasi['wisata_name']) }}
                         </td>
                         <td class="text-center">
                             {{ $normalisasi['jenis_name'] }}
                         </td>
-                        @foreach ($dividers as $key => $divider)
-                        @php
-                        $val = isset($normalisasi['alternative_val'][$key]) ? $normalisasi['alternative_val'][$key] :
-                        null;
-                        $result = isset($normalisasi['results'][$key]) ? round($normalisasi['results'][$key], 3) : null;
-                        @endphp
+                        @foreach ($dividers as $key => $value)
+                        @if (isset($normalisasi['results'][$key]))
                         <td class="text-center">
-                            @if ($result !== null)
-                            @if ($divider['kategori'] === 'BENEFIT' && $val != 0)
-                            {{ $val }} / {{ $divider['divider_value'] }} =
-                            @elseif ($divider['kategori'] === 'COST' && $val != 0)
-                            {{ $divider['divider_value'] }} / {{ $val }} =
-                            @endif
-                            {{ $result }}
-                            @else
-                            Empty
-                            @endif
+                            {{ round($normalisasi['results'][$key], 3) }}
                         </td>
+                        @else
+                        <td class="text-center">
+                            Empty
+                        </td>
+                        @endif
                         @endforeach
                     </tr>
                     @endforeach
@@ -94,13 +99,14 @@
             </table>
         </div>
     </div>
-    {{-- datatable --}}
     <div class="card">
         <div class="card-body">
-            <table id="datatablesSimple" class="table table-bordered table-responsive">
+            <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
                     <h4 class="mb-0 text-gray-800">Ranking</h4>
                 </div>
+            </div>
+            <table id="datatablesSimple2" class="table table-bordered table-responsive">
                 <thead class="bg-primary align-middle text-center text-white">
                     <tr>
                         <th scope="col">Nama Alternatif</th>
@@ -115,10 +121,10 @@
                     </tr>
                 </thead>
                 <tbody class="text-center">
-                    @if (!empty($ranking))
+                    @if (!empty($ranks))
                     @php($rankResult = [])
                     @php($hasilKali = [])
-                    @foreach ($ranking as $rank)
+                    @foreach ($ranks as $rank)
                     <tr>
                         <td>
                             {{ $rank['wisata_name'] }}
@@ -132,24 +138,11 @@
                             @php($kali = $innerpriorityvalue->value * $hasilNormalisasi)
                             @php($res = substr($kali, 0, 11))
                             @php(array_push($hasilKali, $res))
-                            ({{ round($innerpriorityvalue->value, 3) }} *
-                            {{ round($hasilNormalisasi, 3) }})
-                            =
                             {{ round($res, 3) }}
                         </td>
                         @endforeach
                         <td class="text-center">
-                            @foreach ($criteriaAnalysis->bobots as $key => $innerpriorityvalue)
-                            @php($hasilNormalisasi = isset($rank['results'][$key]) ? $rank['results'][$key] : 0)
-                                @php($kali = $innerpriorityvalue->value * $hasilNormalisasi)
-                                @php($res = substr($kali, 0, 11))
-                                @php(array_push($hasilKali, $res))
-                                {{ round($res, 3) }}
-                                @if (!$loop->last)
-                                +
-                                @endif
-                            @endforeach
-                            = {{ round($rank['rank_result'], 3) }}
+                            {{ round($rank['rank_result'], 3) }}
                         </td>
                         <td class="text-center fw-bold">
                             {{ $loop->iteration }}

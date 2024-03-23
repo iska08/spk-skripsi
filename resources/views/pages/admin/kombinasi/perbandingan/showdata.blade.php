@@ -39,11 +39,11 @@
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan Kombinasi
                             </a>
-                            <a href="{{ route('perbandingan.result', $comparison->id) }}" class="badge bg-success text-decoration-none">
+                            <a href="{{ route('ahp.result', $comparison->id) }}" class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan AHP
                             </a>
-                            <a href="{{ route('rank.show', $comparison->id) }}" class="badge bg-success text-decoration-none">
+                            <a href="{{ route('saw.result', $comparison->id) }}" class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan SAW
                             </a>
