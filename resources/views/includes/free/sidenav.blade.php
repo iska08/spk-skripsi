@@ -5,7 +5,7 @@
             <div class="nav">
                 <a class="nav-link {{ Request::is('spk') ? 'active' : '' }}"
                     href="{{ route('free.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-home"></i>
                     </div>
                     Dashboard
@@ -15,7 +15,7 @@
                 {{-- kriteria --}}
                 <a class="nav-link {{ Request::is('spk/kriteria*') ? 'active' : '' }}"
                     href="{{ route('free.kriteria') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-list-alt"></i>
                     </div>
                     Data Kriteria
@@ -23,7 +23,7 @@
                 {{-- Data Destinasi Wisata --}}
                 <a class="nav-link {{ Request::is('spk/wisata*') ? 'active' : '' }}"
                     href="{{ route('free.wisata') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
                     Data Destinasi Wisata
@@ -31,14 +31,14 @@
                 {{-- Master User --}}
                 <a class="nav-link {{ Request::is('spk/alternatif*') ? 'active' : '' }}"
                     href="{{ route('free.alternatif') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-cubes"></i>
                     </div>
                     Data Alternatif
                 </a>
                 <a class="nav-link {{ Request::is('spk/perhitungan*') ? 'active' : '' }}"
                     href="{{ route('free.perhitungan') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-ranking-star"></i>
                     </div>
                     Metode SPK
@@ -47,3 +47,8 @@
         </div>
     </nav>
 </div>
+<style>
+    .nav-link.active {
+        background-color: gray;
+    }
+</style>

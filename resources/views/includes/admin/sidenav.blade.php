@@ -5,7 +5,7 @@
             <div class="nav">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}"
                     href="{{ route('dashboard.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-home"></i>
                     </div>
                     Dashboard
@@ -15,7 +15,7 @@
                 {{-- kriteria --}}
                 <a class="nav-link {{ Request::is('dashboard/kriteria*') ? 'active' : '' }}"
                     href="{{ route('kriteria.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-list-alt"></i>
                     </div>
                     Data Kriteria
@@ -23,7 +23,7 @@
                 {{-- Data Destinasi Wisata --}}
                 <a class="nav-link {{ Request::is('dashboard/wisata*') ? 'active' : '' }}"
                     href="{{ route('wisata.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-map-marked-alt"></i>
                     </div>
                     Data Destinasi Wisata
@@ -31,14 +31,14 @@
                 {{-- Master User --}}
                 <a class="nav-link {{ Request::is('dashboard/alternatif*') ? 'active' : '' }}"
                     href="{{ route('alternatif.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-cubes"></i>
                     </div>
                     Data Alternatif
                 </a>
                 <a class="nav-link {{ Request::is('dashboard/showkombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.awal') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-ranking-star"></i>
                     </div>
                     Metode SPK
@@ -46,7 +46,7 @@
                 @can('admin')
                 <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-gear"></i>
                     </div>
                     Data Perhitungan
@@ -56,7 +56,7 @@
                 @can('admin')
                 <a class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}"
                     href="{{ route('users.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-user-gear"></i>
                     </div>
                     Data Pengguna
@@ -64,7 +64,7 @@
                 @endcan
                 <a class="nav-link {{ Request::is('dashboard/profile*') ? 'active' : '' }}"
                     href="{{ route('profile.index') }}">
-                    <div class="sb-nav-link-icon">
+                    <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-user-pen"></i>
                     </div>
                     Ubah Profil
@@ -73,3 +73,8 @@
         </div>
     </nav>
 </div>
+<style>
+    .nav-link.active {
+        background-color: gray;
+    }
+</style>
