@@ -130,13 +130,11 @@
                                             <a href="{{ route('wisata.edit', $wisata->id) }}" class="badge bg-warning">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
-                                            <form action="{{ route('wisata.destroy', $wisata->id) }}" method="POST"
-                                                class="d-inline">
-                                                @method('delete')
+                                            <form action="{{ route('wisata.destroy', $wisata->id) }}" method="POST" class="d-inline">
+                                                @method('DELETE')
                                                 @csrf
-                                                <button class="badge bg-danger border-0 btnDelete" data-object="destinasi wisata"><i
-                                                        class="fa-solid fa-trash-can"></i></button>
-                                            </form>
+                                                <button class="badge bg-danger border-0 btnDelete" data-object="destinasi wisata"><i class="fa-solid fa-trash-can"></i></button>
+                                            </form>                                            
                                         </td>
                                         @endcan
                                     </tr>

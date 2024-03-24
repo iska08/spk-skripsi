@@ -18,63 +18,75 @@
 
 ![Dashboard](/screenshoot/Admin%20-%20Dashboard.png)
 
-### Kriteria
+### Data Kriteria
 
-_Data Kriteria_
-![Data Kriteria](/screenshoot/Admin%20-%20Data%20Kriteria.png)
-_Tambah Kriteria_
-![Tambah Kriteria](/screenshoot/Admin%20-%20Tambah%20Kriteria.png)
-_Edit Kriteria_
-![Edit Kriteria](/screenshoot/Admin%20-%20Edit%20Kriteria.png)
+_Data Kriteria (Create)_
+![Data Kriteria (Create)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Create).png>)
+_Data Kriteria (Read)_
+![Data Kriteria (Read)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Read).png>)
+_Data Kriteria (Update)_
+![Data Kriteria (Update)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Update).png>)
+_Data Kriteria (Delete)_
+![Data Kriteria (Delete)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Delete).png>)
 
-### Destinasi Wisata
+### Data Destinasi Wisata
 
-_Data Destinasi Wisata_
-![Data Destinasi Wisata](/screenshoot/Admin%20-%20Data%20Destinasi%20Wisata.png)
-_Tambah Data Destinasi Wisata_
-![Tambah Data Destinasi Wisata](/screenshoot/Admin%20-%20Tambah%20Destinasi%20Wisata.png)
-_Edit Data Destinasi Wisata_
-![Edit Data Destinasi Wisata](/screenshoot/Admin%20-%20Edit%20Destinasi%20Wisata.png)
+_Data Destinasi Wisata (Create)_
+![Data Destinasi Wisata (Create)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Create).png>)
+_Data Destinasi Wisata (Read)_
+![Data Destinasi Wisata (Read)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Read).png>)
+_Data Destinasi Wisata (Update)_
+![Data Destinasi Wisata (Update)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Update).png>)
+_Data Destinasi Wisata (Delete)_
+![Data Destinasi Wisata (Delete)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Delete).png>)
 
-### Jenis Wisata
+### Data Jenis Wisata
 
-_Data Jenis Wisata_
-![Data Jenis Wisata](/screenshoot/Admin%20-%20Data%20Jenis%20Wisata.png)
-_Tambah Jenis Wisata_
-![Tambah Jenis Wisata](/screenshoot/Admin%20-%20Tambah%20Jenis%20Wisata.png)
-_Edit Data Wisata_
-![Edit Data Wisata](/screenshoot/Admin%20-%20Edit%20Jenis%20Wisata.png)
-_Detail Jenis Wisata_
-![Detail Jenis Wisata](/screenshoot/Admin%20-%20Detail%20Jenis%20Wisata.png)
+_Data Jenis Wisata (Create)_
+![Data Jenis Wisata (Create)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Create).png>)
+_Data Jenis Wisata (Read)_
+![Data Jenis Wisata (Read)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Read).png>)
+_Data Jenis Wisata (Detail)_
+![Data Jenis Wisata (Detail)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Detail).png>)
+_Data Jenis Wisata (Update)_
+![Data Jenis Wisata (Update)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Update).png>)
+_Data Jenis Wisata (Delete)_
+![Data Jenis Wisata (Delete)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Delete).png>)
 
-### Alternatif
+### Data Alternatif
 
-_Data Alternatif_
-![Data Alternatif](/screenshoot/Admin%20-%20Data%20Alternatif.png)
-_Tambah Alternatif_
-![Tambah Alternatif](/screenshoot/Admin%20-%20Tambah%20Alternatif.png)
-_Edit Alternatif_
-![Edit Alternatif](/screenshoot/Admin%20-%20Edit%20Alternatif.png)
+_Data Alternatif (Create)_
+![Data Alternatif (Create)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Create).png>)
+_Data Alternatif (Read)_
+![Data Alternatif (Read)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Read).png>)
+_Data Alternatif (Update)_
+![Data Alternatif (Update)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Update).png>)
+_Data Alternatif (Delete)_
+![Data Alternatif (Delete)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Delete).png>)
 
-### Perhitungan
+### Data Perhitungan
 
-_Data Perhitungan_
-![Data Perhitungan](/screenshoot/Admin%20-%20Data%20Perhitungan.png)
-_Tambah Perhitungan_
-![Tambah Perhitungan](/screenshoot/Admin%20-%20Tambah%20Perhitungan.png)
-_Edit Perbandingan Kriteria_
-![Edit Perbandingan Kriteria](/screenshoot/Admin%20-%20Edit%20Perbandingan%20Kriteria.png)
-_Edit Bobot Kriteria_
-![Edit Bobot Kriteria](/screenshoot/Admin%20-%20Edit%20Bobot%20Kriteria.png)
+_Data Perhitungan (Create)_
+![Data Perhitungan (Create)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Create).png>)
+_Data Perhitungan (Read)_
+![Data Perhitungan (Read)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Read).png>)
+_Data Perhitungan (Update Perbandingan Kriteria)_
+![Data Perhitungan (Update Perbandingan Kriteria)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Update%20Perbandingan%20Kriteria).png>)
+_Data Perhitungan (Update Bobot)_
+![Data Perhitungan (Update Bobot)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Update%20Bobot).png>)
+_Data Perhitungan (Delete)_
+![Data Perhitungan (Delete)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Delete).png>)
 
-### Pengguna
+### Data Pengguna
 
-_Data Pengguna_
-![Data Pengguna](/screenshoot/Admin%20-%20Data%20Pengguna.png)
-_Tambah Pengguna_
-![Tambah Pengguna](/screenshoot/Admin%20-%20Tambah%20Pengguna.png)
-_Edit Pengguna_
-![Edit Pengguna](/screenshoot/Admin%20-%20Edit%20Pengguna.png)
+_Data Pengguna (Create)_
+![Data Pengguna (Create)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Create).png>)
+_Data Pengguna (Read)_
+![Data Pengguna (Read)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Read).png>)
+_Data Pengguna (Update)_
+![Data Pengguna (Update)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Update).png>)
+_Data Pengguna (Delete)_
+![Data Pengguna (Delete)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Delete).png>)
 
 ## User
 
@@ -82,31 +94,31 @@ _Edit Pengguna_
 
 ![Dashboard](/screenshoot/User%20-%20Dashboard.png)
 
-### Kriteria
+### Data Kriteria
 
 _Data Kriteria_
 ![Data Kriteria](/screenshoot/User%20-%20Data%20Kriteria.png)
 
-### Destinasi Wisata
+### Data Destinasi Wisata
 
 _Data Destinasi Wisata_
 ![Data Destinasi Wisata](/screenshoot/User%20-%20Data%20Destinasi%20Wisata.png)
 
-### Jenis Wisata
+### Data Jenis Wisata
 
 _Data Jenis Wisata_
 ![Data Jenis Wisata](/screenshoot/User%20-%20Data%20Jenis%20Wisata.png)
 _Detail Jenis Wisata_
 ![Detail Jenis Wisata](/screenshoot/User%20-%20Detail%20Jenis%20Wisata.png)
 
-### Alternatif
+### Data Alternatif
 
 _Data Alternatif_
 ![Data Alternatif](/screenshoot/User%20-%20Data%20Alternatif.png)
 
 ## Metode SPK
 
-![Metode SPK](/screenshoot/Metode%20SPK%20-%20Data.png)
+![Metode SPK](/screenshoot/Metode%20SPK.png)
 
 ### Perhitungan Metode
 

@@ -140,13 +140,14 @@ class WisataController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Wisata $wisata)
+    public function destroy($id)
     {
         if (auth()->user()->level !== 'ADMIN') {
             return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
         }
 
-        Wisata::destroy($wisata->id);
+        $wisata = Wisata::findOrFail($id);
+        $wisata->delete();
         return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Dihapus!');
     }
 }
