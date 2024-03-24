@@ -15,6 +15,9 @@
                 <li>
                     <a class="nav-link scrollto" href="{{ url('#faq') }}">FAQ</a>
                 </li>
+                <li>
+                    <a class="nav-link scrollto" href="{{ url('#comment') }}">Comment</a>
+                </li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle d-none"></i>
         </nav>
