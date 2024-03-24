@@ -25,7 +25,8 @@ class UserController extends Controller
 
         return view('pages.admin.user.data', [
             'title' => 'Data Pengguna',
-            'users' => User::whereNot('id', auth()->user()->id)->get()
+            'users' => User::whereNot('id', auth()->user()->id)->orderBy('name')->orderBy('level')->get()
+            // 'users' => User::whereNot('id', auth()->user()->id)->where('level', '!=', 'ADMIN')->orderBy('name')->orderBy('level')->get()
         ]);
     }
 

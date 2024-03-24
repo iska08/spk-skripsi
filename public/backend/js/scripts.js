@@ -59,12 +59,12 @@ if (btnLogout) {
         event.preventDefault();
 
         Swal.fire({
-            title: "Apakah Anda yakin ingin keluar?",
+            title: "Apakah Anda Yakin Ingin Keluar?",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Ya, keluar!",
+            confirmButtonText: "Ya, Keluar!",
         }).then((result) => {
             if (result.isConfirmed) {
                 btnLogout.parentElement.submit();
@@ -83,12 +83,12 @@ if (btnDelClass) {
             event.preventDefault();
 
             Swal.fire({
-                title: `Menghapus jenis wisata akan menghapus ${object} juga?`,
+                title: `Menghapus Jenis Wisata "${object}" Akan Menghapus Destinasi Wisata Juga?`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete!",
+                confirmButtonText: "Yes, Hapus!",
             }).then((result) => {
                 if (result.isConfirmed) {
                     btn.parentElement.submit();
@@ -108,12 +108,12 @@ if (btnDelete) {
             event.preventDefault();
 
             Swal.fire({
-                title: `Apakah Anda yakin ingin menghapus ${object} ?`,
+                title: `Apakah Anda Yakin Ingin Menghapus ${object}?`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Ya, hapus!",
+                confirmButtonText: "Ya, Hapus!",
             }).then((result) => {
                 if (result.isConfirmed) {
                     btn.parentElement.submit();

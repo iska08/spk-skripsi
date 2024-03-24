@@ -53,8 +53,7 @@
                                                 class="d-inline">
                                                 @method('delete')
                                                 @csrf
-                                                <span role="button" class="badge bg-danger border-0 btnDelClass"
-                                                    data-object="destinasi wisata">
+                                                <span role="button" class="badge bg-danger border-0 btnDelClass" data-object="{{ $jenis->jenis_name }}">
                                                     <i class="fa-solid fa-trash-can"></i>
                                                 </span>
                                             </form>

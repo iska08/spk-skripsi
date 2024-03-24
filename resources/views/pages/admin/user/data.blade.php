@@ -67,7 +67,7 @@
                             <form action="{{ route('users.destroy', $user->id) }}" method="POST" class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="badge bg-danger border-0 btnDelete" data-object="{{ $user->name }}">
+                                <button class="badge bg-danger border-0 btnDelete" data-object="Pengguna {{ $user->name }}">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </form>

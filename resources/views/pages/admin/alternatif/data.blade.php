@@ -110,7 +110,7 @@
                                 class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="badge bg-danger border-0 btnDelete" data-object="alternatif {{ $alternative->nama_wisata }}">
+                                <button class="badge bg-danger border-0 btnDelete" data-object="Alternatif {{ $alternative->nama_wisata }}">
                                     <i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </td>

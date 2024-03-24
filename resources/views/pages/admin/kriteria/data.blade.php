@@ -55,7 +55,7 @@
                                     class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="badge bg-danger border-0 btnDelete" data-object="kriteria {{ $criteria->nama_kriteria }}">
+                                    <button class="badge bg-danger border-0 btnDelete" data-object="Kriteria {{ $criteria->nama_kriteria }}">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </form>
