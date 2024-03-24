@@ -97,8 +97,8 @@ Route::prefix('dashboard')
             ->name('kombinasi.destroy');
         Route::get('kombinasi/result/{criteria_analysis}', [KombinasiController::class, 'result'])
             ->name('kombinasi.result');
-        Route::get('kombinasi/result/detail/{criteria_analysis}', [KombinasiController::class, 'detailr'])
-            ->name('kombinasi.detailr');
+        Route::get('kombinasi/result/detail/{criteria_analysis}', [KombinasiController::class, 'detail'])
+            ->name('kombinasi.detail');
         // ahp
         Route::get('ahp/result/{criteria_analysis}', [AhpController::class, 'result'])
             ->name('ahp.result');

@@ -133,7 +133,7 @@
                                             <form action="{{ route('wisata.destroy', $wisata->id) }}" method="POST" class="d-inline">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button class="badge bg-danger border-0 btnDelete" data-object="destinasi wisata"><i class="fa-solid fa-trash-can"></i></button>
+                                                <button class="badge bg-danger border-0 btnDelete" data-object="destinasi wisata {{ $wisata->nama_wisata }}"><i class="fa-solid fa-trash-can"></i></button>
                                             </form>                                            
                                         </td>
                                         @endcan

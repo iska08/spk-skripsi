@@ -41,7 +41,7 @@ class KombinasiController extends Controller
             }])->get();
         }
         $criterias = Criteria::all();
-        return view('pages.admin.kombinasi.perbandingan.data', [
+        return view('pages.admin.kombinasi.data', [
             'title'             => 'Data Perhitungan',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
@@ -66,7 +66,7 @@ class KombinasiController extends Controller
             }])->get();
         }
         $criterias = Criteria::all();
-        return view('pages.admin.kombinasi.perbandingan.showdata', [
+        return view('pages.admin.kombinasi.showdata', [
             'title'             => 'Metode SPK',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
@@ -169,7 +169,7 @@ class KombinasiController extends Controller
         $details        = filterDetailResults($criteriaAnalysis->details);
         $isDoneCounting = PriorityValue::where('criteria_analysis_id', $criteriaAnalysis->id)->exists();
         $criteriaAnalysis->unsetRelation('details');
-        return view('pages.admin.kombinasi.perbandingan.input', [
+        return view('pages.admin.kombinasi.perbandingan', [
             'title'             => 'Perbandingan Kriteria',
             'criteria_analysis' => $criteriaAnalysis,
             'details'           => $details,
@@ -190,7 +190,7 @@ class KombinasiController extends Controller
             ->where('bobots.criteria_analysis_id', $criteriaAnalysis->id)
             ->get();
         $criteriaAnalysis->unsetRelation('details');
-        return view('pages.admin.kombinasi.perbandingan.inputr', [
+        return view('pages.admin.kombinasi.bobot', [
             'title'             => 'Bobot Kriteria',
             'criteria_analysis' => $criteriaAnalysis,
             'details'           => $details,
@@ -401,7 +401,7 @@ class KombinasiController extends Controller
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('pages.admin.kombinasi.perbandingan.result', [
+        return view('pages.admin.kombinasi.result', [
             'title'             => 'Perhitungan Kombinasi',
             'criteria_analysis' => $criteriaAnalysis,
             'totalSums'         => $data['totalSums'],
@@ -470,7 +470,7 @@ class KombinasiController extends Controller
     }
 
     // detail perhitungan
-    public function detailr(CriteriaAnalysis $criteriaAnalysis)
+    public function detail(CriteriaAnalysis $criteriaAnalysis)
     {
         $criteriaAnalysis->load('priorityValues');
         $data           = $this->prepareAnalysisData($criteriaAnalysis);
@@ -486,7 +486,7 @@ class KombinasiController extends Controller
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
-        return view('pages.admin.kombinasi.perbandingan.detailr', [
+        return view('pages.admin.kombinasi.detail', [
             'title'             => 'Detail Perhitungan Kombinasi',
             'criteria_analysis' => $criteriaAnalysis,
             'totalSums'         => $data['totalSums'],
