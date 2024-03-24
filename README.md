@@ -1,8 +1,16 @@
 # Tampilan Aplikasi
 
+## Portal
+
+![Portal](/screenshoot/Portal.png)
+
 ## Login
 
 ![Login](/screenshoot/Login.png)
+
+## Register
+
+![Register](/screenshoot/Register.png)
 
 ## Admin
 
