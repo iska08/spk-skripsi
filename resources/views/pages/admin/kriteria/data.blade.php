@@ -50,7 +50,7 @@
                             <td>
                                 <a href="{{ route('kriteria.edit', $criteria->id) }}" class="badge bg-warning">
                                     <i class="fa-solid fa-pen-to-square"></i>
-                                    </a>
+                                </a>
                                 <form action="{{ route('kriteria.destroy', $criteria->id) }}" method="POST"
                                     class="d-inline">
                                     @method('delete')

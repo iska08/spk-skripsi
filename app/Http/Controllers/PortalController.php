@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Criteria;
 use App\Models\Jenis;
 use App\Models\Wisata;
@@ -17,6 +18,10 @@ class PortalController extends Controller
             'criterias' => Criteria::count(),
             'jenis'     => Jenis::count(),
             'users'     => User::count(),
+            'comments'  => Comment::join('users', 'comments.user_id', '=', 'users.id')
+                ->select('comments.*', 'users.name', 'users.username')
+                ->latest('comments.created_at')
+                ->paginate(10)
         ]);
     }
 }

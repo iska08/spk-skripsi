@@ -9,7 +9,6 @@ use App\Models\Alternative;
 use App\Models\Criteria;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Response;
 
 class AlternativeController extends Controller

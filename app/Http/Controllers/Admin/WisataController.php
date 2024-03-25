@@ -7,7 +7,6 @@ use App\Http\Requests\Admin\WisataRequest;
 use App\Http\Requests\Admin\WisataUpdateRequest;
 use App\Models\Jenis;
 use App\Models\Wisata;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class WisataController extends Controller

@@ -200,7 +200,7 @@ Portal
         <div class="container" data-aos="fade-up">
             <div class="section-header">
                 <h2>Comment</h2>
-                <p>Selamat datang di platform online yang bertujuan untuk memberikan solusi inovatif dalam pemilihan destinasi wisata menggunakan Sistem Pendukung Keputusan (SPK).</p>
+                <p>Silahkan beri penilaian dengan cara login ke sistem.</p>
             </div>
             <div class="row g-4 g-lg-5 align-items-center" data-aos="fade-up" data-aos-delay="200">
                 <div class="col-lg-5">
@@ -209,32 +209,43 @@ Portal
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <!-- Tab Content -->
+                    <!-- Tab Comment -->
                     <div class="tab-content">
-                        <div class="tab-pane fade show active">
-                            <div class="d-flex align-items-center mt-4">
-                                <i class="bi bi-check2"></i>
-                                <h4>Objektivitas dalam Seleksi</h4>
+                        <div class="row">
+                            @foreach($comments as $comment)
+                            <div class="card mb-4">
+                                <div class="card-body table-responsive">
+                                    <div class="post">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <span><strong>{{ $comment->user->name }}</strong> <b>@</b>{{ $comment->user->username }} <strong>&#183;</strong> <span id="time_{{ $comment->id }}"></span></span>
+                                        </div>
+                                        <p>{{ $comment->content }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <p>
-                                Dengan menggunakan SPK, kriteria dan bobot yang telah ditentukan secara jelas dapat diterapkan pada semua destinasi wisata.
-                            </p>
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-check2"></i>
-                                <h4>Efisiensi dan Waktu</h4>
-                            </div>
-                            <p>
-                                Penggunaan website untuk pemilihan destinasi wisata dengan menggunakan SPK dapat meningkatkan efisiensi dan menghemat waktu.
-                            </p>
-                            <div class="d-flex align-items-center mt-4">
-                                <i class="bi bi-check2"></i>
-                                <h4>Analisis yang Lebih Mendalam</h4>
-                            </div>
-                            <p>
-                                Melalui website ini, pengguna dapat mengakses dan menganalisis data destinasi wisata secara lebih mendalam.
-                            </p>
+                            <script>
+                                setInterval(function() {
+                                    var timeElement = document.getElementById('time_{{ $comment->id }}');
+                                    var currentTime = new Date().getTime();
+                                    var commentTime = new Date('{{ $comment->created_at }}').getTime();
+                                    var timeDifference = currentTime - commentTime;
+                                    var timeElapsed = Math.floor(timeDifference / 1000);
+                                    var timeDisplay;
+                                    if (timeElapsed < 60) {
+                                        timeDisplay = timeElapsed + ' detik yang lalu';
+                                    } else if (timeElapsed < 3600) {
+                                        timeDisplay = Math.floor(timeElapsed / 60) + ' menit yang lalu';
+                                    } else if (timeElapsed < 86400) {
+                                        timeDisplay = Math.floor(timeElapsed / 3600) + ' jam yang lalu';
+                                    } else {
+                                        timeDisplay = Math.floor(timeElapsed / 86400) + ' days ago';
+                                    }
+                                    timeElement.innerText = timeDisplay;
+                                }, 1000);
+                            </script>
+                            @endforeach
                         </div>
-                        <!-- End Tab 1 Content -->
+                        <!-- End Tab 1 Comment -->
                     </div>
                 </div>
             </div>

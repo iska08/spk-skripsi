@@ -7,7 +7,6 @@ use App\Models\Alternative;
 use App\Models\Criteria;
 use App\Models\CriteriaAnalysis;
 use App\Models\CriteriaAnalysisDetail;
-use Maatwebsite\Excel\Facades\Excel;
 
 class SawController extends Controller
 {

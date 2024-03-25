@@ -43,6 +43,13 @@
                     </div>
                     Metode SPK
                 </a>
+                <a class="nav-link {{ Request::is('dashboard/comments*') ? 'active' : '' }}"
+                    href="{{ route('comments.index') }}">
+                    <div class="sb-nav-link-icon col-1">
+                        <i class="fas fa-comment"></i>
+                    </div>
+                    Komentar
+                </a>
                 @can('admin')
                 <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.index') }}">

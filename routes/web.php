@@ -1,15 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\AhpController;
 use App\Http\Controllers\Admin\AlternativeController;
 use App\Http\Controllers\Admin\CriteriaController;
-use App\Http\Controllers\Admin\AhpController;
-use App\Http\Controllers\Admin\KombinasiController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JenisController;
+use App\Http\Controllers\Admin\KombinasiController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SawController;
-use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\WisataController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\PortalController;
@@ -64,6 +65,7 @@ Route::prefix('dashboard')
             'wisata'       => WisataController::class,
             'wisata/jenis' => JenisController::class,
             'users'        => UserController::class,
+            'comments'     => CommentController::class,
         ], ['except' => 'show', 'middleware' => 'admin']);
         // alternatif
         Route::resource('alternatif', AlternativeController::class)

@@ -191,6 +191,17 @@ _Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)_
 _Ranking (Detail)_
 ![Ranking (Detail)](</screenshoot/AHP%20-%20Ranking%20(Detail).png>)
 
+## Komentar Pengguna
+
+_Komentar Pengguna (Create)_
+![Komentar Pengguna (Create)](</screenshoot/Komentar%20Pengguna%20(Create).png>)
+_Komentar Pengguna (Read)_
+![Komentar Pengguna (Read)](</screenshoot/Komentar%20Pengguna%20(Read).png>)
+_Komentar Pengguna (Update)_
+![Komentar Pengguna (Update)](</screenshoot/Komentar%20Pengguna%20(Update).png>)
+_Komentar Pengguna (Delete)_
+![Komentar Pengguna (Delete)](</screenshoot/Komentar%20Pengguna%20(Delete).png>)
+
 #### Perhitungan SAW
 
 _Normalisasi Alternatif (Detail)_
