@@ -6,134 +6,264 @@
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
-        <div class="container d-flex justify-content-center align-items-center text-center position-relative">
-            <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="max-height: 4cm"/>&nbsp;&nbsp;
-            <h4>
-                <p style="font-family: 'Times New Roman', Times, serif; font-size: 45px">SELAMAT DATANG DI</p>
+    </div>
+    <div class="container-fluid px-4">
+        <?php
+        $userAgent = $_SERVER['HTTP_USER_AGENT'];
+        if (strpos($userAgent, 'Mobile') !== false || strpos($userAgent, 'Android') !== false || strpos($userAgent, 'iPhone') !== false || strpos($userAgent, 'iPad') !== false) {
+        ?>
+            <center><img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="max-width: 5cm"/></center>
+            <br>
+            <h4 class="text-center">
+                <p style="font-family: 'Times New Roman', Times, serif; font-size: 30px">SELAMAT DATANG DI</p>
                 <i style="font-family: 'Courier New', Courier, monospace">Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</i>
             </h4>
-        </div>
-        @can('admin')
-        <hr style="border-width: 2px;">
-        <!-- Content Row -->
-        <div class="row d-flex justify-content-center align-items-center position-relative">
-            <!-- Destinasi Wisata -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-primary shadow h-100 py-2">
-                    <a style="text-decoration:none; color: #212529;" href="{{ route('wisata.index') }}">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        Destinasi Wisata</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $wisata }}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- Criteria -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-success shadow h-100 py-2">
-                    <a href="{{ route('kriteria.index') }}" style="text-decoration:none; color: #212529;">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                        Kriteria</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $criterias }}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-list-alt fa-2x text-gray-300"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- Jenis Wisata -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-info shadow h-100 py-2">
-                    <a href="{{ route('jenis.index') }}" style="text-decoration:none; color: #212529;">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jenis Wisata
+            @can('admin')
+            <hr style="border-width: 2px;">
+            <!-- Content Row -->
+            <div class="row d-flex justify-content-center align-items-center position-relative">
+                <!-- Destinasi Wisata -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <a style="text-decoration:none; color: #212529;" href="{{ route('wisata.index') }}">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Destinasi Wisata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $wisata }}</div>
                                     </div>
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-auto">
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $jenis }}
-                                            </div>
-                                        </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i>
                                     </div>
                                 </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-hiking fa-2x text-gray-300"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Criteria -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <a href="{{ route('kriteria.index') }}" style="text-decoration:none; color: #212529;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Kriteria</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $criterias }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-list-alt fa-2x text-gray-300"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <!-- Data User -->
-            <div class="col-xl-3 col-md-6 mb-4">
-                <div class="card border-left-warning shadow h-100 py-2">
-                    <a href="{{ route('users.index') }}" style="text-decoration:none; color: #212529;">
-                        <div class="card-body">
-                            <div class="row no-gutters align-items-center">
-                                <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                        Pengguna</div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $users }}</div>
-                                </div>
-                                <div class="col-auto">
-                                    <i class="fas fa-user-gear fa-2x text-gray-300"></i>
+                <!-- Jenis Wisata -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <a href="{{ route('jenis.index') }}" style="text-decoration:none; color: #212529;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jenis Wisata</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $jenis }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-hiking fa-3x text-gray-300"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                </div>
+                <!-- Data User -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <a href="{{ route('users.index') }}" style="text-decoration:none; color: #212529;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            Pengguna</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $users }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-user-gear fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        @elseif('user')
-        <hr style="border-width: 2px;">
-        <div class="card-body table-responsive slide-container">
-            <div class="slide-content">
-                @foreach ($wisatas as $wisata)
-                <div class="slide-item">
-                    <div class="container d-flex justify-content position-relative">
-                        <img src="{{ $wisata->link_foto }}" alt="Gambar" style="max-width: 20%; min-width: 20%; height: 3.5cm">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <h4 style="max-width: 30%; min-width:30%">
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">{{ $wisata->nama_wisata }}</p>
-                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">{{ $wisata->keterangan }}</p><br>
-                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">
+            @elseif('user')
+            <hr style="border-width: 2px;">
+            <div class="card-body table-responsive slide-container">
+                <div class="slide-content">
+                    @foreach ($wisatas as $wisata)
+                    <div class="slide-item">
+                        <div class="d-flex justify-content position-relative" style="max-width: 80%">
+                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="max-width: 50%; min-width: 50%; height: 3cm">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; max-width: 40%; min-width: 40%">
+                                {{ $wisata->nama_wisata }}
+                            </p>
+                        </div>
+                        <br>
+                        <h4 style="max-width: 80%">
+                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                                <strong>Keterangan:</strong>
+                                <br>
+                                {{ $wisata->keterangan }}
+                            </p>
+                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                                <strong>Website Resmi:</strong> 
                                 <i>
                                     <?php if($wisata->situs == ""){
-                                        ?>Website Resmi: -<?php
+                                        ?>-<?php
                                     }else{
-                                        ?>Website Resmi: <a href="{{ $wisata->situs }}">Klik di Sini</a><?php
+                                        ?><a href="{{ $wisata->situs }}">Klik di Sini</a><?php
                                     }?>
                                 </i>
                             </p>
-                        </h4>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <h4 style="max-width: 30%; min-width:30%">
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">Fasilitas</p>
-                            <p style="font-family: Arial, Helvetica, sans-serif; font-size: 12px">
-                                <i>{{ $wisata->fasilitas}}</i>
+                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                                <strong>Fasilitas:</strong>
+                                <br>
+                                {{ $wisata->fasilitas}}
                             </p>
                         </h4>
                     </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
-        </div>
-        @endcan
+            @endcan
+        <?php
+        }else{
+            ?>
+                <div class="container d-flex justify-content-center align-items-center text-center position-relative">
+                <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="max-height: 4cm"/>&nbsp;&nbsp;
+                <h4>
+                    <p style="font-family: 'Times New Roman', Times, serif; font-size: 45px">SELAMAT DATANG DI</p>
+                    <i style="font-family: 'Courier New', Courier, monospace">Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</i>
+                </h4>
+            </div>
+            @can('admin')
+            <hr style="border-width: 2px;">
+            <!-- Content Row -->
+            <div class="row d-flex justify-content-center align-items-center position-relative">
+                <!-- Destinasi Wisata -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <a style="text-decoration:none; color: #212529;" href="{{ route('wisata.index') }}">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            Destinasi Wisata</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $wisata }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-map-marked-alt fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Criteria -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <a href="{{ route('kriteria.index') }}" style="text-decoration:none; color: #212529;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kriteria</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $criterias }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-list-alt fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Jenis Wisata -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <a href="{{ route('jenis.index') }}" style="text-decoration:none; color: #212529;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jenis Wisata</div>
+                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $jenis }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-hiking fa-3x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- Data User -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-warning shadow h-100 py-2">
+                        <a href="{{ route('users.index') }}" style="text-decoration:none; color: #212529;">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                            Pengguna</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $users }}</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-user-gear fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @elseif('user')
+            <hr style="border-width: 2px;">
+            <div class="card-body table-responsive slide-container">
+                <div class="slide-content">
+                    @foreach ($wisatas as $wisata)
+                    <div class="slide-item">
+                        <div class="container d-flex justify-content position-relative">
+                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="max-width: 20%; min-width: 20%; height: 3.5cm">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h4 style="max-width: 30%; min-width:30%">
+                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">{{ $wisata->nama_wisata }}</p>
+                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">{{ $wisata->keterangan }}</p><br>
+                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                                    Website Resmi: 
+                                    <i>
+                                        <?php if($wisata->situs == ""){
+                                            ?>-<?php
+                                        }else{
+                                            ?><a href="{{ $wisata->situs }}">Klik di Sini</a><?php
+                                        }?>
+                                    </i>
+                                </p>
+                            </h4>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <h4 style="max-width: 30%; min-width:30%">
+                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">Fasilitas</p>
+                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">{{ $wisata->fasilitas}}</p>
+                            </h4>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+            @endcan
+            <?php
+        }?>
     </div>
 </main>
 @endsection
