@@ -36,19 +36,19 @@
                     </div>
                     Data Alternatif
                 </a>
-                <a class="nav-link {{ Request::is('dashboard/showkombinasi*') ? 'active' : '' }}"
-                    href="{{ route('kombinasi.awal') }}">
-                    <div class="sb-nav-link-icon col-1">
-                        <i class="fas fa-ranking-star"></i>
-                    </div>
-                    Metode SPK
-                </a>
                 <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }}"
                     href="{{ route('sarans.index') }}">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-comment-alt"></i>
                     </div>
                     Saran Destinasi Wisata
+                </a>
+                <a class="nav-link {{ Request::is('dashboard/showkombinasi*') ? 'active' : '' }}"
+                    href="{{ route('kombinasi.awal') }}">
+                    <div class="sb-nav-link-icon col-1">
+                        <i class="fas fa-ranking-star"></i>
+                    </div>
+                    Metode SPK
                 </a>
                 @can('admin')
                 <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"

@@ -209,6 +209,21 @@ _Normalisasi Alternatif (Detail)_
 _Ranking (Detail)_
 ![Ranking (Detail)](</screenshoot/SAW%20-%20Ranking%20(Detail).png>)
 
+## Saran Destinasi Wisata
+
+_Saran Destinasi Wisata (Create - User)_
+![Saran Destinasi Wisata (Create - User)](</screenshoot/Saran%20Destinasi%20Wisata%20(Create%20-%20User).png>)
+_Saran Destinasi Wisata (Read - Admin)_
+![Saran Destinasi Wisata (Read - Admin)](</screenshoot/Saran%20Destinasi%20Wisata%20(Read%20-%20Admin).png>)
+_Saran Destinasi Wisata (Read - User)_
+![Saran Destinasi Wisata (Read - User)](</screenshoot/Saran%20Destinasi%20Wisata%20(Read%20-%20User).png>)
+_Saran Destinasi Wisata (Edit - User)_
+![Saran Destinasi Wisata (Edit - User)](</screenshoot/Saran%20Destinasi%20Wisata%20(Edit%20-%20User).png>)
+_Saran Destinasi Wisata (Validasi - Admin)_
+![Saran Destinasi Wisata (Validasi - Admin)](</screenshoot/Saran%20Destinasi%20Wisata%20(Validasi%20-%20Admin).png>)
+_Saran Destinasi Wisata (Delete)_
+![Saran Destinasi Wisata (Delete)](</screenshoot/Saran%20Destinasi%20Wisata%20(Delete).png>)
+
 ## Ubah Profil
 
 ![Ubah Profil](/screenshoot/Ubah%20Profil.png)

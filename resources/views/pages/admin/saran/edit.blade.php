@@ -34,7 +34,7 @@
             <a href="/dashboard/sarans" class="btn btn-danger mb-3">Cancel</a>
         </form>
     </div>
-    @elsecan('user')
+    @elseif('user')
     <div class="row align-items-center">
         <form class="col-lg-8" method="POST" action="{{ route('sarans.update', $saran->id) }}"
             enctype="multipart/form-data">

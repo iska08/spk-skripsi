@@ -89,9 +89,17 @@ class SaranController extends Controller
      */
     public function edit($id)
     {
-        $saran = Saran::findOrFail($id);
+        $saran      = Saran::findOrFail($id);
+        $userLevel  = auth()->user()->level;
+        
+        if ($userLevel === 'ADMIN') {
+            $title = 'Validasi Saran Destinasi Wisata';
+        } elseif($userLevel === 'USER') {
+            $title = 'Edit Saran Destinasi Wisata';
+        }
+
         return view('pages.admin.saran.edit', [
-            'title' => 'Edit Saran Destinasi Wisata',
+            'title' => $title,
             'saran' => $saran
         ]);
     }

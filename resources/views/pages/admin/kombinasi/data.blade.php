@@ -42,7 +42,7 @@
                             @endif
                             @endforeach
                         </td>
-                        <td>{{ $comparison->created_at->toDayDateTimeString() }}</td>
+                        <td>{{ $comparison->created_at->translatedFormat('l, j F Y H:i:s') }}</td>
                         <td>
                             @can('admin')
                             <a href="{{ route('kombinasi.update', $comparison->id) }}" class="badge bg-warning text-decoration-none">
