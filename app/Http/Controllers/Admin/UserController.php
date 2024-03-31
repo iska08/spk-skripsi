@@ -19,7 +19,7 @@ class UserController extends Controller
     public function index()
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         return view('pages.admin.user.data', [
@@ -37,7 +37,7 @@ class UserController extends Controller
     public function create()
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         return view('pages.admin.user.create', [
@@ -54,7 +54,7 @@ class UserController extends Controller
     public function store(UserStoreRequest $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $validate = $request->validated();
@@ -83,7 +83,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         return view('pages.admin.user.edit', [
@@ -102,7 +102,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, User $user)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $validate = $request->validated();
@@ -122,7 +122,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $jenis = User::findOrFail($id);

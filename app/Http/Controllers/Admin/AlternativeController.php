@@ -91,7 +91,7 @@ class AlternativeController extends Controller
     public function store(AlternativeStoreRequest $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         // menyimpan input destinasi wisata dengan jenis wisata
@@ -107,7 +107,7 @@ class AlternativeController extends Controller
             ];
             Alternative::create($data);
         }
-        return redirect('/dashboard/alternatif')->with('success', 'Alternatif Baru telah ditambahkan!');
+        return redirect('/dashboard/alternatif')->with('success', 'Alternatif Baru Telah Ditambahkan!');
     }
 
     /**
@@ -130,7 +130,7 @@ class AlternativeController extends Controller
     public function edit(Alternative $alternatif)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk mengakses halaman ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
         
         // cek apakah ada kriteria baru yang belum diisi oleh pengguna
@@ -154,7 +154,7 @@ class AlternativeController extends Controller
     public function update(AlternativeUpdateRequest $request, Alternative $alternatif)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
         
         $pisah    = explode(" ", $request->new_wisata_id);
@@ -190,7 +190,7 @@ class AlternativeController extends Controller
     public function destroy(Alternative $alternatif)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         Alternative::where('wisata_id', $alternatif->wisata_id)->delete();

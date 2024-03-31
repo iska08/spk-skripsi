@@ -44,7 +44,7 @@ class SaranController extends Controller
     public function create()
     {
         if (auth()->user()->level !== 'USER') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         return view('pages.admin.saran.create', [

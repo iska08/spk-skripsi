@@ -24,7 +24,7 @@ class KombinasiController extends Controller
     public function index()
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         if (auth()->user()->level === 'ADMIN' || auth()->user()->level === 'USER') {
@@ -94,7 +94,7 @@ class KombinasiController extends Controller
     public function store(Request $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         if (!isset($request->criteria_id)) {
@@ -162,7 +162,7 @@ class KombinasiController extends Controller
     public function show(CriteriaAnalysis $criteriaAnalysis)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $criteriaAnalysis->load('details', 'details.firstCriteria', 'details.secondCriteria');
@@ -180,7 +180,7 @@ class KombinasiController extends Controller
     public function showBobot(CriteriaAnalysis $criteriaAnalysis)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $criteriaAnalysis->load('details');
@@ -272,7 +272,7 @@ class KombinasiController extends Controller
     public function update(CriteriaPerbadinganRequest $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $validate = $request->validated();
@@ -292,7 +292,7 @@ class KombinasiController extends Controller
     public function updateBobot(BobotRequest $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $validated = $request->validated();
@@ -510,7 +510,7 @@ class KombinasiController extends Controller
     public function destroy(CriteriaAnalysis $criteriaAnalysis)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
         
         CriteriaAnalysis::destroy($criteriaAnalysis->id);

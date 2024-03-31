@@ -35,7 +35,7 @@ class JenisController extends Controller
     public function create()
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         return view('pages.admin.wisata.jenis.create', [
@@ -52,7 +52,7 @@ class JenisController extends Controller
     public function store(Request $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $validatedData = $request->validate([
@@ -83,7 +83,7 @@ class JenisController extends Controller
     public function edit($id)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $jenis = Jenis::FindOrFail($id);
@@ -104,7 +104,7 @@ class JenisController extends Controller
     public function update(JenisUpdateRequest $request, $id)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $validatedData = $request->validated();
@@ -123,7 +123,7 @@ class JenisController extends Controller
     public function destroy($id)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
         
         $jenis = Jenis::findOrFail($id);

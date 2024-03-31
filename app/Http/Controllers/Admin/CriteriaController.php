@@ -32,7 +32,7 @@ class CriteriaController extends Controller
     public function create()
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         return view('pages.admin.kriteria.create', ['title' => 'Tambah Kriteria',]);
@@ -47,7 +47,7 @@ class CriteriaController extends Controller
     public function store(CriteriaStoreRequest $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $validatedData   = $request->validated();
@@ -76,7 +76,7 @@ class CriteriaController extends Controller
     public function edit($id)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk mengakses halaman ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $kriterium = Criteria::FindOrFail($id);
@@ -96,7 +96,7 @@ class CriteriaController extends Controller
     public function update(CriteriaUpdateRequest $request, $id)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
         
         $data = $request->validated();
@@ -115,7 +115,7 @@ class CriteriaController extends Controller
     public function destroy($id)
     {
         if (auth()->user()->level !== 'ADMIN') {
-            return redirect()->back()->with('error', 'Anda tidak memiliki izin untuk melakukan tindakan ini.');
+            return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
         $kriterium = Criteria::findOrFail($id);

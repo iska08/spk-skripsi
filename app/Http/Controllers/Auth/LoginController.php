@@ -18,11 +18,11 @@ class LoginController extends Controller
     public function authenticate(LoginRequest $request)
     {
         $credentials = $request->getCredentials();
-        // if failed
+        // jika gagal
         if (!Auth::validate($credentials)) :
-            return back()->with('failed', "Login Failed, Please Try Again");
+            return back()->with('failed', "Login Gagal, Silakan Coba Lagi");
         endif;
-        // autentikasi user
+        // autentikasi pengguna
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
         Auth::login($user, $request->get('remember'));
         return $this->authenticated($request, $user);
@@ -39,6 +39,6 @@ class LoginController extends Controller
         Session::flush();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/')->with('success', 'You Have Been Logged Out!');
+        return redirect('/')->with('success', 'Anda Telah Keluar!');
     }
 }
