@@ -9,9 +9,17 @@ Portal
         <section id="hero-animated" class="hero-animated d-flex align-items-center">
             <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
                 data-aos="zoom-out">
-                <h2>Selamat Datang di Kota Malang</h2>
+                <h2 style="margin-top: -40px;">Selamat Datang di Kota Malang</h2>
                 <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" class="img-fluid animated" />
-                <p class="text-white">Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</p>
+                <p class="text-white">Kota Malang merupakan tujuan wisata yang menarik dengan berbagai keindahan alam
+                    dan kekayaan budaya yang memikat. Terletak di Jawa Timur, Indonesia, kota ini menawarkan pengalaman
+                    wisata yang beragam dan menarik bagi pengunjung dari segala usia. Pesona alamnya yang memukau, mulai
+                    dari gunung, pantai, hingga perkebunan teh yang indah, menjadikan Malang sebagai destinasi yang
+                    sangat dicari oleh para pencinta petualangan dan alam. Selain itu, kekayaan budaya dan sejarahnya
+                    yang dalam memberikan pengalaman yang tak terlupakan bagi para pelancong yang ingin mengeksplorasi
+                    kekayaan budaya Indonesia. Dengan beragam pilihan destinasi yang menarik, Kota Malang adalah pilihan
+                    yang sempurna bagi mereka yang mencari petualangan dan pengalaman budaya yang luar biasa di tengah
+                    pesona alam yang menakjubkan.</p>
                 <div class="d-flex">
                     @auth
                     @else
@@ -75,7 +83,8 @@ Portal
                 <div class="section-header">
                     <h2>About Us</h2>
                     <p>
-                        Selamat datang di platform online yang bertujuan untuk memberikan solusi inovatif dalam pemilihan destinasi wisata menggunakan Sistem Pendukung Keputusan (SPK).
+                        Selamat datang di platform online yang bertujuan untuk memberikan solusi inovatif dalam
+                        pemilihan destinasi wisata menggunakan Sistem Pendukung Keputusan (SPK).
                     </p>
                 </div>
                 <div class="row g-4 g-lg-5 align-items-center" data-aos="fade-up" data-aos-delay="200">
@@ -93,21 +102,24 @@ Portal
                                     <h4>Objektivitas dalam Seleksi</h4>
                                 </div>
                                 <p>
-                                    Dengan menggunakan SPK, kriteria dan bobot yang telah ditentukan secara jelas dapat diterapkan pada semua destinasi wisata.
+                                    Dengan menggunakan SPK, kriteria dan bobot yang telah ditentukan secara jelas dapat
+                                    diterapkan pada semua destinasi wisata.
                                 </p>
                                 <div class="d-flex align-items-center">
                                     <i class="bi bi-check2"></i>
                                     <h4>Efisiensi dan Waktu</h4>
                                 </div>
                                 <p>
-                                    Penggunaan website untuk pemilihan destinasi wisata dengan menggunakan SPK dapat meningkatkan efisiensi dan menghemat waktu.
+                                    Penggunaan website untuk pemilihan destinasi wisata dengan menggunakan SPK dapat
+                                    meningkatkan efisiensi dan menghemat waktu.
                                 </p>
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
                                     <h4>Analisis yang Lebih Mendalam</h4>
                                 </div>
                                 <p>
-                                    Melalui website ini, pengguna dapat mengakses dan menganalisis data destinasi wisata secara lebih mendalam.
+                                    Melalui website ini, pengguna dapat mengakses dan menganalisis data destinasi wisata
+                                    secara lebih mendalam.
                                 </p>
                             </div>
                             <!-- End Tab 1 Content -->
@@ -136,7 +148,9 @@ Portal
                                 </h3>
                                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
-                                        SPK adalah sistem komputer atau perangkat lunak yang dirancang untuk membantu pengambilan keputusan dengan menganalisis data, memodelkan masalah, dan memberikan rekomendasi atau solusi.
+                                        SPK adalah sistem komputer atau perangkat lunak yang dirancang untuk membantu
+                                        pengambilan keputusan dengan menganalisis data, memodelkan masalah, dan
+                                        memberikan rekomendasi atau solusi.
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +165,9 @@ Portal
                                 </h3>
                                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
-                                        SPK bekerja dengan mengumpulkan data yang relevan, menganalisisnya menggunakan metode-metode atau model yang telah ditentukan, dan menghasilkan rekomendasi berdasarkan hasil analisis.
+                                        SPK bekerja dengan mengumpulkan data yang relevan, menganalisisnya menggunakan
+                                        metode-metode atau model yang telah ditentukan, dan menghasilkan rekomendasi
+                                        berdasarkan hasil analisis.
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +182,9 @@ Portal
                                 </h3>
                                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
-                                        Penggunaan SPK dapat membantu mengurangi ketidakpastian, meningkatkan efisiensi, meningkatkan akurasi, mendukung pengambilan keputusan berbasis data, dan memberikan panduan dalam situasi yang kompleks.
+                                        Penggunaan SPK dapat membantu mengurangi ketidakpastian, meningkatkan efisiensi,
+                                        meningkatkan akurasi, mendukung pengambilan keputusan berbasis data, dan
+                                        memberikan panduan dalam situasi yang kompleks.
                                     </div>
                                 </div>
                             </div>
@@ -182,7 +200,10 @@ Portal
                                 <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
                                         <i class="bi bi-question-circle question-icon"></i>
-                                        Penggunaan SPK biasanya membutuhkan pemahaman tentang konsep dasar SPK, pemodelan masalah, analisis data, dan penggunaan perangkat lunak atau alat yang spesifik. Namun, banyak perangkat lunak SPK yang telah dirancang untuk digunakan oleh pengguna tanpa keahlian khusus.
+                                        Penggunaan SPK biasanya membutuhkan pemahaman tentang konsep dasar SPK,
+                                        pemodelan masalah, analisis data, dan penggunaan perangkat lunak atau alat yang
+                                        spesifik. Namun, banyak perangkat lunak SPK yang telah dirancang untuk digunakan
+                                        oleh pengguna tanpa keahlian khusus.
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +218,7 @@ Portal
         </section>
         <!-- End F.A.Q Section -->
         <!-- ======= Comment Section ======= -->
-        <section id="comment" class="comment">
+        {{-- <section id="comment" class="comment">
             <div class="container" data-aos="fade-up">
                 <div class="section-header">
                     <h2>Comment</h2>
@@ -218,14 +239,17 @@ Portal
                                     <div class="card-body table-responsive">
                                         <div class="post">
                                             <div class="d-flex align-items-center justify-content-between">
-                                                <span><strong>{{ $comment->user->name }}</strong> <b>@</b>{{ $comment->user->username }} <strong>&#183;</strong> <span id="time_{{ $comment->id }}"></span></span>
+                                                <span>
+                                                    <strong>{{ $comment->user->name }}</strong> <b>@</b>{{ $comment->user->username }}
+                                                    <strong>&#183;</strong> <span id="time_{{ $comment->id }}"></span>
+                                                </span>
                                             </div>
                                             <p>{{ $comment->content }}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <script>
-                                    setInterval(function() {
+                                    setInterval(function () {
                                         var timeElement = document.getElementById('time_{{ $comment->id }}');
                                         var currentTime = new Date().getTime();
                                         var commentTime = new Date('{{ $comment->created_at }}').getTime();
@@ -251,7 +275,7 @@ Portal
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- End Comment Section -->
     </main>
 </div>

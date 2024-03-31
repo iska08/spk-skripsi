@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\AhpController;
 use App\Http\Controllers\Admin\AlternativeController;
 use App\Http\Controllers\Admin\CriteriaController;
-use App\Http\Controllers\Admin\CommentController;
+use App\Http\Controllers\Admin\SaranController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\JenisController;
 use App\Http\Controllers\Admin\KombinasiController;
@@ -65,7 +65,7 @@ Route::prefix('dashboard')
             'wisata'       => WisataController::class,
             'wisata/jenis' => JenisController::class,
             'users'        => UserController::class,
-            'comments'     => CommentController::class,
+            'sarans'       => SaranController::class,
         ], ['except' => 'show', 'middleware' => 'admin']);
         // alternatif
         Route::resource('alternatif', AlternativeController::class)

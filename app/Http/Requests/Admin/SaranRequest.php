@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CommentRequest extends FormRequest
+class SaranRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
-            'content' => 'required|string|max:255',
+            'nama_saran'    => 'required',
+            'keterangan'    => 'required',
+            'validasi'      => 'required',
         ];
     }
 }

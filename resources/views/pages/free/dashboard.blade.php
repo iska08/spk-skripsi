@@ -12,7 +12,7 @@
         $userAgent = $_SERVER['HTTP_USER_AGENT'];
         if (strpos($userAgent, 'Mobile') !== false || strpos($userAgent, 'Android') !== false || strpos($userAgent, 'iPhone') !== false || strpos($userAgent, 'iPad') !== false) {
         ?>
-            <center><img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="max-width: 5cm"/></center>
+            <center><img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="height: 4cm; width: 6cm"/></center>
             <br>
             <h4 class="text-center">
                 <p style="font-family: 'Times New Roman', Times, serif; font-size: 30px">SELAMAT DATANG DI</p>
@@ -24,7 +24,7 @@
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
                         <div class="d-flex justify-content position-relative" style="max-width: 80%">
-                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="max-width: 50%; min-width: 50%; height: 3cm">
+                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; max-width: 40%; min-width: 40%">
                                 {{ $wisata->nama_wisata }}
@@ -61,7 +61,7 @@
         }else{
             ?>
                 <div class="container d-flex justify-content-center align-items-center text-center position-relative">
-                <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="max-height: 4cm"/>&nbsp;&nbsp;
+                <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="height: 4cm; width: 6cm"/>&nbsp;&nbsp;
                 <h4>
                     <p style="font-family: 'Times New Roman', Times, serif; font-size: 45px">SELAMAT DATANG DI</p>
                     <i style="font-family: 'Courier New', Courier, monospace">Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</i>
@@ -73,7 +73,7 @@
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
                         <div class="container d-flex justify-content position-relative">
-                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="max-width: 20%; min-width: 20%; height: 3.5cm">
+                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="height: 4cm; width: 6cm">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <h4 style="max-width: 30%; min-width:30%">
                                 <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">{{ $wisata->nama_wisata }}</p>
