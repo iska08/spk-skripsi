@@ -9,7 +9,16 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Criteria extends Model
 {
     use HasFactory, Sluggable;
-    protected $fillable = ['nama_kriteria', 'kategori', 'slug', 'keterangan'];
+    protected $fillable = [
+        'nama_kriteria',
+        'kategori',
+        'slug',
+        'skala1',
+        'skala2',
+        'skala3',
+        'skala4',
+        'skala5'
+    ];
 
     public function getRouteKeyName()
     {

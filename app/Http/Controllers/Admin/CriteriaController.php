@@ -11,16 +11,42 @@ use Illuminate\Support\Str;
 
 class CriteriaController extends Controller
 {
+    // pagination
+    protected $limit = 10;
+    protected $fields = array('criterias.*');
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        // menampilkan data kriteria
+        $criterias = Criteria::orderby('id');
+        // filter search
+        if (request('search')) {
+            $criterias = Criteria::where('nama_kriteria', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('slug', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('kategori', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala1', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala2', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala3', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala4', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala5', 'LIKE', '%' . request('search') . '%');
+        }
+        // Get value halaman yang dipilih dari dropdown
+        $page = $request->query('page', 1);
+        // Tetapkan opsi dropdown halaman yang diinginkan
+        $perPageOptions = [5, 10, 15, 20, 25];
+        // Get value halaman yang dipilih menggunaakan the query parameters
+        $perPage = $request->query('perPage', $perPageOptions[1]);
+        // Paginasi hasil dengan halaman dan dropdown yang dipilih
+        $criterias = $criterias->paginate($perPage, $this->fields, 'page', $page);
         return view('pages.admin.kriteria.data', [
-            'title'     => 'Data Kriteria',
-            'criterias' => Criteria::all()
+            'title'          => 'Data Kriteria',
+            'criterias'      => $criterias,
+            'perPageOptions' => $perPageOptions,
+            'perPage'        => $perPage
         ]);
     }
 

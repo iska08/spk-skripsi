@@ -37,10 +37,50 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="keterangan" class="form-label">Keterangan</label>
-                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan"
-                    name="keterangan" value="{{ old('keterangan', $criteria->keterangan) }}" autofocus required>
-                @error('keterangan')
+                <label for="skala1" class="form-label">Sub Kriteria Skala 1</label>
+                <input type="text" class="form-control @error('skala1') is-invalid @enderror" id="skala1"
+                    name="skala1" value="{{ old('skala1', $criteria->skala1) }}" autofocus required>
+                @error('skala1')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="skala2" class="form-label">Sub Kriteria Skala 2</label>
+                <input type="text" class="form-control @error('skala2') is-invalid @enderror" id="skala2"
+                    name="skala2" value="{{ old('skala2', $criteria->skala2) }}" autofocus required>
+                @error('skala2')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="skala3" class="form-label">Sub Kriteria Skala 3</label>
+                <input type="text" class="form-control @error('skala3') is-invalid @enderror" id="skala3"
+                    name="skala3" value="{{ old('skala3', $criteria->skala3) }}" autofocus required>
+                @error('skala3')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="skala4" class="form-label">Sub Kriteria Skala 4</label>
+                <input type="text" class="form-control @error('skala4') is-invalid @enderror" id="skala4"
+                    name="skala4" value="{{ old('skala4', $criteria->skala4) }}" autofocus required>
+                @error('skala4')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-3">
+                <label for="skala5" class="form-label">Sub Kriteria Skala 5</label>
+                <input type="text" class="form-control @error('skala5') is-invalid @enderror" id="skala5"
+                    name="skala5" value="{{ old('skala5', $criteria->skala5) }}" autofocus required>
+                @error('skala5')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -49,18 +89,6 @@
             <button type="submit" class="btn btn-primary mb-3">Simpan Perubahan</button>
             <a href="/dashboard/kriteria" class="btn btn-danger mb-3">Cancel</a>
         </form>
-        <div class="col-lg-4 card mb-5" style="height: 50%">
-            <p> Kriteria yang telah ditentukan dibagi menjadi dua kategori, yaitu:</p>
-            <ol>
-                <li>
-                    <b> Benefit (keuntungan) : </b> Semakin tinggi nilai keuntungannya maka semakin tinggi peluang untuk
-                    dipilih.
-                </li>
-                <li>
-                    <b> Cost (biaya): </b> Semakin tinggi nilai cost maka semakin rendah peluang untuk dipilih.
-                </li>
-            </ol>
-        </div>
     </div>
 </div>
 @endsection

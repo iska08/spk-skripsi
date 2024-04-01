@@ -26,7 +26,11 @@ class CriteriaStoreRequest extends FormRequest
         return [
             'nama_kriteria' => 'required|max:225|unique:criterias',
             'kategori'      => 'required',
-            'keterangan'    => 'required'
+            'skala1'        => 'required',
+            'skala2'        => 'required',
+            'skala3'        => 'required',
+            'skala4'        => 'required',
+            'skala5'        => 'required'
         ];
     }
 }

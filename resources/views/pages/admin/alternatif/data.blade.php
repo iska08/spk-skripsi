@@ -110,7 +110,8 @@
                                 class="d-inline">
                                 @method('delete')
                                 @csrf
-                                <button class="badge bg-danger border-0 btnDelete" data-object="Alternatif {{ $alternative->nama_wisata }}">
+                                <button class="badge bg-danger border-0 btnDelete"
+                                    data-object="Alternatif {{ $alternative->nama_wisata }}">
                                     <i class="fa-solid fa-trash-can"></i></button>
                             </form>
                         </td>
@@ -155,7 +156,7 @@
                         <label for="wisata_id" class="form-label">Daftar Destinasi Wisata</label>
                         <select class="form-select @error('wisata_id') 'is-invalid' : ''  @enderror" id="wisata_id"
                             name="wisata_id" required>
-                            <option disabled selected value="">--Pilih Destinasi Wisata--</option>
+                            <option disabled selected value="">-- Pilih Destinasi Wisata --</option>
                             @if ($wisata_list->count())
                             @foreach ($wisata_list as $jenis => $wisatas)
                             <optgroup label="Destinasi {{ $jenis }}: {{ $wisatas->count() }}">
@@ -167,7 +168,7 @@
                             </optgroup>
                             @endforeach
                             @else
-                            <option disabled selected>--TIDAK ADA DATA--</option>
+                            <option disabled selected>-- TIDAK ADA DATA --</option>
                             @endif
                         </select>
                         @error('wisata_id')
@@ -184,16 +185,26 @@
                         <label for="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" class="form-label">
                             Nilai <b> {{ $criteria->nama_kriteria }} </b>
                         </label>
-                        <input type="text" id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}"
-                            class="form-control @error('alternative_value') 'is-invalid' : '' @enderror"
-                            name="alternative_value[]" placeholder="Masukkan Nilai"
-                            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57)|| event.charCode == 46)"
-                            maxlength="5" autocomplete="off" required>
-                        @error('alternative_value')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
+                        <select class="form-select @error('alternative_value') 'is-invalid' : ''  @enderror"
+                            id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" name="alternative_value[]"
+                            required>
+                            <option disabled selected value="">-- Pilih Sub Kriteria --</option>
+                            <option value="1">(Skala 1) - {{ $criteria->skala1 }}</option>
+                            <option value="2">(Skala 2) - {{ $criteria->skala2 }}</option>
+                            <option value="3">(Skala 3) - {{ $criteria->skala3 }}</option>
+                            <option value="4">(Skala 4) - {{ $criteria->skala4 }}</option>
+                            <option value="5">(Skala 5) - {{ $criteria->skala5 }}</option>
+                        </select>
+                        {{-- <input type="text" id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}"
+                        class="form-control @error('alternative_value') 'is-invalid' : '' @enderror"
+                        name="alternative_value[]" placeholder="Masukkan Nilai"
+                        onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 &&
+                        event.charCode <= 57)|| event.charCode==46)" maxlength="5" autocomplete="off" required> --}}
+                            @error('alternative_value')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                     </div>
                     @endforeach
                     @endif

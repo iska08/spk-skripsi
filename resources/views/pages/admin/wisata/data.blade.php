@@ -141,8 +141,8 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="6" class="text-danger text-center p-4">
-                                        <h4>Belum ada data Destinasi Wisata</h4>
+                                    <td colspan="9" class="text-danger text-center p-4">
+                                        <h4>Belum Ada Data Destinasi Wisata</h4>
                                     </td>
                                 </tr>
                             @endif
