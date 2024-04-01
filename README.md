@@ -20,13 +20,14 @@
 
 ### Data Kriteria
 
-_Data Kriteria (Create)_
+#### * Data Kriteria (Create)
+
 ![Data Kriteria (Create)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Create).png>)
-_Data Kriteria (Read)_
+#### * Data Kriteria (Read)
 ![Data Kriteria (Read)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Read).png>)
-_Data Kriteria (Update)_
+#### * Data Kriteria (Update)
 ![Data Kriteria (Update)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Update).png>)
-_Data Kriteria (Delete)_
+#### * Data Kriteria (Delete)
 ![Data Kriteria (Delete)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Delete).png>)
 
 ### Data Destinasi Wisata
