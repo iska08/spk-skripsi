@@ -23,7 +23,8 @@ class WisataController extends Controller
     public function index(Request $request)
     {
         // mengurutkan
-        $wisatas = Wisata::orderby('nama_wisata');
+        $wisatas = Wisata::where('validasi', '=', '2')
+            ->orderby('nama_wisata');
         if (request('search')) {
             $wisatas->join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
                 ->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')

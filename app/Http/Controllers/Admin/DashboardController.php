@@ -13,7 +13,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $wisatas = Wisata::orderby('nama_wisata')->get();
+        $wisatas = Wisata::where('validasi', '=', '2')->orderby('nama_wisata')->get();
         return view('pages.admin.dashboard', [
             'title'     => 'Dashboard',
             'wisata'    => Wisata::count(),

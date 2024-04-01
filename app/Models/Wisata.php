@@ -11,6 +11,7 @@ class Wisata extends Model
 
     protected $fillable = [
         'jenis_id',
+        'user_id',
         'nama_wisata',
         'lokasi_maps',
         'link_foto',
@@ -18,6 +19,7 @@ class Wisata extends Model
         'fasilitas',
         'biaya',
         'situs',
+        'validasi',
     ];
 
     public function jenis()
@@ -28,5 +30,10 @@ class Wisata extends Model
     public function alternatives()
     {
         return $this->hasMany(Alternative::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -104,7 +104,11 @@
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
                         <div class="d-flex justify-content position-relative" style="max-width: 80%">
+                            @if ($wisata->link_foto == "" || $wisata->link_foto == "-")
+                            <img src="frontend/images/noimage.png" alt="Gambar" style="width: 4cm; height: 3cm">
+                            @else
                             <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
+                            @endif
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; max-width: 40%; min-width: 40%">
                                 {{ $wisata->nama_wisata }}
@@ -119,13 +123,11 @@
                             </p>
                             <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
                                 <strong>Website Resmi:</strong> 
-                                <i>
-                                    <?php if($wisata->situs == ""){
-                                        ?>-<?php
-                                    }else{
-                                        ?><a href="{{ $wisata->situs }}">Klik di Sini</a><?php
-                                    }?>
-                                </i>
+                                @if($wisata->situs == "" || $wisata->situs == "-")
+                                -
+                                @else
+                                <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                @endif
                             </p>
                             <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
                                 <strong>Fasilitas:</strong>
@@ -235,20 +237,22 @@
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
                         <div class="container d-flex justify-content position-relative">
-                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 6cm; height: 4cm">
+                            @if ($wisata->link_foto == "" || $wisata->link_foto == "-")
+                            <img src="frontend/images/noimage.png" alt="Gambar" style="height: 4cm; width: 6cm">
+                            @else
+                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="height: 4cm; width: 6cm">
+                            @endif
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <h4 style="max-width: 30%; min-width:30%">
                                 <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">{{ $wisata->nama_wisata }}</p>
                                 <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">{{ $wisata->keterangan }}</p><br>
                                 <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
                                     Website Resmi: 
-                                    <i>
-                                        <?php if($wisata->situs == ""){
-                                            ?>-<?php
-                                        }else{
-                                            ?><a href="{{ $wisata->situs }}">Klik di Sini</a><?php
-                                        }?>
-                                    </i>
+                                    @if($wisata->situs == "" || $wisata->situs == "-")
+                                    -
+                                    @else
+                                    <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                    @endif
                                 </p>
                             </h4>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

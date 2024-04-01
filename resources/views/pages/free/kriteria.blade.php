@@ -20,23 +20,69 @@
         {{-- datatable --}}
         <div class="card mb-4">
             <div class="card-body table-responsive">
+                {{-- validation error file required --}}
+                @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session('error') }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+                {{-- file request --}}
+                @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    @foreach ($errors->all() as $error)
+                    {{ $error }}
+                    @endforeach
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                @endif
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <div class="d-sm-flex align-items-center mb-3">
+                        <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
+                            @foreach ($perPageOptions as $option)
+                            <option value="{{ $option }}" {{ $option == $perPage ? 'selected' : '' }}>
+                                {{ $option }}
+                            </option>
+                            @endforeach
+                        </select>
+                        <label class="form-label col-lg-6 col-sm-6 col-md-6" for="perPage">entries per page</label>
+                    </div>
+                    <form action="{{ route('free.kriteria') }}" method="GET" class="ms-auto float-end">
+                        <div class="input-group mb-3">
+                            <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..."
+                                value="{{ request('search') }}">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
                 <table id="datatablesSimple" class="table table-bordered">
                     <thead class="bg-primary align-middle text-center text-white">
                         <tr>
-                            <th>No</th>
-                            <th>Nama Kriteria</th>
-                            <th>Kategori</th>
-                            <th>Keterangan</th>
+                            <th rowspan="2">No</th>
+                            <th rowspan="2">Nama Kriteria</th>
+                            <th rowspan="2">Kategori</th>
+                            <th colspan="5">Sub Kriteria</th>
+                        </tr>
+                        <tr>
+                            <th>Skala 1</th>
+                            <th>Skala 2</th>
+                            <th>Skala 3</th>
+                            <th>Skala 4</th>
+                            <th>Skala 5</th>
                         </tr>
                     </thead>
                     <tbody>
                         @if ($criterias->count())
                         @foreach ($criterias as $criteria)
                         <tr>
-                            <td class="text-center">{{ $loop->iteration }}</td>
-                            <td class="text-center">{{ $criteria->nama_kriteria }}</td>
-                            <td class="text-center">{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
-                            <td>{{ $criteria->keterangan }}</td>
+                            <td class="text-center bg-primary text-white">{{ $loop->iteration }}</td>
+                            <td class="text-center bg-warning">{{ $criteria->nama_kriteria }}</td>
+                            <td class="text-center bg-warning">{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
+                            <td class="text-center">{{ $criteria->skala1 }}</td>
+                            <td class="text-center">{{ $criteria->skala2 }}</td>
+                            <td class="text-center">{{ $criteria->skala3 }}</td>
+                            <td class="text-center">{{ $criteria->skala4 }}</td>
+                            <td class="text-center">{{ $criteria->skala5 }}</td>
                         </tr>
                         @endforeach
                         @else
@@ -48,6 +94,7 @@
                         @endif
                     </tbody>
                 </table>
+                {{ $criterias->appends(request()->query())->links() }}
             </div>
         </div>
     </div>

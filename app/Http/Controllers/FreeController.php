@@ -17,13 +17,14 @@ use Illuminate\Http\Request;
 
 class FreeController extends Controller
 {
-    protected $limit = 10;
+    protected $limit   = 10;
     protected $field1s = array('wisatas.*');
     protected $field2s = array('wisatas.*', 'jenis.id as jenisId');
+    protected $field3s = array('criterias.*');
 
     public function index()
     {
-        $wisatas = Wisata::orderby('nama_wisata')->get();
+        $wisatas = Wisata::where('validasi', '=', '2')->orderby('nama_wisata')->get();
         return view('pages.free.dashboard', [
             'title'     => 'Dashboard',
             'wisata'    => Wisata::count(),
@@ -34,17 +35,40 @@ class FreeController extends Controller
         ]);
     }
 
-    public function kriteria()
+    public function kriteria(Request $request)
     {
+        // menampilkan data kriteria
+        $criterias = Criteria::orderby('id');
+        // filter search
+        if (request('search')) {
+            $criterias = Criteria::where('nama_kriteria', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('slug', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('kategori', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala1', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala2', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala3', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala4', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('skala5', 'LIKE', '%' . request('search') . '%');
+        }
+        // Get value halaman yang dipilih dari dropdown
+        $page = $request->query('page', 1);
+        // Tetapkan opsi dropdown halaman yang diinginkan
+        $perPageOptions = [5, 10, 15, 20, 25];
+        // Get value halaman yang dipilih menggunaakan the query parameters
+        $perPage = $request->query('perPage', $perPageOptions[1]);
+        // Paginasi hasil dengan halaman dan dropdown yang dipilih
+        $criterias = $criterias->paginate($perPage, $this->field3s, 'page', $page);
         return view('pages.free.kriteria', [
-            'title'     => 'Data Kriteria',
-            'criterias' => Criteria::all()
+            'title'          => 'Data Kriteria',
+            'criterias'      => $criterias,
+            'perPageOptions' => $perPageOptions,
+            'perPage'        => $perPage
         ]);
     }
 
     public function wisata(Request $request)
     {
-        $wisatas = Wisata::orderby('nama_wisata');
+        $wisatas = Wisata::where('validasi', '=', '2')->orderby('nama_wisata');
         if (request('search')) {
             $wisatas->join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
                 ->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')

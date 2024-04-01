@@ -142,7 +142,7 @@
             </div>
             <form action="{{ route('alternatif.index') }}" method="post">
                 <div class="modal-body">
-                    <span class="mb-2">Catatan :</span>
+                    {{-- <span class="mb-2">Catatan :</span>
                     <ul class="list-group mb-2">
                         <li class="list-group-item bg-success text-white">
                             Nilai minimum 0 dan maximum 100
@@ -150,7 +150,7 @@
                         <li class="list-group-item bg-success text-white">
                             Gunakan (.) jika memasukkan nilai desimal
                         </li>
-                    </ul>
+                    </ul> --}}
                     @csrf
                     <div class="my-2">
                         <label for="wisata_id" class="form-label">Daftar Destinasi Wisata</label>
@@ -195,16 +195,11 @@
                             <option value="4">(Skala 4) - {{ $criteria->skala4 }}</option>
                             <option value="5">(Skala 5) - {{ $criteria->skala5 }}</option>
                         </select>
-                        {{-- <input type="text" id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}"
-                        class="form-control @error('alternative_value') 'is-invalid' : '' @enderror"
-                        name="alternative_value[]" placeholder="Masukkan Nilai"
-                        onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 &&
-                        event.charCode <= 57)|| event.charCode==46)" maxlength="5" autocomplete="off" required> --}}
-                            @error('alternative_value')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
+                        @error('alternative_value')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                     @endforeach
                     @endif

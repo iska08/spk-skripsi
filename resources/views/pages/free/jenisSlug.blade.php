@@ -23,52 +23,50 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($wisatas->sortBy('nama_wisata') as $wisata)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td class="text-center">
-                                    <?php if($wisata->nama_wisata == ""){
-                                        ?>-<?php
-                                    }else{
-                                        ?>{{ Str::ucfirst($wisata->nama_wisata) }}<?php
-                                    } ?>
-                                </td>
-                                <td class="text-center">
-                                    <?php if($wisata->link_foto == ""){
-                                        ?>-<?php
-                                    }else{
-                                        ?><img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm"><?php
-                                    }?>
-                                </td>
-                                <td class="text-center">
-                                    <?php if($wisata->lokasi_maps == ""){
-                                        ?>-<?php
-                                    }else{
-                                        ?><a href="{{ $wisata->lokasi_maps }}">Klik di Sini</a><?php
-                                    }?>
-                                </td>
-                                <td>
-                                    <?php if($wisata->fasilitas == ""){
-                                        ?>-<?php
-                                    }else{
-                                        ?>{{ $wisata->fasilitas }}<?php
-                                    }?>
-                                </td>
-                                <td>
-                                    <?php if($wisata->biaya == ""){
-                                        ?>-<?php
-                                    }else{
-                                        ?>Rp {{ number_format($wisata->biaya, 0, ',', '.') }}<?php
-                                    }?>
-                                </td>
-                                <td class="text-center">
-                                    <?php if($wisata->situs == ""){
-                                        ?>-<?php
-                                    }else{
-                                        ?><a href="{{ $wisata->situs }}">Klik di Sini</a><?php
-                                    }?>
-                                </td>
-                            </tr>
+                        @foreach ($wisatas->where('validasi', '=', '2')->sortBy('nama_wisata') as $wisata)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td class="text-center">
+                                @if($wisata->nama_wisata == "")
+                                -
+                                @else
+                                {{ Str::ucfirst($wisata->nama_wisata) }}
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if($wisata->link_foto == "" || $wisata->link_foto == "-")
+                                <img src="../../../frontend/images/noimage.png" alt="Gambar" style="width: 4cm; height: 3cm">
+                                @else
+                                <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if($wisata->lokasi_maps == "" || $wisata->lokasi_maps == "-")
+                                -
+                                @else
+                                <a href="{{ $wisata->lokasi_maps }}">Klik di Sini</a>
+                                @endif
+                            </td>
+                            @if($wisata->fasilitas == "" || $wisata->fasilitas == "-")
+                            <td class="text-center">-</td>
+                            @else
+                            <td>{{ $wisata->fasilitas }}</td>
+                            @endif
+                            <td>
+                                @if($wisata->biaya == "")
+                                -
+                                @else
+                                Rp {{ number_format($wisata->biaya, 0, ',', '.') }}
+                                @endif
+                            </td>
+                            <td class="text-center">
+                                @if($wisata->situs == "" || $wisata->situs == "-")
+                                -
+                                @else
+                                <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                @endif
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>

@@ -35,7 +35,7 @@
                             <th>Nama User</th>
                             @endcan
                             <th>Saran Nama Destinasi Wisata</th>
-                            <th>Keterangan Destinasi Wisata</th>
+                            <th>Jenis Wisata</th>
                             <th>Validasi</th>
                             <th>Aksi</th>
                         </tr>
@@ -48,8 +48,10 @@
                             @can('admin')
                             <td class="text-center">{{ $saran->user->name }}</td>
                             @endcan
-                            <td class="text-center">{{ $saran->nama_saran }}</td>
-                            <td>{{ $saran->keterangan }}</td>
+                            <td class="text-center">{{ $saran->nama_wisata }}</td>
+                            <td class="text-center">
+                                {{ $saran->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
+                            </td>
                             @if ($saran->validasi == 0)
                             <td>
                                 <span class="badge bg-warning">Belum Disetujui</span>
@@ -64,6 +66,7 @@
                             </td>
                             @endif
                             <td>
+                                @can('admin')
                                 <a href="{{ route('sarans.edit', $saran->id) }}" class="badge bg-warning">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
@@ -71,17 +74,34 @@
                                     class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="badge bg-danger border-0 btnDelete" data-object="Saran {{ $saran->nama_saran }}">
+                                    <button class="badge bg-danger border-0 btnDelete" data-object="Saran {{ $saran->nama_wisata }}">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </form>
+                                @elseif('user')
+                                @if($saran->validasi == 0)
+                                <a href="{{ route('sarans.edit', $saran->id) }}" class="badge bg-warning">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <form action="{{ route('sarans.destroy', $saran->id) }}" method="POST"
+                                    class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="badge bg-danger border-0 btnDelete" data-object="Saran {{ $saran->nama_wisata }}">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </form>
+                                @else
+                                <span class="badge bg-primary">Data Sudah Diproses</span>
+                                @endif
+                                @endcan
                             </td>
                         </tr>
                         @endforeach
                         @else
                         <tr>
-                            <td colspan="5" class="text-danger text-center p-4">
-                                <h4>Saran Destinasi Wisata Belum Dibuat</h4>
+                            <td colspan="6" class="text-danger text-center p-4">
+                                <h4>Belum Ada Saran Destinasi Wisata yang Dibuat</h4>
                             </td>
                         </tr>
                         @endif

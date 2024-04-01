@@ -50,6 +50,7 @@ class AlternativeController extends Controller
         // wisata list tambah
         $wisatasList = Wisata::join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
             ->whereNotIn('wisatas.id', $usedIdsFix)
+            ->where('wisatas.validasi', 2)
             ->orderBy('jenis.id')
             ->orderBy('wisatas.nama_wisata', 'ASC')
             ->get(['wisatas.*', 'jenis.id as jenisId'])

@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Saran;
+use App\Models\Wisata;
 use App\Models\User;
-use App\Http\Requests\Admin\SaranRequest;
+use App\Models\Jenis;
+use App\Http\Requests\Admin\WisataRequest;
 use Illuminate\Http\Request;
 
 class SaranController extends Controller
@@ -18,16 +19,19 @@ class SaranController extends Controller
     public function index()
     {
         if (auth()->user()->level === 'ADMIN') {
-            $sarans = Saran::join('users', 'sarans.user_id', '=', 'users.id')
-                ->select('sarans.*', 'users.name', 'users.username')
-                ->orderBy('sarans.created_at', 'desc')
+            $sarans = Wisata::join('users', 'wisatas.user_id', '=', 'users.id')
+                ->join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
+                ->where('users.level', '=', 'USER')
+                ->select('wisatas.*', 'users.name', 'users.username')
+                ->orderBy('wisatas.created_at', 'desc')
                 ->get();
         } else {
-            // Jika pengguna adalah user, ambil data saran yang dibuat oleh pengguna tersebut
-            $sarans = Saran::join('users', 'sarans.user_id', '=', 'users.id')
-                ->select('sarans.*', 'users.name', 'users.username')
-                ->where('sarans.user_id', auth()->user()->id)
-                ->orderBy('sarans.created_at', 'desc')
+            // Jika pengguna adalah user, ambil data wisata yang dibuat oleh pengguna tersebut
+            $sarans = Wisata::join('users', 'wisatas.user_id', '=', 'users.id')
+                ->select('wisatas.*', 'users.name', 'users.username')
+                ->where('wisatas.user_id', auth()->user()->id)
+                ->orWhere('users.level', '=', 'USER')
+                ->orderBy('wisatas.created_at', 'desc')
                 ->get();
         }
         return view('pages.admin.saran.data', [
@@ -47,8 +51,10 @@ class SaranController extends Controller
             return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
+        $jenises = Jenis::orderBy('jenis_name')->get();
         return view('pages.admin.saran.create', [
-            'title' => 'Tambah Saran Destinasi Wisata'
+            'title' => 'Tambah Saran Destinasi Wisata',
+            'jenises' => $jenises,
         ]);
     }
 
@@ -58,12 +64,18 @@ class SaranController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SaranRequest $request)
+    public function store(WisataRequest $request)
     {
-        $saran              = new Saran();
+        $saran              = new Wisata();
+        $saran->jenis_id    = $request->jenis_id;
         $saran->user_id     = auth()->user()->id;
-        $saran->nama_saran  = $request->nama_saran;
+        $saran->nama_wisata = $request->nama_wisata;
+        $saran->lokasi_maps = $request->lokasi_maps;
+        $saran->link_foto   = $request->link_foto;
         $saran->keterangan  = $request->keterangan;
+        $saran->fasilitas   = $request->fasilitas;
+        $saran->biaya       = $request->biaya;
+        $saran->situs       = $request->situs;
         $saran->validasi    = $request->validasi;
         $saran->save();
 
@@ -89,7 +101,7 @@ class SaranController extends Controller
      */
     public function edit($id)
     {
-        $saran      = Saran::findOrFail($id);
+        $saran      = Wisata::findOrFail($id);
         $userLevel  = auth()->user()->level;
         
         if ($userLevel === 'ADMIN') {
@@ -98,9 +110,11 @@ class SaranController extends Controller
             $title = 'Edit Saran Destinasi Wisata';
         }
 
+        $jenises = Jenis::orderBy('jenis_name')->get();
         return view('pages.admin.saran.edit', [
-            'title' => $title,
-            'saran' => $saran
+            'title'     => $title,
+            'saran'     => $saran,
+            'jenises'   => $jenises
         ]);
     }
 
@@ -113,9 +127,8 @@ class SaranController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $saran              = Saran::findOrFail($id);
-        $saran->nama_saran  = $request->nama_saran;
-        $saran->keterangan  = $request->keterangan;
+        $saran              = Wisata::findOrFail($id);
+        $saran->nama_wisata = $request->nama_wisata;
         $saran->validasi    = $request->validasi;
         $saran->save();
 
@@ -130,7 +143,7 @@ class SaranController extends Controller
      */
     public function destroy($id)
     {
-        $saran = Saran::findOrFail($id);
+        $saran = Wisata::findOrFail($id);
         $saran->delete();
 
         return redirect('/dashboard/sarans')->with('success', 'Saran Destinasi Wisata Berhasil Dihapus.');

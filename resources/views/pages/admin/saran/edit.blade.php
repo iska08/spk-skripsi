@@ -11,20 +11,32 @@
             @method('PUT')
             @csrf
             <div class="mb-3">
-                <label for="nama_saran" class="form-label">Saran Nama Destinasi Wisata</label>
-                <input type="text" class="form-control" id="nama_saran" name="nama_saran"
-                    value="{{ $saran->nama_saran }}" readonly disabled>
-                <input type="hidden" name="nama_saran" value="{{ $saran->nama_saran }}">
+                <label for="nama_wisata" class="form-label">Saran Nama Destinasi Wisata</label>
+                <input type="text" class="form-control" id="nama_wisata" name="nama_wisata"
+                    value="{{ $saran->nama_wisata }}" readonly disabled>
+                <input type="hidden" name="nama_wisata" value="{{ $saran->nama_wisata }}">
             </div>
             <div class="mb-3">
-                <label for="keterangan" class="form-label">Keterangan</label>
-                <input type="text" class="form-control" id="keterangan" name="keterangan"
-                    value="{{ $saran->keterangan }}" readonly disabled>
-                <input type="hidden" name="keterangan" value="{{ $saran->keterangan }}">
+                <label for="jenis_id" class="form-label">Jenis Wisata</label>
+                <select class="form-select" name="jenis_id" readonly disabled>
+                    <option value="" disabled selected>Pilih Jenis Wisata</option>
+                    @foreach ($jenises as $jenis)
+                        @if (old('jenis_id', $saran->jenis_id) == $jenis->id)
+                            <option value="{{ $jenis->id }}" selected>{{ $jenis->jenis_name }}</option>
+                        @else
+                            <option value="{{ $jenis->id }}">{{ $jenis->jenis_name }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                @error('jenis_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="validasi" class="form-label">Validasi</label>
-                <select class="form-control" id="validasi" name="validasi" required>
+                <select class="form-select" id="validasi" name="validasi" required>
                     <option value="0" {{ $saran->validasi == 0 ? 'selected' : '' }}>Belum Disetujui</option>
                     <option value="1" {{ $saran->validasi == 1 ? 'selected' : '' }}>Tidak Disetujui</option>
                     <option value="2" {{ $saran->validasi == 2 ? 'selected' : '' }}>Disetujui</option>
@@ -41,14 +53,27 @@
             @method('PUT')
             @csrf
             <div class="mb-3">
-                <label for="nama_saran" class="form-label">Saran Nama Destinasi Wisata</label>
-                <input type="text" class="form-control" id="nama_saran" name="nama_saran"
-                    value="{{ $saran->nama_saran }}">
+                <label for="nama_wisata" class="form-label">Saran Nama Destinasi Wisata</label>
+                <input type="text" class="form-control" id="nama_wisata" name="nama_wisata"
+                    value="{{ $saran->nama_wisata }}">
             </div>
             <div class="mb-3">
-                <label for="keterangan" class="form-label">Keterangan</label>
-                <input type="text" class="form-control" id="keterangan" name="keterangan"
-                    value="{{ $saran->keterangan }}">
+                <label for="jenis_id" class="form-label">Jenis Wisata</label>
+                <select class="form-select" name="jenis_id">
+                    <option value="" disabled selected>Pilih Jenis Wisata</option>
+                    @foreach ($jenises as $jenis)
+                        @if (old('jenis_id', $saran->jenis_id) == $jenis->id)
+                            <option value="{{ $jenis->id }}" selected>{{ $jenis->jenis_name }}</option>
+                        @else
+                            <option value="{{ $jenis->id }}">{{ $jenis->jenis_name }}</option>
+                        @endif
+                    @endforeach
+                </select>
+                @error('jenis_id')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <input type="hidden" class="form-control" id="validasi" name="validasi" value="{{ $saran->validasi }}">
             <button type="submit" class="btn btn-primary mb-3">Simpan Perubahan</button>

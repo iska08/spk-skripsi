@@ -7,7 +7,7 @@
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">{{ $title }}</li>
                 <li class="breadcrumb-item">
-                    <a href="{{ route('kombinasi.detailr', $criteria_analysis->id) }}">
+                    <a href="{{ route('kombinasi.detail', $criteria_analysis->id) }}">
                         Detail Perhitungan Kombinasi
                     </a>
                 </li>

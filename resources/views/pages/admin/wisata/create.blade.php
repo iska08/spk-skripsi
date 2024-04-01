@@ -99,6 +99,8 @@
                 </div>
             @enderror
         </div>
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+        <input type="hidden" name="validasi" value="2">
         <button type="submit" class="btn btn-primary mb-3">Simpan</button>
         <a href="{{ route('wisata.index') }}" class="btn btn-danger mb-3">Cancel</a>
     </form>
