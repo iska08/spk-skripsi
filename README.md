@@ -2,218 +2,330 @@
 
 ## Portal
 
-![Portal](/screenshoot/Portal.png)
+![Portal](</screenshoot/Portal/Portal (All).png>)
 
 ## Login
 
-![Login](/screenshoot/Login.png)
+![Login](</screenshoot/Auth/Login (All).png>)
 
 ## Register
 
-![Register](/screenshoot/Register.png)
+![Register](</screenshoot/Auth/Register (User).png>)
 
 ## Admin
 
 ### Dashboard
 
-![Dashboard](/screenshoot/Admin%20-%20Dashboard.png)
+![Dashboard](</screenshoot/Dashboard/Admin - Dashboard.png>)
 
 ### Data Kriteria
 
-#### * Data Kriteria (Create)
+#### Data Kriteria (Create)
 
-![Data Kriteria (Create)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Create).png>)
-#### * Data Kriteria (Read)
-![Data Kriteria (Read)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Read).png>)
-#### * Data Kriteria (Update)
-![Data Kriteria (Update)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Update).png>)
-#### * Data Kriteria (Delete)
-![Data Kriteria (Delete)](</screenshoot/Admin%20-%20Data%20Kriteria%20(Delete).png>)
+![Data Kriteria (Create)](</screenshoot/Kriteria/Admin - Data Kriteria (Create).png>)
+
+#### Data Kriteria (Read)
+
+![Data Kriteria (Read)](</screenshoot/Kriteria/Admin - Data Kriteria (Read).png>)
+
+#### Data Kriteria (Update)
+
+![Data Kriteria (Update)](</screenshoot/Kriteria/Admin - Data Kriteria (Update).png>)
+
+#### Data Kriteria (Delete)
+
+![Data Kriteria (Delete)](</screenshoot/Kriteria/Admin - Data Kriteria (Delete).png>)
 
 ### Data Destinasi Wisata
 
-_Data Destinasi Wisata (Create)_
-![Data Destinasi Wisata (Create)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Create).png>)
-_Data Destinasi Wisata (Read)_
-![Data Destinasi Wisata (Read)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Read).png>)
-_Data Destinasi Wisata (Update)_
-![Data Destinasi Wisata (Update)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Update).png>)
-_Data Destinasi Wisata (Delete)_
-![Data Destinasi Wisata (Delete)](</screenshoot/Admin%20-%20Data%20Destinasi%20Wisata%20(Delete).png>)
+#### Data Destinasi Wisata (Create)
+
+![Data Destinasi Wisata (Create)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Create).png>)
+
+#### Data Destinasi Wisata (Read)
+
+![Data Destinasi Wisata (Read)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Read).png>)
+
+#### Data Destinasi Wisata (Update)
+
+![Data Destinasi Wisata (Update)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Update).png>)
+
+#### Data Destinasi Wisata (Delete)
+
+![Data Destinasi Wisata (Delete)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Delete).png>)
 
 ### Data Jenis Wisata
 
-_Data Jenis Wisata (Create)_
-![Data Jenis Wisata (Create)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Create).png>)
-_Data Jenis Wisata (Read)_
-![Data Jenis Wisata (Read)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Read).png>)
-_Data Jenis Wisata (Detail)_
-![Data Jenis Wisata (Detail)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Detail).png>)
-_Data Jenis Wisata (Update)_
-![Data Jenis Wisata (Update)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Update).png>)
-_Data Jenis Wisata (Delete)_
-![Data Jenis Wisata (Delete)](</screenshoot/Admin%20-%20Data%20Jenis%20Wisata%20(Delete).png>)
+#### Data Jenis Wisata (Create)
+
+![Data Jenis Wisata (Create)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Create).png>)
+
+#### Data Jenis Wisata (Read)
+
+![Data Jenis Wisata (Read)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Read).png>)
+
+#### Data Jenis Wisata (Detail)
+
+![Data Jenis Wisata (Detail)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Detail).png>)
+
+#### Data Jenis Wisata (Update)
+
+![Data Jenis Wisata (Update)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Update).png>)
+
+#### Data Jenis Wisata (Delete)
+
+![Data Jenis Wisata (Delete)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Delete).png>)
 
 ### Data Alternatif
 
-_Data Alternatif (Create)_
-![Data Alternatif (Create)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Create).png>)
-_Data Alternatif (Read)_
-![Data Alternatif (Read)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Read).png>)
-_Data Alternatif (Update)_
-![Data Alternatif (Update)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Update).png>)
-_Data Alternatif (Delete)_
-![Data Alternatif (Delete)](</screenshoot/Admin%20-%20Data%20Alternatif%20(Delete).png>)
+#### Data Alternatif (Create)
+
+![Data Alternatif (Create)](</screenshoot/Alternatif/Admin - Data Alternatif (Create).png>)
+
+#### Data Alternatif (Read)
+
+![Data Alternatif (Read)](</screenshoot/Alternatif/Admin - Data Alternatif (Read).png>)
+
+#### Data Alternatif (Update)
+
+![Data Alternatif (Update)](</screenshoot/Alternatif/Admin - Data Alternatif (Update).png>)
+
+#### Data Alternatif (Delete)
+
+![Data Alternatif (Delete)](</screenshoot/Alternatif/Admin - Data Alternatif (Delete).png>)
 
 ### Data Perhitungan
 
-_Data Perhitungan (Create)_
-![Data Perhitungan (Create)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Create).png>)
-_Data Perhitungan (Read)_
-![Data Perhitungan (Read)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Read).png>)
-_Data Perhitungan (Update Perbandingan Kriteria)_
-![Data Perhitungan (Update Perbandingan Kriteria)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Update%20Perbandingan%20Kriteria).png>)
-_Data Perhitungan (Update Bobot)_
-![Data Perhitungan (Update Bobot)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Update%20Bobot).png>)
-_Data Perhitungan (Delete)_
-![Data Perhitungan (Delete)](</screenshoot/Admin%20-%20Data%20Perhitungan%20(Delete).png>)
+#### Data Perhitungan (Create)
+
+![Data Perhitungan (Create)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Create).png>)
+
+#### Data Perhitungan (Read)
+
+![Data Perhitungan (Read)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Read).png>)
+
+#### Data Perhitungan (Update Perbandingan Kriteria)
+
+![Data Perhitungan (Update Perbandingan Kriteria)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Update Perbandingan Kriteria).png>)
+
+#### Data Perhitungan (Update Bobot)
+
+![Data Perhitungan (Update Bobot)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Update Bobot).png>)
+
+#### Data Perhitungan (Delete)
+
+![Data Perhitungan (Delete)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Delete).png>)
 
 ### Data Pengguna
 
-_Data Pengguna (Create)_
-![Data Pengguna (Create)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Create).png>)
-_Data Pengguna (Read)_
-![Data Pengguna (Read)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Read).png>)
-_Data Pengguna (Update)_
-![Data Pengguna (Update)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Update).png>)
-_Data Pengguna (Delete)_
-![Data Pengguna (Delete)](</screenshoot/Admin%20-%20Data%20Pengguna%20(Delete).png>)
+#### Data Pengguna (Create)
+
+![Data Pengguna (Create)](</screenshoot/User/Admin - Data Pengguna (Create).png>)
+
+#### Data Pengguna (Read)
+
+![Data Pengguna (Read)](</screenshoot/User/Admin - Data Pengguna (Read).png>)
+
+#### Data Pengguna (Update)
+
+![Data Pengguna (Update)](</screenshoot/User/Admin - Data Pengguna (Update).png>)
+
+#### Data Pengguna (Delete)
+
+![Data Pengguna (Delete)](</screenshoot/User/Admin - Data Pengguna (Delete).png>)
 
 ## User
 
 ### Dashboard
 
-![Dashboard](/screenshoot/User%20-%20Dashboard.png)
+![Dashboard](</screenshoot/Dashboard/User - Dashboard.png>)
 
 ### Data Kriteria
 
-_Data Kriteria_
-![Data Kriteria](/screenshoot/User%20-%20Data%20Kriteria.png)
+#### Data Kriteria
+
+![Data Kriteria](</screenshoot/Kriteria/User - Data Kriteria.png>)
 
 ### Data Destinasi Wisata
 
-_Data Destinasi Wisata_
-![Data Destinasi Wisata](/screenshoot/User%20-%20Data%20Destinasi%20Wisata.png)
+#### Data Destinasi Wisata
+
+![Data Destinasi Wisata](</screenshoot/Wisata/User - Data Destinasi Wisata.png>)
 
 ### Data Jenis Wisata
 
-_Data Jenis Wisata_
-![Data Jenis Wisata](/screenshoot/User%20-%20Data%20Jenis%20Wisata.png)
-_Detail Jenis Wisata_
-![Detail Jenis Wisata](/screenshoot/User%20-%20Detail%20Jenis%20Wisata.png)
+#### Data Jenis Wisata
+
+![Data Jenis Wisata](</screenshoot/Jenis/User - Data Jenis Wisata.png>)
+
+#### Detail Jenis Wisata
+
+![Detail Jenis Wisata](</screenshoot/Jenis/User - Detail Jenis Wisata.png>)
 
 ### Data Alternatif
 
-_Data Alternatif_
-![Data Alternatif](/screenshoot/User%20-%20Data%20Alternatif.png)
+#### Data Alternatif
+
+![Data Alternatif](</screenshoot/Alternatif/User - Data Alternatif.png>)
 
 ## Metode SPK
 
-![Metode SPK](/screenshoot/Metode%20SPK.png)
+![Metode SPK](</screenshoot/Kombinasi/Metode SPK.png>)
 
 ### Perhitungan Metode
 
 #### Perhitungan Kombinasi
 
-_Matriks Perbandingan dan Penjumlahan Kolom Kriteria_
-![Matriks Perbandingan dan Penjumlahan Kolom Kriteria](/screenshoot/Kombinasi%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria.png)
-_Matriks Normalisasi Kriteria dan Eigen Vector (EV)_
-![Matriks Normalisasi Kriteria dan Eigen Vector (EV)](</screenshoot/Kombinasi%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV).png>)
-_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)_
-![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)](</screenshoot/Kombinasi%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV).png>)
-_Menentukan λmaks dan Rasio Konsistensi_
-![Menentukan λmaks dan Rasio Konsistensi](/screenshoot/Kombinasi%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi.png)
-_Normalisasi Tabel Alternatif_
-![Normalisasi Tabel Alternatif](/screenshoot/Kombinasi%20-%20Normalisasi%20Tabel%20Alternatif.png)
-_Ranking_
-![Ranking](/screenshoot/Kombinasi%20-%20Ranking.png)
+##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria
+
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria](</screenshoot/Kombinasi/Kombinasi - Matriks Perbandingan dan Penjumlahan Kolom Kriteria.png>)
+
+##### Matriks Normalisasi Kriteria dan Eigen Vector (EV)
+
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV)](</screenshoot/Kombinasi/Kombinasi - Matriks Normalisasi Kriteria dan Eigen Vector (EV).png>)
+
+##### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)
+
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)](</screenshoot/Kombinasi/Kombinasi - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV).png>)
+
+##### Menentukan λmaks dan Rasio Konsistensi
+
+![Menentukan λmaks dan Rasio Konsistensi](</screenshoot/Kombinasi/Kombinasi - Menentukan λmaks dan Rasio Konsistensi.png>)
+
+##### Normalisasi Tabel Alternatif
+
+![Normalisasi Tabel Alternatif](</screenshoot/Kombinasi/Kombinasi - Normalisasi Tabel Alternatif.png>)
+
+##### Ranking
+
+![Ranking](</screenshoot/Kombinasi/Kombinasi - Ranking.png>)
 
 #### Perhitungan AHP
 
-_Matriks Perbandingan dan Penjumlahan Kolom Kriteria_
-![Matriks Perbandingan dan Penjumlahan Kolom Kriteria](/screenshoot/AHP%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria.png)
-_Matriks Normalisasi Kriteria dan Eigen Vector (EV)_
-![Matriks Normalisasi Kriteria dan Eigen Vector (EV)](</screenshoot/AHP%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV).png>)
-_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)_
-![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)](</screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV).png>)
-_Menentukan λmaks dan Rasio Konsistensi_
-![Menentukan λmaks dan Rasio Konsistensi](/screenshoot/AHP%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi.png)
-_Menentukan Eigen Vector Alternatif di Setiap Alternatif_
-![Menentukan Eigen Vector Alternatif di Setiap Alternatif](/screenshoot/AHP%20-%20Menentukan%20Eigen%20Vector%20Alternatif%20di%20Setiap%20Alternatif.png)
-_Ranking_
-![Ranking](/screenshoot/AHP%20-%20Ranking.png)
+##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria
+
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria](</screenshoot/AHP/AHP - Matriks Perbandingan dan Penjumlahan Kolom Kriteria.png>)
+
+##### Matriks Normalisasi Kriteria dan Eigen Vector (EV)
+
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV)](</screenshoot/AHP/AHP - Matriks Normalisasi Kriteria dan Eigen Vector (EV).png>)
+
+##### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)
+
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)](</screenshoot/AHP/AHP - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV).png>)
+
+##### Menentukan λmaks dan Rasio Konsistensi
+
+![Menentukan λmaks dan Rasio Konsistensi](</screenshoot/AHP/AHP - Menentukan λmaks dan Rasio Konsistensi.png>)
+
+##### Menentukan Eigen Vector Alternatif di Setiap Alternatif
+
+![Menentukan Eigen Vector Alternatif di Setiap Alternatif](</screenshoot/AHP/AHP - Menentukan Eigen Vector Alternatif di Setiap Alternatif.png>)
+
+##### Ranking
+
+![Ranking](</screenshoot/AHP/AHP - Ranking.png>)
 
 #### Perhitungan SAW
 
-_Normalisasi Alternatif_
-![Normalisasi Alternatif](/screenshoot/SAW%20-%20Normalisasi%20Alternatif.png)
-_Ranking_
-![Ranking](/screenshoot/SAW%20-%20Ranking.png)
+##### Normalisasi Alternatif
+
+![Normalisasi Alternatif](</screenshoot/SAW/SAW - Normalisasi Alternatif.png>)
+
+##### Ranking
+
+![Ranking](</screenshoot/SAW/SAW - Ranking.png>)
 
 ### Detail Perhitungan Metode
 
 #### Perhitungan Kombinasi
 
-_Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)_
-![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](</screenshoot/Kombinasi%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria%20(Detail).png>)
-_Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)_
-![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](</screenshoot/Kombinasi%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV)%20(Detail).png>)
-_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)_
-![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/Kombinasi%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV)%20(Detail).png>)
-_Menentukan λmaks dan Rasio Konsistensi (Detail)_
-![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/Kombinasi%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi%20(Detail).png>)
-_Normalisasi Tabel Alternatif (Detail)_
-![Normalisasi Tabel Alternatif (Detail)](</screenshoot/Kombinasi%20-%20Normalisasi%20Tabel%20Alternatif%20(Detail).png>)
-_Ranking (Detail)_
-![Ranking (Detail)](</screenshoot/Kombinasi%20-%20Ranking%20(Detail).png>)
+##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)
+
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](</screenshoot/Kombinasi/Kombinasi - Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail).png>)
+
+##### Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)
+
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](</screenshoot/Kombinasi/Kombinasi - Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail).png>)
+
+##### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)
+
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/Kombinasi/Kombinasi - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail).png>)
+
+##### Menentukan λmaks dan Rasio Konsistensi (Detail)
+
+![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/Kombinasi/Kombinasi - Menentukan λmaks dan Rasio Konsistensi (Detail).png>)
+
+##### Normalisasi Tabel Alternatif (Detail)
+
+![Normalisasi Tabel Alternatif (Detail)](</screenshoot/Kombinasi/Kombinasi - Normalisasi Tabel Alternatif (Detail).png>)
+
+##### Ranking (Detail)
+
+![Ranking (Detail)](</screenshoot/Kombinasi/Kombinasi - Ranking (Detail).png>)
 
 #### Perhitungan AHP
 
-_Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)_
-![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](</screenshoot/AHP%20-%20Matriks%20Perbandingan%20dan%20Penjumlahan%20Kolom%20Kriteria%20(Detail).png>)
-_Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)_
-![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](</screenshoot/AHP%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV)%20(Detail).png>)
-_Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)_
-![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV)%20(Detail).png>)
-_Menentukan λmaks dan Rasio Konsistensi (Detail)_
-![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/AHP%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi%20(Detail).png>)
-_Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)_
-![Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)](</screenshoot/AHP%20-%20Menentukan%20Eigen%20Vector%20Alternatif%20di%20Setiap%20Alternatif%20(Detail).png>)
-_Ranking (Detail)_
-![Ranking (Detail)](</screenshoot/AHP%20-%20Ranking%20(Detail).png>)
+##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)
+
+![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](</screenshoot/AHP/AHP - Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail).png>)
+
+##### Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)
+
+![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](</screenshoot/AHP/AHP - Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail).png>)
+
+##### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)
+
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/AHP/AHP - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail).png>)
+
+##### Menentukan λmaks dan Rasio Konsistensi (Detail)
+
+![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/AHP/AHP - Menentukan λmaks dan Rasio Konsistensi (Detail).png>)
+
+##### Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)
+
+![Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)](</screenshoot/AHP/AHP - Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail).png>)
+
+##### Ranking (Detail)
+
+![Ranking (Detail)](</screenshoot/AHP/AHP - Ranking (Detail).png>)
 
 #### Perhitungan SAW
 
-_Normalisasi Alternatif (Detail)_
-![Normalisasi Alternatif (Detail)](</screenshoot/SAW%20-%20Normalisasi%20Alternatif%20(Detail).png>)
-_Ranking (Detail)_
-![Ranking (Detail)](</screenshoot/SAW%20-%20Ranking%20(Detail).png>)
+##### Normalisasi Alternatif (Detail)
+
+![Normalisasi Alternatif (Detail)](</screenshoot/SAW/SAW - Normalisasi Alternatif (Detail).png>)
+
+##### Ranking (Detail)
+
+![Ranking (Detail)](</screenshoot/SAW/SAW - Ranking (Detail).png>)
 
 ## Saran Destinasi Wisata
 
-_Saran Destinasi Wisata (Create - User)_
-![Saran Destinasi Wisata (Create - User)](</screenshoot/Saran%20Destinasi%20Wisata%20(Create%20-%20User).png>)
-_Saran Destinasi Wisata (Read - Admin)_
-![Saran Destinasi Wisata (Read - Admin)](</screenshoot/Saran%20Destinasi%20Wisata%20(Read%20-%20Admin).png>)
-_Saran Destinasi Wisata (Read - User)_
-![Saran Destinasi Wisata (Read - User)](</screenshoot/Saran%20Destinasi%20Wisata%20(Read%20-%20User).png>)
-_Saran Destinasi Wisata (Edit - User)_
-![Saran Destinasi Wisata (Edit - User)](</screenshoot/Saran%20Destinasi%20Wisata%20(Edit%20-%20User).png>)
-_Saran Destinasi Wisata (Validasi - Admin)_
-![Saran Destinasi Wisata (Validasi - Admin)](</screenshoot/Saran%20Destinasi%20Wisata%20(Validasi%20-%20Admin).png>)
-_Saran Destinasi Wisata (Delete)_
-![Saran Destinasi Wisata (Delete)](</screenshoot/Saran%20Destinasi%20Wisata%20(Delete).png>)
+### Saran Destinasi Wisata (Create - User)
+
+![Saran Destinasi Wisata (Create - User)](</screenshoot/Saran/Saran Destinasi Wisata (Create - User).png>)
+
+### Saran Destinasi Wisata (Read - Admin)
+
+![Saran Destinasi Wisata (Read - Admin)](</screenshoot/Saran/Saran Destinasi Wisata (Read - Admin).png>)
+
+### Saran Destinasi Wisata (Read - User)
+
+![Saran Destinasi Wisata (Read - User)](</screenshoot/Saran/Saran Destinasi Wisata (Read - User).png>)
+
+### Saran Destinasi Wisata (Edit - User)
+
+![Saran Destinasi Wisata (Edit - User)](</screenshoot/Saran/Saran Destinasi Wisata (Edit - User).png>)
+
+### Saran Destinasi Wisata (Validasi - Admin)
+
+![Saran Destinasi Wisata (Validasi - Admin)](</screenshoot/Saran/Saran Destinasi Wisata (Validasi - Admin).png>)
+
+### Saran Destinasi Wisata (Delete)
+
+![Saran Destinasi Wisata (Delete)](</screenshoot/Saran/Saran Destinasi Wisata (Delete).png>)
 
 ## Ubah Profil
 
-![Ubah Profil](/screenshoot/Ubah%20Profil.png)
+![Ubah Profil](</screenshoot/Profile/Ubah Profil.png>)
