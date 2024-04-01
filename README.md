@@ -183,7 +183,7 @@ _Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)_
 _Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)_
 ![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](</screenshoot/AHP%20-%20Matriks%20Normalisasi%20Kriteria%20dan%20Eigen%20Vector%20(EV)%20(Detail).png>)
 _Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)_
-![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV)(Detail).png>)
+![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/AHP%20-%20Matriks%20Perkalian%20Setiap%20Elemen%20dengan%20Eigen%20Vector%20(EV)%20(Detail).png>)
 _Menentukan λmaks dan Rasio Konsistensi (Detail)_
 ![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/AHP%20-%20Menentukan%20λmaks%20dan%20Rasio%20Konsistensi%20(Detail).png>)
 _Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)_
