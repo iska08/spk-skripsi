@@ -149,6 +149,6 @@ class SaranController extends Controller
         $saran = Wisata::findOrFail($id);
         $saran->delete();
 
-        return redirect('/dashboard/sarans')->with('success', 'Saran Destinasi Wisata Berhasil Dihapus.');
+        return redirect('/dashboard/sarans')->with('success', 'Saran Destinasi Wisata yang Dipilih Berhasil Dihapus.');
     }
 }

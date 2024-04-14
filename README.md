@@ -32,6 +32,10 @@
 
 ![Data Kriteria (Update)](</screenshoot/Kriteria/Admin - Data Kriteria (Update).png>)
 
+#### Data Kriteria (Delete)
+
+![Data Kriteria (Delete)](</screenshoot/Kriteria/Admin - Data Kriteria (Delete).png>)
+
 ### Data Destinasi Wisata
 
 #### Data Destinasi Wisata (Create)
@@ -45,6 +49,10 @@
 #### Data Destinasi Wisata (Update)
 
 ![Data Destinasi Wisata (Update)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Update).png>)
+
+#### Data Destinasi Wisata (Delete)
+
+![Data Destinasi Wisata (Delete)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Delete).png>)
 
 ### Data Jenis Wisata
 
@@ -64,6 +72,10 @@
 
 ![Data Jenis Wisata (Update)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Update).png>)
 
+#### Data Jenis Wisata (Delete)
+
+![Data Jenis Wisata (Delete)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Delete).png>)
+
 ### Data Alternatif
 
 #### Data Alternatif (Create)
@@ -77,6 +89,10 @@
 #### Data Alternatif (Update)
 
 ![Data Alternatif (Update)](</screenshoot/Alternatif/Admin - Data Alternatif (Update).png>)
+
+#### Data Alternatif (Delete)
+
+![Data Alternatif (Delete)](</screenshoot/Alternatif/Admin - Data Alternatif (Delete).png>)
 
 ### Validasi Saran Destinasi Wisata
 
@@ -106,6 +122,10 @@
 
 ![Data Perhitungan (Update Bobot)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Update Bobot).png>)
 
+#### Data Perhitungan (Delete)
+
+![Data Perhitungan (Delete)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Delete).png>)
+
 ### Data Pengguna
 
 #### Data Pengguna (Create)
@@ -119,6 +139,10 @@
 #### Data Pengguna (Update)
 
 ![Data Pengguna (Update)](</screenshoot/User/Admin - Data Pengguna (Update).png>)
+
+#### Data Pengguna (Delete)
+
+![Data Pengguna (Delete)](</screenshoot/User/Admin - Data Pengguna (Delete).png>)
 
 ### Ubah Profil
 
@@ -143,6 +167,10 @@
 #### Saran Destinasi Wisata (Update)
 
 ![Saran Destinasi Wisata (Update)](</screenshoot/Saran/Saran Destinasi Wisata (Update).png>)
+
+#### Saran Destinasi Wisata (Delete)
+
+![Saran Destinasi Wisata (Delete)](</screenshoot/Saran/Saran Destinasi Wisata (Delete).png>)
 
 ### Ubah Profil
 
