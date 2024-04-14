@@ -192,9 +192,9 @@
 
 ![Menentukan λmaks dan Rasio Konsistensi](</screenshoot/Kombinasi/Kombinasi - Menentukan λmaks dan Rasio Konsistensi.png>)
 
-##### Normalisasi Tabel Alternatif
+##### Normalisasi Alternatif
 
-![Normalisasi Tabel Alternatif](</screenshoot/Kombinasi/Kombinasi - Normalisasi Tabel Alternatif.png>)
+![Normalisasi Alternatif](</screenshoot/Kombinasi/Kombinasi - Normalisasi Alternatif.png>)
 
 ##### Ranking
 
@@ -256,9 +256,9 @@
 
 ![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/Kombinasi/Kombinasi - Menentukan λmaks dan Rasio Konsistensi (Detail).png>)
 
-##### Normalisasi Tabel Alternatif (Detail)
+##### Normalisasi Alternatif (Detail)
 
-![Normalisasi Tabel Alternatif (Detail)](</screenshoot/Kombinasi/Kombinasi - Normalisasi Tabel Alternatif (Detail).png>)
+![Normalisasi Alternatif (Detail)](</screenshoot/Kombinasi/Kombinasi - Normalisasi Alternatif (Detail).png>)
 
 ##### Ranking (Detail)
 
