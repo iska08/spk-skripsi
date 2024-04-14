@@ -218,9 +218,9 @@
 
 ![Menentukan λmaks dan Rasio Konsistensi](</screenshoot/AHP/AHP - Menentukan λmaks dan Rasio Konsistensi.png>)
 
-##### Menentukan Eigen Vector Alternatif di Setiap Alternatif
+##### Menentukan Eigen Vector Alternatif di Setiap Kriteria
 
-![Menentukan Eigen Vector Alternatif di Setiap Alternatif](</screenshoot/AHP/AHP - Menentukan Eigen Vector Alternatif di Setiap Alternatif.png>)
+![Menentukan Eigen Vector Alternatif di Setiap Kriteria](</screenshoot/AHP/AHP - Menentukan Eigen Vector Alternatif di Setiap Kriteria.png>)
 
 ##### Ranking
 
@@ -282,9 +282,9 @@
 
 ![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/AHP/AHP - Menentukan λmaks dan Rasio Konsistensi (Detail).png>)
 
-##### Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)
+##### Menentukan Eigen Vector Alternatif di Setiap Kriteria (Detail)
 
-![Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail)](</screenshoot/AHP/AHP - Menentukan Eigen Vector Alternatif di Setiap Alternatif (Detail).png>)
+![Menentukan Eigen Vector Alternatif di Setiap Kriteria (Detail)](</screenshoot/AHP/AHP - Menentukan Eigen Vector Alternatif di Setiap Kriteria (Detail).png>)
 
 ##### Ranking (Detail)
 
