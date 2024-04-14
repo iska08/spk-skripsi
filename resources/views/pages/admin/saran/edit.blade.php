@@ -75,6 +75,11 @@
                     </div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <label for="keterangan" class="form-label">Keterangan</label>
+                <input type="text" class="form-control" id="keterangan" name="keterangan"
+                    value="{{ $saran->keterangan }}">
+            </div>
             <input type="hidden" class="form-control" id="validasi" name="validasi" value="{{ $saran->validasi }}">
             <button type="submit" class="btn btn-primary mb-3">Simpan Perubahan</button>
             <a href="/dashboard/sarans" class="btn btn-danger mb-3">Cancel</a>

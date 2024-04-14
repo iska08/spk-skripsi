@@ -31,9 +31,7 @@ class WisataUpdateRequest extends FormRequest
             'fasilitas'   => 'required',
             'biaya'       => 'required',
             'situs'       => 'nullable',
-            'validasi'    => 'required',
             'jenis_id'    => 'required',
-            'user_id'     => 'required',
         ];
     }
 }

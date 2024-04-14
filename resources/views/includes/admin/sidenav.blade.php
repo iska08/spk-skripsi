@@ -36,6 +36,15 @@
                     </div>
                     Data Alternatif
                 </a>
+                @can('admin')
+                <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }}"
+                    href="{{ route('sarans.index') }}">
+                    <div class="sb-nav-link-icon col-1">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    Validasi Saran Wisata
+                </a>
+                @elseif('user')
                 <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }}"
                     href="{{ route('sarans.index') }}">
                     <div class="sb-nav-link-icon col-1">
@@ -43,6 +52,7 @@
                     </div>
                     Saran Destinasi Wisata
                 </a>
+                @endcan
                 <a class="nav-link {{ Request::is('dashboard/showkombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.awal') }}">
                     <div class="sb-nav-link-icon col-1">

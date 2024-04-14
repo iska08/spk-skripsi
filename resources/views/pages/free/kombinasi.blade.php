@@ -278,7 +278,7 @@
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">SAW - Normalisasi Tabel Alternatif</h4>
+                    <h4 class="mb-0 text-gray-800">SAW - Normalisasi Alternatif</h4>
                 </div>
             </div>
             <table class="table table-bordered table-condensed table-responsive">

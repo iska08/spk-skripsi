@@ -32,10 +32,6 @@
 
 ![Data Kriteria (Update)](</screenshoot/Kriteria/Admin - Data Kriteria (Update).png>)
 
-#### Data Kriteria (Delete)
-
-![Data Kriteria (Delete)](</screenshoot/Kriteria/Admin - Data Kriteria (Delete).png>)
-
 ### Data Destinasi Wisata
 
 #### Data Destinasi Wisata (Create)
@@ -49,10 +45,6 @@
 #### Data Destinasi Wisata (Update)
 
 ![Data Destinasi Wisata (Update)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Update).png>)
-
-#### Data Destinasi Wisata (Delete)
-
-![Data Destinasi Wisata (Delete)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Delete).png>)
 
 ### Data Jenis Wisata
 
@@ -72,10 +64,6 @@
 
 ![Data Jenis Wisata (Update)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Update).png>)
 
-#### Data Jenis Wisata (Delete)
-
-![Data Jenis Wisata (Delete)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Delete).png>)
-
 ### Data Alternatif
 
 #### Data Alternatif (Create)
@@ -90,9 +78,15 @@
 
 ![Data Alternatif (Update)](</screenshoot/Alternatif/Admin - Data Alternatif (Update).png>)
 
-#### Data Alternatif (Delete)
+### Validasi Saran Destinasi Wisata
 
-![Data Alternatif (Delete)](</screenshoot/Alternatif/Admin - Data Alternatif (Delete).png>)
+#### Validasi Saran Destinasi Wisata (Read)
+
+![Validasi Saran Destinasi Wisata (Read)](</screenshoot/Saran/Validasi Saran Destinasi Wisata (Read).png>)
+
+#### Validasi Saran Destinasi Wisata (Update)
+
+![Validasi Saran Destinasi Wisata (Update)](</screenshoot/Saran/Validasi Saran Destinasi Wisata (Update).png>)
 
 ### Data Perhitungan
 
@@ -112,10 +106,6 @@
 
 ![Data Perhitungan (Update Bobot)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Update Bobot).png>)
 
-#### Data Perhitungan (Delete)
-
-![Data Perhitungan (Delete)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Delete).png>)
-
 ### Data Pengguna
 
 #### Data Pengguna (Create)
@@ -130,9 +120,9 @@
 
 ![Data Pengguna (Update)](</screenshoot/User/Admin - Data Pengguna (Update).png>)
 
-#### Data Pengguna (Delete)
+### Ubah Profil
 
-![Data Pengguna (Delete)](</screenshoot/User/Admin - Data Pengguna (Delete).png>)
+![Ubah Profil](</screenshoot/Profile/Admin - Ubah Profil.png>)
 
 ## User
 
@@ -140,39 +130,49 @@
 
 ![Dashboard](</screenshoot/Dashboard/User - Dashboard.png>)
 
-### Data Kriteria
+### Saran Destinasi Wisata
 
-#### Data Kriteria
+#### Saran Destinasi Wisata (Create)
+
+![Saran Destinasi Wisata (Create)](</screenshoot/Saran/Saran Destinasi Wisata (Create).png>)
+
+#### Saran Destinasi Wisata (Read)
+
+![Saran Destinasi Wisata (Read)](</screenshoot/Saran/Saran Destinasi Wisata (Read).png>)
+
+#### Saran Destinasi Wisata (Update)
+
+![Saran Destinasi Wisata (Update)](</screenshoot/Saran/Saran Destinasi Wisata (Update).png>)
+
+### Ubah Profil
+
+![Ubah Profil](</screenshoot/Profile/User - Ubah Profil.png>)
+
+## Non-Auth
+
+### Data Kriteria
 
 ![Data Kriteria](</screenshoot/Kriteria/User - Data Kriteria.png>)
 
 ### Data Destinasi Wisata
 
-#### Data Destinasi Wisata
-
 ![Data Destinasi Wisata](</screenshoot/Wisata/User - Data Destinasi Wisata.png>)
 
 ### Data Jenis Wisata
 
-#### Data Jenis Wisata
-
 ![Data Jenis Wisata](</screenshoot/Jenis/User - Data Jenis Wisata.png>)
 
-#### Detail Jenis Wisata
+### Detail Data Jenis Wisata
 
-![Detail Jenis Wisata](</screenshoot/Jenis/User - Detail Jenis Wisata.png>)
+![Detail Data Jenis Wisata](</screenshoot/Jenis/User - Detail Jenis Wisata.png>)
 
 ### Data Alternatif
 
-#### Data Alternatif
-
 ![Data Alternatif](</screenshoot/Alternatif/User - Data Alternatif.png>)
 
-## Metode SPK
+### Metode SPK
 
 ![Metode SPK](</screenshoot/Kombinasi/Metode SPK.png>)
-
-### Perhitungan Metode
 
 #### Perhitungan Kombinasi
 
@@ -299,33 +299,3 @@
 ##### Ranking (Detail)
 
 ![Ranking (Detail)](</screenshoot/SAW/SAW - Ranking (Detail).png>)
-
-## Saran Destinasi Wisata
-
-### Saran Destinasi Wisata (Create - User)
-
-![Saran Destinasi Wisata (Create - User)](</screenshoot/Saran/Saran Destinasi Wisata (Create - User).png>)
-
-### Saran Destinasi Wisata (Read - Admin)
-
-![Saran Destinasi Wisata (Read - Admin)](</screenshoot/Saran/Saran Destinasi Wisata (Read - Admin).png>)
-
-### Saran Destinasi Wisata (Read - User)
-
-![Saran Destinasi Wisata (Read - User)](</screenshoot/Saran/Saran Destinasi Wisata (Read - User).png>)
-
-### Saran Destinasi Wisata (Edit - User)
-
-![Saran Destinasi Wisata (Edit - User)](</screenshoot/Saran/Saran Destinasi Wisata (Edit - User).png>)
-
-### Saran Destinasi Wisata (Validasi - Admin)
-
-![Saran Destinasi Wisata (Validasi - Admin)](</screenshoot/Saran/Saran Destinasi Wisata (Validasi - Admin).png>)
-
-### Saran Destinasi Wisata (Delete)
-
-![Saran Destinasi Wisata (Delete)](</screenshoot/Saran/Saran Destinasi Wisata (Delete).png>)
-
-## Ubah Profil
-
-![Ubah Profil](</screenshoot/Profile/Ubah Profil.png>)

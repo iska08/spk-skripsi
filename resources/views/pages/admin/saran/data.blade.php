@@ -24,7 +24,7 @@
                 @elseif('user')
                 <a href="{{ route('sarans.create') }}" type="button" class="btn btn-primary mb-3">
                     <i class="fas fa-plus me-1"></i>
-                    Komentar
+                    Saran Destinasi Wisata
                 </a>
                 @endcan
                 <table id="datatablesSimple" class="table table-bordered">
@@ -36,6 +36,7 @@
                             @endcan
                             <th>Saran Nama Destinasi Wisata</th>
                             <th>Jenis Wisata</th>
+                            <th>Keterangan</th>
                             <th>Validasi</th>
                             <th>Aksi</th>
                         </tr>
@@ -51,6 +52,8 @@
                             <td class="text-center">{{ $saran->nama_wisata }}</td>
                             <td class="text-center">
                                 {{ $saran->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
+                            </td>
+                            <td class="text-center">{{ $saran->keterangan }}
                             </td>
                             @if ($saran->validasi == 0)
                             <td>
@@ -70,14 +73,14 @@
                                 <a href="{{ route('sarans.edit', $saran->id) }}" class="badge bg-warning">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <form action="{{ route('sarans.destroy', $saran->id) }}" method="POST"
+                                {{-- <form action="{{ route('sarans.destroy', $saran->id) }}" method="POST"
                                     class="d-inline">
                                     @method('delete')
                                     @csrf
                                     <button class="badge bg-danger border-0 btnDelete" data-object="Saran {{ $saran->nama_wisata }}">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
-                                </form>
+                                </form> --}}
                                 @elseif('user')
                                 @if($saran->validasi == 0)
                                 <a href="{{ route('sarans.edit', $saran->id) }}" class="badge bg-warning">

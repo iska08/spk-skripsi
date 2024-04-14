@@ -274,12 +274,12 @@
             </div>
         </div>
     </div>
-    {{-- Menentukan Eigen Vector Alternatif di Setiap Alternatif --}}
+    {{-- Menentukan Eigen Vector Alternatif di Setiap Kriteria --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Menentukan Eigen Vector Alternatif di Setiap Alternatif</h4>
+                    <h4 class="mb-0 text-gray-800">Menentukan Eigen Vector Alternatif di Setiap Kriteria</h4>
                 </div>
             </div>
             <div>

@@ -78,10 +78,9 @@
                                     </button>
                                     @endcan
                                     @if ($isDoneCounting)
-                                    <a href="{{ route('kombinasi.index', $criteria_analysis->id) }}"
-                                        class="btn btn-success mb-3">
-                                        <i class="fa-solid fa-eye"></i>
-                                        Hasil
+                                    <a href="{{ route('kombinasi.updateBobot', $criteria_analysis->id) }}"
+                                        class="btn btn-warning mb-3 text-white">
+                                        <i class="fa-solid fa-pen-to-square"></i> Edit Bobot Kriteria
                                     </a>
                                     @else
                                     <a class="btn btn-success disabled mb-3">

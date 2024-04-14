@@ -25,6 +25,7 @@ class SaranController extends Controller
                 ->select('wisatas.*', 'users.name', 'users.username')
                 ->orderBy('wisatas.created_at', 'desc')
                 ->get();
+            $title = 'Validasi Saran Destinasi Wisata';
         } else {
             // Jika pengguna adalah user, ambil data wisata yang dibuat oleh pengguna tersebut
             $sarans = Wisata::join('users', 'wisatas.user_id', '=', 'users.id')
@@ -33,9 +34,10 @@ class SaranController extends Controller
                 ->orWhere('users.level', '=', 'USER')
                 ->orderBy('wisatas.created_at', 'desc')
                 ->get();
+            $title = 'Saran Destinasi Wisata';
         }
         return view('pages.admin.saran.data', [
-            'title'     => 'Saran Destinasi Wisata',
+            'title'     => $title,
             'sarans'    => $sarans
         ]);
     }
@@ -129,6 +131,7 @@ class SaranController extends Controller
     {
         $saran              = Wisata::findOrFail($id);
         $saran->nama_wisata = $request->nama_wisata;
+        $saran->keterangan  = $request->keterangan;
         $saran->validasi    = $request->validasi;
         $saran->save();
 
