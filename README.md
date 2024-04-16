@@ -96,13 +96,7 @@
 
 ### Validasi Saran Destinasi Wisata
 
-#### Validasi Saran Destinasi Wisata (Read)
-
-![Validasi Saran Destinasi Wisata (Read)](</screenshoot/Saran/Validasi Saran Destinasi Wisata (Read).png>)
-
-#### Validasi Saran Destinasi Wisata (Update)
-
-![Validasi Saran Destinasi Wisata (Update)](</screenshoot/Saran/Validasi Saran Destinasi Wisata (Update).png>)
+![Validasi Saran Destinasi Wisata](</screenshoot/Saran/Validasi Saran Destinasi Wisata.png>)
 
 ### Data Perhitungan
 

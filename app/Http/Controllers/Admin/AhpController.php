@@ -201,12 +201,12 @@ class AhpController extends Controller
         $criterias          = Criteria::all();
         $numberOfCriterias  = count($criterias);
         $alternatives       = Alternative::all();
-        $alternative1s       = Alternative::getAlternativesByCriteria($criteriaIds);
+        $alternative1s      = Alternative::getAlternativesByCriteria($criteriaIds);
         $normalizations     = $this->_hitungNormalisasi($dividers, $alternative1s);
-        $data = $this->prepareAnalysisData($criteriaAnalysis);
-        $isAbleToRank = $this->checkIfAbleToRank();
+        $data               = $this->prepareAnalysisData($criteriaAnalysis);
+        $isAbleToRank       = $this->checkIfAbleToRank();
         try {
-            $ranking    = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
+            $ranking = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }
@@ -228,8 +228,6 @@ class AhpController extends Controller
     // detail perhitungan
     public function detail(CriteriaAnalysis $criteriaAnalysis)
     {
-        $data = $this->prepareAnalysisData($criteriaAnalysis);
-        $isAbleToRank = $this->checkIfAbleToRank();
         $criteriaAnalysis->load('priorityValues');
         $criterias          = CriteriaAnalysisDetail::getSelectedCriterias($criteriaAnalysis->id);
         $criteriaIds        = $criterias->pluck('id');
@@ -239,8 +237,10 @@ class AhpController extends Controller
         $alternatives       = Alternative::all();
         $alternative1s      = Alternative::getAlternativesByCriteria($criteriaIds);
         $normalizations     = $this->_hitungNormalisasi($dividers, $alternative1s);
+        $data               = $this->prepareAnalysisData($criteriaAnalysis);
+        $isAbleToRank       = $this->checkIfAbleToRank();
         try {
-            $ranking    = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
+            $ranking = $this->_finalRanking($criteriaAnalysis->bobots, $normalizations);
         } catch (\Exception $exception) {
             return back()->withError($exception->getMessage())->withInput();
         }

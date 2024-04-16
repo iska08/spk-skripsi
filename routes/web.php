@@ -67,6 +67,8 @@ Route::prefix('dashboard')
             'users'        => UserController::class,
             'sarans'       => SaranController::class,
         ], ['except' => 'show', 'middleware' => 'admin']);
+        Route::put('/dashboard/sarans/{id}/approve', [SaranController::class, 'approve'])
+            ->name('sarans.approve');
         // alternatif
         Route::resource('alternatif', AlternativeController::class)
             ->except('show');

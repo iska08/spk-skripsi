@@ -48,7 +48,46 @@
                             <td class="text-center">{{ $loop->iteration }}</td>
                             @can('admin')
                             <td class="text-center">{{ $saran->user->name }}</td>
-                            @endcan
+                            <td class="text-center">{{ $saran->nama_wisata }}</td>
+                            <td class="text-center">
+                                {{ $saran->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
+                            </td>
+                            <td class="text-center">{{ $saran->keterangan }}
+                            </td>
+                            @if($saran->validasi == 0)
+                            <td>
+                                <span class="badge bg-warning">Belum Disetujui</span>
+                            </td>
+                            @elseif($saran->validasi == 1)
+                            <td>
+                                <span class="badge bg-danger">Data Telah Diproses dan Tidak Disetujui</span>
+                            </td>
+                            @elseif($saran->validasi == 2)
+                            <td>
+                                <span class="badge bg-success">Data Telah Diproses dan Disetujui</span>
+                            </td>
+                            @endif
+                            <td>
+                                @if($saran->validasi == 0)
+                                <form action="{{ route('sarans.approve', $saran->id) }}" method="POST" class="d-inline">
+                                    @method('PUT')
+                                    @csrf
+                                    <input type="hidden" name="action" value="approve">
+                                    {{-- <button type="submit" class="btn btn-sm btn-success">Terima</button> --}}
+                                    <button type="submit" class="btn btn-sm" style="background-color: #3498db">Terima</button>
+                                </form>
+                                <form action="{{ route('sarans.approve', $saran->id) }}" method="POST" class="d-inline">
+                                    @method('PUT')
+                                    @csrf
+                                    <input type="hidden" name="action" value="disapprove">
+                                    {{-- <button type="submit" class="btn btn-sm btn-danger">Tolak</button> --}}
+                                    <button type="submit" class="btn btn-sm" style="background-color: #e67e22">Tolak</button>
+                                </form>
+                                @else
+                                -
+                                @endif
+                            </td>
+                            @elseif('user')
                             <td class="text-center">{{ $saran->nama_wisata }}</td>
                             <td class="text-center">
                                 {{ $saran->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
@@ -61,27 +100,14 @@
                             </td>
                             @elseif($saran->validasi == 1)
                             <td>
-                                <span class="badge bg-danger">Tidak Disetujui</span>
+                                <span class="badge bg-danger">Data Telah Diproses dan Tidak Disetujui</span>
                             </td>
                             @elseif($saran->validasi == 2)
                             <td>
-                                <span class="badge bg-success">Disetujui</span>
+                                <span class="badge bg-success">Data Telah Diproses dan Disetujui</span>
                             </td>
                             @endif
                             <td>
-                                @can('admin')
-                                <a href="{{ route('sarans.edit', $saran->id) }}" class="badge bg-warning">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </a>
-                                {{-- <form action="{{ route('sarans.destroy', $saran->id) }}" method="POST"
-                                    class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button class="badge bg-danger border-0 btnDelete" data-object="Saran {{ $saran->nama_wisata }}">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </form> --}}
-                                @elseif('user')
                                 @if($saran->validasi == 0)
                                 <a href="{{ route('sarans.edit', $saran->id) }}" class="badge bg-warning">
                                     <i class="fa-solid fa-pen-to-square"></i>
@@ -95,10 +121,10 @@
                                     </button>
                                 </form>
                                 @else
-                                <span class="badge bg-primary">Data Sudah Diproses</span>
+                                -
                                 @endif
-                                @endcan
                             </td>
+                            @endcan
                         </tr>
                         @endforeach
                         @else

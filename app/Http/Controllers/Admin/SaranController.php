@@ -138,6 +138,17 @@ class SaranController extends Controller
         return redirect('/dashboard/sarans')->with('success', 'Saran Destinasi Wisata Berhasil Diperbarui.');
     }
 
+    public function approve(Request $request, $id)
+    {
+        $saran = Wisata::findOrFail($id);
+        // Validasi nilai yang diperbolehkan (1 = Tolak, 2 = Terima)
+        $validasi = $request->input('action') === 'approve' ? 2 : 1;
+        $saran->validasi = $validasi;
+        $saran->save();
+        $message = $validasi === 2 ? 'Saran telah disetujui.' : 'Saran telah ditolak.';
+        return redirect()->back()->with('success', $message);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
