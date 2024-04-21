@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\JenisStoreRequest;
 use App\Http\Requests\Admin\JenisUpdateRequest;
 use App\Models\Jenis;
 use Cviebrock\EloquentSluggable\Services\SlugService;
@@ -20,7 +21,7 @@ class JenisController extends Controller
     {
         // mengurutkan
         $jenis = Jenis::orderby('jenis_name')->get();
-        return view('pages.admin.wisata.jenis.data', [
+        return view('pages.admin.jenis.data', [
             'title'   => 'Data Jenis Wisata',
             'wisatas' => '',
             'jenises' => $jenis
@@ -38,7 +39,7 @@ class JenisController extends Controller
             return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
 
-        return view('pages.admin.wisata.jenis.create', [
+        return view('pages.admin.jenis.create', [
             'title' => 'Tambah Jenis Wisata',
         ]);
     }
@@ -49,7 +50,7 @@ class JenisController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(JenisStoreRequest $request)
     {
         if (auth()->user()->level !== 'ADMIN') {
             return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
@@ -60,7 +61,7 @@ class JenisController extends Controller
         ]);
         $request['slug'] = Str::slug($request->jenis_name, '-');
         Jenis::create($validatedData);
-        return redirect('/dashboard/wisata/jenis')->with('success', "Tambah Jenis Wisata Baru Berhasil");
+        return redirect('/dashboard/jenis')->with('success', "Tambah Jenis Wisata Baru Berhasil");
     }
 
     /**
@@ -87,7 +88,7 @@ class JenisController extends Controller
         }
 
         $jenis = Jenis::FindOrFail($id);
-        return view('pages.admin.wisata.jenis.edit', [
+        return view('pages.admin.jenis.edit', [
             'title'   => "Edit Jenis $jenis->jenis_name",
             'jenises' => $jenis,
         ]);
@@ -111,7 +112,7 @@ class JenisController extends Controller
         $validatedData['slug'] = Str::slug($validatedData['jenis_name'], '-');
         $item = Jenis::findOrFail($id);
         $item->update($validatedData);
-        return redirect('/dashboard/wisata/jenis')->with('success', 'Jenis Wisata yang Dipilih Telah Diperbarui!');
+        return redirect('/dashboard/jenis')->with('success', 'Jenis Wisata yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -133,7 +134,7 @@ class JenisController extends Controller
 
     public function wisatas(Jenis $jenis)
     {
-        return view('pages.admin.wisata.jenis.detail', [
+        return view('pages.admin.jenis.detail', [
             'title'   => $jenis->jenis_name,
             'wisatas' => $jenis->wisatas,
             'active'  => 'jenis',

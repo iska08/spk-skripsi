@@ -28,6 +28,14 @@
                     </div>
                     Data Destinasi Wisata
                 </a>
+                {{-- Data Jenis Wisata --}}
+                <a class="nav-link {{ Request::is('spk/jenis*') ? 'active' : '' }}"
+                    href="{{ route('free.jenis') }}">
+                    <div class="sb-nav-link-icon col-1">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    Data Jenis Wisata
+                </a>
                 {{-- Master User --}}
                 <a class="nav-link {{ Request::is('spk/alternatif*') ? 'active' : '' }}"
                     href="{{ route('free.alternatif') }}">

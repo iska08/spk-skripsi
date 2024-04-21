@@ -12,13 +12,22 @@
                 <input type="text" id="jenis_name" name="jenis_name"
                     class="form-control @error('jenis_name') is-invalid @enderror" value="{{ old('jenis_name') }}" autofocus
                     required placeholder="Masukkan Destinasi Wisata">
-
                 @error('jenis_name')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @enderror
-
+            </div>
+            <div class="mb-3">
+                <label for="keterangan" class="form-label">Keterangan</label>
+                <input type="text" id="keterangan" name="keterangan"
+                    class="form-control @error('keterangan') is-invalid @enderror" value="{{ old('keterangan') }}" autofocus
+                    required placeholder="Masukkan Keterangan">
+                @error('keterangan')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <button type="submit" class="btn btn-primary mb-3">Save</button>
             <a href="{{ route('jenis.index') }}" class="btn btn-danger mb-3">Cancel</a>

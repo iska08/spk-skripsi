@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid px-4">
     <div class="row align-items-center">
-        <div class="col-sm-6 col-md-8">
+        <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item">
@@ -14,6 +14,7 @@
             </ol>
         </div>
     </div>
+    {{-- Matriks Perbandingan dan Penjumlahan Kolom Kriteria --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
@@ -74,7 +75,7 @@
             </table>
         </div>
     </div>
-    {{-- Normalisasi dan prioritas --}}
+    {{-- Matriks Normalisasi Kriteria dan Eigen Vector (EV) --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
@@ -134,7 +135,7 @@
             </table>
         </div>
     </div>
-    {{-- Matriks perkalian --}}
+    {{-- Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
@@ -185,7 +186,7 @@
             </table>
         </div>
     </div>
-    {{-- λ --}}
+    {{-- Menentukan λmaks dan Rasio Konsistensi --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
@@ -193,7 +194,7 @@
                     <h4 class="mb-0 text-gray-800">Menentukan λmaks dan Rasio Konsistensi</h4>
                 </div>
             </div>
-            <table class="table table-bordered table-responsive">
+            <table class="table table-bordered">
                 <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col">Kriteria</th>
@@ -384,7 +385,7 @@
                     <h4 class="mb-0 text-gray-800">Ranking</h4>
                 </div>
             </div>
-            <table class="table table-bordered table-condensed table-responsive">
+            <table class="table table-bordered table-condensed">
                 <tbody>
                     <tr>
                         <td scope="col" class="fw-bold text-center" style="width:11%">Kriteria</td>

@@ -30,7 +30,8 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Destinasi Wisata</div>
+                                            Destinasi Wisata
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $wisata }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -48,7 +49,9 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Kriteria</div>
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                            Kriteria
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $criterias }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -66,7 +69,9 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jenis Wisata</div>
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            Jenis Wisata
+                                        </div>
                                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $jenis }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -85,7 +90,8 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pengguna</div>
+                                            Pengguna
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $users }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -99,7 +105,7 @@
             </div>
             @elseif('user')
             <hr style="border-width: 2px;">
-            <div class="card-body table-responsive slide-container">
+            <div class="slide-container">
                 <div class="slide-content">
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
@@ -162,7 +168,8 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Destinasi Wisata</div>
+                                            Destinasi Wisata
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $wisata }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -181,7 +188,8 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                            Kriteria</div>
+                                            Kriteria
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $criterias }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -199,7 +207,9 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jenis Wisata</div>
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                                            Jenis Wisata
+                                        </div>
                                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $jenis }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -218,7 +228,8 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pengguna</div>
+                                            Pengguna
+                                        </div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $users }}</div>
                                     </div>
                                     <div class="col-auto">
@@ -232,7 +243,7 @@
             </div>
             @elseif('user')
             <hr style="border-width: 2px;">
-            <div class="card-body table-responsive slide-container">
+            <div class="slide-container">
                 <div class="slide-content">
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">

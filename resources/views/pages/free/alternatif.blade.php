@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid px-4">
         <div class="row align-items-center">
-            <div class="col-sm-6 col-md-8">
+            <div class="col-sm-6 col-md-12">
                 <h1 class="mt-4">{{ $title }}</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{{ route('free.index') }}">Dashboard</a></li>
@@ -34,7 +34,7 @@
                         </div>
                     </form>
                 </div>
-                <table class="table table-bordered table-responsive">
+                <table class="table table-bordered">
                     <thead class="bg-primary align-middle text-center text-white">
                         <tr>
                             <th rowspan="2">No</th>

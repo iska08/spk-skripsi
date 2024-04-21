@@ -1,72 +1,72 @@
 @extends('layouts.admin')
 @section('content')
-    <main>
-        <div class="container-fluid px-4">
-            <div class="row align-items-center">
-                <div class="col-sm-6 col-md-8">
-                    <h1 class="mt-4">{{ $title }}</h1>
-                    <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
-                        <li class="breadcrumb-item active">{{ $title }}</li>
-                        <li class="breadcrumb-item"><a href="{{ route('jenis.index') }}">Data Jenis Wisata</a></li>
-                    </ol>
-                </div>
+<main>
+    <div class="container-fluid px-4">
+        <div class="row align-items-center">
+            <div class="col-sm-6 col-md-12">
+                <h1 class="mt-4">{{ $title }}</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item active">{{ $title }}</li>
+                </ol>
             </div>
-            {{-- datatable --}}
-            <div class="card mb-4">
-                <div class="card-body table-responsive">
-                    @can('admin')
-                    <div class="d-sm-flex align-items-center justify-content-between">
-                        <a href="{{ route('wisata.create') }}" type="button" class="btn btn-primary mb-3"><i
-                                class="fas fa-plus me-1"></i>Destinasi Wisata
-                        </a>
+        </div>
+        {{-- datatable --}}
+        <div class="card mb-4">
+            <div class="card-body">
+                @can('admin')
+                <div class="d-sm-flex align-items-center justify-content-between">
+                    <a href="{{ route('wisata.create') }}" type="button" class="btn btn-primary mb-3"><i
+                            class="fas fa-plus me-1"></i>Destinasi Wisata
+                    </a>
+                </div>
+                @endcan
+                {{-- validation error file required --}}
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-                    @endcan
-                    {{-- validation error file required --}}
-                    @if (session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ session('error') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                    {{-- file request --}}
-                    @if ($errors->any())
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            @foreach ($errors->all() as $error)
-                                {{ $error }}
+                @endif
+                {{-- file request --}}
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        @foreach ($errors->all() as $error)
+                            {{ $error }}
+                        @endforeach
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <div class="d-sm-flex align-items-center justify-content-between mb-3">
+                    <div class="d-sm-flex align-items-center mb-3">
+                        <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
+                            @foreach ($perPageOptions as $option)
+                                <option value="{{ $option }}" {{ $option == $perPage ? 'selected' : '' }}>
+                                    {{ $option }}
+                                </option>
                             @endforeach
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-                    <div class="d-sm-flex align-items-center justify-content-between">
-                        <div class="d-sm-flex align-items-center mb-3">
-                            <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
-                                @foreach ($perPageOptions as $option)
-                                    <option value="{{ $option }}" {{ $option == $perPage ? 'selected' : '' }}>
-                                        {{ $option }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <label class="form-label col-lg-6 col-sm-6 col-md-6" for="perPage">entries per page</label>
-                        </div>
-                        <form action="{{ route('wisata.index') }}" method="GET" class="ms-auto float-end">
-                            <div class="input-group mb-3">
-                                <input type="text" name="search" id="myInput" class="form-control"
-                                    placeholder="Search..." value="{{ request('search') }}">
-                                <button class="btn btn-primary" type="submit">Search</button>
-                            </div>
-                        </form>
+                        </select>
+                        <label class="form-label col-lg-6 col-sm-6 col-md-6" for="perPage">entries per page</label>
                     </div>
+                    <form action="{{ route('wisata.index') }}" method="GET" class="ms-auto">
+                        <div class="input-group mb-3">
+                            <input type="text" name="search" id="myInput" class="form-control"
+                                placeholder="Search..." value="{{ request('search') }}">
+                            <button class="btn btn-primary" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead class="bg-primary text-white align-middle text-center">
                             <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Nama Destinasi Wisata</th>
                                 <th class="text-center">Foto</th>
+                                <th class="text-center">Jenis Wisata</th>
                                 <th class="text-center">Link Google Maps</th>
                                 <th class="text-center">Fasilitas</th>
                                 <th class="text-center">Biaya</th>
-                                <th class="text-center">Jenis Wisata</th>
                                 <th class="text-center">Website Resmi</th>
                                 @can('admin')
                                 <th class="text-center">Aksi</th>
@@ -95,6 +95,9 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
+                                            {{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
+                                        </td>
+                                        <td class="text-center">
                                             @if($wisata->lokasi_maps == "" || $wisata->lokasi_maps == "-")
                                             -
                                             @else
@@ -112,9 +115,6 @@
                                             @else
                                             Rp {{ number_format($wisata->biaya, 0, ',', '.') }}
                                             @endif
-                                        </td>
-                                        <td class="text-center">
-                                            {{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
                                         </td>
                                         <td class="text-center">
                                             @if($wisata->situs == "" || $wisata->situs == "-")
@@ -146,24 +146,25 @@
                             @endif
                         </tbody>
                     </table>
-                    {{ $wisatas->appends(request()->query())->links() }}
                 </div>
+                {{ $wisatas->appends(request()->query())->links() }}
             </div>
         </div>
-    </main>
-    <script>
-        function submitForm() {
-            var perPageSelect = document.getElementById('perPage');
-            var perPageValue = perPageSelect.value;
-            var currentPage = {{ $wisatas->currentPage() }};
-            var url = new URL(window.location.href);
-            var params = new URLSearchParams(url.search);
-            params.set('perPage', perPageValue);
-            if (!params.has('page')) {
-                params.set('page', currentPage);
-            }
-            url.search = params.toString();
-            window.location.href = url.toString();
+    </div>
+</main>
+<script>
+    function submitForm() {
+        var perPageSelect = document.getElementById('perPage');
+        var perPageValue = perPageSelect.value;
+        var currentPage = {{ $wisatas->currentPage() }};
+        var url = new URL(window.location.href);
+        var params = new URLSearchParams(url.search);
+        params.set('perPage', perPageValue);
+        if (!params.has('page')) {
+            params.set('page', currentPage);
         }
-    </script>
+        url.search = params.toString();
+        window.location.href = url.toString();
+    }
+</script>
 @endsection

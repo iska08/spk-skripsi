@@ -31,7 +31,7 @@ class SaranController extends Controller
             $sarans = Wisata::join('users', 'wisatas.user_id', '=', 'users.id')
                 ->select('wisatas.*', 'users.name', 'users.username')
                 ->where('wisatas.user_id', auth()->user()->id)
-                ->orWhere('users.level', '=', 'USER')
+                ->where('users.level', '=', 'USER')
                 ->orderBy('wisatas.created_at', 'desc')
                 ->get();
             $title = 'Saran Destinasi Wisata';

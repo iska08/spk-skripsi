@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class JenisUpdateRequest extends FormRequest
+class JenisStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,8 @@ class JenisUpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('jenis');
         return [
-            'jenis_name' => 'required|max:30|unique:jenis,jenis_name,' . $id,
+            'jenis_name' => 'required|max:30|unique:jenis',
             'keterangan' => 'required'
         ];
     }

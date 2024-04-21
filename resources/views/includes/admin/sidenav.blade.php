@@ -28,6 +28,14 @@
                     </div>
                     Data Destinasi Wisata
                 </a>
+                {{-- Data Jenis Wisata --}}
+                <a class="nav-link {{ Request::is('dashboard/jenis*') ? 'active' : '' }}"
+                    href="{{ route('jenis.index') }}">
+                    <div class="sb-nav-link-icon col-1">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    Data Jenis Wisata
+                </a>
                 {{-- Master User --}}
                 <a class="nav-link {{ Request::is('dashboard/alternatif*') ? 'active' : '' }}"
                     href="{{ route('alternatif.index') }}">
@@ -53,7 +61,7 @@
                     Saran Destinasi Wisata
                 </a>
                 @endcan
-                <a class="nav-link {{ Request::is('dashboard/showkombinasi*') ? 'active' : '' }}"
+                <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.awal') }}">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-ranking-star"></i>
@@ -61,7 +69,7 @@
                     Metode SPK
                 </a>
                 @can('admin')
-                <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
+                <a class="nav-link {{ Request::is('dashboard/setting-kombinasi*') ? 'active' : '' }}"
                     href="{{ route('kombinasi.index') }}">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-gear"></i>

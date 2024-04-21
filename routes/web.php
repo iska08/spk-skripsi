@@ -33,8 +33,8 @@ Route::get('/',  [PortalController::class, 'index'])->name('portal.index');
 Route::get('/spk', [FreeController::class, 'index'])->name('free.index');
 Route::get('/spk/kriteria', [FreeController::class, 'kriteria'])->name('free.kriteria');
 Route::get('/spk/wisata', [FreeController::class, 'wisata'])->name('free.wisata');
-Route::get('/spk/wisata/jenis', [FreeController::class, 'jenis'])->name('free.jenis');
-Route::get('/spk/wisata/jenis/{jenis:slug}', [FreeController::class, 'jenisSlug'])->name('free.jenisSlug');
+Route::get('/spk/jenis', [FreeController::class, 'jenis'])->name('free.jenis');
+Route::get('/spk/jenis/{jenis:slug}', [FreeController::class, 'jenisSlug'])->name('free.jenisSlug');
 Route::get('/spk/alternatif', [FreeController::class, 'alternatif'])->name('free.alternatif');
 
 Route::get('/spk/perhitungan', [FreeController::class, 'awal'])->name('free.perhitungan');
@@ -61,11 +61,11 @@ Route::prefix('dashboard')
         Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard.index');
         Route::resources([
-            'kriteria'     => CriteriaController::class,
-            'wisata'       => WisataController::class,
-            'wisata/jenis' => JenisController::class,
-            'users'        => UserController::class,
-            'sarans'       => SaranController::class,
+            'kriteria'  => CriteriaController::class,
+            'wisata'    => WisataController::class,
+            'jenis'     => JenisController::class,
+            'users'     => UserController::class,
+            'sarans'    => SaranController::class,
         ], ['except' => 'show', 'middleware' => 'admin']);
         Route::put('/dashboard/sarans/{id}/approve', [SaranController::class, 'approve'])
             ->name('sarans.approve');
@@ -78,26 +78,26 @@ Route::prefix('dashboard')
         Route::put('profile/{users}', [ProfileController::class, 'update'])
             ->name('profile.update');
         // link slug
-        Route::get('wisata/jenis/{jenis:slug}', [JenisController::class, 'wisatas'])
+        Route::get('jenis/{jenis:slug}', [JenisController::class, 'wisatas'])
             ->name('jenis.wisatas');
         // kombinasi
-        Route::get('kombinasi', [KombinasiController::class, 'index'])
+        Route::get('setting-kombinasi', [KombinasiController::class, 'index'])
             ->name('kombinasi.index');
-        Route::get('showkombinasi', [KombinasiController::class, 'awal'])
+        Route::get('kombinasi', [KombinasiController::class, 'awal'])
             ->name('kombinasi.awal');
-        Route::post('kombinasi', [KombinasiController::class, 'store'])
+        Route::post('setting-kombinasi', [KombinasiController::class, 'store'])
             ->name('kombinasi.store');
-        Route::get('kombinasi/{criteria_analysis}', [KombinasiController::class, 'show'])
+        Route::get('setting-kombinasi/{criteria_analysis}', [KombinasiController::class, 'show'])
             ->name('kombinasi.show');
-        Route::get('kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'show'])
+        Route::get('setting-kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'show'])
             ->name('kombinasi.show');
-        Route::put('kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'update'])
+        Route::put('setting-kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'update'])
             ->name('kombinasi.update');
-        Route::get('kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'showBobot'])
+        Route::get('setting-kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'showBobot'])
             ->name('kombinasi.showBobot');
-        Route::put('kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'updateBobot'])
+        Route::put('setting-kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'updateBobot'])
             ->name('kombinasi.updateBobot');
-        Route::delete('kombinasi/{criteria_analysis}', [KombinasiController::class, 'destroy'])
+        Route::delete('setting-kombinasi/{criteria_analysis}', [KombinasiController::class, 'destroy'])
             ->name('kombinasi.destroy');
         Route::get('kombinasi/result/{criteria_analysis}', [KombinasiController::class, 'result'])
             ->name('kombinasi.result');

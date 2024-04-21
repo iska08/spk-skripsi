@@ -19,7 +19,7 @@
                 <i style="font-family: 'Courier New', Courier, monospace">Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</i>
             </h4>
             <hr style="border-width: 2px;">
-            <div class="card-body table-responsive slide-container">
+            <div class="slide-container">
                 <div class="slide-content">
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
@@ -70,7 +70,7 @@
                 </h4>
             </div>
             <hr style="border-width: 2px;">
-            <div class="card-body table-responsive slide-container">
+            <div class="table-responsive slide-container">
                 <div class="slide-content">
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">

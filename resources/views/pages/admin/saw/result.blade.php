@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid px-4">
     <div class="row align-items-center">
-        <div class="col-sm-6 col-md-8">
+        <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">{{ $title }}</li>
@@ -27,7 +27,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     @endif
-    {{-- datatable --}}
+    {{-- Normalisasi Alternatif --}}
     <div class="card mb-4">
         <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
@@ -35,7 +35,7 @@
                     <h4 class="mb-0 text-gray-800">Normalisasi Alternatif</h4>
                 </div>
             </div>
-            <table class="table table-bordered table-condensed table-responsive">
+            <table class="table table-bordered table-condensed">
                 <tbody>
                     <tr>
                         <td scope="col" class="fw-bold text-center" style="width:11%">Kategori</td>
@@ -59,7 +59,7 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="datatablesSimple" class="table table-bordered table-responsive">
+            <table id="datatablesSimple" class="table table-bordered">
                 <thead class="bg-primary align-middle text-center text-white">
                     <tr>
                         <th scope="col" class="text-center">No</th>
@@ -99,14 +99,15 @@
             </table>
         </div>
     </div>
+    {{-- Ranking --}}
     <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <div class="d-sm-flex align-items-center">
                 <div class="mb-4">
                     <h4 class="mb-0 text-gray-800">Ranking</h4>
                 </div>
             </div>
-            <table id="datatablesSimple2" class="table table-bordered table-responsive">
+            <table id="datatablesSimple2" class="table table-bordered">
                 <thead class="bg-primary align-middle text-center text-white">
                     <tr>
                         <th scope="col">Nama Alternatif</th>

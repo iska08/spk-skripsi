@@ -3,12 +3,12 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Detail Jenis Wisata: {{ $jenis }}</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="{{ route('free.index') }}">Data Destinasi Wisata</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('free.index') }}">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="{{ route('free.jenis') }}">Data Jenis Wisata</a></li>
             <li class="breadcrumb-item active">{{ $title }}</li>
         </ol>
         {{-- datatable --}}
-        <div class="card col-lg-10">
+        <div class="card">
             <div class="card-body table-responsive">
                 <table id="datatablesSimple" class="table table-bordered">
                     <thead class="bg-primary text-white">

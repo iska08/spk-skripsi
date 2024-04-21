@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid px-4">
     <div class="row align-items-center">
-        <div class="col-sm-6 col-md-8">
+        <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">{{ $title }}</li>
@@ -175,7 +175,7 @@
                     <h4 class="mb-0 text-gray-800">Menentukan λmaks dan Rasio Konsistensi</h4>
                 </div>
             </div>
-            <table class="table table-bordered table-responsive">
+            <table class="table table-bordered">
                 <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col">Kriteria</th>
@@ -353,7 +353,7 @@
                     <h4 class="mb-0 text-gray-800">Ranking</h4>
                 </div>
             </div>
-            <table class="table table-bordered table-condensed table-responsive">
+            <table class="table table-bordered table-condensed">
                 <tbody>
                     <tr>
                         <td scope="col" class="fw-bold text-center" style="width:11%">Kriteria</td>

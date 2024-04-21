@@ -41,7 +41,7 @@ class KombinasiController extends Controller
             }])->get();
         }
         $criterias = Criteria::all();
-        return view('pages.admin.kombinasi.data', [
+        return view('pages.admin.kombinasi.setting', [
             'title'             => 'Data Perhitungan',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
@@ -66,7 +66,7 @@ class KombinasiController extends Controller
             }])->get();
         }
         $criterias = Criteria::all();
-        return view('pages.admin.kombinasi.showdata', [
+        return view('pages.admin.kombinasi.data', [
             'title'             => 'Metode SPK',
             'comparisons'       => $comparisons,
             'criterias'         => $criterias,
@@ -98,7 +98,7 @@ class KombinasiController extends Controller
         }
 
         if (!isset($request->criteria_id)) {
-            return redirect('dashboard/kombinasi')->with('failed', 'Silakan Periksa Kriteria yang Anda Pilih!');
+            return redirect('dashboard/setting-kombinasi')->with('failed', 'Silakan Periksa Kriteria yang Anda Pilih!');
         }
         $validate = $request->validate(['criteria_id' => 'required|array']);
         // data untuk tabel analisis kriteria
@@ -150,7 +150,7 @@ class KombinasiController extends Controller
             ];
             CriteriaAnalysisDetail::create($detail);
         }
-        return redirect('dashboard/kombinasi/' . $analysisId)->with('success', 'Kriteria Baru Telah Ditambahkan!');
+        return redirect('dashboard/setting-kombinasi/' . $analysisId)->with('success', 'Kriteria Baru Telah Ditambahkan!');
     }
 
     /**
@@ -514,6 +514,6 @@ class KombinasiController extends Controller
         }
         
         CriteriaAnalysis::destroy($criteriaAnalysis->id);
-        return redirect('/dashboard/kombinasi')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
+        return redirect('/dashboard/setting-kombinasi')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
     }
 }

@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid px-4">
     <div class="row align-items-center">
-        <div class="col-sm-6 col-md-8">
+        <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item">

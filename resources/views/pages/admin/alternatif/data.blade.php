@@ -2,7 +2,7 @@
 @section('content')
 <div class="container-fluid px-4">
     <div class="row align-items-center">
-        <div class="col-sm-6 col-md-8">
+        <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
@@ -12,7 +12,7 @@
     </div>
     {{-- datatable --}}
     <div class="card mb-4">
-        <div class="card-body table-responsive">
+        <div class="card-body">
             <div class="d-sm-flex align-items-center">
                 @can('admin')
                 <button type="button" class="btn btn-primary mb-3 me-auto" data-bs-toggle="modal"
@@ -38,7 +38,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-            <div class="d-sm-flex align-items-center justify-content-between">
+            <div class="d-sm-flex align-items-center justify-content-between mb-3">
                 <div class="d-sm-flex align-items-center mb-3">
                     <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
                         @foreach ($perPageOptions as $option)
@@ -49,7 +49,7 @@
                     </select>
                     <label class="form-label col-lg-6 col-sm-6 col-md-6" for="perPage">entries per page</label>
                 </div>
-                <form action="{{ route('alternatif.index') }}" method="GET" class="ms-auto float-end">
+                <form action="{{ route('alternatif.index') }}" method="GET" class="ms-auto">
                     <div class="input-group mb-3">
                         <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..."
                             value="{{ request('search') }}">
@@ -57,76 +57,78 @@
                     </div>
                 </form>
             </div>
-            <table class="table table-bordered table-responsive">
-                <thead class="bg-primary align-middle text-center text-white">
-                    <tr>
-                        <th rowspan="2">No</th>
-                        <th rowspan="2">Nama Alternatif</th>
-                        <th rowspan="2">Jenis Wisata</th>
-                        <th colspan="{{ $criterias->count() }}">Kriteria</th>
-                        @can('admin')
-                        <th rowspan="2">Aksi</th>
-                        @endcan
-                    </tr>
-                    <tr>
-                        @if ($criterias->count())
-                        @foreach ($criterias as $criteria)
-                        <th>{{ $criteria->nama_kriteria }}</th>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="bg-primary align-middle text-center text-white">
+                        <tr>
+                            <th rowspan="2">No</th>
+                            <th rowspan="2">Nama Alternatif</th>
+                            <th rowspan="2">Jenis Wisata</th>
+                            <th colspan="{{ $criterias->count() }}">Kriteria</th>
+                            @can('admin')
+                            <th rowspan="2">Aksi</th>
+                            @endcan
+                        </tr>
+                        <tr>
+                            @if ($criterias->count())
+                            @foreach ($criterias as $criteria)
+                            <th>{{ $criteria->nama_kriteria }}</th>
+                            @endforeach
+                            @else
+                            <th>Data Kriteria Tidak Ditemukan</th>
+                            @endif
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle" id="myTable">
+                        @if ($alternatives->count())
+                        @foreach ($alternatives as $alternative)
+                        <tr>
+                            <td scope="row" class="text-center">
+                                {{ ($alternatives->currentpage() - 1) * $alternatives->perpage() + $loop->index + 1 }}
+                            </td>
+                            <td class="text-center">
+                                {{ Str::ucfirst($alternative->nama_wisata) }}
+                            </td>
+                            <td class="text-center">
+                                {{ $alternative->jenis->jenis_name }}
+                            </td>
+                            @foreach ($criterias as $key => $criteria)
+                            @if (isset($alternative->alternatives[$key]))
+                            <td class="text-center">
+                                {{ floatval($alternative->alternatives[$key]->alternative_value) }}
+                            </td>
+                            @else
+                            <td class="text-center">
+                                Empty
+                            </td>
+                            @endif
+                            @endforeach
+                            @can('admin')
+                            <td class="text-center">
+                                <a href="{{ route('alternatif.edit', $alternative->id) }}" class="badge bg-warning"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                                <form action="{{ route('alternatif.destroy', $alternative->id) }}" method="POST"
+                                    class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button class="badge bg-danger border-0 btnDelete"
+                                        data-object="Alternatif {{ $alternative->nama_wisata }}">
+                                        <i class="fa-solid fa-trash-can"></i></button>
+                                </form>
+                            </td>
+                            @endcan
+                        </tr>
                         @endforeach
                         @else
-                        <th>Data Kriteria Tidak Ditemukan</th>
+                        <tr>
+                            <td colspan="{{ 5 + $criterias->count() }}" class="text-center text-danger">
+                                Belum Ada Data
+                            </td>
+                        </tr>
                         @endif
-                    </tr>
-                </thead>
-                <tbody class="align-middle" id="myTable">
-                    @if ($alternatives->count())
-                    @foreach ($alternatives as $alternative)
-                    <tr>
-                        <td scope="row" class="text-center">
-                            {{ ($alternatives->currentpage() - 1) * $alternatives->perpage() + $loop->index + 1 }}
-                        </td>
-                        <td class="text-center">
-                            {{ Str::ucfirst($alternative->nama_wisata) }}
-                        </td>
-                        <td class="text-center">
-                            {{ $alternative->jenis->jenis_name }}
-                        </td>
-                        @foreach ($criterias as $key => $value)
-                        @if (isset($alternative->alternatives[$key]))
-                        <td class="text-center">
-                            {{ floatval($alternative->alternatives[$key]->alternative_value) }}
-                        </td>
-                        @else
-                        <td class="text-center">
-                            Empty
-                        </td>
-                        @endif
-                        @endforeach
-                        @can('admin')
-                        <td class="text-center">
-                            <a href="{{ route('alternatif.edit', $alternative->id) }}" class="badge bg-warning"><i
-                                    class="fa-solid fa-pen-to-square"></i></a>
-                            <form action="{{ route('alternatif.destroy', $alternative->id) }}" method="POST"
-                                class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button class="badge bg-danger border-0 btnDelete"
-                                    data-object="Alternatif {{ $alternative->nama_wisata }}">
-                                    <i class="fa-solid fa-trash-can"></i></button>
-                            </form>
-                        </td>
-                        @endcan
-                    </tr>
-                    @endforeach
-                    @else
-                    <tr>
-                        <td colspan="{{ 5 + $criterias->count() }}" class="text-center text-danger">
-                            Belum Ada Data
-                        </td>
-                    </tr>
-                    @endif
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
             {{ $alternatives->appends(request()->query())->links() }}
         </div>
     </div>
@@ -142,19 +144,10 @@
             </div>
             <form action="{{ route('alternatif.index') }}" method="post">
                 <div class="modal-body">
-                    {{-- <span class="mb-2">Catatan :</span>
-                    <ul class="list-group mb-2">
-                        <li class="list-group-item bg-success text-white">
-                            Nilai minimum 0 dan maximum 100
-                        </li>
-                        <li class="list-group-item bg-success text-white">
-                            Gunakan (.) jika memasukkan nilai desimal
-                        </li>
-                    </ul> --}}
                     @csrf
                     <div class="my-2">
                         <label for="wisata_id" class="form-label">Daftar Destinasi Wisata</label>
-                        <select class="form-select @error('wisata_id') 'is-invalid' : ''  @enderror" id="wisata_id"
+                        <select class="form-select @error('wisata_id') is-invalid @enderror" id="wisata_id"
                             name="wisata_id" required>
                             <option disabled selected value="">-- Pilih Destinasi Wisata --</option>
                             @if ($wisata_list->count())
@@ -177,15 +170,14 @@
                         </div>
                         @enderror
                     </div>
-                    {{-- Masukkan Nilai Kriteria --}}
                     @if ($criterias->count())
                     @foreach ($criterias as $key => $criteria)
                     <input type="hidden" name="criteria_id[]" value="{{ $criteria->id }}">
                     <div class="my-2">
                         <label for="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" class="form-label">
-                            Nilai <b> {{ $criteria->nama_kriteria }} </b>
+                            Nilai <b>{{ $criteria->nama_kriteria }}</b>
                         </label>
-                        <select class="form-select @error('alternative_value') 'is-invalid' : ''  @enderror"
+                        <select class="form-select @error('alternative_value') is-invalid @enderror"
                             id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" name="alternative_value[]"
                             required>
                             <option disabled selected value="">-- Pilih Sub Kriteria --</option>
@@ -206,8 +198,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="{{ $criterias->count() ? 'submit' : 'button' }}"
-                        class="btn btn-primary">Simpan</button>
+                    <button type="{{ $criterias->count() ? 'submit' : 'button' }}" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
@@ -217,11 +208,7 @@
     function submitForm() {
         var perPageSelect = document.getElementById('perPage');
         var perPageValue = perPageSelect.value;
-        var currentPage = {
-            {
-                $alternatives - > currentPage()
-            }
-        };
+        var currentPage = {{ $alternatives->currentPage() }};
         var url = new URL(window.location.href);
         var params = new URLSearchParams(url.search);
         params.set('perPage', perPageValue);

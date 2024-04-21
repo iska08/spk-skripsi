@@ -3,12 +3,11 @@
     <main>
         <div class="container-fluid px-4">
             <div class="row align-items-center">
-                <div class="col-sm-6 col-md-8">
+                <div class="col-sm-6 col-md-12">
                     <h1 class="mt-4">{{ $title }}</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="{{ route('free.index') }}">Dashboard</a></li>
                         <li class="breadcrumb-item active">{{ $title }}</li>
-                        <li class="breadcrumb-item"><a href="{{ route('free.jenis') }}">Data Jenis Wisata</a></li>
                     </ol>
                 </div>
             </div>
@@ -40,10 +39,10 @@
                                 <th class="text-center">No</th>
                                 <th class="text-center">Nama Destinasi Wisata</th>
                                 <th class="text-center">Foto</th>
+                                <th class="text-center">Jenis Wisata</th>
                                 <th class="text-center">Link Google Maps</th>
                                 <th class="text-center">Fasilitas</th>
                                 <th class="text-center">Biaya</th>
-                                <th class="text-center">Jenis Wisata</th>
                                 <th class="text-center">Website Resmi</th>
                             </tr>
                         </thead>
@@ -69,6 +68,9 @@
                                             @endif
                                         </td>
                                         <td class="text-center">
+                                            {{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
+                                        </td>
+                                        <td class="text-center">
                                             @if($wisata->lokasi_maps == "" || $wisata->lokasi_maps == "-")
                                             -
                                             @else
@@ -86,9 +88,6 @@
                                             @else
                                             Rp {{ number_format($wisata->biaya, 0, ',', '.') }}
                                             @endif
-                                        </td>
-                                        <td class="text-center">
-                                            {{ $wisata->jenis->jenis_name ?? 'Tidak Punya Jenis Wisata' }}
                                         </td>
                                         <td class="text-center">
                                             @if($wisata->situs == "" || $wisata->situs == "-")

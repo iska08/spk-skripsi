@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('jenis_name')->unique();
             $table->string('slug')->unique();
+            $table->longText('keterangan');
             $table->timestamps();
         });
     }

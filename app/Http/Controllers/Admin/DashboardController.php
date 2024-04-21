@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $wisatas = Wisata::where('validasi', '=', '2')->orderby('nama_wisata')->get();
         return view('pages.admin.dashboard', [
             'title'     => 'Dashboard',
-            'wisata'    => Wisata::count(),
+            'wisata'    => Wisata::where('validasi', '=', '2')->count(),
             'criterias' => Criteria::count(),
             'jenis'     => Jenis::count(),
             'users'     => User::count(),

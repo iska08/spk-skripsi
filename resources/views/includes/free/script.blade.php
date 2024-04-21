@@ -6,6 +6,7 @@
 <script src="{{ url('backend/js/datatables-simple-demo.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let slideIndex = 0;

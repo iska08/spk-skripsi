@@ -2,10 +2,6 @@
 @section('content')
     <div class="container-fluid px-4 border-bottom">
         <h1 class="mt-4 h2">{{ $title }}</h1>
-        <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">{{ $title }}</li>
-            <li class="breadcrumb-item"><a href="{{ route('jenis.index') }}">Data Jenis Wisata</a></li>
-        </ol>
     </div>
     <form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST" action="{{ route('wisata.index') }}"
         enctype="multipart/form-data">

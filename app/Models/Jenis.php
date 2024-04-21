@@ -12,7 +12,8 @@ class Jenis extends Model
 
     protected $fillable = [
         'jenis_name',
-        'slug'
+        'slug',
+        'keterangan'
     ];
 
     public function wisatas()
