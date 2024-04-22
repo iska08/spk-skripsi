@@ -21,13 +21,13 @@
         margin-right: 15px;
     }
     .rata-atas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #f0f0f0;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f0f0f0;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
 </style>

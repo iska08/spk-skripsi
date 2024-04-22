@@ -5,6 +5,8 @@
         <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{{ route('free.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('free.perhitungan') }}">Metode SPK</a></li>
                 <li class="breadcrumb-item">
                     <a href="{{ route('perhitungan.ahp', $criteria_analysis->id) }}">
                         Perhitungan AHP
@@ -65,7 +67,7 @@
                         @endforeach
                     </tr>
                     @endforeach
-                    <th class="text-center table-dark">Jumlah</th>
+                    <th class="text-center bg-dark text-white">Jumlah</th>
                     @foreach ($totalSums as $total)
                     <td class="text-center bg-dark text-white">
                         {{ round($total['totalSum'], 3) }}
@@ -92,7 +94,7 @@
                             {{ $priorityValue->criteria->nama_kriteria }}</th>
                         @endforeach
                         <th scope="col" class="text-center bg-success text-white">Jumlah</th>
-                        <th scope="col" class="text-center table-dark text-white">Eigen Vector (EV)</th>
+                        <th scope="col" class="text-center bg-dark text-white">Eigen Vector (EV)</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
@@ -123,7 +125,7 @@
                         <td class="text-center bg-success text-white">
                             {{ round($rowTotal, 3) }}
                         </td>
-                        <td class="text-center table-dark text-white">
+                        <td class="text-center bg-dark text-white">
                             {{-- Eigen Vector (EV) --}}
                             {{ round($rowTotal, 3) }} /
                             {{ $criteria_analysis->priorityValues->count() }} =
@@ -150,7 +152,7 @@
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
                         <th scope="col" class="bg-primary">{{ $priorityValue->criteria->nama_kriteria }}</th>
                         @endforeach
-                        <th scope="col" class="table-dark text-white">Jumlah Baris</th>
+                        <th scope="col" class="bg-dark text-white">Jumlah Baris</th>
                     </tr>
                 </thead>
                 <tbody class="align-middle">
@@ -176,7 +178,7 @@
                         @php($startAt++)
                         @endforeach
                         @php(array_push($rowTotals, $rowTotal))
-                        <td class="text-center table-dark text-white">
+                        <td class="text-center bg-dark text-white">
                             {{-- {{ $rowTotal }} --}}
                             {{ round($rowTotal, 3) }}
                         </td>
@@ -229,8 +231,8 @@
                     </tr>
                     @endforeach
                     <tr class="align-middle">
-                        <td class="text-center fw-bold table-dark" colspan="3">λmaks</td>
-                        <td class="text-center fw-bold table-dark">
+                        <td class="text-center fw-bold bg-dark text-white" colspan="3">λmaks</td>
+                        <td class="text-center fw-bold bg-dark text-white">
                             {{ round(array_sum($lambdaResult), 3) }} /
                             {{ count($lambdaResult) }}
                             =

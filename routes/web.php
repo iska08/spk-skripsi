@@ -31,11 +31,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',  [PortalController::class, 'index'])->name('portal.index');
 
 Route::get('/spk', [FreeController::class, 'index'])->name('free.index');
-Route::get('/spk/kriteria', [FreeController::class, 'kriteria'])->name('free.kriteria');
-Route::get('/spk/wisata', [FreeController::class, 'wisata'])->name('free.wisata');
-Route::get('/spk/jenis', [FreeController::class, 'jenis'])->name('free.jenis');
-Route::get('/spk/jenis/{jenis:slug}', [FreeController::class, 'jenisSlug'])->name('free.jenisSlug');
-Route::get('/spk/alternatif', [FreeController::class, 'alternatif'])->name('free.alternatif');
+Route::get('/spk/data/kriteria', [FreeController::class, 'kriteria'])->name('free.kriteria');
+Route::get('/spk/data/wisata', [FreeController::class, 'wisata'])->name('free.wisata');
+Route::get('/spk/data/jenis', [FreeController::class, 'jenis'])->name('free.jenis');
+Route::get('/spk/data/jenis/{jenis:slug}', [FreeController::class, 'jenisSlug'])->name('free.jenisSlug');
+Route::get('/spk/data/alternatif', [FreeController::class, 'alternatif'])->name('free.alternatif');
 
 Route::get('/spk/perhitungan', [FreeController::class, 'awal'])->name('free.perhitungan');
 

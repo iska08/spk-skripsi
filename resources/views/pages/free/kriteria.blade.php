@@ -97,6 +97,15 @@
                 {{ $criterias->appends(request()->query())->links() }}
             </div>
         </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p>Kriteria yang telah ditentukan dibagi menjadi dua kategori, yaitu:</p>
+                <ul>
+                    <li><b>Benefit (Keuntungan):</b> Semakin tinggi nilai keuntungannya maka semakin tinggi peluang untuk dipilih.</li>
+                    <li><b>Cost (Biaya):</b> Semakin tinggi nilai cost maka semakin rendah peluang untuk dipilih.</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </main>
 @endsection

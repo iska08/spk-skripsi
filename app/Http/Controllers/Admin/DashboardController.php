@@ -19,7 +19,7 @@ class DashboardController extends Controller
             'wisata'    => Wisata::where('validasi', '=', '2')->count(),
             'criterias' => Criteria::count(),
             'jenis'     => Jenis::count(),
-            'users'     => User::count(),
+            'users'     => User::whereNot('id', auth()->user()->id)->count(),
             'wisatas'   => $wisatas,
         ]);
     }

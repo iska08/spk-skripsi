@@ -1,7 +1,6 @@
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
-            <hr class="bs-sidenav-bar">
             <div class="nav">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}"
                     href="{{ route('dashboard.index') }}">
