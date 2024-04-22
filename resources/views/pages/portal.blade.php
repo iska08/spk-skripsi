@@ -32,7 +32,7 @@ Portal
         <!-- ======= Featured Services Section ======= -->
         <section id="featured-services" class="featured-services">
             <div class="container ">
-                <div class="row d-flex justify-content-betwen text-center">
+                <div class="row d-flex justify-content-center text-center">
                     <div class="col-xl-3 col-md-6" data-aos="zoom-out">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-people icon"></i></div>

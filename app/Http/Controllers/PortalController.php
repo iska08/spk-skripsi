@@ -14,14 +14,10 @@ class PortalController extends Controller
     public function index(Request $request)
     {
         return view('pages.portal', [
-            'wisata'    => Wisata::count(),
+            'wisata'    => Wisata::where('validasi', '=', '2')->count(),
             'criterias' => Criteria::count(),
             'jenis'     => Jenis::count(),
             'users'     => User::count(),
-            // 'comments'  => Comment::join('users', 'comments.user_id', '=', 'users.id')
-            //     ->select('comments.*', 'users.name', 'users.username')
-            //     ->latest('comments.created_at')
-            //     ->paginate(10)
         ]);
     }
 }
