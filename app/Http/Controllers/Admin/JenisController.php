@@ -61,7 +61,7 @@ class JenisController extends Controller
         ]);
         $request['slug'] = Str::slug($request->jenis_name, '-');
         Jenis::create($validatedData);
-        return redirect('/dashboard/jenis')->with('success', "Tambah Jenis Wisata Baru Berhasil");
+        return redirect('/dashboard/data/jenis')->with('success', "Tambah Jenis Wisata Baru Berhasil");
     }
 
     /**
@@ -112,7 +112,7 @@ class JenisController extends Controller
         $validatedData['slug'] = Str::slug($validatedData['jenis_name'], '-');
         $item = Jenis::findOrFail($id);
         $item->update($validatedData);
-        return redirect('/dashboard/jenis')->with('success', 'Jenis Wisata yang Dipilih Telah Diperbarui!');
+        return redirect('/dashboard/data/jenis')->with('success', 'Jenis Wisata yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -129,7 +129,7 @@ class JenisController extends Controller
         
         $jenis = Jenis::findOrFail($id);
         $jenis->delete();
-        return redirect()->route('jenis.index')->with('success', 'Jenis Wisata yang Dipilih Telah Dihapus!');
+        return redirect('/dashboard/data/jenis')->with('success', 'Jenis Wisata yang Dipilih Telah Dihapus!');
     }
 
     public function wisatas(Jenis $jenis)

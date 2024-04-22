@@ -5,6 +5,8 @@
         <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('kombinasi.awal') }}">Metode SPK</a></li>
                 <li class="breadcrumb-item">
                     <a href="{{ route('saw.result', $criteriaAnalysis->id) }}">
                         Perhitungan SAW

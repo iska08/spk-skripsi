@@ -60,7 +60,7 @@ class UserController extends Controller
         $validate = $request->validated();
         $validate['password'] = Hash::make($validate['password']);
         User::create($validate);
-        return redirect('/dashboard/users')->with('success', 'Pengguna Baru Telah Ditambahkan!');
+        return redirect('/dashboard/pengguna/users')->with('success', 'Pengguna Baru Telah Ditambahkan!');
     }
 
     /**
@@ -110,7 +110,7 @@ class UserController extends Controller
             $validate['password'] = Hash::make($validate['password']);
         }
         User::where('id', $user->id)->update($validate);
-        return redirect('/dashboard/users')->with('success', 'Pengguna yang Dipilih Telah Diperbarui!');
+        return redirect('/dashboard/pengguna/users')->with('success', 'Pengguna yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -127,6 +127,6 @@ class UserController extends Controller
 
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('users.index')->with('success', 'Pengguna yang Dipilih Telah Dihapus!');
+        return redirect('/dashboard/pengguna/users')->with('success', 'Pengguna yang Dipilih Telah Dihapus!');
     }
 }

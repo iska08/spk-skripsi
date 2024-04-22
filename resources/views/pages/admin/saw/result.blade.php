@@ -5,19 +5,14 @@
         <div class="col-sm-6 col-md-12">
             <h1 class="mt-4">{{ $title }}</h1>
             <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.index') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('kombinasi.awal') }}">Metode SPK</a></li>
                 <li class="breadcrumb-item active">{{ $title }}</li>
-                @php($crValue = session("cr_value_{$criteriaAnalysis->id}"))
-                @if ($crValue > 0.1)
-                <li class="breadcrumb-item" style="color: red;">
-                    Perhitungan SAW
-                </li>
-                @else
                 <li class="breadcrumb-item">
                     <a href="{{ route('saw.detail', $criteriaAnalysis->id) }}">
                         Detail Perhitungan SAW
                     </a>
                 </li>
-                @endif
             </ol>
         </div>
     </div>

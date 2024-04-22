@@ -29,12 +29,12 @@ class ProfileController extends Controller
                 // password match
                 $newPass = Hash::make($validate['password']);
                 User::where('id', $user->id)->update(['password' => $newPass]);
-                return redirect()->route('profile.index')->with('success', 'Kata Sandi Anda Telah Diperbarui!');
+                return redirect('/dashboard/pengguna/profile')->with('success', 'Kata Sandi Anda Telah Diperbarui!');
             } else {
-                return redirect()->route('profile.index')->with('failed', 'Kata Sandi Lama Anda Tidak Valid!');
+                return redirect('/dashboard/pengguna/profile')->with('failed', 'Kata Sandi Lama Anda Tidak Valid!');
             }
         }
         User::where('id', $user->id)->update($validate);
-        return redirect()->route('profile.index')->with('success', "Profil Anda Telah Diperbarui!");
+        return redirect('/dashboard/pengguna/profile')->with('success', "Profil Anda Telah Diperbarui!");
     }
 }

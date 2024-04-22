@@ -80,7 +80,7 @@ class WisataController extends Controller
 
         $validatedData = $request->validated();
         Wisata::create($validatedData);
-        return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata Baru Telah Ditambahkan!');
+        return redirect('/dashboard/data/wisata')->with('success', 'Destinasi Wisata Baru Telah Ditambahkan!');
     }
 
     /**
@@ -131,7 +131,7 @@ class WisataController extends Controller
         $validatedData = $request->validated();
         $item = Wisata::findOrFail($id);
         $item->update($validatedData);
-        return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Diperbarui!');
+        return redirect('/dashboard/data/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -148,6 +148,6 @@ class WisataController extends Controller
 
         $wisata = Wisata::findOrFail($id);
         $wisata->delete();
-        return redirect('/dashboard/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Dihapus!');
+        return redirect('/dashboard/data/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Dihapus!');
     }
 }

@@ -79,7 +79,7 @@ class CriteriaController extends Controller
         $validatedData   = $request->validated();
         $request['slug'] = Str::slug($request->nama_kriteria, '-');
         Criteria::create($validatedData);
-        return redirect('/dashboard/kriteria')->with('success', 'Kriteria Baru Telah Ditambahkan!');
+        return redirect('/dashboard/data/kriteria')->with('success', 'Kriteria Baru Telah Ditambahkan!');
     }
 
     /**
@@ -129,7 +129,7 @@ class CriteriaController extends Controller
         $data['slug'] = Str::slug($data['nama_kriteria'], '-');
         $item = Criteria::findOrFail($id);
         $item->update($data);
-        return redirect('/dashboard/kriteria')->with('success', 'Kriteria yang Dipilih Telah Diperbarui!');
+        return redirect('/dashboard/data/kriteria')->with('success', 'Kriteria yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -146,6 +146,6 @@ class CriteriaController extends Controller
 
         $kriterium = Criteria::findOrFail($id);
         $kriterium->delete();
-        return redirect('/dashboard/kriteria')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
+        return redirect('/dashboard/data/kriteria')->with('success', 'Kriteria yang Dipilih Telah Dihapus!');
     }
 }

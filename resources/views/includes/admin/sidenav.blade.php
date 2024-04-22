@@ -8,98 +8,137 @@
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-home"></i>
                     </div>
-                    Dashboard
+                    <b>Dashboard</b>
                 </a>
-                {{-- Master Data --}}
-                <div class="sb-sidenav-menu-heading">Master Data</div>
-                {{-- kriteria --}}
-                <a class="nav-link {{ Request::is('dashboard/kriteria*') ? 'active' : '' }}"
-                    href="{{ route('kriteria.index') }}">
-                    <div class="sb-nav-link-icon col-1">
-                        <i class="fas fa-list-alt"></i>
-                    </div>
-                    Data Kriteria
-                </a>
-                {{-- Data Destinasi Wisata --}}
-                <a class="nav-link {{ Request::is('dashboard/wisata*') ? 'active' : '' }}"
-                    href="{{ route('wisata.index') }}">
-                    <div class="sb-nav-link-icon col-1">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    Data Destinasi Wisata
-                </a>
-                {{-- Data Jenis Wisata --}}
-                <a class="nav-link {{ Request::is('dashboard/jenis*') ? 'active' : '' }}"
-                    href="{{ route('jenis.index') }}">
-                    <div class="sb-nav-link-icon col-1">
-                        <i class="fas fa-umbrella-beach"></i>
-                    </div>
-                    Data Jenis Wisata
-                </a>
-                {{-- Master User --}}
-                <a class="nav-link {{ Request::is('dashboard/alternatif*') ? 'active' : '' }}"
-                    href="{{ route('alternatif.index') }}">
+                {{-- Dropdown Master Data --}}
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/data/*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse"
+                    aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-cubes"></i>
                     </div>
-                    Data Alternatif
+                    <b>Master Data</b>
+                    <i class="fas fa-caret-down ms-auto"></i>
                 </a>
-                @can('admin')
-                <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }}"
-                    href="{{ route('sarans.index') }}">
+                <div class="collapse" id="masterDataCollapse" data-bs-parent="#sidenavAccordion">
+                    <a class="nav-link {{ Request::is('dashboard/data/kriteria*') ? 'active' : '' }} child"
+                        href="{{ route('kriteria.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Data Kriteria
+                    </a>
+                    <a class="nav-link {{ Request::is('dashboard/data/wisata*') ? 'active' : '' }} child"
+                        href="{{ route('wisata.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Data Destinasi Wisata
+                    </a>
+                    <a class="nav-link {{ Request::is('dashboard/data/jenis*') ? 'active' : '' }} child"
+                        href="{{ route('jenis.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Data Jenis Wisata
+                    </a>
+                    <a class="nav-link {{ Request::is('dashboard/data/alternatif*') ? 'active' : '' }} child"
+                        href="{{ route('alternatif.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Data Alternatif
+                    </a>
+                </div>
+                {{-- Dropdown Saran --}}
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/sarans*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse1"
+                    aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-comment-alt"></i>
                     </div>
-                    Validasi Saran Wisata
+                    <b>Master Saran</b>
+                    <i class="fas fa-caret-down ms-auto"></i>
                 </a>
-                @elseif('user')
-                <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }}"
-                    href="{{ route('sarans.index') }}">
-                    <div class="sb-nav-link-icon col-1">
-                        <i class="fas fa-comment-alt"></i>
-                    </div>
-                    Saran Destinasi Wisata
-                </a>
-                @endcan
-                <a class="nav-link {{ Request::is('dashboard/kombinasi*') ? 'active' : '' }}"
-                    href="{{ route('kombinasi.awal') }}">
+                <div class="collapse" id="masterDataCollapse1" data-bs-parent="#sidenavAccordion">
+                    @can('admin')
+                    <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }} child"
+                        href="{{ route('sarans.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Validasi Saran Wisata
+                    </a>
+                    @elseif('user')
+                    <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }} child"
+                        href="{{ route('sarans.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Saran Destinasi Wisata
+                    </a>
+                    @endcan
+                </div>
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/perhitungan*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse2"
+                    aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-ranking-star"></i>
                     </div>
-                    Metode SPK
+                    <b>Master SPK</b>
+                    <i class="fas fa-caret-down ms-auto"></i>
                 </a>
-                @can('admin')
-                <a class="nav-link {{ Request::is('dashboard/setting-kombinasi*') ? 'active' : '' }}"
-                    href="{{ route('kombinasi.index') }}">
-                    <div class="sb-nav-link-icon col-1">
-                        <i class="fas fa-gear"></i>
-                    </div>
-                    Data Perhitungan
-                </a>
-                @endcan
-                <div class="sb-sidenav-menu-heading">Master Pengguna</div>
-                @can('admin')
-                <a class="nav-link {{ Request::is('dashboard/users*') ? 'active' : '' }}"
-                    href="{{ route('users.index') }}">
+                <div class="collapse" id="masterDataCollapse2" data-bs-parent="#sidenavAccordion">
+                    <a class="nav-link {{ Request::is('dashboard/perhitungan/metode*') ? 'active' : '' }} child"
+                        href="{{ route('kombinasi.awal') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Metode SPK
+                    </a>
+                    @can('admin')
+                    <a class="nav-link {{ Request::is('dashboard/perhitungan/setting*') ? 'active' : '' }} child"
+                        href="{{ route('kombinasi.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Data Perhitungan
+                    </a>
+                    @endcan
+                </div>
+                {{-- Master Pengguna --}}
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/pengguna*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse3"
+                    aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-user-gear"></i>
                     </div>
-                    Data Pengguna
+                    <b>Master Pengguna</b>
+                    <i class="fas fa-caret-down ms-auto"></i>
                 </a>
-                @endcan
-                <a class="nav-link {{ Request::is('dashboard/profile*') ? 'active' : '' }}"
-                    href="{{ route('profile.index') }}">
-                    <div class="sb-nav-link-icon col-1">
-                        <i class="fas fa-user-pen"></i>
-                    </div>
-                    Ubah Profil
-                </a>
+                <div class="collapse" id="masterDataCollapse3" data-bs-parent="#sidenavAccordion">
+                    @can('admin')
+                    <a class="nav-link {{ Request::is('dashboard/pengguna/users*') ? 'active' : '' }} child"
+                        href="{{ route('users.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Data Pengguna
+                    </a>
+                    @endcan
+                    <a class="nav-link {{ Request::is('dashboard/pengguna/profile*') ? 'active' : '' }} child"
+                        href="{{ route('profile.index') }}">
+                        <div class="sb-nav-link-icon col-1">
+                            <i class="fas"></i>
+                        </div>
+                        Ubah Profil
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 </div>
 <style>
     .nav-link.active {
-        background-color: gray;
+        background-color: grey;
+    }
+    .nav-link.active.child {
+        background-color: #343a40;
     }
 </style>

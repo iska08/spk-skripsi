@@ -108,7 +108,7 @@ class AlternativeController extends Controller
             ];
             Alternative::create($data);
         }
-        return redirect('/dashboard/alternatif')->with('success', 'Alternatif Baru Telah Ditambahkan!');
+        return redirect('/dashboard/data/alternatif')->with('success', 'Alternatif Baru Telah Ditambahkan!');
     }
 
     /**
@@ -179,7 +179,7 @@ class AlternativeController extends Controller
             ];
             Alternative::where('id', $validate['alternative_id'][$key])->update($data);
         }
-        return redirect('/dashboard/alternatif')->with('success', 'Alternatif yang Dipilih Telah Diperbarui!');
+        return redirect('/dashboard/data/alternatif')->with('success', 'Alternatif yang Dipilih Telah Diperbarui!');
     }
 
     /**
@@ -195,6 +195,6 @@ class AlternativeController extends Controller
         }
 
         Alternative::where('wisata_id', $alternatif->wisata_id)->delete();
-        return redirect('/dashboard/alternatif')->with('success', 'Alternatif yang Dipilih Telah Dihapus!');
+        return redirect('/dashboard/data/alternatif')->with('success', 'Alternatif yang Dipilih Telah Dihapus!');
     }
 }

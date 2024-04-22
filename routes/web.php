@@ -61,56 +61,57 @@ Route::prefix('dashboard')
         Route::get('/', [DashboardController::class, 'index'])
             ->name('dashboard.index');
         Route::resources([
-            'kriteria'  => CriteriaController::class,
-            'wisata'    => WisataController::class,
-            'jenis'     => JenisController::class,
-            'users'     => UserController::class,
-            'sarans'    => SaranController::class,
+            'data/kriteria'  => CriteriaController::class,
+            'data/wisata'    => WisataController::class,
+            'data/jenis'     => JenisController::class,
+            'pengguna/users' => UserController::class,
+            'sarans'         => SaranController::class,
         ], ['except' => 'show', 'middleware' => 'admin']);
         Route::put('/dashboard/sarans/{id}/approve', [SaranController::class, 'approve'])
             ->name('sarans.approve');
         // alternatif
-        Route::resource('alternatif', AlternativeController::class)
+        Route::resource('data/alternatif', AlternativeController::class)
             ->except('show');
         // profile
-        Route::get('profile', [ProfileController::class, 'index'])
+        Route::get('pengguna/profile', [ProfileController::class, 'index'])
             ->name('profile.index');
-        Route::put('profile/{users}', [ProfileController::class, 'update'])
+        Route::put('pengguna/profile/{users}', [ProfileController::class, 'update'])
             ->name('profile.update');
         // link slug
-        Route::get('jenis/{jenis:slug}', [JenisController::class, 'wisatas'])
+        Route::get('data/jenis/{jenis:slug}', [JenisController::class, 'wisatas'])
             ->name('jenis.wisatas');
-        // kombinasi
-        Route::get('setting-kombinasi', [KombinasiController::class, 'index'])
+        // perhitungan
+        Route::get('perhitungan/setting', [KombinasiController::class, 'index'])
             ->name('kombinasi.index');
-        Route::get('kombinasi', [KombinasiController::class, 'awal'])
+        Route::get('perhitungan/metode', [KombinasiController::class, 'awal'])
             ->name('kombinasi.awal');
-        Route::post('setting-kombinasi', [KombinasiController::class, 'store'])
+        Route::post('perhitungan/setting', [KombinasiController::class, 'store'])
             ->name('kombinasi.store');
-        Route::get('setting-kombinasi/{criteria_analysis}', [KombinasiController::class, 'show'])
+        Route::get('perhitungan/setting/{criteria_analysis}', [KombinasiController::class, 'show'])
             ->name('kombinasi.show');
-        Route::get('setting-kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'show'])
+        Route::get('perhitungan/setting/perbandingan/{criteria_analysis}', [KombinasiController::class, 'show'])
             ->name('kombinasi.show');
-        Route::put('setting-kombinasi/perbandingan/{criteria_analysis}', [KombinasiController::class, 'update'])
+        Route::put('perhitungan/setting/perbandingan/{criteria_analysis}', [KombinasiController::class, 'update'])
             ->name('kombinasi.update');
-        Route::get('setting-kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'showBobot'])
+        Route::get('perhitungan/setting/bobot/{criteria_analysis}', [KombinasiController::class, 'showBobot'])
             ->name('kombinasi.showBobot');
-        Route::put('setting-kombinasi/bobot/{criteria_analysis}', [KombinasiController::class, 'updateBobot'])
+        Route::put('perhitungan/setting/bobot/{criteria_analysis}', [KombinasiController::class, 'updateBobot'])
             ->name('kombinasi.updateBobot');
-        Route::delete('setting-kombinasi/{criteria_analysis}', [KombinasiController::class, 'destroy'])
+        Route::delete('perhitungan/setting/{criteria_analysis}', [KombinasiController::class, 'destroy'])
             ->name('kombinasi.destroy');
-        Route::get('kombinasi/result/{criteria_analysis}', [KombinasiController::class, 'result'])
+        // kombinasi
+        Route::get('perhitungan/metode/kombinasi/{criteria_analysis}', [KombinasiController::class, 'result'])
             ->name('kombinasi.result');
-        Route::get('kombinasi/result/detail/{criteria_analysis}', [KombinasiController::class, 'detail'])
+        Route::get('perhitungan/metode/kombinasi/detail/{criteria_analysis}', [KombinasiController::class, 'detail'])
             ->name('kombinasi.detail');
         // ahp
-        Route::get('ahp/result/{criteria_analysis}', [AhpController::class, 'result'])
+        Route::get('perhitungan/metode/ahp/{criteria_analysis}', [AhpController::class, 'result'])
             ->name('ahp.result');
-        Route::get('ahp/result/detail/{criteria_analysis}', [AhpController::class, 'detail'])
+        Route::get('perhitungan/metode/ahp/detail/{criteria_analysis}', [AhpController::class, 'detail'])
             ->name('ahp.detail');
         // saw
-        Route::get('saw/{criteria_analysis}', [SawController::class, 'result'])
+        Route::get('perhitungan/metode/saw/{criteria_analysis}', [SawController::class, 'result'])
             ->name('saw.result');
-        Route::get('saw/result/detail/{criteria_analysis}', [SawController::class, 'detail'])
+        Route::get('perhitungan/metode/saw/detail/{criteria_analysis}', [SawController::class, 'detail'])
             ->name('saw.detail');
     });
