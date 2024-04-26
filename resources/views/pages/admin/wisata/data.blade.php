@@ -89,7 +89,7 @@
                                         </td>
                                         <td class="text-center">
                                             @if($wisata->link_foto == "" || $wisata->link_foto == "-")
-                                            <img src="../frontend/images/noimage.png" alt="Gambar" style="width: 4cm; height: 3cm">
+                                            <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="width: 4cm; height: 3cm">
                                             @else
                                             <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
                                             @endif

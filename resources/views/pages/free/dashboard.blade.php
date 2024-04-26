@@ -25,7 +25,7 @@
                     <div class="slide-item">
                         <div class="d-flex justify-content position-relative" style="max-width: 80%">
                             @if ($wisata->link_foto == "" || $wisata->link_foto == "-")
-                            <img src="frontend/images/noimage.png" alt="Gambar" style="width: 4cm; height: 3cm">
+                            <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="width: 4cm; height: 3cm">
                             @else
                             <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
                             @endif
@@ -76,7 +76,7 @@
                     <div class="slide-item">
                         <div class="container d-flex justify-content position-relative">
                             @if ($wisata->link_foto == "" || $wisata->link_foto == "-")
-                            <img src="frontend/images/noimage.png" alt="Gambar" style="height: 4cm; width: 6cm">
+                            <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="height: 4cm; width: 6cm">
                             @else
                             <img src="{{ $wisata->link_foto }}" alt="Gambar" style="height: 4cm; width: 6cm">
                             @endif

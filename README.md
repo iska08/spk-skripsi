@@ -2,7 +2,13 @@
 
 ## Portal
 
-![Portal](</screenshoot/Portal/Portal (All).png>)
+### Portal Sebelum Login
+
+![Portal Sebelum Login](</screenshoot/Portal/Portal (Before Login).png>)
+
+### Portal Sesudah Login
+
+![Portal Sesudah Login](</screenshoot/Portal/Portal (After Login).png>)
 
 ## Login
 
@@ -20,79 +26,63 @@
 
 ### Data Kriteria
 
-#### Data Kriteria (Create)
+#### Tambah Data Kriteria
 
-![Data Kriteria (Create)](</screenshoot/Kriteria/Admin - Data Kriteria (Create).png>)
+![Tambah Data Kriteria](</screenshoot/Kriteria/Admin - Tambah Data Kriteria.png>)
 
-#### Data Kriteria (Read)
+#### Edit Data Kriteria
 
-![Data Kriteria (Read)](</screenshoot/Kriteria/Admin - Data Kriteria (Read).png>)
+![Edit Data Kriteria](</screenshoot/Kriteria/Admin - Edit Data Kriteria.png>)
 
-#### Data Kriteria (Update)
+#### List Data Kriteria
 
-![Data Kriteria (Update)](</screenshoot/Kriteria/Admin - Data Kriteria (Update).png>)
-
-#### Data Kriteria (Delete)
-
-![Data Kriteria (Delete)](</screenshoot/Kriteria/Admin - Data Kriteria (Delete).png>)
+![List Data Kriteria](</screenshoot/Kriteria/Admin - List Data Kriteria.png>)
 
 ### Data Destinasi Wisata
 
-#### Data Destinasi Wisata (Create)
+#### Tambah Data Destinasi Wisata
 
-![Data Destinasi Wisata (Create)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Create).png>)
+![Tambah Data Destinasi Wisata](</screenshoot/Wisata/Admin - Tambah Data Destinasi Wisata.png>)
 
-#### Data Destinasi Wisata (Read)
+#### Edit Data Destinasi Wisata
 
-![Data Destinasi Wisata (Read)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Read).png>)
+![Edit Data Destinasi Wisata](</screenshoot/Wisata/Admin - Edit Data Destinasi Wisata.png>)
 
-#### Data Destinasi Wisata (Update)
+#### List Data Destinasi Wisata
 
-![Data Destinasi Wisata (Update)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Update).png>)
-
-#### Data Destinasi Wisata (Delete)
-
-![Data Destinasi Wisata (Delete)](</screenshoot/Wisata/Admin - Data Destinasi Wisata (Delete).png>)
+![List Data Destinasi Wisata](</screenshoot/Wisata/Admin - List Data Destinasi Wisata.png>)
 
 ### Data Jenis Wisata
 
-#### Data Jenis Wisata (Create)
+#### Tambah Data Jenis Wisata
 
-![Data Jenis Wisata (Create)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Create).png>)
+![Tambah Data Jenis Wisata](</screenshoot/Jenis/Admin - Tambah Data Jenis Wisata.png>)
 
-#### Data Jenis Wisata (Read)
+#### Edit Data Jenis Wisata
 
-![Data Jenis Wisata (Read)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Read).png>)
+![Edit Data Jenis Wisata](</screenshoot/Jenis/Admin - Edit Data Jenis Wisata.png>)
 
-#### Data Jenis Wisata (Detail)
+#### List Data Jenis Wisata
 
-![Data Jenis Wisata (Detail)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Detail).png>)
+![List Data Jenis Wisata](</screenshoot/Jenis/Admin - List Data Jenis Wisata.png>)
 
-#### Data Jenis Wisata (Update)
+#### List Detail Data Jenis Wisata
 
-![Data Jenis Wisata (Update)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Update).png>)
-
-#### Data Jenis Wisata (Delete)
-
-![Data Jenis Wisata (Delete)](</screenshoot/Jenis/Admin - Data Jenis Wisata (Delete).png>)
+![List Detail Data Jenis Wisata](</screenshoot/Jenis/Admin - List Detail Data Jenis Wisata.png>)
 
 ### Data Alternatif
 
-#### Data Alternatif (Create)
+#### Tambah Data Alternatif
 
-![Data Alternatif (Create)](</screenshoot/Alternatif/Admin - Data Alternatif (Create).png>)
+![Tambah Data Alternatif](</screenshoot/Alternatif/Admin - Tambah Data Alternatif.png>)
 
-#### Data Alternatif (Read)
+#### Edit Data Alternatif
 
-![Data Alternatif (Read)](</screenshoot/Alternatif/Admin - Data Alternatif (Read).png>)
+![Edit Data Alternatif](</screenshoot/Alternatif/Admin - Edit Data Alternatif.png>)
 
-#### Data Alternatif (Update)
+#### List Data Alternatif
 
-![Data Alternatif (Update)](</screenshoot/Alternatif/Admin - Data Alternatif (Update).png>)
-
-#### Data Alternatif (Delete)
-
-![Data Alternatif (Delete)](</screenshoot/Alternatif/Admin - Data Alternatif (Delete).png>)
+![List Data Alternatif](</screenshoot/Alternatif/Admin - List Data Alternatif.png>)
 
 ### Validasi Saran Destinasi Wisata
 
@@ -100,43 +90,35 @@
 
 ### Data Perhitungan
 
-#### Data Perhitungan (Create)
+#### Tambah Data Perhitungan
 
-![Data Perhitungan (Create)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Create).png>)
+![Tambah Data Perhitungan](</screenshoot/Perhitungan/Admin - Tambah Data Perhitungan.png>)
 
-#### Data Perhitungan (Read)
+#### Edit Perbandingan Kriteria Data Perhitungan
 
-![Data Perhitungan (Read)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Read).png>)
+![Edit Perbandingan Kriteria Data Perhitungan](</screenshoot/Perhitungan/Admin - Edit Perbandingan Kriteria Data Perhitungan.png>)
 
-#### Data Perhitungan (Update Perbandingan Kriteria)
+#### Edit Bobot Data Perhitungan
 
-![Data Perhitungan (Update Perbandingan Kriteria)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Update Perbandingan Kriteria).png>)
+![Edit Bobot Data Perhitungan](</screenshoot/Perhitungan/Admin - Edit Bobot Data Perhitungan.png>)
 
-#### Data Perhitungan (Update Bobot)
+#### List Data Perhitungan
 
-![Data Perhitungan (Update Bobot)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Update Bobot).png>)
-
-#### Data Perhitungan (Delete)
-
-![Data Perhitungan (Delete)](</screenshoot/Perhitungan/Admin - Data Perhitungan (Delete).png>)
+![List Data Perhitungan](</screenshoot/Perhitungan/Admin - List Data Perhitungan.png>)
 
 ### Data Pengguna
 
-#### Data Pengguna (Create)
+#### Tambah Data Pengguna
 
-![Data Pengguna (Create)](</screenshoot/User/Admin - Data Pengguna (Create).png>)
+![Tambah Data Pengguna](</screenshoot/User/Admin - Tambah Data Pengguna.png>)
 
-#### Data Pengguna (Read)
+#### Edit Data Pengguna
 
-![Data Pengguna (Read)](</screenshoot/User/Admin - Data Pengguna (Read).png>)
+![Edit Data Pengguna](</screenshoot/User/Admin - Edit Data Pengguna.png>)
 
-#### Data Pengguna (Update)
+#### List Data Pengguna
 
-![Data Pengguna (Update)](</screenshoot/User/Admin - Data Pengguna (Update).png>)
-
-#### Data Pengguna (Delete)
-
-![Data Pengguna (Delete)](</screenshoot/User/Admin - Data Pengguna (Delete).png>)
+![List Data Pengguna](</screenshoot/User/Admin - List Data Pengguna.png>)
 
 ### Ubah Profil
 
@@ -150,21 +132,17 @@
 
 ### Saran Destinasi Wisata
 
-#### Saran Destinasi Wisata (Create)
+#### Tambah Saran Destinasi Wisata
 
-![Saran Destinasi Wisata (Create)](</screenshoot/Saran/Saran Destinasi Wisata (Create).png>)
+![Tambah Saran Destinasi Wisata](</screenshoot/Saran/Tambah Saran Destinasi Wisata.png>)
 
-#### Saran Destinasi Wisata (Read)
+#### Edit Saran Destinasi Wisata
 
-![Saran Destinasi Wisata (Read)](</screenshoot/Saran/Saran Destinasi Wisata (Read).png>)
+![Edit Saran Destinasi Wisata](</screenshoot/Saran/Edit Saran Destinasi Wisata.png>)
 
-#### Saran Destinasi Wisata (Update)
+#### List Saran Destinasi Wisata
 
-![Saran Destinasi Wisata (Update)](</screenshoot/Saran/Saran Destinasi Wisata (Update).png>)
-
-#### Saran Destinasi Wisata (Delete)
-
-![Saran Destinasi Wisata (Delete)](</screenshoot/Saran/Saran Destinasi Wisata (Delete).png>)
+![List Saran Destinasi Wisata](</screenshoot/Saran/List Saran Destinasi Wisata.png>)
 
 ### Ubah Profil
 
@@ -172,25 +150,29 @@
 
 ## Non-Auth
 
+### Dashboard
+
+![Dashboard](</screenshoot/Dashboard/Non Auth - Dashboard.png>)
+
 ### Data Kriteria
 
-![Data Kriteria](</screenshoot/Kriteria/User - Data Kriteria.png>)
+![Data Kriteria](</screenshoot/Kriteria/User - List Data Kriteria.png>)
 
 ### Data Destinasi Wisata
 
-![Data Destinasi Wisata](</screenshoot/Wisata/User - Data Destinasi Wisata.png>)
+![Data Destinasi Wisata](</screenshoot/Wisata/User - List Data Destinasi Wisata.png>)
 
 ### Data Jenis Wisata
 
-![Data Jenis Wisata](</screenshoot/Jenis/User - Data Jenis Wisata.png>)
+![Data Jenis Wisata](</screenshoot/Jenis/User - List Data Jenis Wisata.png>)
 
 ### Detail Data Jenis Wisata
 
-![Detail Data Jenis Wisata](</screenshoot/Jenis/User - Detail Jenis Wisata.png>)
+![Detail Data Jenis Wisata](</screenshoot/Jenis/User - List Detail Jenis Wisata.png>)
 
 ### Data Alternatif
 
-![Data Alternatif](</screenshoot/Alternatif/User - Data Alternatif.png>)
+![Data Alternatif](</screenshoot/Alternatif/User - List Data Alternatif.png>)
 
 ### Metode SPK
 

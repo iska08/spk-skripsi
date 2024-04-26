@@ -19,8 +19,8 @@
         </div>
         <div class="mb-3">
             <label for="keterangan" class="form-label">Keterangan</label>
-            <textarea id="keterangan" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror"
-                autofocus required placeholder="Masukkan Keterangan">{{ old('keterangan', $jenises->keterangan) }}</textarea>
+            <input type="text" id="keterangan" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror"
+                value="{{ old('keterangan', $jenises->keterangan) }}" autofocus required placeholder="Masukkan Keterangan">
             @error('keterangan')
                 <div class="invalid-feedback">
                     {{ $message }}

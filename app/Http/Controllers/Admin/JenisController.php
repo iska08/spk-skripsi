@@ -58,6 +58,7 @@ class JenisController extends Controller
 
         $validatedData = $request->validate([
             'jenis_name' => 'required|max:30|unique:jenis',
+            'keterangan' => 'required',
         ]);
         $request['slug'] = Str::slug($request->jenis_name, '-');
         Jenis::create($validatedData);
