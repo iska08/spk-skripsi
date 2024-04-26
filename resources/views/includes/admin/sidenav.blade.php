@@ -2,14 +2,14 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard.index') }}">
+                <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }} parent" href="{{ route('dashboard.index') }}">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-home"></i>
                     </div>
                     <b>Dashboard</b>
                 </a>
                 {{-- Dropdown Master Data --}}
-                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/data/*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse" aria-expanded="false">
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/data/*') ? 'active' : '' }} parent" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse" aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-cubes"></i>
                     </div>
@@ -43,7 +43,7 @@
                     </a>
                 </div>
                 {{-- Dropdown Saran --}}
-                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/sarans*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse1" aria-expanded="false">
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/sarans*') ? 'active' : '' }} parent" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse1" aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-comment-alt"></i>
                     </div>
@@ -68,7 +68,7 @@
                     @endcan
                 </div>
                 {{-- Dropdown Master SPK --}}
-                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/perhitungan*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse2" aria-expanded="false">
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/perhitungan*') ? 'active' : '' }} parent" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse2" aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-ranking-star"></i>
                     </div>
@@ -92,7 +92,7 @@
                     @endcan
                 </div>
                 {{-- Dropdown Master Pengguna --}}
-                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/pengguna*') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse3" aria-expanded="false">
+                <a href="#" class="nav-link collapsed {{ Request::is('dashboard/pengguna*') ? 'active' : '' }} parent" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse3" aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-user-gear"></i>
                     </div>
@@ -142,8 +142,10 @@
     .nav-link.collapsed .fa-caret-down {
         transform: translateY(-50%) rotate(90deg);
     }
+    .nav-link.collapsed.active.parent .fa-caret-down {
+        transform: translateY(-50%) rotate(0deg);
+    }
 </style>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const urlParams = new URLSearchParams(window.location.search);
@@ -155,5 +157,15 @@
                 bsCollapse.show();
             }
         }
+        const collapseElements = document.querySelectorAll('.collapse');
+        collapseElements.forEach((collapseElement) => {
+            collapseElement.addEventListener('hidden.bs.collapse', function () {
+                const navLink = document.querySelector(`[data-bs-target="#${this.id}"]`);
+                if (navLink) {
+                    navLink.classList.remove('parent');
+                    navLink.classList.add('collapsed');
+                }
+            });
+        });
     });
 </script>
