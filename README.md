@@ -86,7 +86,7 @@
 
 ### Validasi Saran Destinasi Wisata
 
-![Validasi Saran Destinasi Wisata](</screenshoot/Saran/Validasi Saran Destinasi Wisata.png>)
+![Validasi Saran Destinasi Wisata](</screenshoot/Saran/Admin - Validasi Saran Destinasi Wisata.png>)
 
 ### Data Perhitungan
 
@@ -134,15 +134,15 @@
 
 #### Tambah Saran Destinasi Wisata
 
-![Tambah Saran Destinasi Wisata](</screenshoot/Saran/Tambah Saran Destinasi Wisata.png>)
+![Tambah Saran Destinasi Wisata](</screenshoot/Saran/User - Tambah Saran Destinasi Wisata.png>)
 
 #### Edit Saran Destinasi Wisata
 
-![Edit Saran Destinasi Wisata](</screenshoot/Saran/Edit Saran Destinasi Wisata.png>)
+![Edit Saran Destinasi Wisata](</screenshoot/Saran/User - Edit Saran Destinasi Wisata.png>)
 
 #### List Saran Destinasi Wisata
 
-![List Saran Destinasi Wisata](</screenshoot/Saran/List Saran Destinasi Wisata.png>)
+![List Saran Destinasi Wisata](</screenshoot/Saran/User - List Saran Destinasi Wisata.png>)
 
 ### Ubah Profil
 
@@ -178,33 +178,35 @@
 
 ![Metode SPK](</screenshoot/Kombinasi/Metode SPK.png>)
 
-#### Perhitungan Kombinasi
+#### Perhitungan Metode
 
-##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria
+##### Perhitungan Kombinasi
+
+###### Matriks Perbandingan dan Penjumlahan Kolom Kriteria
 
 ![Matriks Perbandingan dan Penjumlahan Kolom Kriteria](</screenshoot/Kombinasi/Kombinasi - Matriks Perbandingan dan Penjumlahan Kolom Kriteria.png>)
 
-##### Matriks Normalisasi Kriteria dan Eigen Vector (EV)
+###### Matriks Normalisasi Kriteria dan Eigen Vector (EV)
 
 ![Matriks Normalisasi Kriteria dan Eigen Vector (EV)](</screenshoot/Kombinasi/Kombinasi - Matriks Normalisasi Kriteria dan Eigen Vector (EV).png>)
 
-##### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)
+###### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)
 
 ![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)](</screenshoot/Kombinasi/Kombinasi - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV).png>)
 
-##### Menentukan λmaks dan Rasio Konsistensi
+###### Menentukan λmaks dan Rasio Konsistensi
 
 ![Menentukan λmaks dan Rasio Konsistensi](</screenshoot/Kombinasi/Kombinasi - Menentukan λmaks dan Rasio Konsistensi.png>)
 
-##### Normalisasi Alternatif
+###### Normalisasi Alternatif
 
 ![Normalisasi Alternatif](</screenshoot/Kombinasi/Kombinasi - Normalisasi Alternatif.png>)
 
-##### Ranking
+###### Ranking
 
 ![Ranking](</screenshoot/Kombinasi/Kombinasi - Ranking.png>)
 
-#### Perhitungan AHP
+##### Perhitungan AHP
 
 ##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria
 
@@ -230,7 +232,7 @@
 
 ![Ranking](</screenshoot/AHP/AHP - Ranking.png>)
 
-#### Perhitungan SAW
+##### Perhitungan SAW
 
 ##### Normalisasi Alternatif
 
@@ -240,66 +242,66 @@
 
 ![Ranking](</screenshoot/SAW/SAW - Ranking.png>)
 
-### Detail Perhitungan Metode
+#### Detail Perhitungan Metode
 
-#### Perhitungan Kombinasi
+##### Perhitungan Kombinasi
 
-##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)
+###### Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)
 
 ![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](</screenshoot/Kombinasi/Kombinasi - Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail).png>)
 
-##### Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)
+###### Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)
 
 ![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](</screenshoot/Kombinasi/Kombinasi - Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail).png>)
 
-##### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)
+###### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)
 
 ![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/Kombinasi/Kombinasi - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail).png>)
 
-##### Menentukan λmaks dan Rasio Konsistensi (Detail)
+###### Menentukan λmaks dan Rasio Konsistensi (Detail)
 
 ![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/Kombinasi/Kombinasi - Menentukan λmaks dan Rasio Konsistensi (Detail).png>)
 
-##### Normalisasi Alternatif (Detail)
+###### Normalisasi Alternatif (Detail)
 
 ![Normalisasi Alternatif (Detail)](</screenshoot/Kombinasi/Kombinasi - Normalisasi Alternatif (Detail).png>)
 
-##### Ranking (Detail)
+###### Ranking (Detail)
 
 ![Ranking (Detail)](</screenshoot/Kombinasi/Kombinasi - Ranking (Detail).png>)
 
-#### Perhitungan AHP
+##### Perhitungan AHP
 
-##### Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)
+###### Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)
 
 ![Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail)](</screenshoot/AHP/AHP - Matriks Perbandingan dan Penjumlahan Kolom Kriteria (Detail).png>)
 
-##### Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)
+###### Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)
 
 ![Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail)](</screenshoot/AHP/AHP - Matriks Normalisasi Kriteria dan Eigen Vector (EV) (Detail).png>)
 
-##### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)
+###### Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)
 
 ![Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail)](</screenshoot/AHP/AHP - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) (Detail).png>)
 
-##### Menentukan λmaks dan Rasio Konsistensi (Detail)
+###### Menentukan λmaks dan Rasio Konsistensi (Detail)
 
 ![Menentukan λmaks dan Rasio Konsistensi (Detail)](</screenshoot/AHP/AHP - Menentukan λmaks dan Rasio Konsistensi (Detail).png>)
 
-##### Menentukan Eigen Vector Alternatif di Setiap Kriteria (Detail)
+###### Menentukan Eigen Vector Alternatif di Setiap Kriteria (Detail)
 
 ![Menentukan Eigen Vector Alternatif di Setiap Kriteria (Detail)](</screenshoot/AHP/AHP - Menentukan Eigen Vector Alternatif di Setiap Kriteria (Detail).png>)
 
-##### Ranking (Detail)
+###### Ranking (Detail)
 
 ![Ranking (Detail)](</screenshoot/AHP/AHP - Ranking (Detail).png>)
 
-#### Perhitungan SAW
+##### Perhitungan SAW
 
-##### Normalisasi Alternatif (Detail)
+###### Normalisasi Alternatif (Detail)
 
 ![Normalisasi Alternatif (Detail)](</screenshoot/SAW/SAW - Normalisasi Alternatif (Detail).png>)
 
-##### Ranking (Detail)
+###### Ranking (Detail)
 
 ![Ranking (Detail)](</screenshoot/SAW/SAW - Ranking (Detail).png>)
