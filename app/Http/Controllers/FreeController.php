@@ -68,23 +68,42 @@ class FreeController extends Controller
 
     public function wisata(Request $request)
     {
-        $wisatas = Wisata::where('validasi', '=', '2')->orderby('nama_wisata');
-        if (request('search')) {
-            $wisatas->join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
-                ->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')
-                ->orWhere('wisatas.biaya', 'LIKE', '%' . request('search') . '%')
-                ->orWhere('jenis.jenis_name', 'LIKE', '%' . request('search') . '%')
-                ->get();
+        $criterias = Criteria::all();
+        // Mengambil data wisata yang telah divalidasi
+        $query = Wisata::where('validasi', '=', '2');
+        // Mengambil nilai-nilai alternatif dari request
+        $alternatives = $request->except(['perPage', 'page']);
+        // Memastikan ada nilai-nilai alternatif yang dikirim
+        if (!empty($alternatives)) {
+            // Memulai pembentukan subquery untuk setiap kriteria
+            $query->where(function ($subquery) use ($criterias, $request) {
+                foreach ($criterias as $criteria) {
+                    $criteriaId = $criteria->id;
+                    $alternativeValue = $request->input("criteria_$criteriaId");
+                    if ($alternativeValue !== null) {
+                        $subquery->whereIn('id', function ($subquery) use ($criteriaId, $alternativeValue) {
+                            $subquery->select('wisata_id')
+                                ->from('alternatives')
+                                ->where('criteria_id', $criteriaId)
+                                ->where('alternative_value', $alternativeValue);
+                        });
+                    }
+                }
+            });            
         }
+        // Get value halaman yang dipilih dari dropdown
         $page = $request->query('page', 1);
+        // Tetapkan opsi dropdown halaman yang diinginkan
         $perPageOptions = [5, 10, 15, 20, 25];
+        // Get value halaman yang dipilih menggunakan the query parameters
         $perPage = $request->query('perPage', $perPageOptions[1]);
-        $wisatas = $wisatas->paginate($perPage, $this->field1s, 'page', $page);
+        $wisatas = $query->orderBy('nama_wisata')->paginate($perPage, $this->field1s, 'page', $page);
         return view('pages.free.wisata', [
             'title'          => 'Data Destinasi Wisata',
             'wisatas'        => $wisatas,
             'perPageOptions' => $perPageOptions,
-            'perPage'        => $perPage
+            'perPage'        => $perPage,
+            'criterias'      => $criterias
         ]);
     }
 

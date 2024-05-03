@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\WisataRequest;
 use App\Http\Requests\Admin\WisataUpdateRequest;
+use App\Models\Criteria;
 use App\Models\Jenis;
 use App\Models\Wisata;
 use Illuminate\Http\Request;
@@ -22,29 +23,43 @@ class WisataController extends Controller
      */
     public function index(Request $request)
     {
-        // mengurutkan
-        $wisatas = Wisata::where('validasi', '=', '2')
-            ->orderby('nama_wisata');
-        if (request('search')) {
-            $wisatas->join('jenis', 'jenis.id', '=', 'wisatas.jenis_id')
-                ->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')
-                ->orWhere('wisatas.biaya', 'LIKE', '%' . request('search') . '%')
-                ->orWhere('jenis.jenis_name', 'LIKE', '%' . request('search') . '%')
-                ->get();
+        $criterias = Criteria::all();
+        // Mengambil data wisata yang telah divalidasi
+        $query = Wisata::where('validasi', '=', '2');
+        // Mengambil nilai-nilai alternatif dari request
+        $alternatives = $request->except(['perPage', 'page']);
+        // Memastikan ada nilai-nilai alternatif yang dikirim
+        if (!empty($alternatives)) {
+            // Memulai pembentukan subquery untuk setiap kriteria
+            $query->where(function ($subquery) use ($criterias, $request) {
+                foreach ($criterias as $criteria) {
+                    $criteriaId = $criteria->id;
+                    $alternativeValue = $request->input("criteria_$criteriaId");
+                    if ($alternativeValue !== null) {
+                        $subquery->whereIn('id', function ($subquery) use ($criteriaId, $alternativeValue) {
+                            $subquery->select('wisata_id')
+                                ->from('alternatives')
+                                ->where('criteria_id', $criteriaId)
+                                ->where('alternative_value', $alternativeValue);
+                        });
+                    }
+                }
+            });            
         }
         // Get value halaman yang dipilih dari dropdown
         $page = $request->query('page', 1);
         // Tetapkan opsi dropdown halaman yang diinginkan
         $perPageOptions = [5, 10, 15, 20, 25];
-        // Get value halaman yang dipilih menggunaakan the query parameters
+        // Get value halaman yang dipilih menggunakan the query parameters
         $perPage = $request->query('perPage', $perPageOptions[1]);
         // Paginasi hasil dengan halaman dan dropdown yang dipilih
-        $wisatas = $wisatas->paginate($perPage, $this->fields, 'page', $page);
+        $wisatas = $query->orderBy('nama_wisata')->paginate($perPage, $this->fields, 'page', $page);
         return view('pages.admin.wisata.data', [
             'title'          => 'Data Destinasi Wisata',
             'wisatas'        => $wisatas,
             'perPageOptions' => $perPageOptions,
-            'perPage'        => $perPage
+            'perPage'        => $perPage,
+            'criterias'      => $criterias
         ]);
     }
 

@@ -14,7 +14,7 @@
             {{-- datatable --}}
             <div class="card mb-4">
                 <div class="card-body table-responsive">
-                    <div class="d-sm-flex align-items-center justify-content-between">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-3">
                         <div class="d-sm-flex align-items-center mb-3">
                             <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
                                 @foreach ($perPageOptions as $option)
@@ -25,11 +25,22 @@
                             </select>
                             <label class="form-label col-lg-6 col-sm-6 col-md-6" for="perPage">entries per page</label>
                         </div>
-                        <form action="{{ route('free.wisata') }}" method="GET" class="ms-auto float-end">
+                    </div>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-3">
+                        <form action="{{ route('free.wisata') }}" method="GET" class="ms-auto">
                             <div class="input-group mb-3">
-                                <input type="text" name="search" id="myInput" class="form-control"
-                                    placeholder="Search..." value="{{ request('search') }}">
-                                <button class="btn btn-primary" type="submit">Search</button>
+                                @foreach ($criterias as $criteria)
+                                <select class="form-select" name="criteria_{{ $criteria->id }}">
+                                    <option value="">Pilih {{ $criteria->nama_kriteria }}</option>
+                                    <option value="1" {{ request('criteria_'.$criteria->id) == 1 ? 'selected' : '' }}>{{ $criteria->skala1 }}</option>
+                                    <option value="2" {{ request('criteria_'.$criteria->id) == 2 ? 'selected' : '' }}>{{ $criteria->skala2 }}</option>
+                                    <option value="3" {{ request('criteria_'.$criteria->id) == 3 ? 'selected' : '' }}>{{ $criteria->skala3 }}</option>
+                                    <option value="4" {{ request('criteria_'.$criteria->id) == 4 ? 'selected' : '' }}>{{ $criteria->skala4 }}</option>
+                                    <option value="5" {{ request('criteria_'.$criteria->id) == 5 ? 'selected' : '' }}>{{ $criteria->skala5 }}</option>
+                                </select>
+                                &nbsp;&nbsp;
+                                @endforeach
+                                <button class="btn btn-primary" type="submit">Filter</button>
                             </div>
                         </form>
                     </div>
