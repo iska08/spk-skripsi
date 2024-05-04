@@ -3,8 +3,7 @@
     <div class="container-fluid px-4 border-bottom">
         <h1 class="mt-4 h2">{{ $title }}</h1>
     </div>
-    <form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST" action="{{ route('wisata.update', $wisata->id) }}"
-        enctype="multipart/form-data">
+    <form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST" action="{{ route('wisata.update', $wisata->id) }}" enctype="multipart/form-data">
         @method('PUT')
         @csrf
         {{-- nama --}}
@@ -40,7 +39,7 @@
         {{-- keterangan --}}
         <div class="mb-3">
             <label for="keterangan" class="form-label">Keterangan</label>
-            <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" value="{{ old('keterangan', $wisata->keterangan) }}" autofocus required>
+            <textarea class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" autofocus required>{{ old('keterangan', $wisata->keterangan) }}</textarea>
             @error('keterangan')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -50,7 +49,7 @@
         {{-- fasilitas --}}
         <div class="mb-3">
             <label for="fasilitas" class="form-label">Fasilitas</label>
-            <input type="text" class="form-control @error('fasilitas') is-invalid @enderror" id="fasilitas" name="fasilitas" value="{{ old('fasilitas', $wisata->fasilitas) }}" autofocus required>
+            <textarea class="form-control @error('fasilitas') is-invalid @enderror" id="fasilitas" name="fasilitas" autofocus required>{{ old('fasilitas', $wisata->fasilitas) }}</textarea>
             @error('fasilitas')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -94,6 +93,19 @@
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <label for="tampil" class="form-label">Akses Informasi</label>
+            <select class="form-select @error('tampil') is-invalid @enderror" id="tampil" name="tampil" required>
+                <option value="0" {{ old('tampil', $wisata->tampil) === '0' ? 'selected' : '' }}>Akses Belum Dibuka</option>
+                <option value="1" {{ old('tampil', $wisata->tampil) === '1' ? 'selected' : '' }}>Akses Tidak Publik</option>
+                <option value="2" {{ old('tampil', $wisata->tampil) === '2' ? 'selected' : '' }}>Akses Publik</option>
+            </select>
+            @error('tampil')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
             @enderror
         </div>
         <button type="submit" class="btn btn-primary mb-3">Simpan Perubahan</button>

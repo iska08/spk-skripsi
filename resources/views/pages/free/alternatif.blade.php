@@ -28,8 +28,7 @@
                     </div>
                     <form action="{{ route('free.alternatif') }}" method="GET" class="ms-auto float-end">
                         <div class="input-group mb-3">
-                            <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..."
-                                value="{{ request('search') }}">
+                            <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..." value="{{ request('search') }}">
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                     </form>
@@ -88,83 +87,6 @@
                     </tbody>
                 </table>
                 {{ $alternatives->appends(request()->query())->links() }}
-            </div>
-        </div>
-    </div>
-    <!-- Add Alternative -->
-    <div class="modal fade" id="addAlternativeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="addAlternativeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addAlternativeModalLabel">Tambah Alternatif</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ route('alternatif.index') }}" method="post">
-                    <div class="modal-body">
-                        <span class="mb-2">Catatan :</span>
-                        <ul class="list-group mb-2">
-                            <li class="list-group-item bg-success text-white">
-                                Nilai minimum 0 dan maximum 100
-                            </li>
-                            <li class="list-group-item bg-success text-white">
-                                Gunakan (.) jika memasukkan nilai desimal
-                            </li>
-                        </ul>
-                        @csrf
-                        <div class="my-2">
-                            <label for="wisata_id" class="form-label">Daftar Destinasi Wisata</label>
-                            <select class="form-select @error('wisata_id') 'is-invalid' : ''  @enderror" id="wisata_id"
-                                name="wisata_id" required>
-                                <option disabled selected value="">--Pilih Destinasi Wisata--</option>
-                                @if ($wisata_list->count())
-                                @foreach ($wisata_list as $jenis => $wisatas)
-                                <optgroup label="Destinasi {{ $jenis }}: {{ $wisatas->count() }}">
-                                    @foreach ($wisatas as $wisata)
-                                    <option value="{{ $wisata->id }} {{ $wisata->jenisId }}">
-                                        {{ $wisata->nama_wisata }} - {{ $wisata->jenis->jenis_name }}
-                                    </option>
-                                    @endforeach
-                                </optgroup>
-                                @endforeach
-                                @else
-                                <option disabled selected>--TIDAK ADA DATA--</option>
-                                @endif
-                            </select>
-                            @error('wisata_id')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-                        {{-- Masukkan Nilai Kriteria --}}
-                        @if ($criterias->count())
-                        @foreach ($criterias as $key => $criteria)
-                        <input type="hidden" name="criteria_id[]" value="{{ $criteria->id }}">
-                        <div class="my-2">
-                            <label for="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" class="form-label">
-                                Nilai <b> {{ $criteria->nama_kriteria }} </b>
-                            </label>
-                            <input type="text" id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}"
-                                class="form-control @error('alternative_value') 'is-invalid' : '' @enderror"
-                                name="alternative_value[]" placeholder="Masukkan Nilai"
-                                onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57)|| event.charCode == 46)"
-                                maxlength="5" autocomplete="off" required>
-                            @error('alternative_value')
-                            <div class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                            @enderror
-                        </div>
-                        @endforeach
-                        @endif
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="{{ $criterias->count() ? 'submit' : 'button' }}"
-                            class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

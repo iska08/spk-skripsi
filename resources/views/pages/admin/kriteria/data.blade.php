@@ -35,6 +35,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 @endif
+                @can('admin')
                 <div class="d-sm-flex align-items-center justify-content-between mb-3">
                     <div class="d-sm-flex align-items-center mb-3">
                         <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
@@ -48,8 +49,7 @@
                     </div>
                     <form action="{{ route('kriteria.index') }}" method="GET" class="ms-auto">
                         <div class="input-group mb-3">
-                            <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..."
-                                value="{{ request('search') }}">
+                            <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..." value="{{ request('search') }}">
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                     </form>
@@ -61,6 +61,7 @@
                                 <th rowspan="2">No</th>
                                 <th rowspan="2">Nama Kriteria</th>
                                 <th rowspan="2">Kategori</th>
+                                <th rowspan="2">Keterangan</th>
                                 <th colspan="5">Sub Kriteria</th>
                                 @can('admin')
                                 <th rowspan="2">Aksi</th>
@@ -81,6 +82,7 @@
                                 <td class="text-center bg-primary text-white">{{ $loop->iteration }}</td>
                                 <td class="text-center bg-warning">{{ $criteria->nama_kriteria }}</td>
                                 <td class="text-center bg-warning">{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
+                                <td class="text-center bg-warning">{{ $criteria->keterangan }}</td>
                                 <td class="text-center">{{ $criteria->skala1 }}</td>
                                 <td class="text-center">{{ $criteria->skala2 }}</td>
                                 <td class="text-center">{{ $criteria->skala3 }}</td>
@@ -91,12 +93,10 @@
                                     <a href="{{ route('kriteria.edit', $criteria->id) }}" class="badge bg-warning">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <form action="{{ route('kriteria.destroy', $criteria->id) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('kriteria.destroy', $criteria->id) }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button class="badge bg-danger border-0 btnDelete"
-                                            data-object="Kriteria {{ $criteria->nama_kriteria }}">
+                                        <button class="badge bg-danger border-0 btnDelete" data-object="Kriteria {{ $criteria->nama_kriteria }}">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     </form>
@@ -115,6 +115,36 @@
                     </table>
                 </div>
                 {{ $criterias->appends(request()->query())->links() }}
+                @elseif('user')
+                <div class="table-responsive">
+                    <table id="datatablesSimple" class="table table-bordered">
+                        <thead class="bg-primary align-middle text-center text-white">
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Kriteria</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if ($criterias->count())
+                            @foreach ($criterias as $criteria)
+                            <tr>
+                                <td class="text-center bg-primary text-white">{{ $loop->iteration }}</td>
+                                <td class="text-center bg-warning">{{ $criteria->nama_kriteria }}</td>
+                                <td class="text-center bg-warning">{{ $criteria->keterangan }}</td>
+                            </tr>
+                            @endforeach
+                            @else
+                            <tr>
+                                <td colspan="3" class="text-danger text-center p-4">
+                                    <h4>Kriteria Belum Dibuat</h4>
+                                </td>
+                            </tr>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+                @endcan
             </div>
         </div>
         <div class="card mb-4">

@@ -9,8 +9,7 @@
             @csrf
             <div class="mb-3">
                 <label for="nama_wisata" class="form-label">Saran Nama Destinasi Wisata</label>
-                <input type="text" class="form-control @error('nama_wisata') is-invalid @enderror" id="nama_wisata" name="nama_wisata"
-                    value="{{ old('nama_wisata') }}" autofocus required placeholder="Masukkan Nama Destinasi Wisata">
+                <input type="text" class="form-control @error('nama_wisata') is-invalid @enderror" id="nama_wisata" name="nama_wisata" value="{{ old('nama_wisata') }}" autofocus required placeholder="Masukkan Nama Destinasi Wisata">
                 @error('nama_wisata')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -37,8 +36,7 @@
             </div>
             <div class="mb-3">
                 <label for="keterangan" class="form-label">Keterangan</label>
-                <input type="text" class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan"
-                    value="{{ old('keterangan') }}" autofocus required placeholder="Masukkan Keterangan">
+                <textarea class="form-control @error('keterangan') is-invalid @enderror" id="keterangan" name="keterangan" autofocus required placeholder="Masukkan Keterangan">{{ old('keterangan') }}</textarea>
                 @error('keterangan')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -48,7 +46,6 @@
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             <input type="hidden" name="lokasi_maps" value="-">
             <input type="hidden" name="link_foto" value="-">
-            {{-- <input type="hidden" name="keterangan" value="-"> --}}
             <input type="hidden" name="fasilitas" value="-">
             <input type="hidden" name="biaya" value="0">
             <input type="hidden" name="situs" value="-">

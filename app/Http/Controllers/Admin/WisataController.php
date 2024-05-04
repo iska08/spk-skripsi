@@ -24,8 +24,14 @@ class WisataController extends Controller
     public function index(Request $request)
     {
         $criterias = Criteria::all();
-        // Mengambil data wisata yang telah divalidasi
-        $query = Wisata::where('validasi', '=', '2');
+        // Mengambil data wisata yang telah divalidasi dan publik
+        $userLevel  = auth()->user()->level;
+        if ($userLevel === 'ADMIN') {
+            $query = Wisata::where('validasi', '=', '2');
+        } elseif($userLevel === 'USER') {
+            $query = Wisata::where('validasi', '=', '2')
+                ->where('tampil', '=', '2');
+        }
         // Mengambil nilai-nilai alternatif dari request
         $alternatives = $request->except(['perPage', 'page']);
         // Memastikan ada nilai-nilai alternatif yang dikirim

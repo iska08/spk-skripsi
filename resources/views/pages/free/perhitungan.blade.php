@@ -34,8 +34,7 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="{{ route('perhitungan.kombinasi', $comparison->id) }}"
-                                class="badge bg-success text-decoration-none">
+                            <a href="{{ route('perhitungan.kombinasi', $comparison->id) }}" class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan Kombinasi
                             </a>
@@ -59,52 +58,6 @@
                     @endif
                 </tbody>
             </table>
-        </div>
-    </div>
-    <!-- Modal Choose Criteria -->
-    <div class="modal fade" id="modalChoose" tabindex="-1" aria-labelledby="modalChooseLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalChooseLabel">Pilih Kriteria</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="{{ route('kombinasi.index') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="modal-body">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="text-center" colspan="2">Nama Kriteria</th>
-                                    <th>Kategori</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if ($criterias->count())
-                                @foreach ($criterias as $criteria)
-                                <tr>
-                                    <th scope="row" class="text-center">
-                                        <input type="checkbox" value="{{ $criteria->id }}" name="criteria_id[]">
-                                    </th>
-                                    <td>{{ $criteria->nama_kriteria }}</td>
-                                    <td>{{ Str::ucfirst(Str::lower($criteria->kategori)) }}
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @else
-                                <tr>
-                                    <td class="text-center text-danger" colspan="4">Tidak Ditemukan Kriteria</td>
-                                </tr>
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
 </div>

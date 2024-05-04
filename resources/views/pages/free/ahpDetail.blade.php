@@ -91,7 +91,8 @@
                         <th scope="col" class="bg-primary text-white"><i>Kriteria</i></th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
                         <th scope="col" class="bg-primary">
-                            {{ $priorityValue->criteria->nama_kriteria }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}
+                        </th>
                         @endforeach
                         <th scope="col" class="text-center bg-success text-white">Jumlah</th>
                         <th scope="col" class="text-center bg-dark text-white">Eigen Vector (EV)</th>
@@ -292,14 +293,12 @@
                                 <td class="text-danger" colspan="2">
                                     Nilai Rasio Konsistensi Melebihi <b>0.1</b> <br>
                                     Masukkan Kembali Nilai Perbandingan Kriteria
-                                    <a href="{{ route('perbandingan.update', $criteria_analysis->id) }}"
-                                        class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
+                                    <a href="{{ route('perbandingan.update', $criteria_analysis->id) }}" class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
                                 </td>
                                 @elseif(!$isAbleToRank)
                                 <td class="text-danger" colspan="2">
                                     Admin Belum Memasukkan Alternatif Apapun <br>
-                                    Harap Menunggu Operator Untuk Menginputkan Alternatif Sebelum Melihat
-                                    Peringkat
+                                    Harap Menunggu Admin Untuk Menginputkan Alternatif Sebelum Melihat Peringkat
                                 </td>
                                 @endif
                             </tr>

@@ -16,8 +16,9 @@
             <div class="card-body">
                 @can('admin')
                 <div class="d-sm-flex align-items-center justify-content-between">
-                    <a href="{{ route('wisata.create') }}" type="button" class="btn btn-primary mb-3"><i
-                            class="fas fa-plus me-1"></i>Destinasi Wisata
+                    <a href="{{ route('wisata.create') }}" type="button" class="btn btn-primary mb-3">
+                        <i class="fas fa-plus me-1"></i>
+                        Destinasi Wisata
                     </a>
                 </div>
                 @endcan
@@ -63,7 +64,7 @@
                             </select>
                             &nbsp;&nbsp;
                             @endforeach
-                            <button class="btn btn-primary" type="submit">Filter</button>
+                            <button class="btn btn-dark" type="submit">Filter</button>
                         </div>
                     </form>
                 </div>
@@ -80,6 +81,7 @@
                                 <th class="text-center">Biaya</th>
                                 <th class="text-center">Website Resmi</th>
                                 @can('admin')
+                                <th class="text-center">Akses Informasi</th>
                                 <th class="text-center">Aksi</th>
                                 @endcan
                             </tr>
@@ -136,6 +138,15 @@
                                         </td>
                                         @can('admin')
                                         <td>
+                                            @if($wisata->tampil == 0)
+                                            <span class="badge bg-dark">Akses Belum Dibuka</span>
+                                            @elseif($wisata->tampil == 1)
+                                            <span class="badge bg-warning">Akses Tidak Publik</span>
+                                            @elseif($wisata->tampil == 2)
+                                            <span class="badge bg-success">Akses Publik</span>
+                                            @endif
+                                        </td>
+                                        <td>
                                             <a href="{{ route('wisata.edit', $wisata->id) }}" class="badge bg-warning">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
@@ -150,9 +161,15 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="9" class="text-danger text-center p-4">
+                                    @can('admin')
+                                    <td colspan="10" class="text-danger text-center p-4">
                                         <h4>Belum Ada Data Destinasi Wisata</h4>
                                     </td>
+                                    @elseif('user')
+                                    <td colspan="8" class="text-danger text-center p-4">
+                                        <h4>Belum Ada Data Destinasi Wisata</h4>
+                                    </td>
+                                    @endcan
                                 </tr>
                             @endif
                         </tbody>

@@ -15,8 +15,7 @@
         <div class="card-body">
             <div class="d-sm-flex align-items-center">
                 @can('admin')
-                <button type="button" class="btn btn-primary mb-3 me-auto" data-bs-toggle="modal"
-                    data-bs-target="#addAlternativeModal">
+                <button type="button" class="btn btn-primary mb-3 me-auto" data-bs-toggle="modal" data-bs-target="#addAlternativeModal">
                     <i class="fas fa-plus me-1"></i>
                     Alternatif
                 </button>
@@ -51,8 +50,7 @@
                 </div>
                 <form action="{{ route('alternatif.index') }}" method="GET" class="ms-auto">
                     <div class="input-group mb-3">
-                        <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..."
-                            value="{{ request('search') }}">
+                        <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..." value="{{ request('search') }}">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </div>
                 </form>
@@ -105,15 +103,15 @@
                             @endforeach
                             @can('admin')
                             <td class="text-center">
-                                <a href="{{ route('alternatif.edit', $alternative->id) }}" class="badge bg-warning"><i
-                                        class="fa-solid fa-pen-to-square"></i></a>
-                                <form action="{{ route('alternatif.destroy', $alternative->id) }}" method="POST"
-                                    class="d-inline">
+                                <a href="{{ route('alternatif.edit', $alternative->id) }}" class="badge bg-warning">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <form action="{{ route('alternatif.destroy', $alternative->id) }}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="badge bg-danger border-0 btnDelete"
-                                        data-object="Alternatif {{ $alternative->nama_wisata }}">
-                                        <i class="fa-solid fa-trash-can"></i></button>
+                                    <button class="badge bg-danger border-0 btnDelete" data-object="Alternatif {{ $alternative->nama_wisata }}">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
                                 </form>
                             </td>
                             @endcan
@@ -134,8 +132,7 @@
     </div>
 </div>
 <!-- Add Alternative -->
-<div class="modal fade" id="addAlternativeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="addAlternativeModalLabel" aria-hidden="true">
+<div class="modal fade" id="addAlternativeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addAlternativeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -147,8 +144,7 @@
                     @csrf
                     <div class="my-2">
                         <label for="wisata_id" class="form-label">Daftar Destinasi Wisata</label>
-                        <select class="form-select @error('wisata_id') is-invalid @enderror" id="wisata_id"
-                            name="wisata_id" required>
+                        <select class="form-select @error('wisata_id') is-invalid @enderror" id="wisata_id" name="wisata_id" required>
                             <option disabled selected value="">-- Pilih Destinasi Wisata --</option>
                             @if ($wisata_list->count())
                             @foreach ($wisata_list as $jenis => $wisatas)
@@ -177,9 +173,7 @@
                         <label for="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" class="form-label">
                             Nilai <b>{{ $criteria->nama_kriteria }}</b>
                         </label>
-                        <select class="form-select @error('alternative_value') is-invalid @enderror"
-                            id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" name="alternative_value[]"
-                            required>
+                        <select class="form-select @error('alternative_value') is-invalid @enderror" id="{{ str_replace(' ', '', $criteria->nama_kriteria) }}" name="alternative_value[]" required>
                             <option disabled selected value="">-- Pilih Sub Kriteria --</option>
                             <option value="1">(Skala 1) - {{ $criteria->skala1 }}</option>
                             <option value="2">(Skala 2) - {{ $criteria->skala2 }}</option>

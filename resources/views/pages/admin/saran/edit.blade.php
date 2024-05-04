@@ -6,14 +6,12 @@
 <div class="containter-fluid px-4 mt-3">
     @can('admin')
     <div class="row align-items-center">
-        <form class="col-lg-8" method="POST" action="{{ route('sarans.update', $saran->id) }}"
-            enctype="multipart/form-data">
+        <form class="col-lg-8" method="POST" action="{{ route('sarans.update', $saran->id) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
             <div class="mb-3">
                 <label for="nama_wisata" class="form-label">Saran Nama Destinasi Wisata</label>
-                <input type="text" class="form-control" id="nama_wisata" name="nama_wisata"
-                    value="{{ $saran->nama_wisata }}" readonly disabled>
+                <input type="text" class="form-control" id="nama_wisata" name="nama_wisata" value="{{ $saran->nama_wisata }}" readonly disabled>
                 <input type="hidden" name="nama_wisata" value="{{ $saran->nama_wisata }}">
             </div>
             <div class="mb-3">
@@ -54,8 +52,7 @@
             @csrf
             <div class="mb-3">
                 <label for="nama_wisata" class="form-label">Saran Nama Destinasi Wisata</label>
-                <input type="text" class="form-control" id="nama_wisata" name="nama_wisata"
-                    value="{{ $saran->nama_wisata }}">
+                <input type="text" class="form-control" id="nama_wisata" name="nama_wisata" value="{{ $saran->nama_wisata }}">
             </div>
             <div class="mb-3">
                 <label for="jenis_id" class="form-label">Jenis Wisata</label>
@@ -77,8 +74,7 @@
             </div>
             <div class="mb-3">
                 <label for="keterangan" class="form-label">Keterangan</label>
-                <input type="text" class="form-control" id="keterangan" name="keterangan"
-                    value="{{ $saran->keterangan }}">
+                <textarea class="form-control" id="keterangan" name="keterangan">{{ $saran->keterangan }}</textarea>
             </div>
             <input type="hidden" class="form-control" id="validasi" name="validasi" value="{{ $saran->validasi }}">
             <button type="submit" class="btn btn-primary mb-3">Simpan Perubahan</button>

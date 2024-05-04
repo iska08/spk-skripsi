@@ -27,6 +27,7 @@ class CriteriaUpdateRequest extends FormRequest
         return [
             'nama_kriteria' => 'required|max:60|unique:criterias,nama_kriteria,' . $id,
             'kategori'      => 'required',
+            'keterangan'    => 'required',
             'skala1'        => 'required',
             'skala2'        => 'required',
             'skala3'        => 'required',

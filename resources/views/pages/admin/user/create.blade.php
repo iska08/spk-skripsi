@@ -3,13 +3,11 @@
 <div class="container-fluid px-4 border-bottom">
     <h1 class="mt-4 h2">{{ $title }}</h1>
 </div>
-<form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST" action="{{ route('users.index') }}"
-    enctype="multipart/form-data">
+<form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST" action="{{ route('users.index') }}" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="name" class="form-label">Nama Lengkap</label>
-        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-            value="{{ old('name') }}" autofocus required placeholder="Masukkan Nama Lengkap">
+        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" autofocus required placeholder="Masukkan Nama Lengkap">
         @error('name')
         <div class="invalid-feedback">
             {{ $message }}
@@ -18,8 +16,7 @@
     </div>
     <div class="mb-3">
         <label for="username" class="form-label">Username</label>
-        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username"
-            value="{{ old('username') }}" required placeholder="Masukkan Username">
+        <input type="text" class="form-control @error('username') is-invalid @enderror" id="username" name="username" value="{{ old('username') }}" required placeholder="Masukkan Username">
         @error('username')
         <div class="invalid-feedback">
             {{ $message }}
@@ -28,8 +25,7 @@
     </div>
     <div class="mb-3">
         <label for="email" class="form-label">Email Address</label>
-        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email"
-            value="{{ old('email') }}" required placeholder="example@example.com">
+        <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required placeholder="example@example.com">
         @error('email')
         <div class="invalid-feedback">
             {{ $message }}
@@ -39,12 +35,11 @@
     <div class="mb-3">
         <label for="password" class="form-label">Password</label>
         <div class="input-group mb-3">
-            <input type="password" class="form-control @error('password') is-invalid @enderror" id="myInput"
-                name="password" required placeholder="Masukkan Password" aria-describedby="basic-addon2">
+            <input type="password" class="form-control @error('password') is-invalid @enderror" id="myInput" name="password" required placeholder="Masukkan Password" aria-describedby="basic-addon2">
             <div class="align-items-center">
                 <span class="input-group-text" id="basic-addon2">
                     <i class="fa-solid fa-eye-slash pointer" id="hide" onclick="myFunction()"></i>
-                    &nbsp
+                    &nbsp;
                     <i class="fa-solid fa-eye pointer" id="show" onclick="myFunction()"></i>
                 </span>
             </div>

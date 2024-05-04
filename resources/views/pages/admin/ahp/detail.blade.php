@@ -297,8 +297,7 @@
                                 @elseif(!$isAbleToRank)
                                 <td class="text-danger" colspan="2">
                                     Admin Belum Memasukkan Alternatif Apapun <br>
-                                    Harap Menunggu Operator Untuk Menginputkan Alternatif Sebelum Melihat
-                                    Peringkat
+                                    Harap Menunggu Admin Untuk Menginputkan Alternatif Sebelum Melihat Peringkat
                                 </td>
                                 @endif
                             </tr>

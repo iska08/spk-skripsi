@@ -90,7 +90,8 @@
                         <th scope="col" class="bg-primary text-white"><i>Kriteria</i></th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
                         <th scope="col" class="bg-primary">
-                            {{ $priorityValue->criteria->nama_kriteria }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}
+                        </th>
                         @endforeach
                         <th scope="col" class="text-center bg-success text-white">Jumlah</th>
                         <th scope="col" class="text-center bg-dark text-white">Eigen Vector (EV)</th>
@@ -278,26 +279,24 @@
                                 <th class="text-center" scope="row">Consistency Ratio (CR)</th>
                                 @php($CR = $RC != 0.0 ? $CI / $RC : 0.0)
                                 @php($txtClass = 'text-danger fw-bold')
-                                @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
-                                    class="{{ $txtClass }} text-center">
+                                @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif
+                                <td class="{{ $txtClass }} text-center">
                                     {{ round($CI, 3) }} / {{ round($RC, 3) }} =
                                     {{ round($CR, 3) }}
                                     (Nilai Konsisten)
-                                    </td>
+                                </td>
                             </tr>
                             <tr>
                                 @if ($CR > 0.1)
                                 <td class="text-center text-danger" colspan="2">
                                     Nilai Rasio Konsistensi Melebihi <b>0.1</b> <br>
                                     Masukkan Kembali Nilai Perbandingan Kriteria
-                                    <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}"
-                                        class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
+                                    <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}" class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
                                 </td>
                                 @elseif(!$isAbleToRank)
                                 <td class="text-center text-danger" colspan="2">
                                     Admin Belum Memasukkan Alternatif Apapun <br>
-                                    Harap Menunggu Operator Untuk Menginputkan Alternatif Sebelum Melihat
-                                    Peringkat
+                                    Harap Menunggu Admin Untuk Menginputkan Alternatif Sebelum Melihat Peringkat
                                 </td>
                                 @endif
                             </tr>

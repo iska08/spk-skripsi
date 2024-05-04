@@ -11,15 +11,9 @@ Portal
                 data-aos="zoom-out">
                 <h2 style="margin-top: -40px;">Selamat Datang di Kota Malang</h2>
                 <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" class="img-fluid animated" />
-                <p class="text-white">Kota Malang merupakan tujuan wisata yang menarik dengan berbagai keindahan alam
-                    dan kekayaan budaya yang memikat. Terletak di Jawa Timur, Indonesia, kota ini menawarkan pengalaman
-                    wisata yang beragam dan menarik bagi pengunjung dari segala usia. Pesona alamnya yang memukau, mulai
-                    dari gunung, pantai, hingga perkebunan teh yang indah, menjadikan Malang sebagai destinasi yang
-                    sangat dicari oleh para pencinta petualangan dan alam. Selain itu, kekayaan budaya dan sejarahnya
-                    yang dalam memberikan pengalaman yang tak terlupakan bagi para pelancong yang ingin mengeksplorasi
-                    kekayaan budaya Indonesia. Dengan beragam pilihan destinasi yang menarik, Kota Malang adalah pilihan
-                    yang sempurna bagi mereka yang mencari petualangan dan pengalaman budaya yang luar biasa di tengah
-                    pesona alam yang menakjubkan.</p>
+                <p class="text-white">
+                    Kota Malang merupakan tujuan wisata yang menarik dengan berbagai keindahan alam dan kekayaan budaya yang memikat. Terletak di Jawa Timur, Indonesia, kota ini menawarkan pengalaman wisata yang beragam dan menarik bagi pengunjung dari segala usia. Pesona alamnya yang memukau, mulai dari gunung, pantai, hingga perkebunan teh yang indah, menjadikan Malang sebagai destinasi yang sangat dicari oleh para pencinta petualangan dan alam. Selain itu, kekayaan budaya dan sejarahnya yang dalam memberikan pengalaman yang tak terlupakan bagi para pelancong yang ingin mengeksplorasi kekayaan budaya Indonesia. Dengan beragam pilihan destinasi yang menarik, Kota Malang adalah pilihan yang sempurna bagi mereka yang mencari petualangan dan pengalaman budaya yang luar biasa di tengah pesona alam yang menakjubkan.
+                </p>
                 <div class="d-flex">
                     @auth
                     @else
@@ -83,8 +77,7 @@ Portal
                 <div class="section-header">
                     <h2>About Us</h2>
                     <p>
-                        Selamat datang di platform online yang bertujuan untuk memberikan solusi inovatif dalam
-                        pemilihan destinasi wisata menggunakan Sistem Pendukung Keputusan (SPK).
+                        Selamat datang di platform online yang bertujuan untuk memberikan solusi inovatif dalam pemilihan destinasi wisata menggunakan Sistem Pendukung Keputusan (SPK).
                     </p>
                 </div>
                 <div class="row g-4 g-lg-5 align-items-center" data-aos="fade-up" data-aos-delay="200">
@@ -102,24 +95,21 @@ Portal
                                     <h4>Objektivitas dalam Seleksi</h4>
                                 </div>
                                 <p>
-                                    Dengan menggunakan SPK, kriteria dan bobot yang telah ditentukan secara jelas dapat
-                                    diterapkan pada semua destinasi wisata.
+                                    Dengan menggunakan SPK, kriteria dan bobot yang telah ditentukan secara jelas dapat diterapkan pada semua destinasi wisata.
                                 </p>
                                 <div class="d-flex align-items-center">
                                     <i class="bi bi-check2"></i>
                                     <h4>Efisiensi dan Waktu</h4>
                                 </div>
                                 <p>
-                                    Penggunaan website untuk pemilihan destinasi wisata dengan menggunakan SPK dapat
-                                    meningkatkan efisiensi dan menghemat waktu.
+                                    Penggunaan website untuk pemilihan destinasi wisata dengan menggunakan SPK dapat meningkatkan efisiensi dan menghemat waktu.
                                 </p>
                                 <div class="d-flex align-items-center mt-4">
                                     <i class="bi bi-check2"></i>
                                     <h4>Analisis yang Lebih Mendalam</h4>
                                 </div>
                                 <p>
-                                    Melalui website ini, pengguna dapat mengakses dan menganalisis data destinasi wisata
-                                    secara lebih mendalam.
+                                    Melalui website ini, pengguna dapat mengakses dan menganalisis data destinasi wisata secara lebih mendalam.
                                 </p>
                             </div>
                             <!-- End Tab 1 Content -->
@@ -140,59 +130,49 @@ Portal
                         <div class="accordion accordion-flush px-xl-5" id="faqlist">
                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="200">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
                                         <i class="bi bi-question-circle question-icon"></i>
                                         Apa itu Sistem Pendukung Keputusan (SPK)?
                                     </button>
                                 </h3>
                                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
-                                        SPK adalah sistem komputer atau perangkat lunak yang dirancang untuk membantu
-                                        pengambilan keputusan dengan menganalisis data, memodelkan masalah, dan
-                                        memberikan rekomendasi atau solusi.
+                                        SPK adalah sistem komputer atau perangkat lunak yang dirancang untuk membantu pengambilan keputusan dengan menganalisis data, memodelkan masalah, dan memberikan rekomendasi atau solusi.
                                     </div>
                                 </div>
                             </div>
                             <!-- # Faq item-->
                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="300">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
                                         <i class="bi bi-question-circle question-icon"></i>
                                         Bagaimana SPK bekerja?
                                     </button>
                                 </h3>
                                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
-                                        SPK bekerja dengan mengumpulkan data yang relevan, menganalisisnya menggunakan
-                                        metode-metode atau model yang telah ditentukan, dan menghasilkan rekomendasi
-                                        berdasarkan hasil analisis.
+                                        SPK bekerja dengan mengumpulkan data yang relevan, menganalisisnya menggunakan metode-metode atau model yang telah ditentukan, dan menghasilkan rekomendasi berdasarkan hasil analisis.
                                     </div>
                                 </div>
                             </div>
                             <!-- # Faq item-->
                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="400">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
                                         <i class="bi bi-question-circle question-icon"></i>
                                         Apa manfaat menggunakan SPK dalam pengambilan keputusan?
                                     </button>
                                 </h3>
                                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
-                                        Penggunaan SPK dapat membantu mengurangi ketidakpastian, meningkatkan efisiensi,
-                                        meningkatkan akurasi, mendukung pengambilan keputusan berbasis data, dan
-                                        memberikan panduan dalam situasi yang kompleks.
+                                        Penggunaan SPK dapat membantu mengurangi ketidakpastian, meningkatkan efisiensi, meningkatkan akurasi, mendukung pengambilan keputusan berbasis data, dan memberikan panduan dalam situasi yang kompleks.
                                     </div>
                                 </div>
                             </div>
                             <!-- # Faq item-->
                             <div class="accordion-item" data-aos="fade-up" data-aos-delay="500">
                                 <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
                                         <i class="bi bi-question-circle question-icon"></i>
                                         Apakah dibutuhkan keahlian khusus untuk menggunakan SPK?
                                     </button>
@@ -200,83 +180,17 @@ Portal
                                 <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
                                         <i class="bi bi-question-circle question-icon"></i>
-                                        Penggunaan SPK biasanya membutuhkan pemahaman tentang konsep dasar SPK,
-                                        pemodelan masalah, analisis data, dan penggunaan perangkat lunak atau alat yang
-                                        spesifik. Namun, banyak perangkat lunak SPK yang telah dirancang untuk digunakan
-                                        oleh pengguna tanpa keahlian khusus.
+                                        Penggunaan SPK biasanya membutuhkan pemahaman tentang konsep dasar SPK, pemodelan masalah, analisis data, dan penggunaan perangkat lunak atau alat yang spesifik. Namun, banyak perangkat lunak SPK yang telah dirancang untuk digunakan oleh pengguna tanpa keahlian khusus.
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-                        style="background-image: url('{{ url('frontend/images/faq.png') }}')">
-                        &nbsp;
-                    </div>
+                    <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style="background-image: url('{{ url('frontend/images/faq.png') }}')">&nbsp;</div>
                 </div>
             </div>
         </section>
         <!-- End F.A.Q Section -->
-        <!-- ======= Comment Section ======= -->
-        {{-- <section id="comment" class="comment">
-            <div class="container" data-aos="fade-up">
-                <div class="section-header">
-                    <h2>Comment</h2>
-                    <p>Silahkan beri penilaian dengan cara login ke sistem.</p>
-                </div>
-                <div class="row g-4 g-lg-5 align-items-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="col-lg-5">
-                        <div class="comment-img">
-                            <img src="{{ url('frontend/images/comment.png') }}" class="img-fluid" alt="" />
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <!-- Tab Comment -->
-                        <div class="tab-content">
-                            <div class="row">
-                                @foreach($comments as $comment)
-                                <div class="card mb-4">
-                                    <div class="card-body table-responsive">
-                                        <div class="post">
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <span>
-                                                    <strong>{{ $comment->user->name }}</strong> <b>@</b>{{ $comment->user->username }}
-                                                    <strong>&#183;</strong> <span id="time_{{ $comment->id }}"></span>
-                                                </span>
-                                            </div>
-                                            <p>{{ $comment->content }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script>
-                                    setInterval(function () {
-                                        var timeElement = document.getElementById('time_{{ $comment->id }}');
-                                        var currentTime = new Date().getTime();
-                                        var commentTime = new Date('{{ $comment->created_at }}').getTime();
-                                        var timeDifference = currentTime - commentTime;
-                                        var timeElapsed = Math.floor(timeDifference / 1000);
-                                        var timeDisplay;
-                                        if (timeElapsed < 60) {
-                                            timeDisplay = timeElapsed + ' detik yang lalu';
-                                        } else if (timeElapsed < 3600) {
-                                            timeDisplay = Math.floor(timeElapsed / 60) + ' menit yang lalu';
-                                        } else if (timeElapsed < 86400) {
-                                            timeDisplay = Math.floor(timeElapsed / 3600) + ' jam yang lalu';
-                                        } else {
-                                            timeDisplay = Math.floor(timeElapsed / 86400) + ' days ago';
-                                        }
-                                        timeElement.innerText = timeDisplay;
-                                    }, 1000);
-                                </script>
-                                @endforeach
-                            </div>
-                            <!-- End Tab 1 Comment -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> --}}
-        <!-- End Comment Section -->
     </main>
 </div>
 @endsection

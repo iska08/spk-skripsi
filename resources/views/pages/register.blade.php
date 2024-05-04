@@ -1,14 +1,11 @@
 @extends('layouts.login')
-
 @section('title')
     Register
 @endsection
-
 @section('content')
     <!-- ======= main ======= -->
     <section class="my-login-page">
         <div class="container form-Bg">
-
             <div class="row justify-content-md-center">
                 <div class="card-wrapper">
                     <div class="brand">
@@ -18,63 +15,48 @@
                         <div class="card-body">
                             {{-- register --}}
                             <h4 class="card-title text-center">Register</h4>
-                            <form action="{{ route('register.index') }}" method="POST" class="my-login-validation"
-                                novalidate="">
+                            <form action="{{ route('register.index') }}" method="POST" class="my-login-validation" novalidate="">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="name" class="form-label">Name</label>
-                                    <input id="name" type="text"
-                                        class="form-control @error('name') is-invalid @enderror" name="name"
-                                        value="{{ old('name') }}" required autofocus placeholder="Input your name" />
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus placeholder="Input your name" />
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input id="username" type="text"
-                                        class="form-control @error('username') is-invalid @enderror" name="username"
-                                        value="{{ old('username') }}" required placeholder="Input username" />
+                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required placeholder="Input username" />
                                     @error('username')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" required placeholder="Input email address" />
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="Input email address" />
                                     @error('email')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required placeholder="Input password" />
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Input password" />
                                     @error('password')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-
                                 <div class="mb-3">
                                     <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                    <input id="password_confirmation" type="password" class="form-control"
-                                        name="password_confirmation" required placeholder="Confirm password" />
+                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm password" />
                                 </div>
-
                                 <div class="m-0 d-grid">
                                     <button type="submit" class="btn btn-primary btn-block">
                                         Register
@@ -85,7 +67,8 @@
                     </div>
                     <div class="footer">
                         <p>Copyright &copy;
-                            {{ now()->year }} &mdash; SPK</p>
+                            {{ now()->year }} &mdash; SPK
+                        </p>
                     </div>
                 </div>
             </div>

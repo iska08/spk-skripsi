@@ -34,8 +34,7 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="{{ route('kombinasi.result', $comparison->id) }}"
-                                class="badge bg-success text-decoration-none">
+                            <a href="{{ route('kombinasi.result', $comparison->id) }}" class="badge bg-success text-decoration-none">
                                 <i class="fa-solid fa-eye"></i>
                                 Perhitungan Kombinasi
                             </a>

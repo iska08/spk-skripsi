@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_kriteria')->unique();
             $table->string('slug')->unique();
             $table->string('kategori');
+            $table->string('keterangan');
             $table->string('skala1');
             $table->string('skala2');
             $table->string('skala3');

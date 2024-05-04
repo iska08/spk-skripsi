@@ -46,21 +46,21 @@
                             <td>{{ $comparison->created_at->translatedFormat('l, j F Y H:i:s') }}</td>
                             <td>
                                 @can('admin')
-                                <a href="{{ route('kombinasi.update', $comparison->id) }}"
-                                    class="badge bg-warning text-decoration-none">
-                                    <i class="fa-solid fa-pen-to-square"></i> Edit Perbandingan Kriteria
+                                <a href="{{ route('kombinasi.update', $comparison->id) }}" class="badge bg-warning text-decoration-none">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    Edit Perbandingan Kriteria
                                 </a>
-                                <a href="{{ route('kombinasi.updateBobot', $comparison->id) }}"
-                                    class="badge bg-warning text-decoration-none">
-                                    <i class="fa-solid fa-pen-to-square"></i> Edit Bobot Kriteria
+                                <a href="{{ route('kombinasi.updateBobot', $comparison->id) }}" class="badge bg-warning text-decoration-none">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    Edit Bobot Kriteria
                                 </a>
-                                <form action="{{ route('kombinasi.destroy', $comparison->id) }}" method="POST"
-                                    class="d-inline">
+                                <form action="{{ route('kombinasi.destroy', $comparison->id) }}" method="POST" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button class="badge bg-danger border-0 btnDelete"
-                                        data-object="perhitungan dari {{ $comparison->user->name }}"><i
-                                            class="fa-solid fa-trash-can"></i> Hapus Perhitungan</button>
+                                    <button class="badge bg-danger border-0 btnDelete" data-object="perhitungan dari {{ $comparison->user->name }}">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        Hapus Perhitungan
+                                    </button>
                                 </form>
                                 @endcan
                             </td>
@@ -104,8 +104,7 @@
                                         <input type="checkbox" value="{{ $criteria->id }}" name="criteria_id[]">
                                     </th>
                                     <td>{{ $criteria->nama_kriteria }}</td>
-                                    <td>{{ Str::ucfirst(Str::lower($criteria->kategori)) }}
-                                    </td>
+                                    <td>{{ Str::ucfirst(Str::lower($criteria->kategori)) }}</td>
                                 </tr>
                                 @endforeach
                                 @else

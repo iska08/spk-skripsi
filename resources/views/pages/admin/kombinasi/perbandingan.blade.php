@@ -19,8 +19,7 @@
                     </thead>
                     <tbody>
                         @if (count($details))
-                        <form action="{{ route('kombinasi.update', $details[0]->criteria_analysis_id) }}"
-                            method="POST">
+                        <form action="{{ route('kombinasi.update', $details[0]->criteria_analysis_id) }}" method="POST">
                             @method('PUT')
                             @csrf
                             <input type="hidden" name="id" value="{{ $details[0]->criteria_analysis_id }}">
@@ -78,8 +77,7 @@
                                     </button>
                                     @endcan
                                     @if ($isDoneCounting)
-                                    <a href="{{ route('kombinasi.updateBobot', $criteria_analysis->id) }}"
-                                        class="btn btn-warning mb-3 text-white">
+                                    <a href="{{ route('kombinasi.updateBobot', $criteria_analysis->id) }}" class="btn btn-warning mb-3 text-white">
                                         <i class="fa-solid fa-pen-to-square"></i> Edit Bobot Kriteria
                                     </a>
                                     @else
@@ -88,6 +86,7 @@
                                         Admin Belum Menyimpan Kriteria
                                     </a>
                                     @endif
+                                </form>
                             </div>
                         </form>
                         @endif

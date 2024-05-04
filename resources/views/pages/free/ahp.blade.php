@@ -84,7 +84,8 @@
                         <th scope="col" class="bg-primary text-white"><i>Kriteria</i></th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
                         <th scope="col" class="bg-primary">
-                            {{ $priorityValue->criteria->nama_kriteria }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}
+                        </th>
                         @endforeach
                         <th scope="col" class="text-center bg-success text-white">Jumlah</th>
                         <th scope="col" class="text-center bg-dark text-white">Eigen Vector (EV)</th>
@@ -147,7 +148,8 @@
                     @php($rowTotal = 0)
                     <tr>
                         <th scope="row" class="bg-primary text-center">
-                            {{ $priorityValue->criteria->nama_kriteria }}</th>
+                            {{ $priorityValue->criteria->nama_kriteria }}
+                        </th>
                         @foreach ($criteria_analysis->priorityValues as $key => $innerpriorityvalue)
                         <td class="text-center">
                             @php($res = floatval($criteria_analysis->details[$startAt]->comparison_result) *
@@ -249,25 +251,23 @@
                                 <th class="text-center" scope="row">Consistency Ratio (CR)</th>
                                 @php($CR = $RC != 0.0 ? $CI / $RC : 0.0)
                                 @php($txtClass = 'text-danger fw-bold')
-                                @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif <td
-                                    class="{{ $txtClass }}">
+                                @if ($CR <= 0.1) @php($txtClass='text-success fw-bold' ) @endif
+                                <td class="{{ $txtClass }}">
                                     <span id="cr-value">{{ round($CR, 3) }}</span>
                                     (Nilai Konsisten)
-                                    </td>
+                                </td>
                             </tr>
                             <tr>
                                 @if ($CR > 0.1)
                                 <td class="text-danger" colspan="2">
                                     Nilai Rasio Konsistensi melebihi <b>0.1</b> <br>
-                                    Masukkan kembali nilai perbandingan kriteria
-                                    <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}"
-                                        class="btn btn-danger mt-2">Masukkan kembali Nilai Perbandingan</a>
+                                    Masukkan Kembali Nilai Perbandingan Kriteria
+                                    <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}" class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
                                 </td>
                                 @elseif(!$isAbleToRank)
                                 <td class="text-danger" colspan="2">
-                                    Operator belum memasukkan alternatif apapun <br>
-                                    Harap menunggu operator untuk menginputkan alternatif sebelum melihat
-                                    peringkat
+                                    Admin Belum Memasukkan Alternatif Apapun <br>
+                                    Harap Menunggu Admin Untuk Menginputkan Alternatif Sebelum Melihat Peringkat
                                 </td>
                                 @endif
                             </tr>

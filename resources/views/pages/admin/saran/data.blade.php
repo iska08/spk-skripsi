@@ -113,8 +113,7 @@
                                     <a href="{{ route('sarans.edit', $saran->id) }}" class="badge bg-warning">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <form action="{{ route('sarans.destroy', $saran->id) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('sarans.destroy', $saran->id) }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
                                         <button class="badge bg-danger border-0 btnDelete" data-object="Saran {{ $saran->nama_wisata }}">

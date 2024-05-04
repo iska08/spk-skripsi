@@ -53,12 +53,10 @@
                                     <a href="{{ route('jenis.edit', $jenis->id) }}" class="badge bg-warning">
                                         <i class="fa-solid fa-pen-to-square"></i>
                                     </a>
-                                    <form action="{{ route('jenis.destroy', $jenis->id) }}" method="POST"
-                                        class="d-inline">
+                                    <form action="{{ route('jenis.destroy', $jenis->id) }}" method="POST" class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button class="badge bg-danger border-0 btnDelClass"
-                                            data-object="{{ $jenis->jenis_name }}">
+                                        <button class="badge bg-danger border-0 btnDelClass" data-object="{{ $jenis->jenis_name }}">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     </form>

@@ -69,8 +69,9 @@ class FreeController extends Controller
     public function wisata(Request $request)
     {
         $criterias = Criteria::all();
-        // Mengambil data wisata yang telah divalidasi
-        $query = Wisata::where('validasi', '=', '2');
+        // Mengambil data wisata yang telah divalidasi dan publik
+        $query = Wisata::where('validasi', '=', '2')
+            ->where('tampil', '=', '2');
         // Mengambil nilai-nilai alternatif dari request
         $alternatives = $request->except(['perPage', 'page']);
         // Memastikan ada nilai-nilai alternatif yang dikirim

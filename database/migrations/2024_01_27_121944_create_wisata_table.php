@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('wisatas', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jenis_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('nama_wisata');
             $table->string('lokasi_maps');
             $table->string('link_foto');
@@ -23,6 +24,8 @@ return new class extends Migration
             $table->string('fasilitas');
             $table->integer('biaya');
             $table->string('situs');
+            $table->integer('validasi');
+            $table->integer('tampil');
             $table->timestamps();
         });
     }

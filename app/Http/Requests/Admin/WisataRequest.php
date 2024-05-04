@@ -32,6 +32,7 @@ class WisataRequest extends FormRequest
             'biaya'       => 'required',
             'situs'       => 'nullable',
             'validasi'    => 'required',
+            'tampil'      => 'required',
             'jenis_id'    => 'required',
             'user_id'     => 'required',
         ];

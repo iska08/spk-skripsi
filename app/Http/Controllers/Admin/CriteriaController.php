@@ -28,6 +28,7 @@ class CriteriaController extends Controller
             $criterias = Criteria::where('nama_kriteria', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('slug', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('kategori', 'LIKE', '%' . request('search') . '%')
+                ->orWhere('keterangan', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('skala1', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('skala2', 'LIKE', '%' . request('search') . '%')
                 ->orWhere('skala3', 'LIKE', '%' . request('search') . '%')

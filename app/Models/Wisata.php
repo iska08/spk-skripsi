@@ -20,6 +20,7 @@ class Wisata extends Model
         'biaya',
         'situs',
         'validasi',
+        'tampil',
     ];
 
     public function jenis()

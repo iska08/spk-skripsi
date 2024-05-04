@@ -257,16 +257,15 @@
                             <tr>
                                 @if ($CR > 0.1)
                                 <td class="text-danger" colspan="2">
-                                    Nilai Rasio Konsistensi melebihi <b>0.1</b> <br>
-                                    Masukkan kembali nilai perbandingan kriteria
+                                    Nilai Rasio Konsistensi Melebihi <b>0.1</b> <br>
+                                    Masukkan Kembali Nilai Perbandingan Kriteria
                                     <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}"
-                                        class="btn btn-danger mt-2">Masukkan kembali Nilai Perbandingan</a>
+                                        class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
                                 </td>
                                 @elseif(!$isAbleToRank)
                                 <td class="text-danger" colspan="2">
-                                    Operator belum memasukkan alternatif apapun <br>
-                                    Harap menunggu operator untuk menginputkan alternatif sebelum melihat
-                                    peringkat
+                                    Admin Belum Memasukkan Alternatif Apapun <br>
+                                    Harap Menunggu Admin Untuk Menginputkan Alternatif Sebelum Melihat Peringkat
                                 </td>
                                 @endif
                             </tr>

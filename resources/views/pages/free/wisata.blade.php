@@ -40,7 +40,7 @@
                                 </select>
                                 &nbsp;&nbsp;
                                 @endforeach
-                                <button class="btn btn-primary" type="submit">Filter</button>
+                                <button class="btn btn-dark" type="submit">Filter</button>
                             </div>
                         </form>
                     </div>

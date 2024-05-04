@@ -3,16 +3,14 @@
 <div class="container-fluid px-4 border-bottom">
     <h1 class="mt-4 h2">{{ $title }}</h1>
 </div>
-<form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST"
-    action="{{ route('alternatif.update', $alternatives->id) }}">
+<form class="col-lg-8 contianer-fluid px-4 mt-3" method="POST" action="{{ route('alternatif.update', $alternatives->id) }}">
     @method('PUT')
     @csrf
     <fieldset disabled>
         <div class="row">
             <div class="mb-3 col-lg-6">
                 <label for="nama_wisata" class="form-label">Destinasi Wisata yang Dipilih</label>
-                <input type="text" class="form-control" id="nama_wisata"
-                    value="{{ old('nama_wisata', $alternatives->nama_wisata) }}" readonly required>
+                <input type="text" class="form-control" id="nama_wisata" value="{{ old('nama_wisata', $alternatives->nama_wisata) }}" readonly required>
                 @error('nama_wisata')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -21,8 +19,7 @@
             </div>
             <div class="mb-3 col-lg-6">
                 <label for="name" class="form-label">Jenis Wisata</label>
-                <input type="text" class="form-control" id="name"
-                    value="{{ old('name', $alternatives->jenis->jenis_name) }}" readonly required>
+                <input type="text" class="form-control" id="name" value="{{ old('name', $alternatives->jenis->jenis_name) }}" readonly required>
                 @error('name')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -38,8 +35,7 @@
         <label for="{{ str_replace(' ', '', $value->criteria->nama_kriteria) }}" class="form-label">
             Nilai <b>{{ $value->criteria->nama_kriteria }}</b>
         </label>
-        <select class="form-select @error('alternative_value') 'is-invalid' : '' @enderror"
-            id="{{ str_replace(' ', '', $value->criteria->nama_kriteria) }}" name="alternative_value[]" required>
+        <select class="form-select @error('alternative_value') 'is-invalid' : '' @enderror" id="{{ str_replace(' ', '', $value->criteria->nama_kriteria) }}" name="alternative_value[]" required>
             <option disabled value="">-- Pilih Sub Kriteria --</option>
             <option value="1" {{ $value->alternative_value == 1 ? 'selected' : '' }}>(Skala 1) -
                 {{ $value->criteria->skala1 }}</option>
@@ -68,11 +64,7 @@
         <label for="{{ str_replace(' ', '', $value->name) }}" class="form-label">
             Nilai <b>{{ $value->name }}</b>
         </label>
-        <input type="text" id="{{ str_replace(' ', '', $value->name) }}"
-            class="form-control @error('new_alternative_value') 'is-invalid' : '' @enderror"
-            name="new_alternative_value[]" placeholder="Enter the value"
-            onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57)|| event.charCode == 46)"
-            maxlength="3" autocomplete="off" required>
+        <input type="text" id="{{ str_replace(' ', '', $value->name) }}" class="form-control @error('new_alternative_value') 'is-invalid' : '' @enderror" name="new_alternative_value[]" placeholder="Enter the value" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57)|| event.charCode == 46)" maxlength="3" autocomplete="off" required>
         @error('new_alternative_value')
         <div class="invalid-feedback">
             {{ $message }}

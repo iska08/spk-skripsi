@@ -20,23 +20,17 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username or Email</label>
-                                    <input id="username" type="text"
-                                        class="form-control @error('username') is-invalid @enderror" name="username"
-                                        value="" required autofocus placeholder="Input username or email" />
+                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="" required autofocus placeholder="Input username or email" />
                                     <div class="invalid-feedback">Email is invalid</div>
                                 </div>
-
                                 @error('username')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
-
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password </label>
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required placeholder="Input password" />
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Input password" />
                                     <div class="invalid-feedback">Password is required</div>
                                 </div>
                                 @error('password')
