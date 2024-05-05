@@ -22,6 +22,11 @@ class FreeController extends Controller
     protected $field2s = array('wisatas.*', 'jenis.id as jenisId');
     protected $field3s = array('criterias.*');
 
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
+    
     public function index()
     {
         $wisatas = Wisata::where('validasi', '=', '2')->orderby('nama_wisata')->get();
@@ -74,6 +79,18 @@ class FreeController extends Controller
             ->where('tampil', '=', '2');
         // Mengambil nilai-nilai alternatif dari request
         $alternatives = $request->except(['perPage', 'page']);
+        // filter search
+        if (request('search')) {
+            $query = Wisata::join('jenis as j', 'wisatas.jenis_id', '=', 'j.id')
+                ->where('wisatas.validasi', '=', '2')
+                ->where('wisatas.tampil', '=', '2')
+                ->where(function ($q) {
+                    $q->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')
+                        ->orWhere('j.jenis_name', 'LIKE', '%' . request('search') . '%')
+                        ->orWhere('wisatas.fasilitas', 'LIKE', '%' . request('search') . '%')
+                        ->orWhere('wisatas.biaya', 'LIKE', '%' . request('search') . '%');
+                });
+        }
         // Memastikan ada nilai-nilai alternatif yang dikirim
         if (!empty($alternatives)) {
             // Memulai pembentukan subquery untuk setiap kriteria

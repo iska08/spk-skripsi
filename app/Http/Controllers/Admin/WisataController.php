@@ -28,9 +28,32 @@ class WisataController extends Controller
         $userLevel  = auth()->user()->level;
         if ($userLevel === 'ADMIN') {
             $query = Wisata::where('validasi', '=', '2');
+            // filter search
+            if (request('search')) {
+                $query = Wisata::join('jenis as j', 'wisatas.jenis_id', '=', 'j.id')
+                    ->where('wisatas.validasi', '=', '2')
+                    ->where(function ($q) {
+                        $q->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')
+                            ->orWhere('j.jenis_name', 'LIKE', '%' . request('search') . '%')
+                            ->orWhere('wisatas.fasilitas', 'LIKE', '%' . request('search') . '%')
+                            ->orWhere('wisatas.biaya', 'LIKE', '%' . request('search') . '%');
+                    });
+            }
         } elseif($userLevel === 'USER') {
             $query = Wisata::where('validasi', '=', '2')
                 ->where('tampil', '=', '2');
+            // filter search
+            if (request('search')) {
+                $query = Wisata::join('jenis as j', 'wisatas.jenis_id', '=', 'j.id')
+                    ->where('wisatas.validasi', '=', '2')
+                    ->where('wisatas.tampil', '=', '2')
+                    ->where(function ($q) {
+                        $q->where('wisatas.nama_wisata', 'LIKE', '%' . request('search') . '%')
+                            ->orWhere('j.jenis_name', 'LIKE', '%' . request('search') . '%')
+                            ->orWhere('wisatas.fasilitas', 'LIKE', '%' . request('search') . '%')
+                            ->orWhere('wisatas.biaya', 'LIKE', '%' . request('search') . '%');
+                    });
+            }
         }
         // Mengambil nilai-nilai alternatif dari request
         $alternatives = $request->except(['perPage', 'page']);

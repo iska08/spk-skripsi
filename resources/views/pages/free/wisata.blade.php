@@ -25,6 +25,12 @@
                             </select>
                             <label class="form-label col-lg-6 col-sm-6 col-md-6" for="perPage">entries per page</label>
                         </div>
+                        <form action="{{ route('free.wisata') }}" method="GET" class="ms-auto">
+                            <div class="input-group mb-3">
+                                <input type="text" name="search" id="myInput" class="form-control" placeholder="Search..." value="{{ request('search') }}">
+                                <button class="btn btn-primary" type="submit">Search</button>
+                            </div>
+                        </form>
                     </div>
                     <div class="d-sm-flex align-items-center justify-content-between mb-3">
                         <form action="{{ route('free.wisata') }}" method="GET" class="ms-auto">
@@ -111,7 +117,7 @@
                                 @endforeach
                             @else
                                 <tr>
-                                    <td colspan="6" class="text-danger text-center p-4">
+                                    <td colspan="8" class="text-danger text-center p-4">
                                         <h4>Belum ada data Destinasi Wisata</h4>
                                     </td>
                                 </tr>
