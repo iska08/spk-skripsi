@@ -16,14 +16,12 @@
             </ol>
         </div>
     </div>
+    {{-- matrik penjumlahan(prespektif nilai) --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">AHP - Matriks Perbandingan dan Penjumlahan Kolom Kriteria</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                {{-- matrik penjumlahan(prespektif nilai) --}}
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">AHP - Matriks Perbandingan dan Penjumlahan Kolom Kriteria</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="bg-primary align-middle text-center">
                     <tr>
@@ -72,12 +70,10 @@
     </div>
     {{-- Normalisasi dan prioritas --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">AHP - Matriks Normalisasi Kriteria dan Eigen Vector (EV)</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">AHP - Matriks Normalisasi Kriteria dan Eigen Vector (EV)</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="table-primary align-middle text-center">
                     <tr>
@@ -125,12 +121,10 @@
     </div>
     {{-- Matriks perkalian --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">AHP - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">AHP - Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="table-primary align-middle text-center">
                     <tr>
@@ -174,12 +168,10 @@
     </div>
     {{-- λ --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">AHP - Menentukan λmaks dan Rasio Konsistensi</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">AHP - Menentukan λmaks dan Rasio Konsistensi</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="bg-primary align-middle text-center">
                     <tr>
@@ -259,9 +251,7 @@
                             <tr>
                                 @if ($CR > 0.1)
                                 <td class="text-center text-danger" colspan="2">
-                                    Nilai Rasio Konsistensi melebihi <b>0.1</b> <br>
-                                    Masukkan Kembali Nilai Perbandingan Kriteria
-                                    <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}" class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
+                                    Nilai Rasio Konsistensi Melebihi <b>0.1</b>
                                 </td>
                                 @elseif(!$isAbleToRank)
                                 <td class="text-center text-danger" colspan="2">
@@ -278,12 +268,10 @@
     </div>
     {{-- Normalisasi --}}
     <div class="card mb-4">
-        <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">SAW - Normalisasi Alternatif</h4>
-                </div>
-            </div>
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">SAW - Normalisasi Tabel Alternatif</h4>
+        </div>
+        <div class="card-body table-responsive" style="padding: 20px 20px 2px">
             <table class="table table-bordered table-condensed">
                 <tbody>
                     <tr>
@@ -308,8 +296,10 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="card-body table-responsive">
             <table id="datatablesSimple" class="table table-bordered">
-                <thead class="table-primary align-middle text-center">
+                <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col" class="text-center">No</th>
                         <th scope="col" class="text-center">Nama Alternatif</th>
@@ -350,14 +340,12 @@
     </div>
     {{-- Ranking --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">SAW - Ranking</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">SAW - Ranking</h4>
-                </div>
-            </div>
             <table id="datatablesSimple2" class="table table-bordered">
-                <thead class="table-primary">
+                <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col">Nama Alternatif</th>
                         <th scope="col">Jenis Wisata</th>

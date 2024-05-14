@@ -52,14 +52,14 @@ Portal
                         </div>
                     </div>
                     <!-- End Service Item -->
-                    <div class="col-xl-3 col-md-6 " data-aos="zoom-out" data-aos-delay="600">
+                    {{-- <div class="col-xl-3 col-md-6 " data-aos="zoom-out" data-aos-delay="600">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-person-gear icon"></i></div>
                             <h4>
                                 <a class="stretched-link"><span>{{ $users }}</span> Pengguna</a>
                             </h4>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- End Service Item -->
                 </div>
             </div>

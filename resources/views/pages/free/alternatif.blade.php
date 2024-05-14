@@ -12,10 +12,8 @@
         </div>
         {{-- datatable --}}
         <div class="card mb-4">
-            <div class="card-body table-responsive">
-                <div class="d-sm-flex align-items-center">
-                </div>
-                <div class="d-sm-flex align-items-center justify-content-between">
+            <div class="card-body">
+                <div class="d-sm-flex align-items-center justify-content-between mb-3">
                     <div class="d-sm-flex align-items-center mb-3">
                         <select class="form-select me-3" id="perPage" name="perPage" onchange="submitForm()">
                             @foreach ($perPageOptions as $option)
@@ -33,59 +31,61 @@
                         </div>
                     </form>
                 </div>
-                <table class="table table-bordered">
-                    <thead class="bg-primary align-middle text-center text-white">
-                        <tr>
-                            <th rowspan="2">No</th>
-                            <th rowspan="2">Nama Alternatif</th>
-                            <th rowspan="2">Jenis Wisata</th>
-                            <th colspan="{{ $criterias->count() }}">Kriteria</th>
-                        </tr>
-                        <tr>
-                            @if ($criterias->count())
-                            @foreach ($criterias as $criteria)
-                            <th>{{ $criteria->nama_kriteria }}</th>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="bg-primary align-middle text-center text-white">
+                            <tr>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2">Nama Alternatif</th>
+                                <th rowspan="2">Jenis Wisata</th>
+                                <th colspan="{{ $criterias->count() }}">Kriteria</th>
+                            </tr>
+                            <tr>
+                                @if ($criterias->count())
+                                @foreach ($criterias as $criteria)
+                                <th>{{ $criteria->nama_kriteria }}</th>
+                                @endforeach
+                                @else
+                                <th>Data Kriteria Tidak Ditemukan</th>
+                                @endif
+                            </tr>
+                        </thead>
+                        <tbody class="align-middle" id="myTable">
+                            @if ($alternatives->count())
+                            @foreach ($alternatives as $alternative)
+                            <tr>
+                                <td scope="row" class="text-center">
+                                    {{ ($alternatives->currentpage() - 1) * $alternatives->perpage() + $loop->index + 1 }}
+                                </td>
+                                <td class="text-center">
+                                    {{ Str::ucfirst($alternative->nama_wisata) }}
+                                </td>
+                                <td class="text-center">
+                                    {{ $alternative->jenis->jenis_name }}
+                                </td>
+                                @foreach ($criterias as $key => $criteria)
+                                @if (isset($alternative->alternatives[$key]))
+                                <td class="text-center">
+                                    {{ floatval($alternative->alternatives[$key]->alternative_value) }}
+                                </td>
+                                @else
+                                <td class="text-center">
+                                    Empty
+                                </td>
+                                @endif
+                                @endforeach
+                            </tr>
                             @endforeach
                             @else
-                            <th>Data Kriteria Tidak Ditemukan</th>
+                            <tr>
+                                <td colspan="{{ 3 + $criterias->count() }}" class="text-center text-danger">
+                                    Belum Ada Data
+                                </td>
+                            </tr>
                             @endif
-                        </tr>
-                    </thead>
-                    <tbody class="align-middle" id="myTable">
-                        @if ($alternatives->count())
-                        @foreach ($alternatives as $alternative)
-                        <tr>
-                            <td scope="row" class="text-center">
-                                {{ ($alternatives->currentpage() - 1) * $alternatives->perpage() + $loop->index + 1 }}
-                            </td>
-                            <td class="text-center">
-                                {{ Str::ucfirst($alternative->nama_wisata) }}
-                            </td>
-                            <td class="text-center">
-                                {{ $alternative->jenis->jenis_name }}
-                            </td>
-                            @foreach ($criterias as $key => $value)
-                            @if (isset($alternative->alternatives[$key]))
-                            <td class="text-center">
-                                {{ floatval($alternative->alternatives[$key]->alternative_value) }}
-                            </td>
-                            @else
-                            <td class="text-center">
-                                Empty
-                            </td>
-                            @endif
-                            @endforeach
-                        </tr>
-                        @endforeach
-                        @else
-                        <tr>
-                            <td colspan="{{ 5 + $criterias->count() }}" class="text-center text-danger">
-                                Belum Ada Data
-                            </td>
-                        </tr>
-                        @endif
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
                 {{ $alternatives->appends(request()->query())->links() }}
             </div>
         </div>

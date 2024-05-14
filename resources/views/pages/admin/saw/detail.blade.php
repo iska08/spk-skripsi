@@ -18,12 +18,10 @@
     </div>
     {{-- Normalisasi Alternatif --}}
     <div class="card mb-4">
-        <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Normalisasi Alternatif</h4>
-                </div>
-            </div>
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Normalisasi Alternatif</h4>
+        </div>
+        <div class="card-body table-responsive" style="padding: 20px 20px 2px">
             <table class="table table-bordered table-condensed">
                 <tbody>
                     <tr>
@@ -48,8 +46,10 @@
                     </tr>
                 </tbody>
             </table>
-            <table id="datatablesSimple2" class="table table-bordered">
-                <thead class="bg-primary align-middle text-center text-white">
+        </div>
+        <div class="card-body table-responsive">
+            <table id="datatablesSimple" class="table table-bordered">
+                <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col" class="text-center">No</th>
                         <th scope="col" class="text-center">Nama Alternatif</th>
@@ -98,12 +98,12 @@
     </div>
     {{-- Ranking --}}
     <div class="card">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Ranking</h4>
+        </div>
         <div class="card-body table-responsive">
-            <table id="datatablesSimple" class="table table-bordered">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Ranking</h4>
-                </div>
-                <thead class="bg-primary align-middle text-center text-white">
+            <table id="datatablesSimple2" class="table table-bordered">
+                <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col">Nama Alternatif</th>
                         <th scope="col">Jenis Wisata</th>
@@ -153,7 +153,7 @@
                             @endforeach
                             = {{ round($rank['rank_result'], 3) }}
                         </td>
-                        <td class="text-center fw-bold">
+                        <td class="text-center">
                             {{ $loop->iteration }}
                         </td>
                     </tr>

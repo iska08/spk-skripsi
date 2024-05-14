@@ -16,14 +16,12 @@
             </ol>
         </div>
     </div>
-    {{-- Matriks Perbandingan dan Penjumlahan Kolom Kriteria --}}
+    {{-- matrik penjumlahan(prespektif nilai) --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Matriks Perbandingan dan Penjumlahan Kolom Kriteria</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Perbandingan dan Penjumlahan Kolom Kriteria</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="bg-primary align-middle text-center">
                     <tr>
@@ -70,14 +68,12 @@
             </table>
         </div>
     </div>
-    {{-- Matriks Normalisasi Kriteria dan Eigen Vector (EV) --}}
+    {{-- Normalisasi dan prioritas --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Matriks Normalisasi Kriteria dan Eigen Vector (EV)</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Normalisasi Kriteria dan Eigen Vector (EV)</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="table-primary align-middle text-center">
                     <tr>
@@ -123,20 +119,20 @@
             </table>
         </div>
     </div>
-    {{-- Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV) --}}
+    {{-- Matriks perkalian --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Matriks Perkalian Setiap Elemen dengan Eigen Vector (EV)</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="table-primary align-middle text-center">
                     <tr>
                         <th scope="col" class="bg-primary text-white"><i>Kriteria</i></th>
                         @foreach ($criteria_analysis->priorityValues as $priorityValue)
-                        <th scope="col" class="bg-primary">{{ $priorityValue->criteria->nama_kriteria }}</th>
+                        <th scope="col" class="bg-primary">
+                            {{ $priorityValue->criteria->nama_kriteria }}
+                        </th>
                         @endforeach
                         <th scope="col" class="bg-dark text-white">Jumlah Baris</th>
                     </tr>
@@ -172,14 +168,12 @@
             </table>
         </div>
     </div>
-    {{-- Menentukan λmaks dan Rasio Konsistensi --}}
+    {{-- λ --}}
     <div class="card mb-4">
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Menentukan λmaks dan Rasio Konsistensi</h4>
+        </div>
         <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Menentukan λmaks dan Rasio Konsistensi</h4>
-                </div>
-            </div>
             <table class="table table-bordered">
                 <thead class="bg-primary align-middle text-center">
                     <tr>
@@ -260,9 +254,7 @@
                             <tr>
                                 @if ($CR > 0.1)
                                 <td class="text-danger" colspan="2">
-                                    Nilai Rasio Konsistensi melebihi <b>0.1</b> <br>
-                                    Masukkan Kembali Nilai Perbandingan Kriteria
-                                    <a href="{{ route('kombinasi.update', $criteria_analysis->id) }}" class="btn btn-danger mt-2">Masukkan Kembali Nilai Perbandingan</a>
+                                    Nilai Rasio Konsistensi Melebihi <b>0.1</b>
                                 </td>
                                 @elseif(!$isAbleToRank)
                                 <td class="text-danger" colspan="2">
@@ -277,84 +269,80 @@
             </div>
         </div>
     </div>
-    {{-- Menentukan Eigen Vector Alternatif di Setiap Kriteria --}}
+    {{-- Menentukan Eigen Vector Alternatif di Setiap Alternatif --}}
     <div class="card mb-4">
-        <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Menentukan Eigen Vector Alternatif di Setiap Kriteria</h4>
-                </div>
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Menentukan Eigen Vector Alternatif di Setiap Alternatif</h4>
+        </div>
+        <div class="card-body">
+            @foreach($criterias as $criterion)
+            <?php
+            $criteriaId = $criterion->id;
+            $wisatas = \App\Models\Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
+                ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
+                ->where('alternatives.criteria_id', $criteriaId)
+                ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
+                ->orderBy('wisatas.nama_wisata')
+                ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
+            $min = $wisatas->min('alternative_value');
+            $max = $wisatas->max('alternative_value');
+            $sumMin = 0;
+            $sumMax = 0;
+            ?>
+            @foreach($wisatas as $wisata)
+                <?php
+                $sumMin += $min/$wisata->alternative_value;
+                $sumMax += $wisata->alternative_value/$max;
+                ?>
+            @endforeach
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="table-primary align-middle text-center">
+                        <tr>
+                            <th colspan="{{ count($alternatives) + 1 }}" class="text-center fw-bold bg-primary">
+                                {{ 'Eigen Vector Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="bg-success">Alternatif</th>
+                            <th class="bg-success">Nilai</th>
+                            @if($criterion->kategori === "COST")
+                            <th class="bg-success">Nilai MIN / Nilai</th>
+                            @elseif($criterion->kategori === "BENEFIT")
+                            <th class="bg-success">Nilai / Nilai MAX</th>
+                            @endif
+                            <th class="bg-success">Eigen Vector (EV)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        @foreach ($wisatas as $wisata)
+                        <tr>
+                            <td class="text-center">{{ $wisata->nama_wisata }}</td>
+                            <td class="text-center">{{ $wisata->alternative_value }}</td>
+                            @if($criterion->kategori === "COST")
+                                <td class="text-center">{{ round($min/$wisata->alternative_value, 3) }}</td>
+                            @elseif($criterion->kategori === "BENEFIT")
+                                <td class="text-center">{{ round($wisata->alternative_value/$max, 3) }}</td>
+                            @endif
+                            @if($criterion->kategori === "COST")
+                                <td class="text-center">{{ round(($min/$wisata->alternative_value)/$sumMin, 3) }}</td>
+                            @elseif($criterion->kategori === "BENEFIT")
+                                <td class="text-center">{{ round(($wisata->alternative_value/$max)/$sumMax, 3) }}</td>
+                            @endif
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
-            <div>
-                @foreach($criterias as $criterion)
-                    <?php
-                    $criteriaId = $criterion->id;
-                    $wisatas = \App\Models\Wisata::join('alternatives', 'wisatas.id', '=', 'alternatives.wisata_id')
-                        ->join('criterias', 'alternatives.criteria_id', '=', 'criterias.id')
-                        ->where('alternatives.criteria_id', $criteriaId)
-                        ->whereIn('alternatives.wisata_id', $alternatives->pluck('wisata_id')->toArray())
-                        ->orderBy('wisatas.nama_wisata')
-                        ->get(['alternatives.*', 'wisatas.*', 'criterias.*']);
-                    $min = $wisatas->min('alternative_value');
-                    $max = $wisatas->max('alternative_value');
-                    $sumMin = 0;
-                    $sumMax = 0;
-                    ?>
-                    @foreach($wisatas as $wisata)
-                        <?php
-                        $sumMin += $min/$wisata->alternative_value;
-                        $sumMax += $wisata->alternative_value/$max;
-                        ?>
-                    @endforeach
-                    <table class="table table-bordered">
-                        <thead class="table-primary align-middle text-center">
-                            <tr>
-                                <th colspan="{{ count($alternatives) + 1 }}" class="text-center fw-bold bg-primary">
-                                    {{ 'Eigen Vector Alternatif untuk Kriteria: ' . $criterion->nama_kriteria }}
-                                </th>
-                            </tr>
-                            <tr>
-                                <th class="bg-success">Alternatif</th>
-                                <th class="bg-success">Nilai</th>
-                                @if($criterion->kategori === "COST")
-                                <th class="bg-success">Nilai MIN / Nilai</th>
-                                @elseif($criterion->kategori === "BENEFIT")
-                                <th class="bg-success">Nilai / Nilai MAX</th>
-                                @endif
-                                <th class="bg-success">Eigen Vector (EV)</th>
-                            </tr>
-                        </thead>
-                        <tbody class="align-middle">
-                            @foreach ($wisatas as $wisata)
-                            <tr>
-                                <td class="text-center">{{ $wisata->nama_wisata }}</td>
-                                <td class="text-center">{{ $wisata->alternative_value }}</td>
-                                @if($criterion->kategori === "COST")
-                                    <td class="text-center">{{ round($min/$wisata->alternative_value, 3) }}</td>
-                                @elseif($criterion->kategori === "BENEFIT")
-                                    <td class="text-center">{{ round($wisata->alternative_value/$max, 3) }}</td>
-                                @endif
-                                @if($criterion->kategori === "COST")
-                                    <td class="text-center">{{ round(($min/$wisata->alternative_value)/$sumMin, 3) }}</td>
-                                @elseif($criterion->kategori === "BENEFIT")
-                                    <td class="text-center">{{ round(($wisata->alternative_value/$max)/$sumMax, 3) }}</td>
-                                @endif
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                @endforeach
-            </div>
+            @endforeach
         </div>
     </div>
     {{-- Ranking --}}
     <div class="card mb-4">
-        <div class="card-body table-responsive">
-            <div class="d-sm-flex align-items-center">
-                <div class="mb-4">
-                    <h4 class="mb-0 text-gray-800">Ranking</h4>
-                </div>
-            </div>
+        <div class="card-body d-sm-flex align-items-center" style="padding: 20px 20px 2px">
+            <h4 class="mb-0 text-gray-800">Ranking</h4>
+        </div>
+        <div class="card-body table-responsive" style="padding: 20px 20px 2px">
             <table class="table table-bordered table-condensed">
                 <tbody>
                     <tr>
@@ -373,8 +361,10 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="card-body table-responsive">
             <table id="datatablesSimple" class="table table-bordered">
-                <thead class="bg-primary align-middle text-center text-white">
+                <thead class="bg-primary align-middle text-center">
                     <tr>
                         <th scope="col" class="text-center">Nama Alternatif</th>
                         <th scope="col" class="text-center">Jenis Wisata</th>
