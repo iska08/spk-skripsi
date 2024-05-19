@@ -18,6 +18,7 @@
                             <th>Foto</th>
                             <th>Link Google Maps</th>
                             <th>Fasilitas</th>
+                            <th>Keterangan</th>
                             <th>Biaya</th>
                             <th>Website Resmi</th>
                         </tr>
@@ -51,6 +52,11 @@
                             <td class="text-center">-</td>
                             @else
                             <td>{{ $wisata->fasilitas }}</td>
+                            @endif
+                            @if($wisata->keterangan == "" || $wisata->keterangan == "-")
+                            <td class="text-center">-</td>
+                            @else
+                            <td>{{ $wisata->keterangan }}</td>
                             @endif
                             <td>
                                 @if($wisata->biaya == "")

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('nama_wisata');
             $table->string('lokasi_maps');
             $table->string('link_foto');
-            $table->string('keterangan');
-            $table->string('fasilitas');
+            $table->longText('keterangan');
+            $table->longText('fasilitas');
             $table->integer('biaya');
             $table->string('situs');
             $table->integer('validasi');

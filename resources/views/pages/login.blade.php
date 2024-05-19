@@ -19,8 +19,8 @@
                                 novalidate="">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Username or Email</label>
-                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="" required autofocus placeholder="Input username or email" />
+                                    <label for="username" class="form-label">Username atau Email</label>
+                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="" required autofocus placeholder="Masukkan Password atau Email" />
                                     <div class="invalid-feedback">Email is invalid</div>
                                 </div>
                                 @error('username')
@@ -30,7 +30,7 @@
                                 @enderror
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password </label>
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Input password" />
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Masukkan Password" />
                                     <div class="invalid-feedback">Password is required</div>
                                 </div>
                                 @error('password')
@@ -48,13 +48,14 @@
                                     </button>
                                 </div>
                                 <br>
-                                <p>Don't have an account? <a href="{{ route('register.index') }}">Register here</a></p>
+                                <p>Tidak punya akun? <a href="{{ route('register.index') }}">Daftar di Sini</a></p>
                             </form>
                         </div>
                     </div>
                     <div class="footer">
                         <p>Copyright &copy;
-                            {{ now()->year }} &mdash; SPK</p>
+                            {{ now()->year }} &mdash; SPK
+                        </p>
                     </div>
                 </div>
             </div>

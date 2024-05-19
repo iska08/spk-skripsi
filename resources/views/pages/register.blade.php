@@ -18,8 +18,8 @@
                             <form action="{{ route('register.index') }}" method="POST" class="my-login-validation" novalidate="">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="name" class="form-label">Name</label>
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus placeholder="Input your name" />
+                                    <label for="name" class="form-label">Nama</label>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus placeholder="Masukkan Nama Anda" />
                                     @error('name')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="username" class="form-label">Username</label>
-                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required placeholder="Input username" />
+                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required placeholder="Masukkan Username" />
                                     @error('username')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="Input email address" />
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required placeholder="Masukkan Alamat Email" />
                                     @error('email')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="password" class="form-label">Password</label>
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Input password" />
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Masukkan Password" />
                                     @error('password')
                                         <div class="invalid-feedback">
                                             {{ $message }}
@@ -54,8 +54,8 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="password_confirmation" class="form-label">Confirm Password</label>
-                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required placeholder="Confirm password" />
+                                    <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                    <input id="password_confirmation" type="password" class="form-control" name="password_confirmation" required placeholder="Konfirmasi Password" />
                                 </div>
                                 <div class="m-0 d-grid">
                                     <button type="submit" class="btn btn-primary btn-block">
