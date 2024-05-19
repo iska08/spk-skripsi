@@ -123,7 +123,7 @@
                                                 @if($wisata->lokasi_maps == "" || $wisata->lokasi_maps == "-")
                                                 -
                                                 @else
-                                                <a href="{{ $wisata->lokasi_maps }}">Klik di Sini</a>
+                                                <a href="{{ $wisata->lokasi_maps }}" target="_blank">Klik di Sini</a>
                                                 @endif
                                             </td>
                                             @if($wisata->fasilitas == "" || $wisata->fasilitas == "-")
@@ -142,7 +142,7 @@
                                                 @if($wisata->situs == "" || $wisata->situs == "-")
                                                 -
                                                 @else
-                                                <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                                <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
                                                 @endif
                                             </td>
                                             @can('admin')

@@ -30,13 +30,13 @@
                             <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
                             @endif
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; max-width: 40%; min-width: 40%">
+                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; width:3.5cm">
                                 {{ $wisata->nama_wisata }}
                             </p>
                         </div>
                         <br>
                         <h4 style="max-width: 80%">
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                            <p class="justify-content-center" style="font-family: 'Times New Roman', Times, serif; font-size: 12px; width: 8cm">
                                 <strong>Keterangan:</strong>
                                 <br>
                                 {{ $wisata->keterangan }}
@@ -46,10 +46,10 @@
                                 @if($wisata->situs == "" || $wisata->situs == "-")
                                 -
                                 @else
-                                <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
                                 @endif
                             </p>
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                            <p class="justify-content-center" style="font-family: 'Times New Roman', Times, serif; font-size: 12px; width: 8cm">
                                 <strong>Fasilitas:</strong>
                                 <br>
                                 {{ $wisata->fasilitas}}
@@ -62,7 +62,7 @@
         <?php
         }else{
             ?>
-                <div class="container d-flex justify-content-center align-items-center text-center position-relative">
+            <div class="container d-flex justify-content-center align-items-center text-center position-relative">
                 <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="height: 4cm; width: 6cm"/>&nbsp;&nbsp;
                 <h4>
                     <p style="font-family: 'Times New Roman', Times, serif; font-size: 45px">SELAMAT DATANG DI</p>
@@ -70,7 +70,7 @@
                 </h4>
             </div>
             <hr style="border-width: 2px;">
-            <div class="table-responsive slide-container">
+            <div class="slide-container">
                 <div class="slide-content">
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
@@ -89,7 +89,7 @@
                                     @if($wisata->situs == "" || $wisata->situs == "-")
                                     -
                                     @else
-                                    <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                    <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
                                     @endif
                                 </p>
                             </h4>

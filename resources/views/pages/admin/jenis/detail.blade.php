@@ -19,6 +19,7 @@
                             <th>Foto</th>
                             <th>Link Google Maps</th>
                             <th>Fasilitas</th>
+                            <th>Keterangan</th>
                             <th>Biaya</th>
                             <th>Website Resmi</th>
                         </tr>
@@ -43,7 +44,7 @@
                                 </td>
                                 <td class="text-center">
                                     @if($wisata->lokasi_maps && $wisata->lokasi_maps != "-")
-                                        <a href="{{ $wisata->lokasi_maps }}">Klik di Sini</a>
+                                        <a href="{{ $wisata->lokasi_maps }}" target="_blank">Klik di Sini</a>
                                     @else
                                         -
                                     @endif
@@ -56,15 +57,22 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if($wisata->biaya)
-                                        Rp {{ number_format($wisata->biaya, 0, ',', '.') }}
+                                    @if($wisata->keterangan && $wisata->keterangan != "-")
+                                        {{ $wisata->keterangan }}
                                     @else
                                         -
                                     @endif
                                 </td>
+                                <td>
+                                    @if($wisata->biaya == "")
+                                    -
+                                    @else
+                                    Rp {{ number_format($wisata->biaya, 0, ',', '.') }}
+                                    @endif
+                                </td>
                                 <td class="text-center">
                                     @if($wisata->situs && $wisata->situs != "-")
-                                        <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                        <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
                                     @else
                                         -
                                     @endif

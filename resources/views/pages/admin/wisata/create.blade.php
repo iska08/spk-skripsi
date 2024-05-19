@@ -58,7 +58,7 @@
         {{-- biaya --}}
         <div class="mb-3">
             <label for="biaya" class="form-label">Biaya</label>
-            <input type="number" class="form-control @error('biaya') is-invalid @enderror" id="biaya" name="biaya" value="{{ old('biaya') }}" autofocus required placeholder="Biaya">
+            <input type="number" class="form-control @error('biaya') is-invalid @enderror" id="biaya" name="biaya" value="{{ old('biaya') }}" autofocus required placeholder="Biaya" min="0">
             @error('biaya')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -94,9 +94,23 @@
                 </div>
             @enderror
         </div>
+        {{-- akses informasi --}}
+        <div class="mb-3">
+            <label for="tampil" class="form-label">Akses Informasi</label>
+            <select class="form-select @error('tampil') is-invalid @enderror" id="tampil" name="tampil" required>
+                <option value="" disabled selected>Pilih Akses Informasi</option>
+                <option value="0" {{ old('tampil') == '0' ? 'selected' : '' }}>Akses Belum Dibuka</option>
+                <option value="1" {{ old('tampil') == '1' ? 'selected' : '' }}>Akses Tidak Publik</option>
+                <option value="2" {{ old('tampil') == '2' ? 'selected' : '' }}>Akses Publik</option>
+            </select>
+            @error('tampil')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
         <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
         <input type="hidden" name="validasi" value="2">
-        <input type="hidden" name="tampil" value="2">
         <button type="submit" class="btn btn-primary mb-3">Simpan</button>
         <a href="{{ route('wisata.index') }}" class="btn btn-danger mb-3">Cancel</a>
     </form>

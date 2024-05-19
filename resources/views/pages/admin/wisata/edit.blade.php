@@ -98,9 +98,10 @@
         <div class="mb-3">
             <label for="tampil" class="form-label">Akses Informasi</label>
             <select class="form-select @error('tampil') is-invalid @enderror" id="tampil" name="tampil" required>
-                <option value="0" {{ old('tampil', $wisata->tampil) === '0' ? 'selected' : '' }}>Akses Belum Dibuka</option>
-                <option value="1" {{ old('tampil', $wisata->tampil) === '1' ? 'selected' : '' }}>Akses Tidak Publik</option>
-                <option value="2" {{ old('tampil', $wisata->tampil) === '2' ? 'selected' : '' }}>Akses Publik</option>
+                <option value="" disabled selected>Pilih Akses Informasi</option>
+                <option value="0" {{ old('tampil', $wisata->tampil) == '0' ? 'selected' : '' }}>Akses Belum Dibuka</option>
+                <option value="1" {{ old('tampil', $wisata->tampil) == '1' ? 'selected' : '' }}>Akses Tidak Publik</option>
+                <option value="2" {{ old('tampil', $wisata->tampil) == '2' ? 'selected' : '' }}>Akses Publik</option>
             </select>
             @error('tampil')
             <div class="invalid-feedback">

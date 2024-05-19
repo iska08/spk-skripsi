@@ -50,6 +50,7 @@
             <input type="hidden" name="biaya" value="0">
             <input type="hidden" name="situs" value="-">
             <input type="hidden" name="validasi" value="0">
+            <input type="hidden" name="tampil" value="0">
             <button type="submit" class="btn btn-primary mb-3">Simpan</button>
             <a href="{{ route('sarans.index') }}" class="btn btn-danger mb-3">Cancel</a>
         </form>

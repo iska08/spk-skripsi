@@ -116,13 +116,13 @@
                             <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
                             @endif
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; max-width: 40%; min-width: 40%">
+                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; width:3.5cm">
                                 {{ $wisata->nama_wisata }}
                             </p>
                         </div>
                         <br>
                         <h4 style="max-width: 80%">
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                            <p class="justify-content-center" style="font-family: 'Times New Roman', Times, serif; font-size: 12px; width: 8cm">
                                 <strong>Keterangan:</strong>
                                 <br>
                                 {{ $wisata->keterangan }}
@@ -132,10 +132,10 @@
                                 @if($wisata->situs == "" || $wisata->situs == "-")
                                 -
                                 @else
-                                <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
                                 @endif
                             </p>
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
+                            <p class="justify-content-center" style="font-family: 'Times New Roman', Times, serif; font-size: 12px; width: 8cm">
                                 <strong>Fasilitas:</strong>
                                 <br>
                                 {{ $wisata->fasilitas}}
@@ -262,7 +262,7 @@
                                     @if($wisata->situs == "" || $wisata->situs == "-")
                                     -
                                     @else
-                                    <a href="{{ $wisata->situs }}">Klik di Sini</a>
+                                    <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
                                     @endif
                                 </p>
                             </h4>

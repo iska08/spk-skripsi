@@ -20,8 +20,8 @@
                 <label for="kategori" class="form-label">Kategori</label>
                 <select class="form-select @error('kategori') is-invalid @enderror" id="kategori" name="kategori" required>
                     <option value="" disabled selected>Pilih Kategori</option>
-                    <option value="BENEFIT" {{ old('kategori') === 'BENEFIT' ? 'selected' : '' }}>Benefit</option>
-                    <option value="COST" {{ old('kategori') === 'COST' ? 'selected' : '' }}>Cost</option>
+                    <option value="BENEFIT" {{ old('kategori') == 'BENEFIT' ? 'selected' : '' }}>Benefit</option>
+                    <option value="COST" {{ old('kategori') == 'COST' ? 'selected' : '' }}>Cost</option>
                 </select>
                 @error('kategori')
                 <div class="invalid-feedback">

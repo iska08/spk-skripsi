@@ -106,7 +106,7 @@
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="9" class="text-danger text-center p-4">
+                                <td colspan="10" class="text-danger text-center p-4">
                                     <h4>Kriteria Belum Dibuat</h4>
                                 </td>
                             </tr>
@@ -147,6 +147,7 @@
                 @endcan
             </div>
         </div>
+        @can('admin')
         <div class="card mb-4">
             <div class="card-body">
                 <p>Kriteria yang telah ditentukan dibagi menjadi dua kategori, yaitu:</p>
@@ -156,6 +157,7 @@
                 </ul>
             </div>
         </div>
+        @endcan
     </div>
 </main>
 <script>

@@ -119,7 +119,7 @@
                             @endforeach
                             @else
                             <tr>
-                                <td colspan="{{ 5 + $criterias->count() }}" class="text-center text-danger">
+                                <td colspan="{{ 5 + $criterias->count() }}" class="text-center text-danger p-4" style="font-size: 24px">
                                     Belum Ada Data
                                 </td>
                             </tr>

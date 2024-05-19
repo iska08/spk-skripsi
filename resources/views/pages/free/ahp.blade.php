@@ -430,7 +430,12 @@
                                 'jenis_name'     => $normalisasi['jenis_name'],
                             ];
                         }
-                        arsort($nilaiBobotEvaluasi);
+                        uasort($nilaiBobotEvaluasi, function ($a, $b) {
+                            if ($a['total_bobot'] == $b['total_bobot']) {
+                                return strcmp($a['jenis_name'], $b['jenis_name']);
+                            }
+                            return ($a['total_bobot'] > $b['total_bobot']) ? -1 : 1;
+                        });
                         ?>
                         <?php $ranking = 1; ?>
                         @foreach ($nilaiBobotEvaluasi as $wisataName => $data)

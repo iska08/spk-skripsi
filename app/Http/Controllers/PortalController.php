@@ -14,7 +14,7 @@ class PortalController extends Controller
     public function index(Request $request)
     {
         return view('pages.portal', [
-            'wisata'    => Wisata::where('validasi', '=', '2')->count(),
+            'wisata'    => Wisata::where('validasi', '=', '2')->where('tampil', '=', '2')->count(),
             'criterias' => Criteria::count(),
             'jenis'     => Jenis::count(),
             'users'     => User::count(),
