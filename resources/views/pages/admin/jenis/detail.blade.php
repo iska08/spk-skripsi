@@ -36,8 +36,8 @@
                                     @endif
                                 </td>
                                 <td class="text-center">
-                                    @if($wisata->link_foto && $wisata->link_foto != "-")
-                                        <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
+                                    @if($wisata->foto && $wisata->foto != "-")
+                                        <img src="{{ asset('storage/' . $wisata->foto) }}" alt="Gambar" style="width: 4cm; height: 3cm">
                                     @else
                                         <img src="../../../frontend/images/noimage.png" alt="Gambar" style="width: 4cm; height: 3cm">
                                     @endif

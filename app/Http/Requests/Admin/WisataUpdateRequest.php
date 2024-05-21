@@ -26,13 +26,21 @@ class WisataUpdateRequest extends FormRequest
         return [
             'nama_wisata' => 'required|max:60|min:5',
             'lokasi_maps' => 'required',
-            'link_foto'   => 'required',
+            'foto'        => 'nullable|file|image|max:2048',
             'keterangan'  => 'required',
             'fasilitas'   => 'required',
             'biaya'       => 'required',
             'tampil'      => 'required',
             'situs'       => 'nullable',
             'jenis_id'    => 'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'foto.image' => 'The file must be an image.',
+            'foto.max'   => 'The image must not be larger than 2MB.',
         ];
     }
 }

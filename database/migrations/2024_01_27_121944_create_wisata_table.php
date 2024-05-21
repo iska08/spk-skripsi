@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('nama_wisata');
             $table->string('lokasi_maps');
-            $table->string('link_foto');
+            $table->string('foto');
             $table->longText('keterangan');
             $table->longText('fasilitas');
             $table->integer('biaya');

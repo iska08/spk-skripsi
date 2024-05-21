@@ -26,16 +26,6 @@
                 </div>
             @enderror
         </div>
-        {{-- link foto --}}
-        <div class="mb-3">
-            <label for="link_foto" class="form-label">Link Foto</label>
-            <input type="text" class="form-control @error('link_foto') is-invalid @enderror" id="link_foto" name="link_foto" value="{{ old('link_foto', $wisata->link_foto) }}" autofocus required>
-            @error('link_foto')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
         {{-- keterangan --}}
         <div class="mb-3">
             <label for="keterangan" class="form-label">Keterangan</label>
@@ -107,6 +97,16 @@
             <div class="invalid-feedback">
                 {{ $message }}
             </div>
+            @enderror
+        </div>
+        {{-- upload foto --}}
+        <div class="mb-3">
+            <label for="foto" class="form-label">Upload Foto</label>
+            <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto" autofocus>
+            @error('foto')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
             @enderror
         </div>
         <button type="submit" class="btn btn-primary mb-3">Simpan Perubahan</button>

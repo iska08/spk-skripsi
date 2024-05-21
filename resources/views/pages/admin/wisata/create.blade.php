@@ -25,16 +25,6 @@
                 </div>
             @enderror
         </div>
-        {{-- link foto --}}
-        <div class="mb-3">
-            <label for="link_foto" class="form-label">Link Foto</label>
-            <input type="text" class="form-control @error('link_foto') is-invalid @enderror" id="link_foto" name="link_foto" value="{{ old('link_foto') }}" autofocus required placeholder="Link Foto">
-            @error('link_foto')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
         {{-- keterangan --}}
         <div class="mb-3">
             <label for="keterangan" class="form-label">Keterangan</label>
@@ -81,11 +71,7 @@
             <select class="form-select @error('jenis_id') is-invalid @enderror" id="jenis_id" name="jenis_id" required>
                 <option value="" disabled selected>Pilih Jenis Wisata</option>
                 @foreach ($jenises as $jenis)
-                    @if (old('jenis_id') == $jenis->id)
-                        <option value="{{ $jenis->id }}" selected>{{ $jenis->jenis_name }}</option>
-                    @else
-                        <option value="{{ $jenis->id }}">{{ $jenis->jenis_name }}</option>
-                    @endif
+                    <option value="{{ $jenis->id }}" {{ old('jenis_id') == $jenis->id ? 'selected' : '' }}>{{ $jenis->jenis_name }}</option>
                 @endforeach
             </select>
             @error('jenis_id')
@@ -104,6 +90,16 @@
                 <option value="2" {{ old('tampil') == '2' ? 'selected' : '' }}>Akses Publik</option>
             </select>
             @error('tampil')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+        {{-- upload foto --}}
+        <div class="mb-3">
+            <label for="foto" class="form-label">Foto</label>
+            <input type="file" class="form-control @error('foto') is-invalid @enderror" id="foto" name="foto" autofocus required>
+            @error('foto')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

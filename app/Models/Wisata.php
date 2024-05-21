@@ -14,7 +14,7 @@ class Wisata extends Model
         'user_id',
         'nama_wisata',
         'lokasi_maps',
-        'link_foto',
+        'foto',
         'keterangan',
         'fasilitas',
         'biaya',

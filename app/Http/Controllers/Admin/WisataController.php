@@ -121,8 +121,13 @@ class WisataController extends Controller
         if (auth()->user()->level !== 'ADMIN') {
             return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
-
         $validatedData = $request->validated();
+        // Mengelola unggahan foto
+        if ($request->hasFile('foto')) {
+            $file = $request->file('foto');
+            $filePath = $file->store('foto_wisata', 'public');
+            $validatedData['foto'] = $filePath;
+        }
         Wisata::create($validatedData);
         return redirect('/dashboard/data/wisata')->with('success', 'Destinasi Wisata Baru Telah Ditambahkan!');
     }
@@ -171,10 +176,19 @@ class WisataController extends Controller
         if (auth()->user()->level !== 'ADMIN') {
             return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
-
         $validatedData = $request->validated();
-        $item = Wisata::findOrFail($id);
-        $item->update($validatedData);
+        $wisata = Wisata::findOrFail($id);
+        if ($request->hasFile('foto')) {
+            // Hapus foto lama jika ada
+            if ($wisata->foto) {
+                \Storage::disk('public')->delete($wisata->foto);
+            }
+            // Simpan foto baru
+            $file = $request->file('foto');
+            $filePath = $file->store('foto_wisata', 'public');
+            $validatedData['foto'] = $filePath;
+        }
+        $wisata->update($validatedData);
         return redirect('/dashboard/data/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Diperbarui!');
     }
 
@@ -189,8 +203,11 @@ class WisataController extends Controller
         if (auth()->user()->level !== 'ADMIN') {
             return redirect()->back()->with('error', 'Anda Tidak Memiliki Ijin Untuk Melakukan Tindakan Ini.');
         }
-
         $wisata = Wisata::findOrFail($id);
+        // Menghapus foto terkait jika ada
+        if ($wisata->foto) {
+            \Storage::disk('public')->delete($wisata->foto);
+        }
         $wisata->delete();
         return redirect('/dashboard/data/wisata')->with('success', 'Destinasi Wisata yang Dipilih Telah Dihapus!');
     }

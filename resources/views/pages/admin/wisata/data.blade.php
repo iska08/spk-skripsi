@@ -110,10 +110,10 @@
                                                 @endif
                                             </td>
                                             <td class="text-center">
-                                                @if($wisata->link_foto == "" || $wisata->link_foto == "-")
+                                                @if($wisata->foto == "" || $wisata->foto == "-")
                                                 <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="width: 4cm; height: 3cm">
                                                 @else
-                                                <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
+                                                <img src="{{ asset('storage/' . $wisata->foto) }}" alt="Gambar" style="width: 4cm; height: 3cm">
                                                 @endif
                                             </td>
                                             <td class="text-center">

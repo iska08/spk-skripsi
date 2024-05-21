@@ -24,10 +24,10 @@
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
                         <div class="d-flex justify-content position-relative" style="max-width: 80%">
-                            @if ($wisata->link_foto == "" || $wisata->link_foto == "-")
+                            @if ($wisata->foto == "" || $wisata->foto == "-")
                             <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="width: 4cm; height: 3cm">
                             @else
-                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="width: 4cm; height: 3cm">
+                            <img src="{{ asset('storage/' . $wisata->foto) }}" alt="Gambar" style="width: 4cm; height: 3cm">
                             @endif
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; width:3.5cm">
@@ -75,10 +75,10 @@
                     @foreach ($wisatas as $wisata)
                     <div class="slide-item">
                         <div class="container d-flex justify-content position-relative">
-                            @if ($wisata->link_foto == "" || $wisata->link_foto == "-")
+                            @if ($wisata->foto == "" || $wisata->foto == "-")
                             <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="height: 4cm; width: 6cm">
                             @else
-                            <img src="{{ $wisata->link_foto }}" alt="Gambar" style="height: 4cm; width: 6cm">
+                            <img src="{{ asset('storage/' . $wisata->foto) }}" alt="Gambar" style="height: 4cm; width: 6cm">
                             @endif
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <h4 style="max-width: 30%; min-width:30%">

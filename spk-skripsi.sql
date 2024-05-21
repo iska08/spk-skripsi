@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Bulan Mei 2024 pada 05.47
+-- Waktu pembuatan: 21 Bulan Mei 2024 pada 07.44
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -138,11 +138,11 @@ CREATE TABLE `bobots` (
 --
 
 INSERT INTO `bobots` (`id`, `criteria_analysis_id`, `criteria_id`, `value`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 0.166666667, '2024-05-19 02:45:45', '2024-05-19 02:48:19'),
-(2, 1, 2, 0.166666667, '2024-05-19 02:45:46', '2024-05-19 02:48:19'),
-(3, 1, 3, 0.250000000, '2024-05-19 02:45:46', '2024-05-19 02:48:19'),
-(4, 1, 4, 0.166666667, '2024-05-19 02:45:46', '2024-05-19 02:48:20'),
-(5, 1, 5, 0.250000000, '2024-05-19 02:45:46', '2024-05-19 02:48:20');
+(1, 1, 1, 0.178082192, '2024-05-19 02:45:45', '2024-05-20 10:54:10'),
+(2, 1, 2, 0.178082192, '2024-05-19 02:45:46', '2024-05-20 10:54:10'),
+(3, 1, 3, 0.191780822, '2024-05-19 02:45:46', '2024-05-20 10:54:10'),
+(4, 1, 4, 0.246575342, '2024-05-19 02:45:46', '2024-05-20 10:54:10'),
+(5, 1, 5, 0.205479452, '2024-05-19 02:45:46', '2024-05-20 10:54:10');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE `criterias` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nama_kriteria` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
-  `kategori` varchar(255) NOT NULL,
+  `kategori` longtext NOT NULL,
   `keterangan` varchar(255) NOT NULL,
   `skala1` varchar(255) NOT NULL,
   `skala2` varchar(255) NOT NULL,
@@ -218,31 +218,31 @@ CREATE TABLE `criteria_analysis_details` (
 --
 
 INSERT INTO `criteria_analysis_details` (`id`, `criteria_analysis_id`, `criteria_id_first`, `criteria_id_second`, `comparison_value`, `comparison_result`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1.000000000, 1.000000000, '2024-05-19 02:44:29', '2024-05-19 02:45:44'),
-(2, 1, 1, 2, 2.000000000, 2.000000000, '2024-05-19 02:44:29', '2024-05-19 02:45:44'),
-(3, 1, 1, 3, 5.000000000, 5.000000000, '2024-05-19 02:44:29', '2024-05-19 02:45:44'),
-(4, 1, 1, 4, 4.000000000, 4.000000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(5, 1, 1, 5, 4.000000000, 4.000000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(6, 1, 2, 1, 2.000000000, 0.500000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(7, 1, 2, 2, 1.000000000, 1.000000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(8, 1, 2, 3, 1.000000000, 1.000000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(9, 1, 2, 4, 4.000000000, 4.000000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(10, 1, 2, 5, 3.000000000, 3.000000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(11, 1, 3, 1, 5.000000000, 0.200000000, '2024-05-19 02:44:30', '2024-05-19 02:45:44'),
-(12, 1, 3, 2, 1.000000000, 1.000000000, '2024-05-19 02:44:31', '2024-05-19 02:45:44'),
-(13, 1, 3, 3, 1.000000000, 1.000000000, '2024-05-19 02:44:31', '2024-05-19 02:45:44'),
-(14, 1, 3, 4, 4.000000000, 4.000000000, '2024-05-19 02:44:31', '2024-05-19 02:45:44'),
-(15, 1, 3, 5, 2.000000000, 2.000000000, '2024-05-19 02:44:31', '2024-05-19 02:45:44'),
-(16, 1, 4, 1, 4.000000000, 0.250000000, '2024-05-19 02:44:31', '2024-05-19 02:45:44'),
-(17, 1, 4, 2, 4.000000000, 0.250000000, '2024-05-19 02:44:31', '2024-05-19 02:45:45'),
-(18, 1, 4, 3, 4.000000000, 0.250000000, '2024-05-19 02:44:32', '2024-05-19 02:45:45'),
-(19, 1, 4, 4, 1.000000000, 1.000000000, '2024-05-19 02:44:32', '2024-05-19 02:45:45'),
-(20, 1, 4, 5, 1.000000000, 1.000000000, '2024-05-19 02:44:32', '2024-05-19 02:45:44'),
-(21, 1, 5, 1, 4.000000000, 0.250000000, '2024-05-19 02:44:34', '2024-05-19 02:45:45'),
-(22, 1, 5, 2, 3.000000000, 0.333333333, '2024-05-19 02:44:34', '2024-05-19 02:45:45'),
-(23, 1, 5, 3, 2.000000000, 0.500000000, '2024-05-19 02:44:35', '2024-05-19 02:45:45'),
-(24, 1, 5, 4, 1.000000000, 1.000000000, '2024-05-19 02:44:35', '2024-05-19 02:45:45'),
-(25, 1, 5, 5, 1.000000000, 1.000000000, '2024-05-19 02:44:35', '2024-05-19 02:45:45');
+(1, 1, 1, 1, 1.000000000, 1.000000000, '2024-05-19 02:44:29', '2024-05-20 10:50:24'),
+(2, 1, 1, 2, 2.000000000, 2.000000000, '2024-05-19 02:44:29', '2024-05-20 10:50:24'),
+(3, 1, 1, 3, 1.000000000, 1.000000000, '2024-05-19 02:44:29', '2024-05-20 10:50:24'),
+(4, 1, 1, 4, 4.000000000, 4.000000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(5, 1, 1, 5, 4.000000000, 4.000000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(6, 1, 2, 1, 2.000000000, 0.500000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(7, 1, 2, 2, 1.000000000, 1.000000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(8, 1, 2, 3, 1.000000000, 1.000000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(9, 1, 2, 4, 4.000000000, 4.000000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(10, 1, 2, 5, 3.000000000, 3.000000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(11, 1, 3, 1, 1.000000000, 1.000000000, '2024-05-19 02:44:30', '2024-05-20 10:50:24'),
+(12, 1, 3, 2, 1.000000000, 1.000000000, '2024-05-19 02:44:31', '2024-05-20 10:50:24'),
+(13, 1, 3, 3, 1.000000000, 1.000000000, '2024-05-19 02:44:31', '2024-05-20 10:50:24'),
+(14, 1, 3, 4, 4.000000000, 4.000000000, '2024-05-19 02:44:31', '2024-05-20 10:50:24'),
+(15, 1, 3, 5, 2.000000000, 2.000000000, '2024-05-19 02:44:31', '2024-05-20 10:50:24'),
+(16, 1, 4, 1, 4.000000000, 0.250000000, '2024-05-19 02:44:31', '2024-05-20 10:50:24'),
+(17, 1, 4, 2, 4.000000000, 0.250000000, '2024-05-19 02:44:31', '2024-05-20 10:50:25'),
+(18, 1, 4, 3, 4.000000000, 0.250000000, '2024-05-19 02:44:32', '2024-05-20 10:50:25'),
+(19, 1, 4, 4, 1.000000000, 1.000000000, '2024-05-19 02:44:32', '2024-05-20 10:50:25'),
+(20, 1, 4, 5, 1.000000000, 1.000000000, '2024-05-19 02:44:32', '2024-05-20 10:50:24'),
+(21, 1, 5, 1, 4.000000000, 0.250000000, '2024-05-19 02:44:34', '2024-05-20 10:50:25'),
+(22, 1, 5, 2, 3.000000000, 0.333333333, '2024-05-19 02:44:34', '2024-05-20 10:50:25'),
+(23, 1, 5, 3, 2.000000000, 0.500000000, '2024-05-19 02:44:35', '2024-05-20 10:50:25'),
+(24, 1, 5, 4, 1.000000000, 1.000000000, '2024-05-19 02:44:35', '2024-05-20 10:50:25'),
+(25, 1, 5, 5, 1.000000000, 1.000000000, '2024-05-19 02:44:35', '2024-05-20 10:50:25');
 
 -- --------------------------------------------------------
 
@@ -368,11 +368,11 @@ CREATE TABLE `priority_values` (
 --
 
 INSERT INTO `priority_values` (`id`, `criteria_analysis_id`, `criteria_id`, `value`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 0.437084206, '2024-05-19 02:45:45', '2024-05-19 02:45:45'),
-(2, 1, 2, 0.226585672, '2024-05-19 02:45:45', '2024-05-19 02:45:45'),
-(3, 1, 3, 0.181131126, '2024-05-19 02:45:46', '2024-05-19 02:45:46'),
-(4, 1, 4, 0.072555508, '2024-05-19 02:45:46', '2024-05-19 02:45:46'),
-(5, 1, 5, 0.082643485, '2024-05-19 02:45:46', '2024-05-19 02:45:46');
+(1, 1, 1, 0.337142857, '2024-05-19 02:45:45', '2024-05-20 10:50:26'),
+(2, 1, 2, 0.241991341, '2024-05-19 02:45:45', '2024-05-20 10:50:27'),
+(3, 1, 3, 0.257142857, '2024-05-19 02:45:46', '2024-05-20 10:50:27'),
+(4, 1, 4, 0.073376623, '2024-05-19 02:45:46', '2024-05-20 10:50:27'),
+(5, 1, 5, 0.090346320, '2024-05-19 02:45:46', '2024-05-20 10:50:27');
 
 -- --------------------------------------------------------
 
@@ -413,9 +413,9 @@ CREATE TABLE `wisatas` (
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `nama_wisata` varchar(255) NOT NULL,
   `lokasi_maps` varchar(255) NOT NULL,
-  `link_foto` varchar(255) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
-  `fasilitas` varchar(255) NOT NULL,
+  `foto` varchar(255) NOT NULL,
+  `keterangan` longtext NOT NULL,
+  `fasilitas` longtext NOT NULL,
   `biaya` int(11) NOT NULL,
   `situs` varchar(255) NOT NULL,
   `validasi` int(11) NOT NULL,
@@ -428,25 +428,25 @@ CREATE TABLE `wisatas` (
 -- Dumping data untuk tabel `wisatas`
 --
 
-INSERT INTO `wisatas` (`id`, `jenis_id`, `user_id`, `nama_wisata`, `lokasi_maps`, `link_foto`, `keterangan`, `fasilitas`, `biaya`, `situs`, `validasi`, `tampil`, `created_at`, `updated_at`) VALUES
-(1, 5, 1, 'Alun-Alun Kota Malang', 'https://maps.app.goo.gl/sPcuN4pHHJq3ECkG9', 'https://lh5.googleusercontent.com/p/AF1QipNfQVEIIsGhRtFapETywE64G-evI2aD035MZkPz=w408-h306-k-no', 'Alun-Alun Kota Malang adalah pusat kota yang menjadi tempat rekreasi favorit bagi warga setempat dan wisatawan. Dikelilingi oleh taman yang rapi, air mancur, serta dilengkapi dengan area bermain anak dan tempat duduk untuk bersantai.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 10:38:49', '2024-05-19 02:53:58'),
-(2, 5, 1, 'Alun-Alun Kota Wisata Batu', 'https://maps.app.goo.gl/jsPewoWgT4K1PMtM7', 'https://lh5.googleusercontent.com/p/AF1QipP2rFV90_i9Au622q3a5dhYeOwoFZ-wJ05EpTIR=w408-h271-k-no', 'Terletak di pusat Kota Batu, alun-alun ini terkenal dengan bianglala besar dan berbagai wahana permainan anak. Alun-alun ini juga memiliki banyak penjual makanan dan minuman khas serta sering dijadikan tempat berkumpul dan berolahraga.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 10:45:16', '2024-05-19 02:54:08'),
-(3, 7, 1, 'Batu Love Garden', 'https://maps.app.goo.gl/v6VotBapMcMnts9j8', 'https://lh5.googleusercontent.com/p/AF1QipOKAg42tg5IES9R7th6qWm8EoJ8TY4zqHgtzUcw=w408-h306-k-no', 'Batu Love Garden adalah taman bunga yang luas dengan berbagai jenis bunga yang indah dan ditata dengan artistik. Tempat ini sangat cocok untuk pecinta alam dan fotografi, serta memiliki berbagai spot foto menarik.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 80000, 'https://jtp.id/batulovegarden/', 2, 2, '2024-05-18 11:01:55', '2024-05-18 12:52:02'),
-(4, 7, 1, 'Brawijaya Edu Park', 'https://maps.app.goo.gl/1t8vUsyTfxEP8fiY9', 'https://lh5.googleusercontent.com/p/AF1QipMYavTxN3rQa0iB9xpKIZIjbnBBSZ4SX01zFkv-=w426-h240-k-no', 'Taman edukasi ini menggabungkan hiburan dan pendidikan dengan berbagai wahana interaktif yang mengajarkan ilmu pengetahuan dan teknologi kepada anak-anak. Ada juga berbagai atraksi permainan yang menyenangkan.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 20000, 'https://www.facebook.com/brawijaya.edupark', 2, 2, '2024-05-18 11:03:01', '2024-05-18 12:55:21'),
-(5, 3, 1, 'Candi Badut', 'https://maps.app.goo.gl/CYbRBUeeqABRHXLY7', 'https://lh5.googleusercontent.com/p/AF1QipOAteAgDMIcuNC4skp_K0Uuckq-80fabxKb9pen=w408-h306-k-no', 'Candi Badut adalah candi Hindu yang terletak di Malang, dibangun pada abad ke-8. Candi ini memiliki arsitektur yang unik dan sejarah yang kaya, menjadi salah satu situs arkeologi penting di Jawa Timur.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:04:29', '2024-05-18 12:56:12'),
-(6, 3, 1, 'Candi Kidal', 'https://maps.app.goo.gl/gximdwLbMVRj8pYx8', 'https://lh5.googleusercontent.com/p/AF1QipM2HbwvsRneBFrnCJ2Nz8FjWApbQPd4EJTKeNU6=w408-h550-k-no', 'Terletak di Kabupaten Malang, Candi Kidal adalah candi peninggalan Kerajaan Singhasari yang dibangun pada abad ke-13. Candi ini dikenal dengan relief cerita Garudeya yang mengisahkan perjalanan Garuda.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:05:58', '2024-05-18 12:57:16'),
-(7, 3, 1, 'Candi Singosari', 'https://maps.app.goo.gl/b2LVhF31HPWZy3Js5', 'https://lh5.googleusercontent.com/p/AF1QipO37qn54NMgYB8mWsyole0aNR_02MZdSC-LFwEN=w408-h306-k-no', 'Candi ini merupakan peninggalan Kerajaan Singhasari yang didirikan pada abad ke-13. Terkenal dengan arsitektur khas dan relief yang menceritakan sejarah kerajaan, Candi Singosari adalah situs sejarah yang penting di Malang.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:06:55', '2024-05-18 12:57:58'),
-(8, 7, 1, 'Hawai Waterpark', 'https://maps.app.goo.gl/AFcqo7GvV7pXhYQQ9', 'https://lh5.googleusercontent.com/p/AF1QipPuujR7hF-eJniH6nD-5-yM0pchrWWd0MoTQeRw=w408-h306-k-no', 'Hawai Waterpark adalah taman bermain air yang luas dengan berbagai macam wahana seperti kolam ombak, seluncuran air, dan area bermain anak. Tempat ini ideal untuk rekreasi keluarga di Malang.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 85000, 'https://hawaiwaterpark.com/', 2, 2, '2024-05-18 11:16:22', '2024-05-18 12:58:51'),
-(9, 7, 1, 'Jatim Park I', 'https://maps.app.goo.gl/X62agCCGu2j2RjbK7', 'https://lh5.googleusercontent.com/p/AF1QipPyyjgaLvsrzMshR3RQjIdPwTO7ELe_rOGylNsW=w408-h306-k-no', 'Jatim Park I adalah taman hiburan yang menawarkan berbagai wahana permainan dan edukasi. Dikenal dengan taman rekreasi yang menggabungkan konsep belajar sambil bermain, sangat cocok untuk anak-anak dan remaja.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 115000, 'https://jtp.id/jatimpark1/', 2, 2, '2024-05-18 11:18:42', '2024-05-18 12:59:16'),
-(10, 7, 1, 'Jatim Park II', 'https://maps.app.goo.gl/vmG9NCnv81BfHnSb8', 'https://lh5.googleusercontent.com/p/AF1QipOMjssVDN-77VaJcqU_p9l6fMRm0yicRVZsTP7y=w408-h306-k-no', 'Terdiri dari kebun binatang modern dan museum satwa, Jatim Park II menawarkan pengalaman edukasi dan hiburan yang menarik. Batu Secret Zoo memiliki berbagai jenis hewan, sedangkan Museum Satwa menampilkan koleksi fosil dan diorama satwa.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 125000, 'https://jtp.id/jatimpark2/', 2, 2, '2024-05-18 11:30:49', '2024-05-18 12:59:33'),
-(11, 7, 1, 'Jatim Park III', 'https://maps.app.goo.gl/swFnPdDd3jdvDAhF7', 'https://lh5.googleusercontent.com/p/AF1QipPa2fntqk0wdGkCZq0BpJPwBF2lYdjrTT5KR0TF=w408-h306-k-no', 'Jatim Park III adalah taman hiburan yang bertema dinosaurus dengan berbagai atraksi seperti Dino Park, The Legend Star, dan Fun Tech Plaza. Tempat ini menawarkan pengalaman interaktif dan edukatif tentang kehidupan prasejarah.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 245000, 'https://jtp.id/jatimpark3/', 2, 2, '2024-05-18 11:32:44', '2024-05-18 12:59:51'),
-(12, 7, 1, 'Malang Night Paradise', 'https://maps.app.goo.gl/XKBxtontEGHsXDzN8', 'https://lh5.googleusercontent.com/p/AF1QipM15jfjL5PFiO-VkRpg2OojmiNe44VVBv1Ov07u=w408-h306-k-no', 'Sebuah taman hiburan yang menampilkan berbagai instalasi cahaya spektakuler, pertunjukan air mancur menari, dan wahana permainan malam. Tempat ini sangat populer untuk rekreasi malam hari di Malang.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 90000, 'https://malangnightparadise.com/', 2, 2, '2024-05-18 11:34:43', '2024-05-18 13:00:41'),
-(13, 3, 1, 'Museum Brawijaya', 'https://maps.app.goo.gl/e2Mq6uwnouth6Y6b6', 'https://lh5.googleusercontent.com/p/AF1QipMwzblRgzRwyMN3el6yVWzYZ86tcar-M8FFAaal=w408-h544-k-no', 'Museum ini menyimpan koleksi benda-benda bersejarah dari masa perjuangan kemerdekaan Indonesia. Terletak di Malang, museum ini memiliki banyak artefak militer dan dokumen penting dari zaman penjajahan dan revolusi.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 5000, '-', 2, 2, '2024-05-18 11:35:47', '2024-05-18 13:01:45'),
-(14, 6, 1, 'Pantai Batu Bengkung', 'https://maps.app.goo.gl/9a6e95FV9GQBGgFC6', 'https://lh5.googleusercontent.com/p/AF1QipOW6gprEHYtxxkjAPKexdA6Wgvo4BDbCOw3QLPA=w408-h306-k-no', 'Pantai yang terletak di pesisir selatan Malang ini terkenal dengan formasi batu karang yang unik dan ombak yang besar. Pantai ini cocok untuk menikmati pemandangan alam dan berfoto dengan latar belakang yang indah.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 10000, '-', 2, 2, '2024-05-18 11:36:37', '2024-05-18 13:03:26'),
-(15, 6, 1, 'Pantai Licin', 'https://maps.app.goo.gl/TKwxQotUGG7CFdqr9', 'https://lh5.googleusercontent.com/p/AF1QipMDk0gOIowL85WS6TWNQKICmjOtqTlUm51t1-b-=w408-h275-k-no', 'Pantai Licin memiliki pasir hitam yang eksotis dan dikelilingi oleh batu karang yang memberikan pemandangan yang dramatis. Terletak agak terpencil, pantai ini menawarkan suasana yang tenang dan alami, ideal untuk pelarian dari keramaian.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:57:24', '2024-05-18 13:03:47'),
-(16, 4, 2, 'Kampung Warna-Warni', '-', '-', 'Sederetan rumah yang dicat dengan warna-warni terlihat mencolok di Kawasan Jodipan, Malang, Jawa Timur. Keunikan ini menjadikan Kampung Jodipan banyak dikunjungi wisatawan dari berbagai daerah bahkan luar negeri. Kebanyakan wisatawan datang ke kampung ini', '-', 0, '-', 2, 0, '2024-05-19 03:30:04', '2024-05-19 03:37:18'),
-(17, 7, 2, 'Eco Green Park', '-', '-', 'Tempat wisata yang tidak saja memberikan hiburan bagi keluarga tetapi juga mengedukasi bagi para pengunjung. Puluhan zona dan atraksi tentunya ada di Eco Park Batu Malang. Terutama bagi anak-anak pasti akan menyenangkan dan memberikan pengalaman baru tent', '-', 0, '-', 1, 0, '2024-05-19 03:32:56', '2024-05-19 03:37:24'),
-(18, 6, 2, 'Pantai Gatra', '-', '-', 'Pantai Gatra adalah salah satu wisata bahari yang berada di Malang, Jawa Timur. Pantai yang satu ini masih berada di dalam lingkup Clungup Mangrove Conservation. Pantai ini pun berada di jajaran yang sama dengan Pantai Clungup dan Mini. Pantai ini juga ma', '-', 0, '-', 0, 0, '2024-05-19 03:36:00', '2024-05-19 03:36:00');
+INSERT INTO `wisatas` (`id`, `jenis_id`, `user_id`, `nama_wisata`, `lokasi_maps`, `foto`, `keterangan`, `fasilitas`, `biaya`, `situs`, `validasi`, `tampil`, `created_at`, `updated_at`) VALUES
+(1, 5, 1, 'Alun-alun Kota Malang', 'https://maps.app.goo.gl/sPcuN4pHHJq3ECkG9', 'foto_wisata/3SQjIuILndJlXGYaF6Zm7IzwDqarGFUDjeV8y58l.jpg', 'Alun-Alun Kota Malang adalah pusat kota yang menjadi tempat rekreasi favorit bagi warga setempat dan wisatawan. Dikelilingi oleh taman yang rapi, air mancur, serta dilengkapi dengan area bermain anak dan tempat duduk untuk bersantai.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 10:38:49', '2024-05-21 04:20:04'),
+(2, 5, 1, 'Alun-alun Kota Wisata Batu', 'https://maps.app.goo.gl/jsPewoWgT4K1PMtM7', 'foto_wisata/jP1oWx2FK7iMmb760n9nKRiynvdmjZSXgOOTT0Qg.jpg', 'Terletak di pusat Kota Batu, alun-alun ini terkenal dengan bianglala besar dan berbagai wahana permainan anak. Alun-alun ini juga memiliki banyak penjual makanan dan minuman khas serta sering dijadikan tempat berkumpul dan berolahraga.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 10:45:16', '2024-05-21 04:22:42'),
+(3, 7, 1, 'Batu Love Garden', 'https://maps.app.goo.gl/v6VotBapMcMnts9j8', 'foto_wisata/l9DslrsvXlgUufb9fioAaz6DTmXcSkCR7CU8XLwg.jpg', 'Batu Love Garden adalah taman bunga yang luas dengan berbagai jenis bunga yang indah dan ditata dengan artistik. Tempat ini sangat cocok untuk pecinta alam dan fotografi, serta memiliki berbagai spot foto menarik.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 80000, 'https://jtp.id/batulovegarden/', 2, 2, '2024-05-18 11:01:55', '2024-05-21 04:29:43'),
+(4, 7, 1, 'Brawijaya Edu Park', 'https://maps.app.goo.gl/1t8vUsyTfxEP8fiY9', 'foto_wisata/utJncgo1qzbvTASvr89yuKAExJmeFsBArJOlsnPm.jpg', 'Taman edukasi ini menggabungkan hiburan dan pendidikan dengan berbagai wahana interaktif yang mengajarkan ilmu pengetahuan dan teknologi kepada anak-anak. Ada juga berbagai atraksi permainan yang menyenangkan.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 20000, 'https://www.facebook.com/brawijaya.edupark', 2, 2, '2024-05-18 11:03:01', '2024-05-21 04:38:05'),
+(5, 3, 1, 'Candi Badut', 'https://maps.app.goo.gl/CYbRBUeeqABRHXLY7', 'foto_wisata/s8vEcnINW06lsUmrULW5F8GHMShs44oqG9Bz9Uwg.jpg', 'Candi Badut adalah candi Hindu yang terletak di Malang, dibangun pada abad ke-8. Candi ini memiliki arsitektur yang unik dan sejarah yang kaya, menjadi salah satu situs arkeologi penting di Jawa Timur.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:04:29', '2024-05-21 04:39:39'),
+(6, 3, 1, 'Candi Kidal', 'https://maps.app.goo.gl/gximdwLbMVRj8pYx8', 'foto_wisata/SFYODNMBs6RFN59BDRn1iKq9e00ow35z3cgWioy7.jpg', 'Terletak di Kabupaten Malang, Candi Kidal adalah candi peninggalan Kerajaan Singhasari yang dibangun pada abad ke-13. Candi ini dikenal dengan relief cerita Garudeya yang mengisahkan perjalanan Garuda.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:05:58', '2024-05-21 04:40:31'),
+(7, 3, 1, 'Candi Singosari', 'https://maps.app.goo.gl/b2LVhF31HPWZy3Js5', 'foto_wisata/0TTMCazE2Aex8I2RnzgoS4kA4qVO1YRoj2cdSonm.jpg', 'Candi ini merupakan peninggalan Kerajaan Singhasari yang didirikan pada abad ke-13. Terkenal dengan arsitektur khas dan relief yang menceritakan sejarah kerajaan, Candi Singosari adalah situs sejarah yang penting di Malang.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:06:55', '2024-05-21 04:41:51'),
+(8, 7, 1, 'Hawai Waterpark', 'https://maps.app.goo.gl/AFcqo7GvV7pXhYQQ9', 'foto_wisata/K8DZ8MCuznQ8QoJ4cjJCHn05lGlfjG2IDDQUUDK6.jpg', 'Hawai Waterpark adalah taman bermain air yang luas dengan berbagai macam wahana seperti kolam ombak, seluncuran air, dan area bermain anak. Tempat ini ideal untuk rekreasi keluarga di Malang.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 85000, 'https://hawaiwaterpark.com/', 2, 2, '2024-05-18 11:16:22', '2024-05-21 04:44:48'),
+(9, 7, 1, 'Jatim Park I', 'https://maps.app.goo.gl/X62agCCGu2j2RjbK7', 'foto_wisata/nETTo6ImKdULVr4d8Wdg1fehvTx5HkMI7Ef3jfho.jpg', 'Jatim Park I adalah taman hiburan yang menawarkan berbagai wahana permainan dan edukasi. Dikenal dengan taman rekreasi yang menggabungkan konsep belajar sambil bermain, sangat cocok untuk anak-anak dan remaja.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 115000, 'https://jtp.id/jatimpark1/', 2, 2, '2024-05-18 11:18:42', '2024-05-21 04:54:13'),
+(10, 7, 1, 'Jatim Park II', 'https://maps.app.goo.gl/vmG9NCnv81BfHnSb8', 'foto_wisata/kY9njb4DNIrOmwvr1rLPU8TRVoqt0wI9mx5eac3n.jpg', 'Terdiri dari kebun binatang modern dan museum satwa, Jatim Park II menawarkan pengalaman edukasi dan hiburan yang menarik. Batu Secret Zoo memiliki berbagai jenis hewan, sedangkan Museum Satwa menampilkan koleksi fosil dan diorama satwa.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 125000, 'https://jtp.id/jatimpark2/', 2, 2, '2024-05-18 11:30:49', '2024-05-21 05:05:02'),
+(11, 7, 1, 'Jatim Park III', 'https://maps.app.goo.gl/swFnPdDd3jdvDAhF7', 'foto_wisata/h58brV1G3EOUHUjzz2qeQoiaAEYSEVBVYaVE1rGX.jpg', 'Jatim Park III adalah taman hiburan yang bertema dinosaurus dengan berbagai atraksi seperti Dino Park, The Legend Star, dan Fun Tech Plaza. Tempat ini menawarkan pengalaman interaktif dan edukatif tentang kehidupan prasejarah.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 245000, 'https://jtp.id/jatimpark3/', 2, 2, '2024-05-18 11:32:44', '2024-05-21 05:22:28'),
+(12, 7, 1, 'Malang Night Paradise', 'https://maps.app.goo.gl/XKBxtontEGHsXDzN8', 'foto_wisata/V8b7qpxgnmqeLTSIOO4KvwAc5h5p1X2PNCZYht20.jpg', 'Sebuah taman hiburan yang menampilkan berbagai instalasi cahaya spektakuler, pertunjukan air mancur menari, dan wahana permainan malam. Tempat ini sangat populer untuk rekreasi malam hari di Malang.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 90000, 'https://malangnightparadise.com/', 2, 2, '2024-05-18 11:34:43', '2024-05-21 05:24:08'),
+(13, 3, 1, 'Museum Brawijaya', 'https://maps.app.goo.gl/e2Mq6uwnouth6Y6b6', 'foto_wisata/YyzJloPmeUM20nHvbalqx6RCoR32i7bYO4eo5gsm.jpg', 'Museum ini menyimpan koleksi benda-benda bersejarah dari masa perjuangan kemerdekaan Indonesia. Terletak di Malang, museum ini memiliki banyak artefak militer dan dokumen penting dari zaman penjajahan dan revolusi.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 5000, '-', 2, 2, '2024-05-18 11:35:47', '2024-05-21 05:25:32'),
+(14, 6, 1, 'Pantai Batu Bengkung', 'https://maps.app.goo.gl/9a6e95FV9GQBGgFC6', 'foto_wisata/V0TWJnVyPEpmZsSuO99rYde4caEVts3fyk6GZtzj.jpg', 'Pantai yang terletak di pesisir selatan Malang ini terkenal dengan formasi batu karang yang unik dan ombak yang besar. Pantai ini cocok untuk menikmati pemandangan alam dan berfoto dengan latar belakang yang indah.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 10000, '-', 2, 2, '2024-05-18 11:36:37', '2024-05-21 05:26:35'),
+(15, 6, 1, 'Pantai Licin', 'https://maps.app.goo.gl/TKwxQotUGG7CFdqr9', 'foto_wisata/gPvkAyKusunpcQyXLCAM67knl4t3F6uR4D6Xl3Eq.jpg', 'Pantai Licin memiliki pasir hitam yang eksotis dan dikelilingi oleh batu karang yang memberikan pemandangan yang dramatis. Terletak agak terpencil, pantai ini menawarkan suasana yang tenang dan alami, ideal untuk pelarian dari keramaian.', 'Protokol Kesehatan, Kamar Mandi, Kantin, Fasilitas Parkir Kendaraan, dan Lain-lain', 0, '-', 2, 2, '2024-05-18 11:57:24', '2024-05-21 05:27:49'),
+(16, 4, 2, 'Kampung Warna-Warni', '-', '', 'Sederetan rumah yang dicat dengan warna-warni terlihat mencolok di Kawasan Jodipan, Malang, Jawa Timur. Keunikan ini menjadikan Kampung Jodipan banyak dikunjungi wisatawan dari berbagai daerah bahkan luar negeri. Kebanyakan wisatawan datang ke kampung ini untuk mendapatkan foto yang menarik.', '-', 0, '-', 2, 0, '2024-05-19 03:30:04', '2024-05-21 04:01:35'),
+(17, 7, 2, 'Eco Green Park', '-', '-', 'Tempat wisata yang tidak saja memberikan hiburan bagi keluarga tetapi juga mengedukasi bagi para pengunjung. Puluhan zona dan atraksi tentunya ada di Eco Park Batu Malang. Terutama bagi anak-anak pasti akan menyenangkan dan memberikan pengalaman baru tentang aneka satwa.', '-', 0, '-', 1, 0, '2024-05-19 03:32:56', '2024-05-19 03:37:24'),
+(18, 6, 2, 'Pantai Gatra', '-', '-', 'Pantai Gatra adalah salah satu wisata bahari yang berada di Malang, Jawa Timur. Pantai yang satu ini masih berada di dalam lingkup Clungup Mangrove Conservation. Pantai ini pun berada di jajaran yang sama dengan Pantai Clungup dan Mini. Pantai ini juga masih sekawasan dengan pantai Tiga Warna, Sapana, dan Batu Pecah.', '-', 0, '-', 0, 0, '2024-05-19 03:36:00', '2024-05-19 11:35:04');
 
 --
 -- Indexes for dumped tables
@@ -626,7 +626,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `wisatas`
 --
 ALTER TABLE `wisatas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
