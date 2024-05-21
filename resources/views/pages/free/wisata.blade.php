@@ -39,7 +39,7 @@
                                 <b style="width: 5cm">
                                     <label for="criteria_{{ $criteria->id }}" class="form-label">{{ $criteria->nama_kriteria }}</label>
                                     <select class="form-select" name="criteria_{{ $criteria->id }}">
-                                        <option value="">Pilih Filter</option>
+                                        <option value="" disabled selected>Pilih Filter</option>
                                         <option value="1" {{ request('criteria_'.$criteria->id) == 1 ? 'selected' : '' }}>{{ $criteria->skala1 }}</option>
                                         <option value="2" {{ request('criteria_'.$criteria->id) == 2 ? 'selected' : '' }}>{{ $criteria->skala2 }}</option>
                                         <option value="3" {{ request('criteria_'.$criteria->id) == 3 ? 'selected' : '' }}>{{ $criteria->skala3 }}</option>
