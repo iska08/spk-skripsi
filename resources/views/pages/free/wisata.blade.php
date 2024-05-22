@@ -40,11 +40,19 @@
                                     <label for="criteria_{{ $criteria->id }}" class="form-label">{{ $criteria->nama_kriteria }}</label>
                                     <select class="form-select" name="criteria_{{ $criteria->id }}">
                                         <option value="" disabled selected>Pilih Filter</option>
+                                        @if($criteria->kategori == "BENEFIT")
                                         <option value="1" {{ request('criteria_'.$criteria->id) == 1 ? 'selected' : '' }}>{{ $criteria->skala1 }}</option>
                                         <option value="2" {{ request('criteria_'.$criteria->id) == 2 ? 'selected' : '' }}>{{ $criteria->skala2 }}</option>
                                         <option value="3" {{ request('criteria_'.$criteria->id) == 3 ? 'selected' : '' }}>{{ $criteria->skala3 }}</option>
                                         <option value="4" {{ request('criteria_'.$criteria->id) == 4 ? 'selected' : '' }}>{{ $criteria->skala4 }}</option>
                                         <option value="5" {{ request('criteria_'.$criteria->id) == 5 ? 'selected' : '' }}>{{ $criteria->skala5 }}</option>
+                                        @elseif($criteria->kategori == "COST")
+                                        <option value="5" {{ request('criteria_'.$criteria->id) == 5 ? 'selected' : '' }}>{{ $criteria->skala5 }}</option>
+                                        <option value="4" {{ request('criteria_'.$criteria->id) == 4 ? 'selected' : '' }}>{{ $criteria->skala4 }}</option>
+                                        <option value="3" {{ request('criteria_'.$criteria->id) == 3 ? 'selected' : '' }}>{{ $criteria->skala3 }}</option>
+                                        <option value="2" {{ request('criteria_'.$criteria->id) == 2 ? 'selected' : '' }}>{{ $criteria->skala2 }}</option>
+                                        <option value="1" {{ request('criteria_'.$criteria->id) == 1 ? 'selected' : '' }}>{{ $criteria->skala1 }}</option>
+                                        @endif
                                     </select>
                                 </b>
                                 &nbsp;&nbsp;
