@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('criteria_id')->constrained()->cascadeOnDelete();
             $table->foreignId('wisata_id')->constrained()->cascadeOnDelete();
             $table->foreignId('jenis_id')->constrained()->cascadeOnDelete();
-            $table->decimal('alternative_value', 10, 1);
+            $table->decimal('alternative_value', 65, 30);
             $table->timestamps();
         });
     }
