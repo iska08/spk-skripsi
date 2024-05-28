@@ -369,25 +369,26 @@ class KombinasiController extends Controller
                 'criteria_id'          => $criteria->id,
                 'value'                => floatval($FinalPrevValue),
             ];
-            $bobot = [
-                'criteria_analysis_id' => $criteriaAnalysisId,
-                'criteria_id'          => $criteria->id,
-                'value'                => floatval(0),
-            ];
-            // insert or create jika tidak ada
             PriorityValue::updateOrCreate([
                 'criteria_analysis_id' => $criteriaAnalysisId,
                 'criteria_id'          => $criteria->id,
             ], $data);
-            if ($criteria->id === null) {
-                Bobot::updateOrCreate(
-                    [
-                        'criteria_analysis_id' => $criteriaAnalysisId,
-                        'criteria_id'          => $criteria->id,
-                    ],
-                    $bobot
-                );
-            } else {}
+            $existingBobot = Bobot::where([
+                'criteria_analysis_id' => $criteriaAnalysisId,
+                'criteria_id'          => $criteria->id,
+            ])->first();
+            // Jika record tidak ada atau value-nya adalah 0, lakukan pembaruan atau pembuatan record
+            if (!$existingBobot || $existingBobot->value == 0) {
+                $bobot = [
+                    'criteria_analysis_id' => $criteriaAnalysisId,
+                    'criteria_id'          => $criteria->id,
+                    'value'                => floatval(0),
+                ];
+                Bobot::updateOrCreate([
+                    'criteria_analysis_id' => $criteriaAnalysisId,
+                    'criteria_id'          => $criteria->id,
+                ], $bobot);
+            }
         }
     }
 

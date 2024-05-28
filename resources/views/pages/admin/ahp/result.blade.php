@@ -453,7 +453,7 @@
                                         {{ round($data['nilai_kriteria'][$key], 3) }}
                                     </td>
                                 @endforeach
-                                <td class="text-center">{{ round($data['total_bobot'], 16) }}</td>
+                                <td class="text-center">{{ round($data['total_bobot'], 3) }}</td>
                                 <td class="text-center">{{ $ranking++ }}</td>
                             </tr>
                         @endforeach
