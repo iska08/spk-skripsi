@@ -379,10 +379,15 @@ class KombinasiController extends Controller
                 'criteria_analysis_id' => $criteriaAnalysisId,
                 'criteria_id'          => $criteria->id,
             ], $data);
-            Bobot::updateOrCreate([
-                'criteria_analysis_id' => $criteriaAnalysisId,
-                'criteria_id'          => $criteria->id,
-            ], $bobot);
+            if ($criteria->id === null) {
+                Bobot::updateOrCreate(
+                    [
+                        'criteria_analysis_id' => $criteriaAnalysisId,
+                        'criteria_id'          => $criteria->id,
+                    ],
+                    $bobot
+                );
+            } else {}
         }
     }
 

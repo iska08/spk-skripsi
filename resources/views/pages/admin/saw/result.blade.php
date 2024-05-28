@@ -130,7 +130,7 @@
                         </td>
                         @endforeach
                         <td class="text-center">
-                            {{ round($rank['rank_result'], 3) }}
+                            {{ round($rank['rank_result'], 16) }}
                         </td>
                         <td class="text-center">
                             {{ $loop->iteration }}
