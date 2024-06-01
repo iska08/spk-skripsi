@@ -49,6 +49,7 @@ class Alternative extends Model
                 'criteria_id'   => $criteria->id,
                 'nama_kriteria' => $criteria->nama_kriteria,
                 'kategori'      => $criteria->kategori,
+                'keterangan'    => $criteria->keterangan,
                 'divider_value' => floatval($divider)
             ];
             array_push($dividers, $data);
@@ -69,15 +70,22 @@ class Alternative extends Model
             if ($isExists !== '' && $isExists !== null && $isExists !== false) {
                 array_push($finalRes[$isExists]['criteria_id'], $result->criteria->id);
                 array_push($finalRes[$isExists]['criteria_name'], $result->criteria->nama_kriteria);
+                array_push($finalRes[$isExists]['criteria_name'], $result->criteria->keterangan);
                 array_push($finalRes[$isExists]['alternative_val'], $result->alternative_value);
             } else {
                 $data = [
                     'wisata_id'       => $result->wisata_id,
-                    'wisata_name'     => $result->wisataList->nama_wisata,
+                    'nama_wisata'     => $result->wisataList->nama_wisata,
+                    'foto'            => $result->wisataList->foto,
+                    'lokasi_maps'     => $result->wisataList->lokasi_maps,
+                    'fasilitas'       => $result->wisataList->fasilitas,
+                    'biaya'           => $result->wisataList->biaya,
+                    'situs'           => $result->wisataList->situs,
                     'jenis_id'        => $result->jenis->id,
                     'jenis_name'      => $result->jenis->jenis_name,
                     'criteria_id'     => [$result->criteria->id],
                     'criteria_name'   => [$result->criteria->nama_kriteria],
+                    'keterangan'      => [$result->criteria->keterangan],
                     'alternative_val' => [$result->alternative_value]
                 ];
                 array_push($finalRes, $data);

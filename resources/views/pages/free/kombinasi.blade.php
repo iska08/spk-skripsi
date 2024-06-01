@@ -315,7 +315,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="text-center">
-                            {{ Str::ucfirst($normalisasi['wisata_name']) }}
+                            {{ Str::ucfirst($normalisasi['nama_wisata']) }}
                         </td>
                         <td class="text-center">
                             {{ $normalisasi['jenis_name'] }}
@@ -365,7 +365,7 @@
                     @foreach ($ranks as $rank)
                     <tr>
                         <td>
-                            {{ $rank['wisata_name'] }}
+                            {{ $rank['nama_wisata'] }}
                         </td>
                         <td>
                             {{ $rank['jenis_name'] }}

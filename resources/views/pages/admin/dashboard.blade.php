@@ -149,7 +149,7 @@
         <?php
         }else{
             ?>
-                <div class="container d-flex justify-content-center align-items-center text-center position-relative">
+            <div class="container d-flex justify-content-center align-items-center text-center position-relative">
                 <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="height: 4cm; width: 6cm"/>&nbsp;&nbsp;
                 <h4>
                     <p style="font-family: 'Times New Roman', Times, serif; font-size: 45px">SELAMAT DATANG DI</p>

@@ -8,6 +8,7 @@
                     </div>
                     <b>Dashboard</b>
                 </a>
+                @can('admin')
                 {{-- Dropdown Master Data --}}
                 <a href="#" class="nav-link collapsed {{ Request::is('dashboard/data/*') ? 'active' : '' }} parent" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse" aria-expanded="false">
                     <div class="sb-nav-link-icon col-1">
@@ -51,21 +52,12 @@
                     <i class="fas fa-caret-down ms-auto"></i>
                 </a>
                 <div class="collapse {{ Request::is('dashboard/sarans*') ? 'show' : '' }}" id="masterDataCollapse1" data-bs-parent="#sidenavAccordion">
-                    @can('admin')
                     <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }} child" href="{{ route('sarans.index') }}">
                         <div class="sb-nav-link-icon col-1">
                             <i class="fas"></i>
                         </div>
                         Validasi Saran Wisata
                     </a>
-                    @elseif('user')
-                    <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }} child" href="{{ route('sarans.index') }}">
-                        <div class="sb-nav-link-icon col-1">
-                            <i class="fas"></i>
-                        </div>
-                        Saran Destinasi Wisata
-                    </a>
-                    @endcan
                 </div>
                 {{-- Dropdown Master SPK --}}
                 <a href="#" class="nav-link collapsed {{ Request::is('dashboard/perhitungan*') ? 'active' : '' }} parent" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse2" aria-expanded="false">
@@ -82,14 +74,12 @@
                         </div>
                         Metode SPK
                     </a>
-                    @can('admin')
                     <a class="nav-link {{ Request::is('dashboard/perhitungan/setting*') ? 'active' : '' }} child" href="{{ route('kombinasi.index') }}">
                         <div class="sb-nav-link-icon col-1">
                             <i class="fas"></i>
                         </div>
                         Data Perhitungan
                     </a>
-                    @endcan
                 </div>
                 {{-- Dropdown Master Pengguna --}}
                 <a href="#" class="nav-link collapsed {{ Request::is('dashboard/pengguna*') ? 'active' : '' }} parent" data-bs-toggle="collapse" data-bs-target="#masterDataCollapse3" aria-expanded="false">
@@ -100,14 +90,12 @@
                     <i class="fas fa-caret-down ms-auto"></i>
                 </a>
                 <div class="collapse {{ Request::is('dashboard/pengguna*') ? 'show' : '' }}" id="masterDataCollapse3" data-bs-parent="#sidenavAccordion">
-                    @can('admin')
                     <a class="nav-link {{ Request::is('dashboard/pengguna/users*') ? 'active' : '' }} child" href="{{ route('users.index') }}">
                         <div class="sb-nav-link-icon col-1">
                             <i class="fas"></i>
                         </div>
                         Data Pengguna
                     </a>
-                    @endcan
                     <a class="nav-link {{ Request::is('dashboard/pengguna/profile*') ? 'active' : '' }} child" href="{{ route('profile.index') }}">
                         <div class="sb-nav-link-icon col-1">
                             <i class="fas"></i>
@@ -115,6 +103,20 @@
                         Ubah Profil
                     </a>
                 </div>
+                @elseif('user')
+                <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }} child" href="{{ route('sarans.index') }}">
+                    <div class="sb-nav-link-icon col-1">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    Saran Destinasi Wisata
+                </a>
+                <a class="nav-link {{ Request::is('dashboard/pengguna/profile*') ? 'active' : '' }} child" href="{{ route('profile.index') }}">
+                    <div class="sb-nav-link-icon col-1">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    Ubah Profil
+                </a>
+                @endcan
             </div>
         </div>
     </nav>

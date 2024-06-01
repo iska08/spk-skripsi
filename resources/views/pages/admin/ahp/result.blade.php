@@ -320,7 +320,7 @@
                         @foreach ($wisatas as $wisata)
                         <tr>
                             <td class="text-center">{{ $wisata->nama_wisata }}</td>
-                            <td class="text-center">{{ $wisata->alternative_value }}</td>
+                            <td class="text-center">{{ round($wisata->alternative_value, 3) }}</td>
                             @if($criterion->kategori === "COST")
                                 <td class="text-center">{{ round($min/$wisata->alternative_value, 3) }}</td>
                             @elseif($criterion->kategori === "BENEFIT")
@@ -426,7 +426,7 @@
                                     }
                                 }
                             }
-                            $nilaiBobotEvaluasi[$normalisasi['wisata_name']] = [
+                            $nilaiBobotEvaluasi[$normalisasi['nama_wisata']] = [
                                 'total_bobot'    => $totalBobotEvaluasi,
                                 'nilai_kriteria' => $nilaiKriteria,
                                 'jenis_name'     => $normalisasi['jenis_name'],

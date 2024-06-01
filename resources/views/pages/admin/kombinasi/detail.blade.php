@@ -347,7 +347,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="text-center">
-                            {{ $normalisasi['wisata_name'] }}
+                            {{ $normalisasi['nama_wisata'] }}
                         </td>
                         <td class="text-center">
                             {{ $normalisasi['jenis_name'] }}
@@ -361,9 +361,9 @@
                         <td class="text-center">
                             @if ($result !== null)
                             @if ($divider['kategori'] === 'BENEFIT' && $val != 0)
-                            {{ $val }} / {{ $divider['divider_value'] }} =
+                            {{ round($val, 3) }} / {{ $divider['divider_value'] }} =
                             @elseif ($divider['kategori'] === 'COST' && $val != 0)
-                            {{ $divider['divider_value'] }} / {{ $val }} =
+                            {{ $divider['divider_value'] }} / {{ round($val, 3) }} =
                             @endif
                             {{ $result }}
                             @else
@@ -405,7 +405,7 @@
                     @foreach ($ranking as $rank)
                     <tr>
                         <td>
-                            {{ $rank['wisata_name'] }}
+                            {{ $rank['nama_wisata'] }}
                         </td>
                         <td>
                             {{ $rank['jenis_name'] }}

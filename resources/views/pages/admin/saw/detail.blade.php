@@ -65,7 +65,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="text-center">
-                            {{ $normalisasi['wisata_name'] }}
+                            {{ $normalisasi['nama_wisata'] }}
                         </td>
                         <td class="text-center">
                             {{ $normalisasi['jenis_name'] }}
@@ -123,7 +123,7 @@
                     @foreach ($ranking as $rank)
                     <tr>
                         <td>
-                            {{ $rank['wisata_name'] }}
+                            {{ $rank['nama_wisata'] }}
                         </td>
                         <td>
                             {{ $rank['jenis_name'] }}

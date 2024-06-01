@@ -14,18 +14,11 @@
 </head>
 
 <body class="sb-nav-fixed" style="font-family: 'Times New Roman', Times, serif">
-    {{-- navbar --}}
-    @include('includes.free.navbar')
-    <div id="layoutSidenav">
-        {{-- sidenav --}}
-        @include('includes.free.sidenav')
-        {{-- content --}}
-        <div id="layoutSidenav_content">
-            {{-- content --}}
-            @yield('content')
-            {{-- footer --}}
-            @include('includes.free.footer')
-        </div>
+    <div id="layoutSidenav_content">
+        @include('includes.free.navbar')
+        <br><br>
+        @yield('content')
+        @include('includes.free.footer')
     </div>
     @include('includes.free.script')
 </body>

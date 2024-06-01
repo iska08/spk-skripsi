@@ -2,7 +2,7 @@
     <!-- Navbar Brand-->
     <div>
         <a class="navbar-brand ps-3" href="{{ route('dashboard.index') }}" style="padding: 0px 0px 0px">
-            SPK {{ auth()->user()->level }}
+            Halo, {{ auth()->user()->name }}!
         </a>
         <div class="text-white ps-3" style="font-family: 'Times New Roman', Times, serif; font-size:14px; width:max-content">
             <?php

@@ -1,10 +1,10 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <div>
-        <a class="navbar-brand ps-3" href="/spk" style="padding: 0px 0px 0px">
-            SPK WISATA
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <a class="navbar-brand" href="/spk" style="padding: 0px 0px 0px; font-size:20px">
+            SELAMAT DATANG
         </a>
-        <div class="text-white ps-3" style="font-family: 'Times New Roman', Times, serif; font-size:14px; width:max-content">
+        <div class="text-white ps-3" style="font-family: 'Times New Roman', Times, serif; font-size:16px; width:max-content">
             <?php
                 date_default_timezone_set("Asia/Jakarta");
                 $namaHari = array("Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu");
@@ -34,9 +34,4 @@
             </script>
         </div>
     </div>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
-        <i class="fas fa-bars"></i>
-    </button>
-    <div style="width: 23%"></div>
 </nav>

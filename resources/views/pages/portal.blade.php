@@ -9,10 +9,13 @@ Portal
         <section id="hero-animated" class="hero-animated d-flex align-items-center">
             <div class="container d-flex flex-column justify-content-center align-items-center text-center position-relative"
                 data-aos="zoom-out">
-                <h2 style="margin-top: -40px;">Selamat Datang di Kota Malang</h2>
-                <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" class="img-fluid animated" />
+                <h2 style="margin-top: -40px;">Selamat Datang di Malang Raya</h2>
+                <img src="{{ url('frontend/images/Malang Raya.jpg') }}" class="img-fluid animated" />
+                <br><a class="btn-get-started scrollto text-center" href="{{ route('free.index') }}">Rekomendasi Destinasi Wisata</a><br>
                 <p class="text-white">
-                    Kota Malang merupakan tujuan wisata yang menarik dengan berbagai keindahan alam dan kekayaan budaya yang memikat. Terletak di Jawa Timur, Indonesia, kota ini menawarkan pengalaman wisata yang beragam dan menarik bagi pengunjung dari segala usia. Pesona alamnya yang memukau, mulai dari gunung, pantai, hingga perkebunan teh yang indah, menjadikan Malang sebagai destinasi yang sangat dicari oleh para pencinta petualangan dan alam. Selain itu, kekayaan budaya dan sejarahnya yang dalam memberikan pengalaman yang tak terlupakan bagi para pelancong yang ingin mengeksplorasi kekayaan budaya Indonesia. Dengan beragam pilihan destinasi yang menarik, Kota Malang adalah pilihan yang sempurna bagi mereka yang mencari petualangan dan pengalaman budaya yang luar biasa di tengah pesona alam yang menakjubkan.
+                    Malang Raya merupakan tujuan wisata yang menarik dengan berbagai keindahan alam dan kekayaan budaya yang memikat. Terletak di Jawa Timur, Indonesia, kawasan ini mencakup Kota Malang, Kabupaten Malang, dan Kota Batu, menawarkan pengalaman wisata yang beragam dan menarik bagi pengunjung dari segala usia.
+                    Pesona alamnya yang memukau, mulai dari gunung, pantai, hingga perkebunan teh yang indah, menjadikan Malang Raya sebagai destinasi yang sangat dicari oleh para pencinta petualangan dan alam. Gunung Bromo yang terkenal, Pantai Balekambang yang mempesona, hingga kebun apel di Batu adalah beberapa contoh daya tarik alam yang menawan. Selain itu, kekayaan budaya dan sejarahnya yang dalam memberikan pengalaman yang tak terlupakan bagi para pelancong yang ingin mengeksplorasi kekayaan budaya Indonesia. Candi Singosari dan Museum Angkut di Batu adalah destinasi yang menyajikan warisan budaya dan sejarah yang kaya.
+                    Malang Raya juga dikenal dengan wisata kulinernya yang khas, seperti bakso Malang, cwie mie, dan aneka jajanan pasar yang lezat. Dengan beragam pilihan destinasi yang menarik, Malang Raya adalah pilihan yang sempurna bagi mereka yang mencari petualangan dan pengalaman budaya yang luar biasa di tengah pesona alam yang menakjubkan.
                 </p>
             </div>
         </section>

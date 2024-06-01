@@ -2,109 +2,62 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Dashboard</h1>
+        <h1 class="mt-4">Rekomendasi Destinasi Wisata</h1>
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item active">Rekomendasi Destinasi Wisata</li>
         </ol>
     </div>
     <div class="container-fluid px-4">
-        <?php
-        $userAgent = $_SERVER['HTTP_USER_AGENT'];
-        if (strpos($userAgent, 'Mobile') !== false || strpos($userAgent, 'Android') !== false || strpos($userAgent, 'iPhone') !== false || strpos($userAgent, 'iPad') !== false) {
-            ?>
-            <center><img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="height: 4cm; width: 6cm"/></center>
-            <br>
-            <h4 class="text-center">
-                <p style="font-family: 'Times New Roman', Times, serif; font-size: 30px">SELAMAT DATANG DI</p>
-                <i style="font-family: 'Courier New', Courier, monospace">Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</i>
+        <center><img src="{{ url('frontend/images/Malang Raya.jpg') }}" style="height: 4cm; width: 6cm"/></center><br>
+        <div class="container d-flex justify-content-center align-items-center text-center position-relative">
+            <h4>
+                <p style="font-family: 'Times New Roman', Times, serif; font-size: 45px">SELAMAT DATANG DI</p>
+                <i style="font-family: 'Courier New', Courier, monospace">Sistem Pendukung Keputusan Rekomendasi Destinasi Wisata di Malang Raya</i>
             </h4>
-            <hr style="border-width: 2px;">
-            <div class="slide-container">
-                <div class="slide-content">
-                    @foreach ($wisatas as $wisata)
-                    <div class="slide-item">
-                        <div class="d-flex justify-content position-relative" style="max-width: 80%">
-                            @if ($wisata->foto == "" || $wisata->foto == "-")
-                            <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="width: 4cm; height: 3cm">
-                            @else
-                            <img src="{{ asset('storage/' . $wisata->foto) }}" alt="Gambar" style="width: 4cm; height: 3cm">
-                            @endif
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 24px; width:3.5cm">
-                                {{ $wisata->nama_wisata }}
-                            </p>
-                        </div>
-                        <br>
-                        <h4 style="max-width: 80%">
-                            <p class="justify-content-center" style="font-family: 'Times New Roman', Times, serif; font-size: 12px; width: 8cm">
-                                <strong>Keterangan:</strong>
-                                <br>
-                                {{ $wisata->keterangan }}
-                            </p>
-                            <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
-                                <strong>Website Resmi:</strong> 
-                                @if($wisata->situs == "" || $wisata->situs == "-")
-                                -
-                                @else
-                                <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-body table-responsive">
+                <table id="datatablesSimple" class="table table-bordered">
+                    <thead class="bg-primary text-white align-middle text-center">
+                        <tr>
+                            <th>No</th>
+                            <th>Kriteria yang Menjadi Acuan</th>
+                            <th>Rekomendasi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if ($comparisons->count())
+                        @foreach ($comparisons as $comparison)
+                        <tr>
+                            <td class="text-center">{{ $loop->iteration }}</td>
+                            <td>
+                                @foreach ($comparison->details->unique('criteria_id_second') as $key => $detail)
+                                {{ $detail->criteria_name }}
+                                @if (!$loop->last)
+                                ,
                                 @endif
-                            </p>
-                            <p class="justify-content-center" style="font-family: 'Times New Roman', Times, serif; font-size: 12px; width: 8cm">
-                                <strong>Fasilitas:</strong>
-                                <br>
-                                {{ $wisata->fasilitas}}
-                            </p>
-                        </h4>
-                    </div>
-                    @endforeach
-                </div>
+                                @endforeach
+                            </td>
+                            <td>
+                                <a href="{{ route('free.rekomendasi', $comparison->id) }}" class="badge bg-success text-decoration-none">
+                                    <i class="fa-solid fa-eye"></i>
+                                    Lihat Rekomendasi Destinasi Wisata
+                                </a>
+                            </td>
+                        </tr>
+                        @endforeach
+                        @else
+                        <tr>
+                            <td colspan="3" class="text-danger text-center p-4">
+                                <h4>Belum Ada Data Untuk Perbandingan Kriteria</h4>
+                            </td>
+                        </tr>
+                        @endif
+                    </tbody>
+                </table>
             </div>
-        <?php
-        }else{
-            ?>
-            <div class="container d-flex justify-content-center align-items-center text-center position-relative">
-                <img src="{{ url('frontend/images/Balai_Kota_Malang.jpg') }}" style="height: 4cm; width: 6cm"/>&nbsp;&nbsp;
-                <h4>
-                    <p style="font-family: 'Times New Roman', Times, serif; font-size: 45px">SELAMAT DATANG DI</p>
-                    <i style="font-family: 'Courier New', Courier, monospace">Sistem Pendukung Keputusan Pemilihan Destinasi Wisata di Kota Malang</i>
-                </h4>
-            </div>
-            <hr style="border-width: 2px;">
-            <div class="slide-container">
-                <div class="slide-content">
-                    @foreach ($wisatas as $wisata)
-                    <div class="slide-item">
-                        <div class="container d-flex justify-content position-relative">
-                            @if ($wisata->foto == "" || $wisata->foto == "-")
-                            <img src="{{ url('frontend/images/noimage.png') }}" alt="Gambar" style="height: 4cm; width: 6cm">
-                            @else
-                            <img src="{{ asset('storage/' . $wisata->foto) }}" alt="Gambar" style="height: 4cm; width: 6cm">
-                            @endif
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <h4 style="max-width: 30%; min-width:30%">
-                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">{{ $wisata->nama_wisata }}</p>
-                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">{{ $wisata->keterangan }}</p><br>
-                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">
-                                    Website Resmi: 
-                                    @if($wisata->situs == "" || $wisata->situs == "-")
-                                    -
-                                    @else
-                                    <a href="{{ $wisata->situs }}" target="_blank">Klik di Sini</a>
-                                    @endif
-                                </p>
-                            </h4>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <h4 style="max-width: 30%; min-width:30%">
-                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 24">Fasilitas</p>
-                                <p style="font-family: 'Times New Roman', Times, serif; font-size: 12px">{{ $wisata->fasilitas}}</p>
-                            </h4>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
-            </div>
-            <?php
-        }?>
+        </div>
     </div>
 </main>
 @endsection

@@ -31,22 +31,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',  [PortalController::class, 'index'])->name('portal.index');
 
 Route::get('/spk', [FreeController::class, 'index'])->name('free.index');
-Route::get('/spk/data/kriteria', [FreeController::class, 'kriteria'])->name('free.kriteria');
-Route::get('/spk/data/wisata', [FreeController::class, 'wisata'])->name('free.wisata');
-Route::get('/spk/data/jenis', [FreeController::class, 'jenis'])->name('free.jenis');
-Route::get('/spk/data/jenis/{jenis:slug}', [FreeController::class, 'jenisSlug'])->name('free.jenisSlug');
-Route::get('/spk/data/alternatif', [FreeController::class, 'alternatif'])->name('free.alternatif');
-
-Route::get('/spk/perhitungan', [FreeController::class, 'awal'])->name('free.perhitungan');
-
-Route::get('/spk/perhitungan/kombinasi/{criteria_analysis}', [FreeController::class, 'resultKombinasi'])->name('perhitungan.kombinasi');
-Route::get('/spk/perhitungan/kombinasi/detail/{criteria_analysis}', [FreeController::class, 'detailKombinasi'])->name('perhitungan.kombinasiDetail');
-
-Route::get('/spk/perhitungan/ahp/{criteria_analysis}', [FreeController::class, 'resultAHP'])->name('perhitungan.ahp');
-Route::get('/spk/perhitungan/ahp/detail/{criteria_analysis}', [FreeController::class, 'detailAHP'])->name('perhitungan.ahpDetail');
-
-Route::get('/spk/perhitungan/saw/{criteria_analysis}', [FreeController::class, 'resultSAW'])->name('perhitungan.saw');
-Route::get('/spk/perhitungan/saw/detail/{criteria_analysis}', [FreeController::class, 'detailSAW'])->name('perhitungan.sawDetail');
+Route::get('/spk/rekomendasi/{criteria_analysis}', [FreeController::class, 'rekomendasi'])->name('free.rekomendasi');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.register');
