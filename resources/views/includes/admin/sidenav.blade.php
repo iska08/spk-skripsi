@@ -104,13 +104,13 @@
                     </a>
                 </div>
                 @elseif('user')
-                <a class="nav-link {{ Request::is('dashboard/sarans*') ? 'active' : '' }} child" href="{{ route('sarans.index') }}">
+                <a class="nav-link collapsed {{ Request::is('dashboard/sarans*') ? 'active' : '' }} parent" href="{{ route('sarans.index') }}">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-comment-alt"></i>
                     </div>
                     Saran Destinasi Wisata
                 </a>
-                <a class="nav-link {{ Request::is('dashboard/pengguna/profile*') ? 'active' : '' }} child" href="{{ route('profile.index') }}">
+                <a class="nav-link collapsed {{ Request::is('dashboard/pengguna/profile*') ? 'active' : '' }} parent" href="{{ route('profile.index') }}">
                     <div class="sb-nav-link-icon col-1">
                         <i class="fas fa-user"></i>
                     </div>

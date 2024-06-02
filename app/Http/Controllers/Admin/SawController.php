@@ -30,7 +30,7 @@ class SawController extends Controller
             }
             array_push($normalisasi, [
                 'wisata_id'       => $alternative['wisata_id'],
-                'wisata_name'     => $alternative['wisata_name'],
+                'nama_wisata'     => $alternative['nama_wisata'],
                 'jenis_name'      => $alternative['jenis_name'],
                 'criteria_name'   => $alternative['criteria_name'],
                 'criteria_id'     => $alternative['criteria_id'],
@@ -38,8 +38,8 @@ class SawController extends Controller
                 'results'         => $normalisasiAngka
             ]);
         }
-        // Menambahkan orderby berdasarkan nama destinasi (wisata_name) secara naik (ascending)
-        $normalisasi = collect($normalisasi)->sortBy('wisata_name')->values()->all();
+        // Menambahkan orderby berdasarkan nama destinasi (nama_wisata) secara naik (ascending)
+        $normalisasi = collect($normalisasi)->sortBy('nama_wisata')->values()->all();
         return $normalisasi;
     }
 

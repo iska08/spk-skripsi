@@ -14,7 +14,8 @@
     ```sh
     composer install
     ```
-4. **Siapkan file lingkungan:**
+
+3. **Siapkan file lingkungan:**
 
     Salin file `.env.example` ke `.env`:
 
@@ -24,13 +25,13 @@
 
     Buka file `.env` dan atur kredensial database Anda serta variabel lingkungan lainnya.
 
-5. **Hasilkan kunci aplikasi:**
+4. **Hasilkan kunci aplikasi:**
 
     ```sh
     php artisan key:generate
     ```
 
-6. **Jalankan migrasi database:**
+5. **Jalankan migrasi database:**
 
     Pastikan database Anda sudah dikonfigurasi di file `.env`.
 
@@ -38,7 +39,7 @@
     php artisan migrate
     ```
 
-7. **(Opsional) Isi database dengan data awal:**
+6. **(Opsional) Isi database dengan data awal:**
 
     Jika proyek Anda termasuk data seed, Anda dapat mengisi database.
 
@@ -46,7 +47,7 @@
     php artisan db:seed
     ```
 
-8. **Jalankan server pengembangan:**
+7. **Jalankan server pengembangan:**
 
     ```sh
     php artisan serve
@@ -180,56 +181,6 @@
 
 ![Ubah Profil](</screenshoot/Profile/Admin - Ubah Profil.png>)
 
-## User
-
-### Dashboard
-
-![Dashboard](</screenshoot/Dashboard/User - Dashboard.png>)
-
-### Saran Destinasi Wisata
-
-#### Tambah Saran Destinasi Wisata
-
-![Tambah Saran Destinasi Wisata](</screenshoot/Saran/User - Tambah Saran Destinasi Wisata.png>)
-
-#### Edit Saran Destinasi Wisata
-
-![Edit Saran Destinasi Wisata](</screenshoot/Saran/User - Edit Saran Destinasi Wisata.png>)
-
-#### List Saran Destinasi Wisata
-
-![List Saran Destinasi Wisata](</screenshoot/Saran/User - List Saran Destinasi Wisata.png>)
-
-### Ubah Profil
-
-![Ubah Profil](</screenshoot/Profile/User - Ubah Profil.png>)
-
-## Non-Auth
-
-### Dashboard
-
-![Dashboard](</screenshoot/Dashboard/Non Auth - Dashboard.png>)
-
-### Data Kriteria
-
-![Data Kriteria](</screenshoot/Kriteria/User - List Data Kriteria.png>)
-
-### Data Destinasi Wisata
-
-![Data Destinasi Wisata](</screenshoot/Wisata/User - List Data Destinasi Wisata.png>)
-
-### Data Jenis Wisata
-
-![Data Jenis Wisata](</screenshoot/Jenis/User - List Data Jenis Wisata.png>)
-
-### Detail Data Jenis Wisata
-
-![Detail Data Jenis Wisata](</screenshoot/Jenis/User - List Detail Jenis Wisata.png>)
-
-### Data Alternatif
-
-![Data Alternatif](</screenshoot/Alternatif/User - List Data Alternatif.png>)
-
 ### Metode SPK
 
 ![Metode SPK](</screenshoot/Metode SPK/Metode SPK.png>)
@@ -361,3 +312,37 @@
 ###### Ranking (Detail)
 
 ![Ranking (Detail)](</screenshoot/SAW/2.2 SAW - Ranking (Detail).png>)
+
+## User
+
+### Dashboard
+
+![Dashboard](</screenshoot/Dashboard/User - Dashboard.png>)
+
+### Saran Destinasi Wisata
+
+#### Tambah Saran Destinasi Wisata
+
+![Tambah Saran Destinasi Wisata](</screenshoot/Saran/User - Tambah Saran Destinasi Wisata.png>)
+
+#### Edit Saran Destinasi Wisata
+
+![Edit Saran Destinasi Wisata](</screenshoot/Saran/User - Edit Saran Destinasi Wisata.png>)
+
+#### List Saran Destinasi Wisata
+
+![List Saran Destinasi Wisata](</screenshoot/Saran/User - List Saran Destinasi Wisata.png>)
+
+### Ubah Profil
+
+![Ubah Profil](</screenshoot/Profile/User - Ubah Profil.png>)
+
+## Non-Auth
+
+### Dashboard
+
+![Dashboard](</screenshoot/Dashboard/Non Auth - Dashboard.png>)
+
+### Rekomendasi Wisata
+
+![Rekomendasi Wisata](</screenshoot/Rekomendasi/Rekomendasi Destinasi Wisata.png>)

@@ -79,9 +79,9 @@
                         <td class="text-center">
                             @if ($result !== null)
                             @if ($divider['kategori'] === 'BENEFIT' && $val != 0)
-                            {{ $val }} / {{ $divider['divider_value'] }} =
+                            {{ round($val, 3) }} / {{ $divider['divider_value'] }} =
                             @elseif ($divider['kategori'] === 'COST' && $val != 0)
-                            {{ $divider['divider_value'] }} / {{ $val }} =
+                            {{ $divider['divider_value'] }} / {{ round($val, 3) }} =
                             @endif
                             {{ $result }}
                             @else
