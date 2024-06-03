@@ -502,7 +502,7 @@
                                         +
                                         @endif
                                     @endforeach
-                                    = {{ round($data['total_bobot'], 16) }}
+                                    = {{ round($data['total_bobot'], 3) }}
                                 </td>
                                 <td class="text-center">{{ $ranking++ }}</td>
                             </tr>
